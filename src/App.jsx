@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ReactLenis, useLenis } from 'lenis/react'
 import Header from './Components/Header'
 import Hero from './Components/Hero'
 import Servies from './Components/Servies'
@@ -32,21 +33,28 @@ const HomePage = () => (
 )
 
 const App = () => {
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+  })
+
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+    <ReactLenis root>
+
+      <Router>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </ReactLenis>
   )
 }
 
