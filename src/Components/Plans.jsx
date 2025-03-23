@@ -1,46 +1,47 @@
 import React from 'react'
+import Button from './Button'
 
 const Plans = () => {
   const pricingPlans = [
     {
-      name: "Starter Plan",
-      subtitle: "Best for individuals",
+      name: "Basic Suite",
+      subtitle: "Essential Creative Tools",
       price: "$29",
       period: "/month",
       features: [
-        "Canva Premium Access",
-        "OTT Apps Subscription",
-        "Basic AI Tools",
-        "24/7 Email Support",
-        "Monthly Usage Reports"
+        "LinkedIn Premium Basic",
+        "Canva Pro Access",
+        "Basic AI Writing Tools",
+        "ChatGPT Plus Access",
+        "24/7 Support"
       ],
       recommended: false
     },
     {
-      name: "Pro Plan",
-      subtitle: "For freelancers & creatives",
+      name: "Pro Creator",
+      subtitle: "Complete Creative Suite",
       price: "$99",
       period: "/month",
       features: [
-        "Adobe Creative Suite",
-        "Envato Elements Access",
-        "Advanced AI Tools",
-        "Canva Pro Features",
-        "Autodesk Software"
+        "LinkedIn Premium Business",
+        "Adobe Creative Cloud",
+        "Midjourney & DALL-E",
+        "Claude AI Pro Access",
+        "Priority Support"
       ],
       recommended: true
     },
     {
-      name: "Business Plan",
-      subtitle: "Ideal for teams & professionals",
+      name: "Business Elite",
+      subtitle: "Enterprise Solutions",
       price: "$199",
       period: "/month",
       features: [
-        "All Pro Plan Features",
-        "LinkedIn Business Premium",
-        "Recruiter Lite Access",
-        "Ads Coupons ($150 value)",
-        "Team Management Tools"
+        "LinkedIn Sales Navigator",
+        "Full Adobe Enterprise",
+        "Unlimited AI Access",
+        "Team Management Tools",
+        "Dedicated Account Manager"
       ],
       recommended: false
     }
@@ -52,12 +53,12 @@ const Plans = () => {
         <div className="border-[1px] border-zinc-700 rounded-xl p-8 md:p-12">
           {/* Header Section */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Plans</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Premium Plans</h2>
             <p className="text-xl text-blue-500 font-semibold mb-2">
-              Flexible. Affordable. Scalable.
+              All-in-One Creative Solutions
             </p>
             <p className="text-lg text-zinc-400">
-              Choose a plan that fits your needs
+              Get verified access to premium tools at unbeatable prices
             </p>
           </div>
 
@@ -73,7 +74,7 @@ const Plans = () => {
                 {plan.recommended && (
                   <div className="absolute top-4 right-4">
                     <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
-                      Popular Choice
+                      Most Popular
                     </span>
                   </div>
                 )}
@@ -91,24 +92,29 @@ const Plans = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full mt-6 py-3 px-6 rounded-lg font-semibold
-                  ${plan.recommended 
-                    ? 'bg-blue-500 text-white hover:bg-blue-600' 
-                    : 'border border-zinc-700 hover:border-blue-500'}`}>
-                  Choose Plan
-                </button>
+                <Button 
+                  variant="primary"
+                  href="https://wa.me/9029151181"
+                  className="w-full justify-center"
+                >
+                  Get Started
+                </Button>
               </div>
             ))}
           </div>
 
           {/* Custom Plan Section */}
           <div className="text-center border border-zinc-700 rounded-lg p-8 hover:border-blue-500 transition-colors duration-300">
-            <h3 className="text-2xl font-bold mb-2">Custom Plans</h3>
-            <p className="text-blue-500 mb-4">Tailored for your workflow</p>
-            <p className="text-zinc-400 mb-6">Mix & match tools to create your perfect stack</p>
-            <button className="px-8 py-3 border border-zinc-700 rounded-lg font-semibold hover:border-blue-500 transition-colors duration-300">
+            <h3 className="text-2xl font-bold mb-2">Need a Custom Package?</h3>
+            <p className="text-blue-500 mb-4">Tailored Enterprise Solutions</p>
+            <p className="text-zinc-400 mb-6">Let's create a custom plan that fits your team's needs</p>
+            <Button 
+              variant="secondary"
+              href="https://wa.me/9029151181"
+              className="inline-flex"
+            >
               Contact Sales
-            </button>
+            </Button>
           </div>
         </div>
       </div>

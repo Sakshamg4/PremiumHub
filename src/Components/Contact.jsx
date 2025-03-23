@@ -2,9 +2,9 @@ import React from 'react'
 
 const Contact = () => {
   const contactInfo = {
-    phone: "+1234567890",
-    email: "support@premiumhub.com",
-    whatsapp: "+1234567890",
+    phone: "+91 9029151181",
+    email: "officallinkedinseller@gmail.com",
+    whatsapp: "+919029151181",
     hours: "24/7 Support Available",
     location: "Global Business Support"
   }
@@ -37,7 +37,7 @@ const Contact = () => {
                   </p>
                   <button
                     onClick={handleWhatsAppClick}
-                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center justify-center mx-auto gap-2 transition-colors"
+                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center justify-center mx-auto gap-2 transition-colors cursor-pointer"
                   >
                     <svg 
                       className="w-6 h-6" 

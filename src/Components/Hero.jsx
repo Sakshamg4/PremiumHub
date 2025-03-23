@@ -1,8 +1,30 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleNavClick = (href) => {
+    if (href.startsWith('#')) {
+      if (window.location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          const element = document.querySelector(href)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+      } else {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }
+  }
+
   const typeSequence = [
     'Adobe Creative',
     1500,
@@ -59,12 +81,18 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-              <button className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold">
+              <Button 
+                variant="primary"
+                onClick={() => handleNavClick('#pricing')}
+              >
                 Explore Plans
-              </button>
-              <button className="px-8 py-3 border border-zinc-700 rounded-lg hover:border-blue-500 transition-colors duration-300 font-semibold">
+              </Button>
+              <Button 
+                variant="secondary"
+                href="https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3"
+              >
                 Get Started
-              </button>
+              </Button>
             </div>
 
             {/* Trust Indicators */}

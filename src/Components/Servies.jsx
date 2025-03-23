@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 
 const Servies = () => {
   const services = [
@@ -6,37 +7,37 @@ const Servies = () => {
       title: "Creative Tools",
       description: "Access premium creative suites including Adobe Creative Cloud, Canva Pro, and Envato Elements for unlimited design possibilities",
       icon: "🎨",
-      features: ["Adobe Suite", "Canva Pro", "Envato Elements", "Stock Assets"]
+      features: ["Adobe Creative", "Canva Pro", "Envato Elements", "AutoDesk"]
     },
     {
       title: "Design & Engineering",
       description: "Professional tools for design, prototyping, and engineering workflows",
       icon: "🛠️",
-      features: ["Autodesk Suite", "Figma Pro", "Sketch", "InVision"]
+      features: ["Autodesk", "Figma Pro", "Canva Pro"]
     },
     {
       title: "Entertainment & OTT",
       description: "Stream your favorite content across multiple platforms",
       icon: "📺",
-      features: ["Netflix Premium", "Prime Video", "Disney+", "HBO Max"]
+      features: ["Netflix Premium", "Prime Video", "SonyLiv", "JioHotstar"]
     },
     {
       title: "Professional Growth",
       description: "Enhance your professional presence and networking capabilities",
       icon: "💼",
-      features: ["LinkedIn Business", "Recruiter Lite", "Ads Coupons", "Premium Pages"]
+      features: ["LinkedIn Business", "Recruiter Lite", "Ads Coupons", "Sale Navigator","Couresera Plus"]
     },
     {
       title: "AI Tools",
       description: "Access cutting-edge AI tools to boost your productivity",
       icon: "🤖",
-      features: ["Perplexity AI", "You.com Premium", "ChatGPT Plus", "Midjourney"]
+      features: ["Perplexity AI", "You.com AI", "ChatGPT Plus", "Copilot AI", "Cursor AI"]
     },
     {
       title: "Marketing & Sales",
       description: "Comprehensive tools to grow your brand and reach",
       icon: "🎯",
-      features: ["LinkedIn Ads", "Analytics Suite", "CRM Tools", "Email Marketing"]
+      features: ["LinkedIn Ads", "LinkedIn $100 Page", "Google Ads", "Facebook Ads"]
     }
   ]
 
@@ -83,9 +84,13 @@ const Servies = () => {
             <p className="text-zinc-400 mb-6">
               We can create a tailored package that perfectly fits your needs.
             </p>
-            <button className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+            <Button 
+              variant="primary"
+              href="https://wa.me/9029151181"
+              className="mx-auto" // Changed to mx-auto for center alignment
+            >
               Contact Us
-            </button>
+            </Button>
           </div>
         </div>
       </div>

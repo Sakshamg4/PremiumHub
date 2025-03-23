@@ -1,18 +1,35 @@
 import React from 'react'
+import Button from './Button'
 
 const About = () => {
   const stats = [
-    { number: '10K+', label: 'Happy Clients' },
-    { number: '95%', label: 'Client Satisfaction' },
-    { number: '500+', label: 'Global Users' },
-    { number: '24/7', label: 'Customer Support' },
+    { number: '10K+', label: 'Active Members', description: 'Trusted by creators worldwide' },
+    { number: '95%', label: 'Client Satisfaction', description: 'Based on user feedback' },
+    { number: '500+', label: 'Global Users', description: 'Across 50+ countries' },
+    { number: '24/7', label: 'Customer Support', description: 'Always here to help' },
   ]
 
   const features = [
-    { title: 'Creators', icon: '🎨' },
-    { title: 'Students', icon: '📚' },
-    { title: 'Professionals', icon: '💼' },
-    { title: 'Business Owners', icon: '🏢' },
+    { 
+      title: 'Creators', 
+      icon: '🎨',
+      description: 'Access to premium creative tools'
+    },
+    { 
+      title: 'Students', 
+      icon: '📚',
+      description: 'Affordable learning resources'
+    },
+    { 
+      title: 'Professionals', 
+      icon: '💼',
+      description: 'Business-grade solutions'
+    },
+    { 
+      title: 'Business Owners', 
+      icon: '🏢',
+      description: 'Enterprise-level access'
+    },
   ]
 
   return (
@@ -23,32 +40,32 @@ const About = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">About Premium Hub</h2>
             <p className="text-xl text-blue-500 font-semibold mb-6">
-              Simplifying Premium Access Since Day One
+              Your Gateway to Premium Digital Solutions
             </p>
           </div>
 
           {/* Mission Statement */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-lg text-zinc-400 leading-relaxed">
-              At Premium Hub, our mission is to make top-tier software accessible, 
-              affordable, and flexible for everyone—whether you're a creator, student, 
-              professional, or business owner. With a focus on quality, customer support, 
-              and transparency, we serve clients around the globe who want the best 
-              without the hassle.
+              At Premium Hub, we democratize access to premium software and tools. 
+              Our mission is to empower creators, professionals, and businesses with 
+              top-tier solutions at accessible prices. We believe in transparency, 
+              reliability, and exceptional support for our global community.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="text-center p-6 border border-zinc-700 rounded-lg hover:border-blue-500 transition-colors duration-300"
+                className="text-center p-6 border border-zinc-700 rounded-lg hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105"
               >
                 <div className="text-3xl md:text-4xl font-bold text-blue-500 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-zinc-400">{stat.label}</div>
+                <div className="text-white font-semibold mb-1">{stat.label}</div>
+                <div className="text-sm text-zinc-400">{stat.description}</div>
               </div>
             ))}
           </div>
@@ -56,24 +73,33 @@ const About = () => {
           {/* Who We Serve */}
           <div className="text-center mb-16">
             <h3 className="text-2xl font-bold mb-8">Who We Serve</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="flex flex-col items-center p-6 border border-zinc-700 rounded-lg hover:border-blue-500 transition-colors duration-300"
+                  className="flex flex-col items-center p-6 border border-zinc-700 rounded-lg hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105"
                 >
                   <span className="text-4xl mb-3">{feature.icon}</span>
-                  <span className="text-zinc-400">{feature.title}</span>
+                  <span className="text-white font-semibold mb-2">{feature.title}</span>
+                  <span className="text-sm text-zinc-400">{feature.description}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-12">
-            <p className="text-lg text-zinc-400 font-semibold">
-              Join the thousands who trust Premium Hub for all their digital and professional needs.
+          <div className="text-center border border-zinc-700 rounded-lg p-8 hover:border-blue-500 transition-colors duration-300">
+            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+            <p className="text-lg text-zinc-400 mb-6">
+              Join thousands of satisfied users who trust Premium Hub for their digital needs
             </p>
+            <Button 
+              variant="primary"
+              href="https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3"
+              className="inline-flex"
+            >
+              Join Premium Hub
+            </Button>
           </div>
         </div>
       </div>
