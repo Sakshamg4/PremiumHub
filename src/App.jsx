@@ -6,9 +6,9 @@ import Servies from './Components/Servies'
 import Plans from './Components/Plans'
 import Contact from './Components/Contact'
 import About from './Components/About'
-import PrivacyPolicy from './page/privacypolicy'
-import TermsAndConditions from './page/tremandcontion'
-import NotFound from './page/NotFound'
+import PrivacyPolicy from './pages/privacypolicy'
+import TermsAndConditions from './pages/tremandcontion'
+import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
 
 const HomePage = () => (
