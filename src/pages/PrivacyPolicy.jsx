@@ -5,10 +5,51 @@ import Button from '../Components/Button'
 const PrivacyPolicy = () => {
   const { pathname } = useLocation()
 
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
+
+  const privacySections = [
+    {
+      title: "Information We Collect",
+      content: [
+        "Personal Information: This includes your name, email address, phone number, and other details you provide when filling out a form or contacting us.",
+        "Usage Information: This includes data on how you interact with our website, such as browsing patterns, pages visited, and time spent on our site."
+      ]
+    },
+    {
+      title: "How We Use Your Information",
+      content: [
+        "To provide and improve our services",
+        "To communicate with you regarding your inquiries or subscriptions",
+        "To personalize your experience on our website",
+        "To send promotional emails and updates (with your consent)",
+        "To comply with legal obligations"
+      ]
+    },
+    {
+      title: "How We Protect Your Information",
+      content: [
+        "Encryption of sensitive data",
+        "Secure servers and networks",
+        "Restricting access to personal information to authorized personnel only"
+      ]
+    },
+    {
+      title: "Cookies",
+      content: [
+        "We use cookies to enhance your browsing experience. Cookies help us analyze website traffic and improve our services. You can control the use of cookies through your browser settings."
+      ]
+    },
+    {
+      title: "Your Rights",
+      content: [
+        "Access and update your personal information",
+        "Request the deletion of your personal data",
+        "Opt-out of receiving marketing communications at any time"
+      ]
+    }
+  ]
 
   return (
     <div className="min-h-screen py-16 md:py-24">
@@ -18,54 +59,31 @@ const PrivacyPolicy = () => {
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
             <p className="text-zinc-400">Last updated: March 2024</p>
+            <p className="mt-6 text-zinc-400 max-w-3xl mx-auto">
+              At <span className="text-blue-500">Premium Hub</span>, we value your privacy and are committed to protecting your personal information. This privacy policy outlines the types of information we collect, how we use it, and the steps we take to ensure that your personal data remains secure.
+            </p>
           </div>
           
           <div className="space-y-8 text-zinc-400 max-w-4xl mx-auto">
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-white">Information We Collect</h2>
-              <p>When you use our LinkedIn advertising services, we may collect:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Contact information (name, email, phone number)</li>
-                <li>Business information</li>
-                <li>LinkedIn profile data</li>
-                <li>Campaign preferences and goals</li>
-                <li>Website usage data</li>
-              </ul>
-            </section>
+            {privacySections.map((section, index) => (
+              <section key={index} className="mb-8 hover:bg-zinc-800/10 p-6 rounded-lg transition-colors">
+                <h2 className="text-2xl font-semibold mb-4 text-white">{section.title}</h2>
+                {Array.isArray(section.content) ? (
+                  <ul className="list-disc pl-6 space-y-2">
+                    {section.content.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{section.content}</p>
+                )}
+              </section>
+            ))}
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-white">How We Use Your Information</h2>
-              <p>We use the collected information to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Optimize your LinkedIn advertising campaigns</li>
-                <li>Provide customer support</li>
-                <li>Send important updates about our services</li>
-                <li>Improve our services</li>
-                <li>Comply with legal obligations</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-white">Data Protection</h2>
-              <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized or unlawful processing, accidental loss, destruction, or damage.</p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-white">Your Rights</h2>
-              <p>You have the right to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Access your personal data</li>
-                <li>Correct inaccurate data</li>
-                <li>Request deletion of your data</li>
-                <li>Object to data processing</li>
-                <li>Request data portability</li>
-              </ul>
-            </section>
-
-            {/* Contact Section with improved styling */}
+            {/* Contact Section */}
             <section className="mb-8 bg-zinc-800/50 p-6 rounded-lg border border-zinc-700">
               <h2 className="text-2xl font-semibold mb-4 text-white">Contact Us</h2>
-              <p className="mb-4">If you have any questions about this Privacy Policy, please contact us:</p>
+              <p className="mb-4">If you have any questions regarding this privacy policy or wish to exercise your rights, please contact us:</p>
               <div className="space-y-4">
                 <p className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,13 +100,13 @@ const PrivacyPolicy = () => {
               </div>
             </section>
 
-            {/* Quick Support Button */}
+            {/* Support Button */}
             <div className="text-center pt-8">
               <Button
                 variant="primary"
                 href="https://wa.me/9029151181"
               >
-                Need Quick Support?
+                Need Help? Contact Support
               </Button>
             </div>
           </div>
