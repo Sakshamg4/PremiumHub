@@ -50,10 +50,10 @@ const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-bold text-zinc-100 hover:text-zinc-600 transition-colors"
+            className="text-2xl font-bold text-zinc-100 hover:text-blue-600 transition-colors"
           >
             Premium
-            <span className='text-teal-500 hover:text-zinc-300 transition-colors '>Hub</span>
+            <span className='text-blue-600 transition-colors '>Hub</span>
           </Link>
 
           {/* Desktop Menu */}
