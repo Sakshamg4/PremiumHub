@@ -11,6 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
+import { Analytics } from "@vercel/analytics/react"
 
 const HomePage = () => (
   <main className="container mx-auto px-4 pt-20">
@@ -42,6 +43,7 @@ const App = () => {
 
       <Router>
         <div className="min-h-screen flex flex-col">
+          <Analytics />
           <Header />
           <div className="flex-grow">
             <Routes>
