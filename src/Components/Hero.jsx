@@ -89,7 +89,7 @@ const Hero = () => {
               </Button>
               <Button 
                 variant="secondary"
-                href="https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3"
+                href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
               >
                 Get Started
               </Button>
@@ -97,7 +97,7 @@ const Hero = () => {
 
             {/* Trust Indicators */}
             <div className="pt-8 text-zinc-400 text-sm">
-              <p>Trusted by 10,000+ professionals worldwide</p>
+              <p>Trusted by 1,000+ professionals worldwide</p>
               <p className="flex items-center justify-center gap-2 mt-2">
                 <span>⭐️⭐️⭐️⭐️⭐️</span>
                 <span>4.9/5 Customer Rating</span>

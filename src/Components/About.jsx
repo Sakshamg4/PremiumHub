@@ -95,7 +95,7 @@ const About = () => {
             </p>
             <Button 
               variant="primary"
-              href="https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3"
+              href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
               className="inline-flex"
             >
               Join Premium Hub
