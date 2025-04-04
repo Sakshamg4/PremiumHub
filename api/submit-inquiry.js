@@ -1,6 +1,18 @@
-import connectDB from '../src/utils/connectDB.js'
-import Inquiry from '../src/models/Inquiry.js'
+import connectDB from './connectDB'
+import mongoose from 'mongoose'
 import nodemailer from 'nodemailer'
+
+// Inquiry Model (Move to `/api/` for Vercel compatibility)
+const InquirySchema = new mongoose.Schema(
+  {
+    name: String,
+    email: String,
+    service: String
+  },
+  { timestamps: true }
+)
+
+const Inquiry = mongoose.models.Inquiry || mongoose.model('Inquiry', InquirySchema)
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -11,14 +23,12 @@ export default async function handler(req, res) {
     await connectDB()
     const { name, email, service } = req.body
 
-    const inquiry = await Inquiry.create({
-      name,
-      email,
-      service
-    })
+    const inquiry = await Inquiry.create({ name, email, service })
 
+    // Use a reliable email service instead of SMTP (Recommended)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp-relay.sendinblue.com', // Use Brevo (formerly Sendinblue)
+      port: 587,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
@@ -28,13 +38,10 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: 'New Premium Hub Inquiry',
-      html: `
-        <h2>New Inquiry Details</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Service:</strong> ${service}</p>
-      `
+      subject: 'New Inquiry Received',
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Service:</strong> ${service}</p>`
     })
 
     res.status(200).json({ success: true, data: inquiry })
