@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ReactLenis, useLenis } from 'lenis/react'
 import Header from './Components/Header'
@@ -11,7 +11,13 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
-import { Analytics } from "@vercel/analytics/react"
+import Popup from './Components/Popup'
+
+// Lazy load the Analytics component
+const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
+  default: mod.Analytics
+})))
+
 
 const HomePage = () => (
   <main className="container mx-auto px-4 pt-20">
@@ -40,10 +46,12 @@ const App = () => {
 
   return (
     <ReactLenis root>
-
       <Router>
         <div className="min-h-screen flex flex-col">
-          <Analytics />
+          <Popup />
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
           <Header />
           <div className="flex-grow">
             <Routes>
@@ -56,7 +64,7 @@ const App = () => {
           <Footer />
         </div>
       </Router>
-    </ReactLenis>
+      </ReactLenis>
   )
 }
 
