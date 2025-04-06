@@ -11,6 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
+import WhatsAppCards from './Components/WhatsAppCards'
 
 
 // Lazy load the Analytics component
@@ -32,6 +33,7 @@ const HomePage = () => (
     </div>
     <div id="contact" className="w-full">
       <Contact />
+      <WhatsAppCards />
     </div>
     <div id="about" className="w-full">
       <About />
