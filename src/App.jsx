@@ -11,7 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
-import Popup from './Components/Popup'
+
 
 // Lazy load the Analytics component
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
@@ -48,7 +48,6 @@ const App = () => {
     <ReactLenis root>
       <Router>
         <div className="min-h-screen flex flex-col">
-          <Popup />
           <Suspense fallback={null}>
             <Analytics />
           </Suspense>
