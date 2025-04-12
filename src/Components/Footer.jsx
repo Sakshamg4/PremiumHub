@@ -62,23 +62,29 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="border-t border-zinc-800">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <Link to="/" className="text-xl font-bold text-white hover:text-blue-500 transition-colors">
-              Premium<span className="text-blue-500">Hub</span>
+    <footer className="relative border-t border-white/10 bg-gradient-to-b from-black to-gray-900">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+      </div>
+
+      <div className="container mx-auto px-4 py-10 relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+          {/* Company Info - Enhanced */}
+          <div className="space-y-6">
+            <Link to="/" className="inline-block text-2xl font-bold text-white hover:text-blue-400 transition-all duration-300 transform hover:scale-105">
+              Premium<span className="bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">Hub</span>
             </Link>
-            <p className="text-zinc-400">
+            <p className="text-white/70 leading-relaxed">
               Your gateway to premium software and professional tools. Access everything you need to grow your business.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-5">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-zinc-400 hover:text-blue-500 transition-colors"
+                  className="text-white/60 hover:text-blue-400 transition-all duration-300 transform hover:scale-110"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -91,75 +97,89 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Our Services</h4>
-            <ul className="space-y-2">
+          {/* Services - Enhanced */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text">
+              Our Services
+            </h4>
+            <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.label}>
                   <a
                     href={service.href}
-                    className="text-zinc-400 hover:text-blue-500 transition-colors"
+                    className="text-white/70 hover:text-blue-400 transition-all duration-300 flex items-center group"
                     onClick={(e) => {
                       e.preventDefault()
                       handleNavClick(service.href)
                     }}
                   >
-                    {service.label}
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                      {service.label}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Support */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Support</h4>
-            <ul className="space-y-2">
+          {/* Support - Enhanced */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text">
+              Support
+            </h4>
+            <ul className="space-y-3">
               {support.map((item) => (
                 <li key={item.label}>
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-zinc-400 hover:text-blue-500 transition-colors"
+                      className="text-white/70 hover:text-blue-400 transition-all duration-300 flex items-center group"
                       onClick={(e) => {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
                     >
-                      {item.label}
+                      <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                        {item.label}
+                      </span>
                     </a>
                   ) : (
-                    <span className="text-zinc-400">{item.label}</span>
+                    <span className="text-white/70">{item.label}</span>
                   )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Legal</h4>
-            <ul className="space-y-2">
+          {/* Legal - Enhanced */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text">
+              Legal
+            </h4>
+            <ul className="space-y-3">
               {legal.map((item) => (
                 <li key={item.label}>
                   {item.isRoute ? (
                     <Link
                       to={item.href}
-                      className="text-zinc-400 hover:text-blue-500 transition-colors"
+                      className="text-white/70 hover:text-blue-400 transition-all duration-300 flex items-center group"
                     >
-                      {item.label}
+                      <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                        {item.label}
+                      </span>
                     </Link>
                   ) : (
                     <a
                       href={item.href}
-                      className="text-zinc-400 hover:text-blue-500 transition-colors"
+                      className="text-white/70 hover:text-blue-400 transition-all duration-300 flex items-center group"
                       onClick={(e) => {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
                     >
-                      {item.label}
+                      <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                        {item.label}
+                      </span>
                     </a>
                   )}
                 </li>
@@ -168,11 +188,29 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-zinc-800 mt-8 pt-8 text-center">
-          <p className="text-zinc-400">
-            © {currentYear} Premium Hub. All rights reserved. Crafting premium experiences for professionals worldwide.
-          </p>
+        {/* Bottom Bar - Enhanced */}
+        <div className="relative mt-16 pt-8 text-center">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="space-y-4">
+            <p className="text-white/60 text-sm">
+              © {currentYear} Premium<span className="text-blue-400">Hub</span>. All rights reserved. 
+              <span className="block mt-1">Crafting premium experiences for professionals worldwide.</span>
+            </p>
+            
+            <p className="text-white/40 text-sm flex items-center justify-center gap-2 group">
+              Designed & Developed with
+              <span className="text-red-400 group-hover:scale-110 transition-transform duration-300">❤</span>
+              by
+              <a 
+                href="https://github.com/saksham" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium"
+              >
+                Saksham Gupta
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
