@@ -3,60 +3,106 @@ import Button from './Button'
 
 const About = () => {
   const stats = [
-    { number: '10K+', label: 'Active Members', description: 'Trusted by creators worldwide' },
-    { number: '95%', label: 'Client Satisfaction', description: 'Based on user feedback' },
-    { number: '500+', label: 'Global Users', description: 'Across 50+ countries' },
-    { number: '24/7', label: 'Customer Support', description: 'Always here to help' },
+    { 
+      number: '10K+', 
+      label: 'Active Members', 
+      description: 'Trusted by creators worldwide',
+      icon: '👥',
+      color: 'from-blue-500/10 via-blue-500/5 to-transparent'
+    },
+    { 
+      number: '95%', 
+      label: 'Success Rate', 
+      description: 'Verified customer satisfaction',
+      icon: '⭐',
+      color: 'from-green-500/10 via-green-500/5 to-transparent'
+    },
+    { 
+      number: '24/7', 
+      label: 'Support', 
+      description: 'Instant response on WhatsApp',
+      icon: '💬',
+      color: 'from-purple-500/10 via-purple-500/5 to-transparent'
+    },
+    { 
+      number: '50+', 
+      label: 'Countries', 
+      description: 'Global community presence',
+      icon: '🌏',
+      color: 'from-red-500/10 via-red-500/5 to-transparent'
+    },
   ]
 
-  const features = [
+  const services = [
     { 
-      title: 'Creators', 
-      icon: '🎨',
-      description: 'Access to premium creative tools'
-    },
-    { 
-      title: 'Students', 
-      icon: '📚',
-      description: 'Affordable learning resources'
-    },
-    { 
-      title: 'Professionals', 
+      title: 'LinkedIn Solutions', 
       icon: '💼',
-      description: 'Business-grade solutions'
+      features: [
+        'Premium Accounts',
+        'Sales Navigator',
+        'Recruiter Lite',
+        'Career Support'
+      ],
+      gradient: 'from-[#0077B5]/10 via-[#0077B5]/5 to-transparent'
     },
     { 
-      title: 'Business Owners', 
-      icon: '🏢',
-      description: 'Enterprise-level access'
+      title: 'Creative Tools', 
+      icon: '🎨',
+      features: [
+        'Adobe Creative Cloud',
+        'Canva Pro',
+        'Autodesk Apps',
+        'Design Resources'
+      ],
+      gradient: 'from-purple-500/10 via-purple-500/5 to-transparent'
+    },
+    { 
+      title: 'Streaming Services', 
+      icon: '🎬',
+      features: [
+        'Netflix Premium',
+        'Amazon Prime',
+        'Disney+ Hotstar',
+        'YouTube Premium'
+      ],
+      gradient: 'from-red-600/10 via-red-600/5 to-transparent'
+    },
+    { 
+      title: 'Learning Platforms', 
+      icon: '📚',
+      features: [
+        'Coursera Plus',
+        'edX Unlimited',
+        'Skill Development',
+        'Certification Courses'
+      ],
+      gradient: 'from-blue-500/10 via-blue-500/5 to-transparent'
     },
   ]
 
   return (
-    <div className="min-h-screen py-16 md:py-24">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="relative">
-          {/* Background Glow Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl -z-10" />
-          
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 md:p-12">
-            {/* Header Section */}
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+    <section className="relative py-16 md:py-24 bg-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Content with Background */}
+        <div className="relative rounded-3xl overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1a1a1a,#000000)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,100,255,0.1),transparent_40%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,200,100,0.1),transparent_40%)]" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+          </div>
+
+          {/* Content */}
+          <div className="relative p-8 md:p-12">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
                 About Premium Hub
               </h2>
-              <p className="text-xl text-blue-400 font-semibold mb-6">
-                Your Gateway to Premium Digital Solutions
-              </p>
-            </div>
-
-            {/* Mission Statement */}
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-lg text-white/70 leading-relaxed">
-                At Premium Hub, we democratize access to premium software and tools. 
-                Our mission is to empower creators, professionals, and businesses with 
-                top-tier solutions at accessible prices. We believe in transparency, 
-                reliability, and exceptional support for our global community.
+              <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                Your trusted partner for premium digital solutions and services
               </p>
             </div>
 
@@ -65,52 +111,79 @@ const About = () => {
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl"
+                  className="relative group bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/50 rounded-xl 
+                    overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
-                    {stat.number}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color}`} />
+                  <div className="relative p-6 text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 text-3xl flex items-center justify-center 
+                      bg-zinc-800/50 rounded-full border border-zinc-700/50 group-hover:scale-110 transition-transform">
+                      {stat.icon}
+                    </div>
+                    <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
+                    <div className="text-zinc-300 font-medium mb-1">{stat.label}</div>
+                    <div className="text-sm text-zinc-400">{stat.description}</div>
                   </div>
-                  <div className="text-white font-semibold mb-1">{stat.label}</div>
-                  <div className="text-sm text-white/60">{stat.description}</div>
                 </div>
               ))}
             </div>
 
-            {/* Who We Serve */}
-            <div className="text-center mb-16">
-              <h3 className="text-2xl font-bold mb-8 text-white">Who We Serve</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {features.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl"
-                  >
-                    <span className="text-4xl mb-3">{feature.icon}</span>
-                    <span className="text-white font-semibold mb-2">{feature.title}</span>
-                    <span className="text-sm text-white/60">{feature.description}</span>
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {services.map((service, index) => (
+                <div 
+                  key={index}
+                  className="relative group bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/50 rounded-xl 
+                    overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient}`} />
+                  <div className="relative p-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 text-2xl flex items-center justify-center 
+                        bg-zinc-800/50 rounded-full border border-zinc-700/50 group-hover:scale-110 transition-transform">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-3 text-zinc-300 text-sm">
+                          <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
-            {/* Call to Action */}
-            <div className="text-center bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-4 text-white">Ready to Get Started?</h3>
-              <p className="text-lg text-white/70 mb-6">
-                Join thousands of satisfied users who trust Premium Hub for their digital needs
-              </p>
-              <Button 
-                variant="primary"
-                href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
-                className="inline-flex hover:bg-blue-600 transition-colors duration-300"
-              >
-                Join Premium Hub
-              </Button>
+            {/* CTA Section */}
+            <div className="relative group bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/50 rounded-xl 
+              overflow-hidden transition-all duration-300 hover:shadow-2xl text-center p-8 md:p-12">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-blue-600/5 to-transparent" />
+              <div className="relative">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Ready to Get Started?
+                </h3>
+                <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
+                  Join our growing community and get access to premium digital tools and services at unbeatable prices
+                </p>
+                <Button 
+                  variant="primary"
+                  href="https://wa.me/9029151181"
+                  className="bg-blue-600 hover:bg-blue-700 transition-all duration-300"
+                >
+                  Chat on WhatsApp
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

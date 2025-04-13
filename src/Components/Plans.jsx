@@ -4,125 +4,212 @@ import Button from './Button'
 const Plans = () => {
   const pricingPlans = [
     {
-      name: "Basic Suite",
-      subtitle: "Essential Creative Tools",
-      price: "$29",
-      period: "/month",
+      name: "LinkedIn Premium",
+      subtitle: "Professional Growth",
       features: [
-        "LinkedIn Premium Basic",
-        "Canva Pro Access",
-        "Basic AI Writing Tools",
-        "ChatGPT Plus Access",
-        "24/7 Support"
+        { text: "LinkedIn Premium", detail: "6 Months - ₹2,999" },
+        { text: "LinkedIn Premium", detail: "9 Months - ₹3,999" },
+        { text: "LinkedIn Premium", detail: "12 Months - ₹4,999" },
+        { text: "LinkedIn Career", detail: "6 Months - ₹2,499" },
+        { text: "LinkedIn Career", detail: "12 Months - ₹3,999" }
       ],
-      recommended: false,
-      bgGradient: "from-slate-800/40 to-slate-900/40"
+      bgGradient: "from-[#0077B5]/5 via-[#0077B5]/10 to-transparent",
+      borderColor: "group-hover:border-[#0077B5]/50",
+      buttonClass: "bg-[#0077B5]/10 hover:bg-[#0077B5]/20 hover:border-[#0077B5]/50"
     },
     {
-      name: "Pro Creator",
-      subtitle: "Complete Creative Suite",
-      price: "$99",
-      period: "/month",
+      name: "LinkedIn Business",
+      subtitle: "Sales & Marketing",
       features: [
-        "LinkedIn Premium Business",
-        "Adobe Creative Cloud",
-        "Midjourney & DALL-E",
-        "Claude AI Pro Access",
-        "Priority Support"
+        { text: "Sales Navigator", detail: "2 Months - ₹4,999" },
+        { text: "Recruiter Lite", detail: "1 Month - ₹6,999" },
+        { text: "Ads Credit ₹7,000", detail: "₹2,999" },
+        { text: "Ads Credit ₹18,000", detail: "₹5,999" },
+        { text: "Ads Credit ₹58,000", detail: "₹14,999" }
       ],
-      recommended: true,
-      bgGradient: "from-blue-600/10 to-blue-900/10"
+      bgGradient: "from-[#0A66C2]/5 via-[#0A66C2]/10 to-transparent",
+      borderColor: "group-hover:border-[#0A66C2]/50",
+      buttonClass: "bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/50"
     },
     {
-      name: "Business Elite",
-      subtitle: "Enterprise Solutions",
-      price: "$199",
-      period: "/month",
+      name: "Creative Tools",
+      subtitle: "Design & Content",
       features: [
-        "LinkedIn Sales Navigator",
-        "Full Adobe Enterprise",
-        "Unlimited AI Access",
-        "Team Management Tools",
-        "Dedicated Account Manager"
+        { text: "Adobe Creative Cloud", detail: "1 Year - ₹4,999" },
+        { text: "Canva Pro", detail: "1 Year - ₹1,499" },
+        { text: "Autodesk All Apps", detail: "1 Year - ₹5,999" },
+        { text: "Loom Premium", detail: "1 Year - ₹1,999" }
       ],
-      recommended: false,
-      bgGradient: "from-slate-800/40 to-slate-900/40"
+      bgGradient: "from-purple-500/5 via-purple-500/10 to-transparent",
+      borderColor: "group-hover:border-purple-500/50",
+      buttonClass: "bg-purple-500/10 hover:bg-purple-500/20 hover:border-purple-500/50"
+    },
+    {
+      name: "AI Solutions",
+      subtitle: "AI-Powered Tools",
+      features: [
+        { text: "Perplexity AI Pro", detail: "1 Year - ₹2,999" },
+        { text: "You.com Premium", detail: "1 Year - ₹2,499" },
+        { text: "GitHub Copilot", detail: "1 Year - ₹3,999" }
+      ],
+      bgGradient: "from-emerald-500/5 via-emerald-500/10 to-transparent",
+      borderColor: "group-hover:border-emerald-500/50",
+      buttonClass: "bg-emerald-500/10 hover:bg-emerald-500/20 hover:border-emerald-500/50"
+    },
+    {
+      name: "Learning Platforms",
+      subtitle: "Education & Development",
+      features: [
+        { text: "Coursera Plus", detail: "1 Year - ₹2,999" },
+        { text: "edX Unlimited", detail: "1 Year - ₹2,999" }
+      ],
+      bgGradient: "from-blue-500/5 via-blue-500/10 to-transparent",
+      borderColor: "group-hover:border-blue-500/50",
+      buttonClass: "bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-500/50"
+    },
+    {
+      name: "Entertainment Hub",
+      subtitle: "Premium Streaming Services",
+      features: [
+        { text: "Netflix Premium 4K", detail: "1 Month - ₹649" },
+        { text: "Netflix Premium 4K", detail: "6 Months - ₹2,999" },
+        { text: "Amazon Prime", detail: "12 Months - ₹1,499" },
+        { text: "Disney+ Hotstar", detail: "12 Months - ₹999" },
+        { text: "SonyLIV Premium", detail: "12 Months - ₹999" },
+        { text: "ZEE5 Premium", detail: "12 Months - ₹999" },
+        { text: "YouTube Premium", detail: "12 Months - ₹1,299" },
+        { text: "IPTV Premium", detail: "12 Months - ₹2,999" }
+      ],
+      bgGradient: "from-red-500/5 via-red-500/10 to-transparent",
+      borderColor: "group-hover:border-red-500/50",
+      buttonClass: "bg-red-500/10 hover:bg-red-500/20 hover:border-red-500/50"
     }
   ]
 
-  return (
-    <div className="py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="bg-gradient-to-b from-white/[0.05] to-white/[0.02] border-[1px] border-zinc-700 rounded-xl p-8 md:p-12 shadow-xl">
-          {/* Header Section */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-500">
-              Premium Plans
-            </h2>
-            <p className="text-xl text-blue-400 font-semibold mb-2">
-              All-in-One Creative Solutions
-            </p>
-            <p className="text-lg text-zinc-300">
-              Get verified access to premium tools at unbeatable prices
-            </p>
-          </div>
+  const renderCard = (plan, index) => (
+    <div 
+      key={index} 
+      className={`relative border border-zinc-800/50 rounded-xl overflow-hidden
+        transition-all duration-500 group hover:scale-[1.02] ${plan.borderColor}
+        backdrop-blur-sm hover:shadow-lg hover:shadow-black/20`}
+    >
+      {/* Gradient Background */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${plan.bgGradient} opacity-60`} />
+      
+      {/* Glass Effect Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      
+      {/* Content */}
+      <div className="relative p-6">
+        <div className="mb-6">
+          <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
+            {plan.name}
+            {plan.name === "Entertainment Hub" && (
+              <span className="text-sm bg-red-500/20 text-red-400 px-3 py-1 rounded-full">
+                Popular
+              </span>
+            )}
+          </h3>
+          <p className="text-zinc-400">{plan.subtitle}</p>
+        </div>
 
-          {/* Plans Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {pricingPlans.map((plan, index) => (
-              <div 
-                key={index}
-                className={`bg-gradient-to-br ${plan.bgGradient} backdrop-blur-sm 
-                  border ${plan.recommended ? 'border-blue-500/50' : 'border-white/5'} 
-                  rounded-xl p-8 transition-all duration-300
-                  hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-400/10
-                  ${plan.recommended ? 'relative overflow-hidden transform hover:-translate-y-1' : ''}`}
-              >
-                {plan.recommended && (
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-blue-500/80 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <h3 className="text-2xl font-bold mb-2 text-white/90">{plan.name}</h3>
-                <p className="text-blue-400 mb-4">{plan.subtitle}</p>
-                <div className="flex items-baseline mb-6">
-                  <span className="text-4xl font-bold text-white/90">{plan.price}</span>
-                  <span className="text-zinc-400 ml-2">{plan.period}</span>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-zinc-300">
-                      <span className="mr-3 text-blue-400">→</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  variant={plan.recommended ? "primary" : "secondary"}
-                  href="https://wa.me/9029151181"
-                  className="w-full justify-center group"
+        <div className="space-y-3 mb-6">
+          {plan.name === "Entertainment Hub" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {plan.features.map((feature, idx) => (
+                <div 
+                  key={idx}
+                  className="flex flex-col p-4 rounded-lg bg-black/40 hover:bg-black/60
+                    transition-all duration-300 border border-zinc-800/30 hover:border-red-500/30"
                 >
-                  Get Started
+                  <span className="text-white/90 font-medium mb-1">{feature.text}</span>
+                  <span className="text-zinc-400 text-sm">{feature.detail}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            plan.features.map((feature, idx) => (
+              <div 
+                key={idx}
+                className="flex items-center justify-between p-4 rounded-lg
+                  bg-black/40 hover:bg-black/60 transition-all duration-300
+                  border border-zinc-800/30"
+              >
+                <span className="text-white/90">{feature.text}</span>
+                <span className="text-zinc-400">{feature.detail}</span>
+              </div>
+            ))
+          )}
+        </div>
+
+        <Button 
+          variant="secondary"
+          href="https://wa.me/9029151181"
+          className={`w-full justify-center transition-all duration-300 
+            border border-zinc-800/50 ${plan.buttonClass}`}
+        >
+          Get Access
+        </Button>
+      </div>
+    </div>
+  )
+
+  return (
+    <div id="pricing" className="py-16 md:py-24 bg-black">
+      <div className="container mx-auto px-4">
+        <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 overflow-hidden bg-zinc-950/80">
+          {/* Subtle Glow Effects */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+          
+          <div className="relative z-10">
+            {/* Header Section */}
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Premium Digital Tools
+              </h2>
+              <p className="text-blue-400 text-lg font-medium mb-2">
+                100% Genuine & Private Access
+              </p>
+              <p className="text-zinc-400 max-w-2xl mx-auto">
+                Choose from our wide range of premium tools and services
+              </p>
+            </div>
+
+            {/* Main Grid Layout */}
+            <div className="grid grid-cols-1 gap-8">
+              {/* Professional Tools Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {pricingPlans.slice(0, 3).map((plan, index) => renderCard(plan, index))}
+              </div>
+
+              {/* AI & Learning Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {pricingPlans.slice(3, 5).map((plan, index) => renderCard(plan, index))}
+              </div>
+
+              {/* Entertainment Hub Section */}
+              <div className="w-full">
+                {pricingPlans.slice(5).map((plan, index) => renderCard(plan, index))}
+              </div>
+            </div>
+
+            {/* Bottom Note */}
+            <div className="mt-12 text-center max-w-2xl mx-auto">
+              <div className="p-6 border border-zinc-800 rounded-xl bg-black/20">
+                <h3 className="text-xl font-bold text-white mb-2">Looking for Bundle Deals?</h3>
+                <p className="text-zinc-400 mb-6">
+                  Contact us for special discounts on multiple tools or bulk purchases
+                </p>
+                <Button 
+                  variant="primary"
+                  href="https://wa.me/9029151181"
+                  className="bg-blue-600 hover:bg-blue-700 transition-all duration-300"
+                >
+                  Chat on WhatsApp
                 </Button>
               </div>
-            ))}
-          </div>
-
-          {/* Custom Plan Section */}
-          <div className="text-center bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm border border-white/5 rounded-xl p-8 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10">
-            <h3 className="text-2xl font-bold mb-2 text-white/90">Need a Custom Package?</h3>
-            <p className="text-blue-400 mb-4">Tailored Enterprise Solutions</p>
-            <p className="text-zinc-300 mb-6">Let's create a custom plan that fits your team's needs</p>
-            <Button 
-              variant="secondary"
-              href="https://wa.me/9029151181"
-              className="group"
-            >
-              Contact Sales
-              
-            </Button>
+            </div>
           </div>
         </div>
       </div>

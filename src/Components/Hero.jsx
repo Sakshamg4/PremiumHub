@@ -39,10 +39,17 @@ const Hero = () => {
   ]
 
   return (
-    <div id="home" className="min-h-screen py-16 md:py-24">
+    <div id="home" className="min-h-screen py-16 md:py-24 ">
       <div className="container mx-auto px-4">
-        <div className="border-[1px] border-zinc-700 rounded-xl p-8 md:p-12 bg-gradient-to-b from-zinc-900 to-black">
-          <div className="space-y-8 text-center max-w-4xl mx-auto">
+        <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-zinc-900" />
+          
+          {/* Subtle Glow Effect */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+          
+          <div className="relative z-10 space-y-8 text-center max-w-4xl mx-auto">
             {/* Main Heading */}
             <div className="space-y-4">
               <h2 className="text-xl md:text-2xl text-blue-500 font-semibold">
@@ -75,9 +82,10 @@ const Hero = () => {
               {['Creative Tools', 'Business Apps', 'AI Solutions', 'Premium Support'].map((feature, index) => (
                 <div 
                   key={index} 
-                  className="border border-zinc-700 rounded-lg p-3 hover:border-blue-500 transition-colors duration-300"
+                  className="border border-zinc-800/80 bg-black/20 backdrop-blur-sm rounded-lg p-3 
+                    hover:border-blue-500/50 hover:bg-blue-900/10 transition-all duration-300"
                 >
-                  <span className="text-zinc-400">{feature}</span>
+                  <span className="text-zinc-300">{feature}</span>
                 </div>
               ))}
             </div>
@@ -87,21 +95,21 @@ const Hero = () => {
               <Button 
                 variant="primary"
                 onClick={() => handleNavClick('#pricing')}
-                className="hover:bg-blue-600 transition-colors duration-300"
+                className="bg-blue-600 hover:bg-blue-700 transition-all duration-300"
               >
                 Explore Plans
               </Button>
               <Button 
                 variant="secondary"
                 href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
-                className="hover:bg-zinc-800 transition-colors duration-300"
+                className="border border-zinc-700 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all duration-300"
               >
                 Get Started
               </Button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="pt-8 border-t border-zinc-800">
+            <div className="pt-8 border-t border-zinc-800/50">
               <p className="text-zinc-400 text-sm">
                 Trusted by 1,000+ professionals worldwide
               </p>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ReactLenis, useLenis } from 'lenis/react'
 import Header from './Components/Header'
 import Hero from './Components/Hero'
-import Servies from './Components/Servies'
+import Services from './Components/Services'
 import Plans from './Components/Plans'
 import Contact from './Components/Contact'
 import About from './Components/About'
@@ -26,7 +26,7 @@ const HomePage = () => (
       <Hero />
     </div>
     <div id="services" className="w-full">
-      <Servies />
+      <Services />
     </div>
     <div id="pricing" className="w-full">
       <Plans />
@@ -49,23 +49,41 @@ const App = () => {
   return (
     <ReactLenis root>
       <Router>
-        <div className="min-h-screen flex flex-col">
-          <Suspense fallback={null}>
-            <Analytics />
-          </Suspense>
-          <Header />
-          <div className="flex-grow">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+        <div className="min-h-screen flex flex-col bg-black selection:bg-blue-500/30 selection:text-white">
+          {/* Background Effects */}
+          <div className="fixed inset-0 pointer-events-none">
+            {/* Base gradient */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0A0A0A,#000000)]" />
+            
+            {/* Subtle noise texture */}
+            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02]" />
+            
+            {/* Accent colors */}
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,100,255,0.05),transparent_40%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,200,100,0.05),transparent_40%)]" />
+            </div>
           </div>
-          <Footer />
+
+          {/* Content */}
+          <div className="relative">
+            <Suspense fallback={null}>
+              <Analytics />
+            </Suspense>
+            <Header />
+            <div className="flex-grow">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+            <Footer />
+          </div>
         </div>
       </Router>
-      </ReactLenis>
+    </ReactLenis>
   )
 }
 

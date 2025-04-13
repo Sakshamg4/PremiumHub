@@ -4,16 +4,25 @@ import Button from './Button'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
   const menuItems = [
-    { href: '#home', label: 'Home' }, // Changed from '/' to '#home'
-    { href: '#services', label: 'Services' },
-    { href: '#pricing', label: 'Pricing' },
-    { href: '#contact', label: 'Contact' },
-    { href: '#about', label: 'About' }
+    { href: '#home', label: 'Home', icon: '🏠' },
+    { href: '#services', label: 'Services', icon: '⚡' },
+    { href: '#pricing', label: 'Pricing', icon: '💎' },
+    { href: '#contact', label: 'Contact', icon: '📱' },
+    { href: '#about', label: 'About', icon: 'ℹ️' }
   ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (href) => {
     setIsMenuOpen(false)
@@ -36,7 +45,6 @@ const Header = () => {
     }
   }
 
-  // Scroll to top when navigating to home
   useEffect(() => {
     if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -44,26 +52,30 @@ const Header = () => {
   }, [location.pathname])
 
   return (
-    <header className="py-1 backdrop-blur-2xl fixed w-full top-0 z-50">
+    <header className={`py-1 fixed w-full top-0 z-50 transition-all duration-300 
+      ${isScrolled ? 'bg-black/80 backdrop-blur-xl shadow-lg shadow-black/10' : 'bg-transparent backdrop-blur-sm'}`}>
       <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo with enhanced hover effect */}
           <Link
             to="/"
-            className="text-2xl font-bold text-zinc-100 hover:text-blue-600 transition-colors"
+            className="text-2xl font-bold text-zinc-100 hover:text-blue-500 transition-all duration-300 
+              group flex items-center gap-1"
           >
             Premium
-            <span className='text-blue-600 transition-colors '>Hub</span>
+            <span className='text-blue-600 group-hover:text-zinc-100 transition-all duration-300'>Hub</span>
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu with subtle hover effects */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               item.href.startsWith('#') ? (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-zinc-400 hover:text-blue-600 transition-colors"
+                  className="text-zinc-400 hover:text-blue-500 transition-all duration-300 
+                    relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 
+                    hover:after:w-full after:bg-blue-500 after:transition-all after:duration-300"
                   onClick={() => handleNavClick(item.href)}
                 >
                   {item.label}
@@ -72,7 +84,7 @@ const Header = () => {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className="text-zinc-400 hover:text-blue-600 transition-colors"
+                  className="text-zinc-400 hover:text-blue-500 transition-all duration-300"
                 >
                   {item.label}
                 </Link>
@@ -82,12 +94,16 @@ const Header = () => {
               <Button 
                 variant="primary" 
                 href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
+                className="bg-blue-600 hover:bg-blue-700 transition-all duration-300
+                  hover:shadow-lg hover:shadow-blue-500/20"
               >
                 Join Group
               </Button>
               <Button 
                 variant="secondary" 
                 href="https://wa.me/9029151181"
+                className="hover:bg-blue-600/10 transition-all duration-300
+                  border border-zinc-700 hover:border-blue-500"
               >
                 Chat
               </Button>
