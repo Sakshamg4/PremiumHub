@@ -7,11 +7,11 @@ const Plans = () => {
       name: "LinkedIn Premium",
       subtitle: "Professional Growth",
       features: [
-        { text: "LinkedIn Premium", detail: "6 Months - ₹2,999" },
-        { text: "LinkedIn Premium", detail: "9 Months - ₹3,999" },
-        { text: "LinkedIn Premium", detail: "12 Months - ₹4,999" },
-        { text: "LinkedIn Career", detail: "6 Months - ₹2,499" },
-        { text: "LinkedIn Career", detail: "12 Months - ₹3,999" }
+        { text: "LinkedIn Premium", detail: "6 Months - ₹3400" },
+        { text: "LinkedIn Premium", detail: "9 Months - ₹4900" },
+        { text: "LinkedIn Premium", detail: "12 Months - ₹6000" },
+        { text: "LinkedIn Career", detail: "3 Months - ₹1400" },
+        { text: "LinkedIn Career", detail: "12 Months - ₹5000" }
       ],
       bgGradient: "from-[#0077B5]/5 via-[#0077B5]/10 to-transparent",
       borderColor: "group-hover:border-[#0077B5]/50",
@@ -22,10 +22,10 @@ const Plans = () => {
       subtitle: "Sales & Marketing",
       features: [
         { text: "Sales Navigator", detail: "2 Months - ₹4,999" },
-        { text: "Recruiter Lite", detail: "1 Month - ₹6,999" },
-        { text: "Ads Credit ₹7,000", detail: "₹2,999" },
-        { text: "Ads Credit ₹18,000", detail: "₹5,999" },
-        { text: "Ads Credit ₹58,000", detail: "₹14,999" }
+        { text: "Recruiter Lite", detail: "5 Month - ₹18000" },
+        { text: "Ads Credit ₹7,000", detail: "Inquire" },
+        { text: "Ads Credit ₹18,000", detail: "Inquire" },
+        { text: "Ads Credit ₹58,000", detail: "Inquire" }
       ],
       bgGradient: "from-[#0A66C2]/5 via-[#0A66C2]/10 to-transparent",
       borderColor: "group-hover:border-[#0A66C2]/50",
@@ -35,10 +35,10 @@ const Plans = () => {
       name: "Creative Tools",
       subtitle: "Design & Content",
       features: [
-        { text: "Adobe Creative Cloud", detail: "1 Year - ₹4,999" },
-        { text: "Canva Pro", detail: "1 Year - ₹1,499" },
-        { text: "Autodesk All Apps", detail: "1 Year - ₹5,999" },
-        { text: "Loom Premium", detail: "1 Year - ₹1,999" }
+        { text: "Adobe Creative Cloud", detail: "1 Year - Inquire" },
+        { text: "Canva Pro", detail: "1 Year - Inquire" },
+        { text: "Autodesk All Apps", detail: "1 Year - Inquire" },
+        { text: "Loom Premium", detail: "1 Year - Inquire" }
       ],
       bgGradient: "from-purple-500/5 via-purple-500/10 to-transparent",
       borderColor: "group-hover:border-purple-500/50",
@@ -48,9 +48,9 @@ const Plans = () => {
       name: "AI Solutions",
       subtitle: "AI-Powered Tools",
       features: [
-        { text: "Perplexity AI Pro", detail: "1 Year - ₹2,999" },
-        { text: "You.com Premium", detail: "1 Year - ₹2,499" },
-        { text: "GitHub Copilot", detail: "1 Year - ₹3,999" }
+        { text: "Perplexity AI Pro", detail: "1 Year - Inquire" },
+        { text: "You.com Premium", detail: "1 Year - Inquire" },
+        { text: "GitHub Copilot", detail: "1 Year - Inquire" }
       ],
       bgGradient: "from-emerald-500/5 via-emerald-500/10 to-transparent",
       borderColor: "group-hover:border-emerald-500/50",
@@ -60,8 +60,8 @@ const Plans = () => {
       name: "Learning Platforms",
       subtitle: "Education & Development",
       features: [
-        { text: "Coursera Plus", detail: "1 Year - ₹2,999" },
-        { text: "edX Unlimited", detail: "1 Year - ₹2,999" }
+        { text: "Coursera Plus", detail: "1 Year - Inquire" },
+        { text: "edX Unlimited", detail: "1 Year - Inquire" }
       ],
       bgGradient: "from-blue-500/5 via-blue-500/10 to-transparent",
       borderColor: "group-hover:border-blue-500/50",
@@ -71,14 +71,14 @@ const Plans = () => {
       name: "Entertainment Hub",
       subtitle: "Premium Streaming Services",
       features: [
-        { text: "Netflix Premium 4K", detail: "1 Month - ₹649" },
-        { text: "Netflix Premium 4K", detail: "6 Months - ₹2,999" },
-        { text: "Amazon Prime", detail: "12 Months - ₹1,499" },
-        { text: "Disney+ Hotstar", detail: "12 Months - ₹999" },
-        { text: "SonyLIV Premium", detail: "12 Months - ₹999" },
-        { text: "ZEE5 Premium", detail: "12 Months - ₹999" },
-        { text: "YouTube Premium", detail: "12 Months - ₹1,299" },
-        { text: "IPTV Premium", detail: "12 Months - ₹2,999" }
+        { text: "Netflix Premium 4K", detail: "1 Month - Inquire" },
+        { text: "Netflix Premium 4K", detail: "6 Months - Inquire" },
+        { text: "Amazon Prime", detail: "12 Months - Inquire" },
+        { text: "Disney+ Hotstar", detail: "12 Months - Inquire" },
+        { text: "SonyLIV Premium", detail: "12 Months - Inquire" },
+        { text: "ZEE5 Premium", detail: "12 Months - Inquire" },
+        { text: "YouTube Premium", detail: "12 Months - Inquire" },
+        { text: "IPTV Premium", detail: "12 Months - Inquire" }
       ],
       bgGradient: "from-red-500/5 via-red-500/10 to-transparent",
       borderColor: "group-hover:border-red-500/50",
