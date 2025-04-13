@@ -30,20 +30,21 @@ body {
   flex-direction: column;
 }
 
-/* Custom Scrollbar Styles */
+/* Enhanced Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px; /* Increased width for better visibility */
 }
 
 ::-webkit-scrollbar-track {
-  background: #2624339d;
+    background: #222c83a9; /* Removed opacity for a solid background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2c2d2e;
-  border-radius: 2px;
+  background: #585e64; /* Retained for consistency */
+  border-radius: 4px; /* Increased border radius for a smoother look */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #161f2c;
+  background: #94acc7;
+  cursor: pointer; /* Retained for consistency */
 }

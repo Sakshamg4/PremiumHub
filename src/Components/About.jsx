@@ -4,28 +4,28 @@ import Button from './Button'
 const About = () => {
   const stats = [
     { 
-      number: '10K+', 
+      number: '500+', 
       label: 'Active Members', 
       description: 'Trusted by creators worldwide',
       icon: '👥',
       color: 'from-blue-500/10 via-blue-500/5 to-transparent'
     },
     { 
-      number: '95%', 
+      number: '90%', 
       label: 'Success Rate', 
       description: 'Verified customer satisfaction',
       icon: '⭐',
       color: 'from-green-500/10 via-green-500/5 to-transparent'
     },
     { 
-      number: '24/7', 
+      number: '9 AM to 11 PM', 
       label: 'Support', 
-      description: 'Instant response on WhatsApp',
+      description: 'Response on WhatsApp',
       icon: '💬',
       color: 'from-purple-500/10 via-purple-500/5 to-transparent'
     },
     { 
-      number: '50+', 
+      number: '5+', 
       label: 'Countries', 
       description: 'Global community presence',
       icon: '🌏',
@@ -81,7 +81,7 @@ const About = () => {
   ]
 
   return (
-    <section className="relative py-16 md:py-24 bg-black">
+    <section className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">

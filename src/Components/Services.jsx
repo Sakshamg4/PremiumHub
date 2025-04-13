@@ -3,13 +3,13 @@ import React from 'react'
 const Services = () => {
   const services = [
     {
-      title: "LinkedIn Solutions",
-      description: "Premium LinkedIn tools to boost your professional growth and business reach",
+      title: "LinkedIn Premium",
+      description: "Linkedin Premium for your career, business, sales, and more",
       icon: "💼",
       features: [
-        { name: "LinkedIn Premium", duration: "6, 9, 12 Months" },
-        { name: "LinkedIn Sales Navigator", duration: "2 Months" },
-        { name: "LinkedIn Career", duration: "6, 12 Months" },
+        { name: "LinkedIn Career Plan", duration: "6, 12 Months" },
+        { name: "LinkedIn Business Plan", duration: "6, 9, 12 Months" },
+        { name: "LinkedIn Sales Navigator Core & Advance Plan", duration: "2 Months" },
         { name: "LinkedIn Recruiter Lite", duration: "1 Month" },
         { name: "LinkedIn Ads Credit", duration: "₹7K–₹58K" }
       ],
@@ -21,7 +21,7 @@ const Services = () => {
       icon: "⚡",
       features: [
         { name: "Adobe Creative Cloud", duration: "1 Year", details: "All Apps - Photoshop, Illustrator, Premier Pro & more" },
-        { name: "Canva Pro", duration: "1 Year", details: "Premium Templates, Brand Kit, Background Remover" },
+        { name: "Canva Pro", duration: "1 Year", details: "Premium Templates, Background Remover" },
         { name: "Autodesk All Apps", duration: "1 Year", details: "39+ Professional Tools" },
         { name: "Loom Premium", duration: "1 Year" }
       ],
@@ -32,7 +32,7 @@ const Services = () => {
       description: "Access cutting-edge AI models and tools for enhanced productivity",
       icon: "🤖",
       features: [
-        { name: "Perplexity AI", duration: "1 Year", details: "GPT-4o, GROK, Claude 3, Pro Search" },
+        { name: "Perplexity AI", duration: "1 Year", details: "GPT-4o, GROK, Claude 3, Pro Search Best for Research" },
         { name: "You.com Premium", duration: "1 Year", details: "25+ AI Models, GPT-4o, Claude 3, Gemini" },
         { name: "GitHub Copilot", duration: "1 Year", details: "AI-powered code completion" }
       ],
@@ -43,7 +43,7 @@ const Services = () => {
       description: "Premium educational resources for continuous learning",
       icon: "📚",
       features: [
-        { name: "Coursera Plus", duration: "12 Months", details: "7,000+ Courses" },
+        { name: "Coursera Plus", duration: "12 Months", details: "7,000+ Courses with Certificates" },
         { name: "edX Unlimited", duration: "12 Months", details: "Access to 3,000+ courses from top universities" }
       ],
       bgGradient: "from-green-900/20 to-green-950/20"

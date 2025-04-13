@@ -205,7 +205,7 @@ const Footer = () => {
               <span className="text-red-500 animate-pulse">❤</span> 
               by
               <a 
-                href="https://github.com/saksham" 
+                href="https://github.com/Sakshamg4" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-blue-500 hover:text-blue-400 transition-colors duration-300"

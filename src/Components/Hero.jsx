@@ -111,11 +111,11 @@ const Hero = () => {
             {/* Trust Indicators */}
             <div className="pt-8 border-t border-zinc-800/50">
               <p className="text-zinc-400 text-sm">
-                Trusted by 1,000+ professionals worldwide
+                Trusted by 300+ professionals worldwide
               </p>
               <p className="flex items-center justify-center gap-2 mt-2">
                 <span className="text-yellow-400">⭐️⭐️⭐️⭐️⭐️</span>
-                <span className="text-zinc-400">4.9/5 Customer Rating</span>
+                <span className="text-zinc-400">4.5/5 Customer Rating</span>
               </p>
             </div>
           </div>

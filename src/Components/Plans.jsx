@@ -7,11 +7,11 @@ const Plans = () => {
       name: "LinkedIn Premium",
       subtitle: "Professional Growth",
       features: [
-        { text: "LinkedIn Premium", detail: "6 Months - ₹3400" },
-        { text: "LinkedIn Premium", detail: "9 Months - ₹4900" },
-        { text: "LinkedIn Premium", detail: "12 Months - ₹6000" },
-        { text: "LinkedIn Career", detail: "3 Months - ₹1400" },
-        { text: "LinkedIn Career", detail: "12 Months - ₹5000" }
+        { text: "LinkedIn Business Plan", detail: "6 Months" },
+        { text: "LinkedIn Business Plan", detail: "9 Months" },
+        { text: "LinkedIn Business Plan", detail: "12 Months" },
+        { text: "LinkedIn Career Plan", detail: "3 Months" },
+        { text: "LinkedIn Career Plan", detail: "12 Months" }
       ],
       bgGradient: "from-[#0077B5]/5 via-[#0077B5]/10 to-transparent",
       borderColor: "group-hover:border-[#0077B5]/50",
@@ -21,11 +21,10 @@ const Plans = () => {
       name: "LinkedIn Business",
       subtitle: "Sales & Marketing",
       features: [
-        { text: "Sales Navigator", detail: "2 Months - ₹4,999" },
-        { text: "Recruiter Lite", detail: "5 Month - ₹18000" },
-        { text: "Ads Credit ₹7,000", detail: "Inquire" },
-        { text: "Ads Credit ₹18,000", detail: "Inquire" },
-        { text: "Ads Credit ₹58,000", detail: "Inquire" }
+        { text: "Sales Navigator Core", detail: "2 Months" },
+        { text: "Sales Navigator Advance", detail: "2 Months" },
+        { text: "Recruiter Lite", detail: "5 Month" },
+        { text: "Ads Credit ₹7,000 - ₹58,000", detail: "" }
       ],
       bgGradient: "from-[#0A66C2]/5 via-[#0A66C2]/10 to-transparent",
       borderColor: "group-hover:border-[#0A66C2]/50",
@@ -35,10 +34,10 @@ const Plans = () => {
       name: "Creative Tools",
       subtitle: "Design & Content",
       features: [
-        { text: "Adobe Creative Cloud", detail: "1 Year - Inquire" },
-        { text: "Canva Pro", detail: "1 Year - Inquire" },
-        { text: "Autodesk All Apps", detail: "1 Year - Inquire" },
-        { text: "Loom Premium", detail: "1 Year - Inquire" }
+        { text: "Adobe Creative Cloud", detail: "1 Year" },
+        { text: "Canva Pro", detail: "Lifetime" },
+        { text: "Autodesk All Apps", detail: "1 Year" },
+        { text: "Loom Premium", detail: "1 Year" }
       ],
       bgGradient: "from-purple-500/5 via-purple-500/10 to-transparent",
       borderColor: "group-hover:border-purple-500/50",
@@ -48,9 +47,9 @@ const Plans = () => {
       name: "AI Solutions",
       subtitle: "AI-Powered Tools",
       features: [
-        { text: "Perplexity AI Pro", detail: "1 Year - Inquire" },
-        { text: "You.com Premium", detail: "1 Year - Inquire" },
-        { text: "GitHub Copilot", detail: "1 Year - Inquire" }
+        { text: "Perplexity AI", detail: "1 Year" },
+        { text: "You.com AI", detail: "1 Year" },
+        { text: "GitHub Copilot AI", detail: "1 Year" }
       ],
       bgGradient: "from-emerald-500/5 via-emerald-500/10 to-transparent",
       borderColor: "group-hover:border-emerald-500/50",
@@ -71,14 +70,14 @@ const Plans = () => {
       name: "Entertainment Hub",
       subtitle: "Premium Streaming Services",
       features: [
-        { text: "Netflix Premium 4K", detail: "1 Month - Inquire" },
-        { text: "Netflix Premium 4K", detail: "6 Months - Inquire" },
-        { text: "Amazon Prime", detail: "12 Months - Inquire" },
-        { text: "Disney+ Hotstar", detail: "12 Months - Inquire" },
-        { text: "SonyLIV Premium", detail: "12 Months - Inquire" },
-        { text: "ZEE5 Premium", detail: "12 Months - Inquire" },
-        { text: "YouTube Premium", detail: "12 Months - Inquire" },
-        { text: "IPTV Premium", detail: "12 Months - Inquire" }
+        { text: "Netflix Premium 4K", detail: "1 Month" },
+        { text: "Amazon Prime Video", detail: "6 Months" },
+        { text: "Disney+ Hotstar", detail: "12 Months" },
+        { text: "SonyLIV Premium", detail: "12 Months" },
+        { text: "ZEE5 Premium", detail: "12 Months" },
+        { text: "YouTube Premium", detail: "12 Months" },
+        { text: "IPTV Premium", detail: "6 Months" },
+        { text: "IPTV Premium", detail: "12 Months" }
       ],
       bgGradient: "from-red-500/5 via-red-500/10 to-transparent",
       borderColor: "group-hover:border-red-500/50",
@@ -155,7 +154,7 @@ const Plans = () => {
   )
 
   return (
-    <div id="pricing" className="py-16 md:py-24 bg-black">
+    <div id="pricing" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 overflow-hidden bg-zinc-950/80">
           {/* Subtle Glow Effects */}

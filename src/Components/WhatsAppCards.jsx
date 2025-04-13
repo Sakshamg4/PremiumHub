@@ -35,10 +35,11 @@ const WhatsAppCards = () => {
       title: "LinkedIn Authors Hub",
       description: "Network with professional LinkedIn content creators. Benefits include:",
       features: [
-        "Content creation strategies",
-        "Premium account tips & tricks",
-        "Networking opportunities",
-        "Career growth resources"
+        "LinkedIn Career Plan",
+        "LinkedIn Business Plan",
+        "LinkedIn Sales Navigator",
+        "LinkedIn Recruiter Lite",
+        "LinkedIn Ads Credit",
       ],
       icon: "👔",
       link: "https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3",
@@ -48,7 +49,7 @@ const WhatsAppCards = () => {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-black">
+    <section className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">
@@ -76,15 +77,15 @@ const WhatsAppCards = () => {
             {/* Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cards.map((card, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`relative bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/50 rounded-xl 
                     overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] 
                     hover:shadow-2xl ${card.borderHover} group h-full`}
                 >
                   {/* Card Background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${card.bgGradient}`} />
-                  
+
                   <div className="relative p-6 flex flex-col h-full">
                     {/* Icon */}
                     <div className="w-16 h-16 rounded-full bg-zinc-800/50 border border-zinc-700/50 

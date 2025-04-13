@@ -14,7 +14,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative py-16 md:py-24 bg-black">
+    <div className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">
@@ -53,7 +53,7 @@ const Contact = () => {
                         24/7 Support
                       </h3>
                       <p className="text-zinc-400 text-sm sm:text-base">
-                        Get instant responses to all your queries through WhatsApp Business
+                        Get responses to all your queries through WhatsApp Business
                       </p>
                     </div>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                             <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                           </svg>
                         </div>
-                        <span className="text-zinc-300 text-sm sm:text-base">Instant Response</span>
+                        <span className="text-zinc-300 text-sm sm:text-base">Response within 24 hours</span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-black/40 border border-zinc-700/30 hover:border-green-500/20 transition-colors">
                         <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500/10 flex items-center justify-center">
@@ -73,7 +73,7 @@ const Contact = () => {
                             <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                           </svg>
                         </div>
-                        <span className="text-zinc-300 text-sm sm:text-base">Available 24/7</span>
+                        <span className="text-zinc-300 text-sm sm:text-base">Available 9 AM to 11 PM</span>
                       </div>
                     </div>
 
