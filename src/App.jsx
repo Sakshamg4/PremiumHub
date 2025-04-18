@@ -1,61 +1,82 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useCallback } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ReactLenis, useLenis } from 'lenis/react'
+import { ReactLenis } from 'lenis/react'
+
+// Only import the Header and Footer directly since they're critical UI
 import Header from './Components/Header'
-import Hero from './Components/Hero'
-import Services from './Components/Services'
-import Plans from './Components/Plans'
-import Contact from './Components/Contact'
-import About from './Components/About'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import TermsAndConditions from './pages/TermsAndConditions'
-import NotFound from './pages/NotFound'
 import Footer from './Components/Footer'
-import WhatsAppCards from './Components/WhatsAppCards'
 
-
-// Lazy load the Analytics component
+// Lazy load all other components
+const Hero = lazy(() => import('./Components/Hero'))
+const Services = lazy(() => import('./Components/Services'))
+const Plans = lazy(() => import('./Components/Plans'))
+const Contact = lazy(() => import('./Components/Contact'))
+const About = lazy(() => import('./Components/About'))
+const WhatsAppCards = lazy(() => import('./Components/WhatsAppCards'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
   default: mod.Analytics
 })))
 
-
-const HomePage = () => (
-  <main className="container mx-auto px-4 pt-20">
-    <div id="home" className="w-full">
-      <Hero />
-    </div>
-    <div id="services" className="w-full">
-      <Services />
-    </div>
-    <div id="pricing" className="w-full">
-      <Plans />
-    </div>
-    <div id="contact" className="w-full">
-      <Contact />
-      <WhatsAppCards />
-    </div>
-    <div id="about" className="w-full">
-      <About />
-    </div>
-  </main>
+// Loading component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center p-8 min-h-[200px]">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" />
+  </div>
 )
 
+// Using memo for HomePage to prevent unnecessary re-renders
+const HomePage = React.memo(() => (
+  <main className="container mx-auto px-4 pt-20">
+    <div id="home" className="w-full">
+      <Suspense fallback={<LoadingFallback />}>
+        <Hero />
+      </Suspense>
+    </div>
+    <div id="services" className="w-full">
+      <Suspense fallback={<LoadingFallback />}>
+        <Services />
+      </Suspense>
+    </div>
+    <div id="pricing" className="w-full">
+      <Suspense fallback={<LoadingFallback />}>
+        <Plans />
+      </Suspense>
+    </div>
+    <div id="contact" className="w-full">
+      <Suspense fallback={<LoadingFallback />}>
+        <Contact />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
+        <WhatsAppCards />
+      </Suspense>
+    </div>
+    <div id="about" className="w-full">
+      <Suspense fallback={<LoadingFallback />}>
+        <About />
+      </Suspense>
+    </div>
+  </main>
+))
+
 const App = () => {
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  })
+  // Optimize the scroll handler with useCallback
+  const handleScroll = useCallback(({ scroll }) => {
+    // called every scroll - keep this function light
+  }, [])
 
   return (
-    <ReactLenis root>
+    <ReactLenis root onScroll={handleScroll}>
       <Router>
         <div className="min-h-screen flex flex-col bg-black selection:bg-blue-500/30 selection:text-white">
-          {/* Background Effects */}
-          <div className="fixed inset-0 pointer-events-none">
+          {/* Background Effects - using will-change to optimize GPU rendering */}
+          <div className="fixed inset-0 pointer-events-none will-change-transform">
             {/* Base gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0A0A0A,#000000)]" />
             
-            {/* Subtle noise texture */}
+            {/* Subtle noise texture - preloaded in head for performance */}
             <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02]" />
             
             {/* Accent colors */}
@@ -74,9 +95,30 @@ const App = () => {
             <div className="flex-grow">
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                <Route path="*" element={<NotFound />} />
+                <Route 
+                  path="/privacy-policy" 
+                  element={
+                    <Suspense fallback={<LoadingFallback />}>
+                      <PrivacyPolicy />
+                    </Suspense>
+                  } 
+                />
+                <Route 
+                  path="/terms-and-conditions" 
+                  element={
+                    <Suspense fallback={<LoadingFallback />}>
+                      <TermsAndConditions />
+                    </Suspense>
+                  } 
+                />
+                <Route 
+                  path="*" 
+                  element={
+                    <Suspense fallback={<LoadingFallback />}>
+                      <NotFound />
+                    </Suspense>
+                  } 
+                />
               </Routes>
             </div>
             <Footer />
@@ -87,4 +129,4 @@ const App = () => {
   )
 }
 
-export default App
+export default React.memo(App)
