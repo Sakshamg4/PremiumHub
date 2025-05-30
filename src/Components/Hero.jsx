@@ -15,11 +15,13 @@ const TYPE_SEQUENCE = [
   1500,
   'You.com AI',
   1500,
+  'Coursera Plus',
+  1500,
 ];
 
 const FEATURES = [
   'Creative Tools',
-  'Business Apps', 
+  'Business Apps',
   'AI Solutions',
   'Premium Support'
 ];
@@ -51,11 +53,11 @@ const AnimatedTyping = memo(() => (
 const TrustIndicators = memo(() => (
   <div className="pt-8 border-t border-zinc-800/50">
     <p className="text-zinc-400 text-sm">
-      Trusted by 300+ professionals worldwide
+      Trusted by 250+ happy customers worldwide
     </p>
     <p className="flex items-center justify-center gap-2 mt-2">
-      <span className="text-yellow-400">⭐️⭐️⭐️⭐️⭐️</span>
-      <span className="text-zinc-400">4.5/5 Customer Rating</span>
+      <span className="text-yellow-400">⭐️⭐️⭐️⭐️</span>
+      <span className="text-zinc-400">4/5 Customer Rating</span>
     </p>
   </div>
 ));
@@ -71,7 +73,7 @@ const CTAButtons = memo(({ onExplore }) => (
     </Button>
     <Button 
       variant="secondary"
-      href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
+      href="https://wa.me/9029151181"
       className="border border-zinc-700 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all duration-300"
     >
       Get Started
@@ -102,7 +104,7 @@ const Hero = () => {
   }, [navigate]);
 
   return (
-    <div id="home" className="min-h-screen py-16 md:py-24">
+    <div id="home" className="min-h-screen py-10 md:py-8">
       <div className="container mx-auto px-4">
         <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 overflow-hidden">
           {/* Background Effects */}
@@ -113,9 +115,16 @@ const Hero = () => {
           <div className="relative z-10 space-y-8 text-center max-w-4xl mx-auto">
             {/* Main Heading */}
             <div className="space-y-4">
-              <h2 className="text-xl md:text-2xl text-blue-500 font-semibold">
-                Premium Hub
-              </h2>
+              <div className="flex justify-center">
+                <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/10 via-blue-400/10 to-blue-700/10 border border-blue-500/20 shadow-sm">
+                  <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l-1.414-1.414M6.05 6.05L4.636 4.636" />
+                  </svg>
+                  <span className="text-xl md:text-2xl font-bold text-blue-500 tracking-wide drop-shadow-sm">
+                    Premium Hub
+                  </span>
+                </span>
+              </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight flex flex-col items-center gap-2">
                 <span className="text-white">Your One-Stop Destination for</span>
                 <AnimatedTyping />

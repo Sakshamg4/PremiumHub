@@ -134,7 +134,7 @@ const BackgroundEffects = memo(() => (
 
 const WhatsAppCards = () => {
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-10 md:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden">
           <BackgroundEffects />

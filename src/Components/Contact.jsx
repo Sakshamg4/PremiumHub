@@ -51,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative py-16 md:py-24">
+    <div className="relative py-10 md:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">
@@ -86,7 +86,7 @@ const Contact = () => {
                   <div className="space-y-6 sm:space-y-8">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
-                        24/7 Support
+                        Support Available
                       </h3>
                       <p className="text-zinc-400 text-sm sm:text-base">
                         Get responses to all your queries through WhatsApp Business

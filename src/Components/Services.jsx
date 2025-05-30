@@ -4,37 +4,69 @@ import React, { memo } from 'react';
 const SERVICES = [
   {
     title: "LinkedIn Premium",
-    description: "Linkedin Premium for your career, business, sales, and more",
+    description: "Powerful LinkedIn tools for career, business, and sales professionals.",
     icon: "💼",
     features: [
-      { name: "LinkedIn Career Plan", duration: "6, 12 Months" },
-      { name: "LinkedIn Business Plan", duration: "6, 9, 12 Months" },
-      { name: "LinkedIn Sales Navigator Core & Advance Plan", duration: "2 Months" },
-      { name: "LinkedIn Recruiter Lite", duration: "1 Month" },
-      { name: "LinkedIn Ads Credit", duration: "₹7K–₹58K" }
+      {
+        name: "LinkedIn Business Premium",
+        duration: "3, 6, 9, or 12 months",
+        details: "Enhance your professional presence with insights, InMail credits, and expanded visibility."
+      },
+      {
+        name: "LinkedIn Sales Navigator (Core & Advanced)",
+        duration: "Available",
+        details: "Advanced lead generation and sales tools to target and engage the right prospects."
+      },
+      {
+        name: "LinkedIn Recruiter Lite",
+        duration: "Available",
+        details: "Streamlined hiring with advanced filters, candidate tracking, and direct messaging."
+      },
+      {
+        name: "LinkedIn Ads Credit",
+        duration: "$100 – $300",
+        details: "Advertise your business on LinkedIn with included ad credits to boost visibility."
+      }
     ],
     bgGradient: "from-blue-900/20 to-blue-950/20"
   },
   {
     title: "Professional Tools",
-    description: "Industry-standard creative and professional software suite",
+    description: "Access industry-leading creative and productivity software.",
     icon: "⚡",
     features: [
-      { name: "Adobe Creative Cloud", duration: "1 Year", details: "All Apps - Photoshop, Illustrator, Premier Pro & more" },
-      { name: "Canva Pro", duration: "1 Year", details: "Premium Templates, Background Remover" },
-      { name: "Autodesk All Apps", duration: "1 Year", details: "39+ Professional Tools" },
-      { name: "Loom Premium", duration: "1 Year" }
+      {
+        name: "Adobe Creative Cloud",
+        duration: "Available",
+        details: "All apps including Photoshop, Illustrator, Premiere Pro, and more"
+      },
+      {
+        name: "Canva Premium",
+        duration: "Available",
+        details: "Unlock next-level creativity with AI tools, premium templates, and pro design features."
+      },
+      {
+        name: "Autodesk All Apps",
+        duration: "Available",
+        details: "Includes 39+ professional design, engineering, and modeling tools"
+      },
+      {
+        name: "Loom Premium",
+        duration: "Available",
+        details: "Record, share, and collaborate with professional-quality video messaging"
+      }
     ],
     bgGradient: "from-cyan-900/20 to-cyan-950/20"
-  },
+  }
+  ,
   {
     title: "AI Powerhouse",
     description: "Access cutting-edge AI models and tools for enhanced productivity",
     icon: "🤖",
     features: [
-      { name: "Perplexity AI", duration: "1 Year", details: "GPT-4o, GROK, Claude 3, Pro Search Best for Research" },
-      { name: "You.com Premium", duration: "1 Year", details: "25+ AI Models, GPT-4o, Claude 3, Gemini" },
-      { name: "GitHub Copilot", duration: "1 Year", details: "AI-powered code completion" }
+      { name: "Perplexity AI", duration: "Available", details: "GPT-4o, GROK, Claude 3, Pro Search Best for Research" },
+      { name: "You.com Premium", duration: "Available", details: "25+ AI Models, GPT-4o, Claude 3, Gemini" },
+      { name: "GitHub Copilot", duration: "Available", details: "AI-powered code completion" }
     ],
     bgGradient: "from-purple-900/20 to-purple-950/20"
   },
@@ -43,8 +75,8 @@ const SERVICES = [
     description: "Premium educational resources for continuous learning",
     icon: "📚",
     features: [
-      { name: "Coursera Plus", duration: "12 Months", details: "7,000+ Courses with Certificates" },
-      { name: "edX Unlimited", duration: "12 Months", details: "Access to 3,000+ courses from top universities" }
+      { name: "Coursera Plus", duration: "Available", details: "7,000+ Courses with Certificates" },
+      { name: "edX Unlimited", duration: "Available", details: "Access to 3,000+ courses from top universities" }
     ],
     bgGradient: "from-green-900/20 to-green-950/20"
   }
@@ -52,13 +84,13 @@ const SERVICES = [
 
 // Reusable Components
 const Feature = memo(({ feature }) => (
-  <div className="flex items-start gap-2 text-zinc-300 group-hover:text-zinc-200 transition-colors">
-    <span className="text-blue-500 mt-1">✅</span>
+  <div className="flex items-start gap-2 text-zinc-200 group-hover:text-zinc-200 transition-colors">
+    <span className="text-blue-500">🌟</span>
     <div>
       <span className="font-medium">{feature.name}</span>
       <span className="text-zinc-400"> ({feature.duration})</span>
       {feature.details && (
-        <p className="text-sm text-zinc-500 mt-1">
+        <p className="text-md text-zinc-500 mt-1">
           {feature.details}
         </p>
       )}
@@ -67,7 +99,7 @@ const Feature = memo(({ feature }) => (
 ));
 
 const ServiceCard = memo(({ service }) => (
-  <div 
+  <div
     className={`border border-zinc-800/80 rounded-xl p-6 
       hover:border-blue-500/50 transition-all duration-300 group
       bg-gradient-to-br ${service.bgGradient} backdrop-blur-sm`}
@@ -96,34 +128,49 @@ const ServiceCard = memo(({ service }) => (
 const ServicesHeader = memo(() => (
   <div className="text-center mb-12">
     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-      Premium Digital Tools
+      Professional-Grade Digital Tools Suite
     </h2>
     <p className="text-blue-400 text-lg font-medium">
-      100% Genuine & Private Access
+      <span className="inline-block bg-blue-950/40 rounded-full px-4 py-1">
+        Premium Access. No Gimmicks. 100% Secure.
+      </span>
     </p>
   </div>
 ));
 
 const CTASection = memo(() => (
-  <div className="mt-12 text-center">
+  <div className="mt-12 text-center max-w-2xl mx-auto px-4">
     <p className="text-zinc-400 mb-6">
-      Join our premium community and get access to all tools
+      Unlock exclusive deals and genuine access to premium digital tools, software, and services. Join our community to get the best prices and support for all your digital needs!
     </p>
     <a 
       href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
-      className="inline-flex px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg 
-        transition-all duration-300 font-medium"
+      className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-br from-green-600 to-green-500 
+        text-white rounded-xl font-medium transition-all duration-300
+        hover:shadow-2xl hover:shadow-green-500/20 transform hover:scale-[1.02]
+        border border-green-500/20 overflow-hidden"
       target="_blank"
       rel="noopener noreferrer"
     >
-      Get Premium Access
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] 
+        bg-[length:250%_250%] bg-[0%_0%] group-hover:bg-[100%_100%] transition-all duration-1000" />
+      
+      <div className="relative flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center
+          group-hover:bg-white/20 transition-colors duration-300">
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+          </svg>
+        </div>
+        <span className="text-lg">Join our community</span>
+      </div>
     </a>
   </div>
 ));
 
 const Services = () => {
   return (
-    <div id="services" className="min-h-screen py-16 md:py-24">
+    <div id="services" className="min-h-screen py-10 md:py-8">
       <div className="container mx-auto px-4">
         <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-zinc-900" />

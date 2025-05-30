@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from 'react'
 import Button from './Button'
-
+import CTAButton from './CTAButton'
 const Plans = () => {
   const [visibleSection, setVisibleSection] = useState('none');
 
@@ -52,7 +52,7 @@ const Plans = () => {
         { text: "Sales Navigator Core", detail: "2 Months" },
         { text: "Sales Navigator Advance", detail: "2 Months" },
         { text: "Recruiter Lite", detail: "5 Month" },
-        { text: "Ads Credit ₹7,000 - ₹58,000", detail: "" }
+        { text: "Linkedin Ads Credit", detail: "$100-$300" }
       ],
       bgColor: "bg-[#0A66C2]/5",
       borderColor: "group-hover:border-[#0A66C2]/50",
@@ -135,7 +135,7 @@ const Plans = () => {
           href="https://wa.me/9029151181"
           className={`w-full justify-center border border-zinc-800/50 ${plan.buttonClass}`}
         >
-          Get Access
+          Get Pricing
         </Button>
       </div>
     </div>
@@ -149,7 +149,7 @@ const Plans = () => {
   );
 
   return (
-    <div id="pricing" className="py-16 md:py-24">
+    <div id="pricing" className="py-10 md:py-8">
       <div className="container mx-auto px-4">
         <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 bg-zinc-950/80">
           {/* Simplified border effect - single element */}
@@ -161,9 +161,11 @@ const Plans = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
                 Premium Digital Tools
               </h2>
-              <p className="text-blue-400 text-lg font-medium mb-2">
-                100% Genuine & Private Access
-              </p>
+              <span className="inline-block bg-blue-950/40 rounded-full px-4 py-1 mb-2">
+                <p className="text-blue-400 text-lg font-medium m-0">
+                  100% Genuine & Private Access
+                </p>
+              </span>
               <p className="text-zinc-400 max-w-2xl mx-auto">
                 Choose from our wide range of premium tools and services
               </p>
@@ -187,21 +189,7 @@ const Plans = () => {
             )}
 
             {/* Bottom Note - Simplified */}
-            <div className="mt-10 text-center max-w-2xl mx-auto">
-              <div className="p-6 border border-zinc-800 rounded-xl bg-black/20">
-                <h3 className="text-xl font-bold text-white mb-2">Looking for Bundle Deals?</h3>
-                <p className="text-zinc-400 mb-5">
-                  Contact us for special discounts on multiple tools or bulk purchases
-                </p>
-                <Button 
-                  variant="primary"
-                  href="https://wa.me/9029151181"
-                  className="bg-blue-600 hover:bg-blue-700 inline-flex px-6"
-                >
-                  Chat on WhatsApp
-                </Button>
-              </div>
-            </div>
+            <CTAButton title="Looking for Bundle Deals?" description="Contact us for special discounts on multiple tools or bulk purchases" />
           </div>
         </div>
       </div>

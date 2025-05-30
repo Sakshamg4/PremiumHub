@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import Button from './Button'
+import CTAButton from './CTAButton'
 
 // Move static data outside component
 const STATS = [
@@ -130,7 +130,7 @@ const ServiceCard = memo(({ service }) => (
 
 const About = () => {
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-10 md:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">
@@ -170,25 +170,7 @@ const About = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="relative group bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/50 rounded-xl 
-              overflow-hidden transition-all duration-300 hover:shadow-2xl text-center p-8 md:p-12">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-blue-600/5 to-transparent" />
-              <div className="relative">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Ready to Get Started?
-                </h3>
-                <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
-                  Join our growing community and get access to premium digital tools and services at unbeatable prices
-                </p>
-                <Button 
-                  variant="primary"
-                  href="https://wa.me/9029151181"
-                  className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 inline-flex px-6"
-                >
-                  Chat on WhatsApp
-                </Button>
-              </div>
-            </div>
+            <CTAButton title="Ready to Get Started?" description="Join our growing community and get access to premium digital tools and services at unbeatable prices" />
           </div>
         </div>
       </div>
