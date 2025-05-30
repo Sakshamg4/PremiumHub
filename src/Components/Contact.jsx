@@ -4,8 +4,8 @@ import React, { memo } from 'react';
 const CONTACT_INFO = {
   phone: "+91 9029151181",
   email: "officallinkedinseller@gmail.com",
-  whatsapp: "+919151181",
-  hours: "24/7 Support Available",
+  whatsapp: "919029151181",  // Fixed WhatsApp number format
+  hours: "9 AM to 11 PM IST",  // Added timezone
   location: "Global Business Support"
 };
 
@@ -23,8 +23,10 @@ const FeatureItem = memo(({ text }) => (
 
 // Reusable WhatsApp Button Component
 const WhatsAppButton = memo(({ onClick }) => (
+  // Add aria-label to WhatsApp button for better accessibility
   <button
     onClick={onClick}
+    aria-label="Chat with us on WhatsApp"
     className="group relative overflow-hidden bg-gradient-to-br from-green-600 to-green-500 
       text-white text-sm sm:text-base p-6 sm:p-8 rounded-xl font-semibold transition-all duration-300
       hover:shadow-2xl hover:shadow-green-500/20 transform hover:scale-[1.02]
@@ -52,7 +54,7 @@ const Contact = () => {
 
   return (
     <div className="relative py-10 md:py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         {/* Main Content with Background */}
         <div className="relative rounded-3xl overflow-hidden">
           {/* Background Effects */}
@@ -86,7 +88,7 @@ const Contact = () => {
                   <div className="space-y-6 sm:space-y-8">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
-                        Support Available
+                        Contact Support Available
                       </h3>
                       <p className="text-zinc-400 text-sm sm:text-base">
                         Get responses to all your queries through WhatsApp Business
@@ -95,8 +97,9 @@ const Contact = () => {
 
                     {/* Features List */}
                     <div className="space-y-3 sm:space-y-4">
-                      <FeatureItem text="Response within 24 hours" />
-                      <FeatureItem text="Available 9 AM to 11 PM" />
+                      <FeatureItem text="Quick response within 2-4 hours" />
+                      <FeatureItem text={`Available ${CONTACT_INFO.hours}`} />
+                      <FeatureItem text="Secure payment options" />
                     </div>
 
                     {/* Email */}

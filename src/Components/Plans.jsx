@@ -32,67 +32,45 @@ const Plans = () => {
   // Pricing data
   const pricingPlans = [
     {
-      name: "LinkedIn Premium",
-      subtitle: "Professional Growth",
+      name: "LinkedIn Premium Plans",
+      subtitle: "Professional Growth, Sales & Marketing",
       features: [
-        { text: "LinkedIn Business Plan", detail: "6 Months" },
-        { text: "LinkedIn Business Plan", detail: "9 Months" },
-        { text: "LinkedIn Business Plan", detail: "12 Months" },
-        { text: "LinkedIn Career Plan", detail: "3 Months" },
-        { text: "LinkedIn Career Plan", detail: "12 Months" }
+        { text: "LinkedIn Career Plan", detail: "Available" },
+        { text: "LinkedIn Business Plan", detail: "Available" },
+        { text: "Sales Navigator", detail: "Available" },
+        { text: "Recruiter Lite", detail: "Available" },
+        { text: "Linkedin Ads Credit", detail: "Available" }
       ],
-      bgColor: "bg-[#0077B5]/5",
+      bgColor: "bg-[#0077B5]/15",
       borderColor: "group-hover:border-[#0077B5]/50",
-      buttonClass: "bg-[#0077B5]/10 hover:bg-[#0077B5]/20"
-    },
-    {
-      name: "LinkedIn Business",
-      subtitle: "Sales & Marketing",
-      features: [
-        { text: "Sales Navigator Core", detail: "2 Months" },
-        { text: "Sales Navigator Advance", detail: "2 Months" },
-        { text: "Recruiter Lite", detail: "5 Month" },
-        { text: "Linkedin Ads Credit", detail: "$100-$300" }
-      ],
-      bgColor: "bg-[#0A66C2]/5",
-      borderColor: "group-hover:border-[#0A66C2]/50",
-      buttonClass: "bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20"
+      buttonClass: "bg-[#0077B5]/10 hover:bg-[#0077B5]/20" // LinkedIn section
     },
     {
       name: "Creative Tools",
       subtitle: "Design & Content",
       features: [
-        { text: "Adobe Creative Cloud", detail: "1 Year" },
-        { text: "Canva Pro", detail: "Lifetime" },
-        { text: "Autodesk All Apps", detail: "1 Year" },
-        { text: "Loom Premium", detail: "1 Year" }
+        { text: "Adobe Creative Cloud", detail: "Available" },
+        { text: "Canva Pro", detail: "Available" },
+        { text: "Autodesk All Apps", detail: "Available" },
+        { text: "Loom Premium", detail: "Available" }
       ],
       bgColor: "bg-purple-500/5",
       borderColor: "group-hover:border-purple-500/50",
       buttonClass: "bg-purple-500/10 hover:bg-purple-500/20"
     },
     {
-      name: "AI Solutions",
-      subtitle: "AI-Powered Tools",
+      name: "AI & Learning",
+      subtitle: "AI-Powered Tools, Learning",
       features: [
-        { text: "Perplexity AI", detail: "1 Year" },
-        { text: "You.com AI", detail: "1 Year" },
-        { text: "GitHub Copilot AI", detail: "1 Year" }
+        { text: "Perplexity AI", detail: "Available" },
+        { text: "You.com AI", detail: "Available" },
+        { text: "GitHub Copilot AI", detail: "Available" },
+        { text: "Coursera Plus", detail: "Available" },
+        { text: "edX Unlimited", detail: "Available" }
       ],
       bgColor: "bg-emerald-500/5",
       borderColor: "group-hover:border-emerald-500/50",
-      buttonClass: "bg-emerald-500/10 hover:bg-emerald-500/20"
-    },
-    {
-      name: "Learning Platforms",
-      subtitle: "Education & Development",
-      features: [
-        { text: "Coursera Plus", detail: "1 Year - Inquire" },
-        { text: "edX Unlimited", detail: "1 Year - Inquire" }
-      ],
-      bgColor: "bg-blue-500/5",
-      borderColor: "group-hover:border-blue-500/50",
-      buttonClass: "bg-blue-500/10 hover:bg-blue-500/20"
+      buttonClass: "bg-emerald-500/10 hover:bg-emerald-500/20" // AI & Learning section
     }
   ]
 
@@ -133,7 +111,7 @@ const Plans = () => {
         <Button 
           variant="secondary"
           href="https://wa.me/9029151181"
-          className={`w-full justify-center border border-zinc-800/50 ${plan.buttonClass}`}
+          className={`w-full justify-center border border-zinc-100/50 ${plan.buttonClass}`}
         >
           Get Pricing
         </Button>
@@ -151,7 +129,7 @@ const Plans = () => {
   return (
     <div id="pricing" className="py-10 md:py-8">
       <div className="container mx-auto px-4">
-        <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 bg-zinc-950/80">
+        <div className="relative border-[1px] border-zinc-800/50 rounded-xl p-8 md:p-12 bg-zinc-950/90">
           {/* Simplified border effect - single element */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
           
@@ -178,12 +156,6 @@ const Plans = () => {
                 {renderSection(
                   pricingPlans.slice(0, 3),
                   "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6"
-                )}
-
-                {/* AI & Learning Section */}
-                {renderSection(
-                  pricingPlans.slice(3, 5),
-                  "grid grid-cols-1 md:grid-cols-2 gap-5 mb-6"
                 )}
               </div>
             )}

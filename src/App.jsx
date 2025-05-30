@@ -61,8 +61,21 @@ const HomePage = React.memo(() => (
   </main>
 ))
 
+// Layout component for pages with header and footer
+const MainLayout = ({ children }) => (
+  <>
+    <Header />
+    <div className="flex-grow">{children}</div>
+    <Footer />
+  </>
+)
+
+// Layout for full-screen pages without header/footer
+const FullScreenLayout = ({ children }) => (
+  <div className="flex-grow">{children}</div>
+)
+
 const App = () => {
-  // Optimize the scroll handler with useCallback
   const handleScroll = useCallback(({ scroll }) => {
     // called every scroll - keep this function light
   }, [])
@@ -71,7 +84,7 @@ const App = () => {
     <ReactLenis root onScroll={handleScroll}>
       <Router>
         <div className="min-h-screen flex flex-col bg-black selection:bg-blue-500/30 selection:text-white">
-          {/* Background Effects - using will-change to optimize GPU rendering */}
+          {/* Background Effects */}
           <div className="fixed inset-0 pointer-events-none will-change-transform">
             {/* Base gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0A0A0A,#000000)]" />
@@ -91,37 +104,46 @@ const App = () => {
             <Suspense fallback={null}>
               <Analytics />
             </Suspense>
-            <Header />
-            <div className="flex-grow">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route 
-                  path="/privacy-policy" 
-                  element={
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <MainLayout>
+                    <HomePage />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/privacy-policy"
+                element={
+                  <MainLayout>
                     <Suspense fallback={<LoadingFallback />}>
                       <PrivacyPolicy />
                     </Suspense>
-                  } 
-                />
-                <Route 
-                  path="/terms-and-conditions" 
-                  element={
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/terms-and-conditions"
+                element={
+                  <MainLayout>
                     <Suspense fallback={<LoadingFallback />}>
                       <TermsAndConditions />
                     </Suspense>
-                  } 
-                />
-                <Route 
-                  path="*" 
-                  element={
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <FullScreenLayout>
                     <Suspense fallback={<LoadingFallback />}>
                       <NotFound />
                     </Suspense>
-                  } 
-                />
-              </Routes>
-            </div>
-            <Footer />
+                  </FullScreenLayout>
+                }
+              />
+            </Routes>
           </div>
         </div>
       </Router>

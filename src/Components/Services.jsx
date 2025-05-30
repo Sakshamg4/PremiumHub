@@ -9,22 +9,18 @@ const SERVICES = [
     features: [
       {
         name: "LinkedIn Business Premium",
-        duration: "3, 6, 9, or 12 months",
         details: "Enhance your professional presence with insights, InMail credits, and expanded visibility."
       },
       {
         name: "LinkedIn Sales Navigator (Core & Advanced)",
-        duration: "Available",
         details: "Advanced lead generation and sales tools to target and engage the right prospects."
       },
       {
         name: "LinkedIn Recruiter Lite",
-        duration: "Available",
         details: "Streamlined hiring with advanced filters, candidate tracking, and direct messaging."
       },
       {
         name: "LinkedIn Ads Credit",
-        duration: "$100 – $300",
         details: "Advertise your business on LinkedIn with included ad credits to boost visibility."
       }
     ],
@@ -37,36 +33,31 @@ const SERVICES = [
     features: [
       {
         name: "Adobe Creative Cloud",
-        duration: "Available",
         details: "All apps including Photoshop, Illustrator, Premiere Pro, and more"
       },
       {
         name: "Canva Premium",
-        duration: "Available",
         details: "Unlock next-level creativity with AI tools, premium templates, and pro design features."
       },
       {
         name: "Autodesk All Apps",
-        duration: "Available",
         details: "Includes 39+ professional design, engineering, and modeling tools"
       },
       {
         name: "Loom Premium",
-        duration: "Available",
         details: "Record, share, and collaborate with professional-quality video messaging"
       }
     ],
     bgGradient: "from-cyan-900/20 to-cyan-950/20"
-  }
-  ,
+  },
   {
     title: "AI Powerhouse",
     description: "Access cutting-edge AI models and tools for enhanced productivity",
     icon: "🤖",
     features: [
-      { name: "Perplexity AI", duration: "Available", details: "GPT-4o, GROK, Claude 3, Pro Search Best for Research" },
-      { name: "You.com Premium", duration: "Available", details: "25+ AI Models, GPT-4o, Claude 3, Gemini" },
-      { name: "GitHub Copilot", duration: "Available", details: "AI-powered code completion" }
+      { name: "Perplexity AI", details: "GPT-4o, GROK, Claude 3, Pro Search Best for Research" },
+      { name: "You.com Premium", details: "25+ AI Models, GPT-4o, Claude 3, Gemini" },
+      { name: "GitHub Copilot", details: "AI-powered code completion" }
     ],
     bgGradient: "from-purple-900/20 to-purple-950/20"
   },
@@ -75,8 +66,8 @@ const SERVICES = [
     description: "Premium educational resources for continuous learning",
     icon: "📚",
     features: [
-      { name: "Coursera Plus", duration: "Available", details: "7,000+ Courses with Certificates" },
-      { name: "edX Unlimited", duration: "Available", details: "Access to 3,000+ courses from top universities" }
+      { name: "Coursera Plus", details: "7,000+ Courses with Certificates" },
+      { name: "edX Unlimited", details: "Access to 3,000+ courses from top universities" }
     ],
     bgGradient: "from-green-900/20 to-green-950/20"
   }
@@ -88,7 +79,6 @@ const Feature = memo(({ feature }) => (
     <span className="text-blue-500">🌟</span>
     <div>
       <span className="font-medium">{feature.name}</span>
-      <span className="text-zinc-400"> ({feature.duration})</span>
       {feature.details && (
         <p className="text-md text-zinc-500 mt-1">
           {feature.details}
@@ -140,8 +130,8 @@ const ServicesHeader = memo(() => (
 
 const CTASection = memo(() => (
   <div className="mt-12 text-center max-w-2xl mx-auto px-4">
-    <p className="text-zinc-400 mb-6">
-      Unlock exclusive deals and genuine access to premium digital tools, software, and services. Join our community to get the best prices and support for all your digital needs!
+    <p className="text-zinc-200 text-md mb-6">
+    Unlock exclusive deals on premium digital tools and services. Join our community for the best prices and expert support!
     </p>
     <a 
       href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"

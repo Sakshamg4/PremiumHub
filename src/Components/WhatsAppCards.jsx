@@ -82,8 +82,9 @@ const CardButton = memo(({ link }) => (
         transition-all duration-300 border border-zinc-800 group-hover:border-zinc-700"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Join our community on WhatsApp"
     >
-      Join Group
+      Join Our Community Now!
     </Button>
   </div>
 ));
@@ -135,7 +136,7 @@ const BackgroundEffects = memo(() => (
 const WhatsAppCards = () => {
   return (
     <section className="relative py-10 md:py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <div className="relative rounded-3xl overflow-hidden">
           <BackgroundEffects />
           <div className="relative p-8 md:p-12">

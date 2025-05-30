@@ -52,7 +52,7 @@ const PrivacyPolicy = () => {
   ]
 
   return (
-    <div className="min-h-screen py-16 md:py-24">
+    <div className="min-h-screen py-18 md:py-24">
       <div className="container mx-auto px-4">
         <div className="border-[1px] border-zinc-700 rounded-xl p-8 md:p-12">
           {/* Header */}
