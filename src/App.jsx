@@ -31,9 +31,7 @@ const LoadingFallback = () => (
 const HomePage = React.memo(() => (
   <main className="container mx-auto px-4 pt-20">
     <div id="home" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
         <Hero />
-      </Suspense>
     </div>
     <div id="services" className="w-full">
       <Suspense fallback={<LoadingFallback />}>
