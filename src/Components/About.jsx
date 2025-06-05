@@ -166,7 +166,7 @@ const ServiceCard = memo(({ service }) => (
 const About = () => {
   return (
     <section className="relative py-10 md:py-8" aria-label="About Premium Hub">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <div className="relative rounded-3xl overflow-hidden">
           <BackgroundEffects />
           <div className="relative p-8 md:p-12">
