@@ -26,7 +26,7 @@ const FOOTER_LINKS = {
     { label: 'WhatsApp Support', href: 'https://wa.me/9029151181', icon: '💬' },
     { label: 'Join Community', href: '#contact', icon: '👥' },
     { label: 'View Pricing', href: '#pricing', icon: '💎' },
-    { label: 'officallinkedinseller@gmail.com', href: 'mailto:officallinkedinseller@gmail.com', icon: '📧' }
+    { label: 'premiumhubtools@gmail.com', href: 'mailto:premiumhubtools@gmail.com', icon: '📧' }
   ],
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy', isRoute: true, icon: '🔒' },
