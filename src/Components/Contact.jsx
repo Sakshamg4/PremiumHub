@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 // Constants
 const CONTACT_INFO = {
   phone: "+91 9029151181",
-  email: "officallinkedinseller@gmail.com",
+  email: "premiumhubtools@gmail.com",
   whatsapp: "919029151181",  // Fixed WhatsApp number format
   hours: "9 AM to 11 PM IST",  // Added timezone
   location: "Global Business Support"
