@@ -13,7 +13,7 @@ const CARDS = [
       "Early access to new services"
     ],
     icon: "💎",
-    link: "https://chat.whatsapp.com/IGWImnBiXJx1wJ6CGTuE8w",
+    link: "https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ",
     bgGradient: "from-blue-600/10 via-blue-600/5 to-transparent",
     borderHover: "hover:border-blue-500/50"
   },
@@ -32,7 +32,7 @@ const CARDS = [
     borderHover: "hover:border-red-500/50"
   },
   {
-    title: "LinkedIn Authors Hub",
+    title: "Premium Hub Group",
     description: "Network with professional LinkedIn content creators. Benefits include:",
     features: [
       "LinkedIn Career Plan",
@@ -42,7 +42,7 @@ const CARDS = [
       "LinkedIn Ads Credit",
     ],
     icon: "👔",
-    link: "https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3",
+    link: "https://chat.whatsapp.com/HJ8fgq2PuZt8yU4Dk5CNcp",
     bgGradient: "from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent",
     borderHover: "hover:border-[#0A66C2]/50"
   }
