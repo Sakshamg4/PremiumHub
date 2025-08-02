@@ -18,7 +18,7 @@ const CARDS = [
     borderHover: "hover:border-blue-500/50"
   },
   {
-    title: "XYLE OTT Network",
+    title: "XYLE OTT Group",
     description: "Your gateway to premium streaming entertainment. Connect with us for:",
     features: [
       "Netflix, Prime & Hotstar updates",
