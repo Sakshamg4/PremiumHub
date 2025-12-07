@@ -1,33 +1,42 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'CustomFont';
-    src: url('./assets/Fonts/custom1.woff2') format('woff2'),
-         url('./assets/Fonts/custom2.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap; /* Improve font loading performance */
+  font-family: 'CustomFont';
+  src: url('./assets/Fonts/custom1.woff2') format('woff2'),
+    url('./assets/Fonts/custom2.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  /* Improve font loading performance */
 }
 
 /* Base styles */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* For fixed headers - adjust based on header height */
+  scroll-padding-top: 80px;
+  /* For fixed headers - adjust based on header height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: 'CustomFont', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #000000;
-    color: white;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
+  font-family: 'CustomFont', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #27272a;
+  /* Zinc 800 - Sharp, modern dark grey */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+
+  /* Palette Variables */
+  --color-bg: #f8fafc;
+  --color-surface: #d9eafd;
+  --color-accent: #bcccdc;
+  --color-primary: #9aa6b2;
 }
 
 #root {
@@ -38,34 +47,47 @@ body {
 
 /* Modern scrollbar styles */
 ::-webkit-scrollbar {
-  width: 8px; /* Slightly narrower for modern look */
+  width: 8px;
+  /* Slightly narrower for modern look */
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(34, 44, 131, 0.2); /* More subtle, less opaque */
-  backdrop-filter: blur(4px); /* Modern glass effect */
+  background: #f8fafc;
+  /* More subtle, less opaque */
+  backdrop-filter: blur(4px);
+  /* Modern glass effect */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #585e64, #3d4852); /* Gradient for depth */
-  border-radius: 8px; /* More rounded */
-  border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border */
-  transition: all 0.3s ease; /* Smooth transition for hover */
+  background: linear-gradient(to bottom, #bcccdc, #9aa6b2);
+  /* Gradient for depth */
+  border-radius: 8px;
+  /* More rounded */
+  border: 2px solid #f8fafc;
+  /* Subtle border */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #94acc7, #7a93af); /* Gradient hover state */
+  background: linear-gradient(to bottom, #9aa6b2, #7e8c9d);
+  /* Gradient hover state */
   cursor: pointer;
 }
 
 /* Selection styles */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3); /* Blue highlight with transparency */
-  color: white;
+  background-color: #bcccdc;
+  /* Blue highlight with transparency */
+  color: #1e293b;
 }
 
 /* Animation for smoother transitions */
-a, button, input, select, textarea {
+a,
+button,
+input,
+select,
+textarea {
   transition: all 0.2s ease-in-out;
 }
 

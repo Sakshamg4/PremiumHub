@@ -54,20 +54,20 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen py-18 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="border-[1px] border-zinc-700 rounded-xl p-8 md:p-12">
+        <div className="border-[1px] border-[#bcccdc]/50 rounded-xl p-8 md:p-12 bg-[#f8fafc]/50 backdrop-blur-sm">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
-            <p className="text-zinc-400">Last updated: March 2024</p>
-            <p className="mt-6 text-zinc-400 max-w-3xl mx-auto">
-              At <span className="text-blue-500">Premium Hub</span>, we value your privacy and are committed to protecting your personal information. This privacy policy outlines the types of information we collect, how we use it, and the steps we take to ensure that your personal data remains secure.
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#1e293b]">Privacy Policy</h1>
+            <p className="text-[#64748b]">Last updated: March 2024</p>
+            <p className="mt-6 text-[#64748b] max-w-3xl mx-auto">
+              At <span className="text-[#9aa6b2]">Premium Hub</span>, we value your privacy and are committed to protecting your personal information. This privacy policy outlines the types of information we collect, how we use it, and the steps we take to ensure that your personal data remains secure.
             </p>
           </div>
-          
-          <div className="space-y-8 text-zinc-400 max-w-4xl mx-auto">
+
+          <div className="space-y-8 text-[#64748b] max-w-4xl mx-auto">
             {privacySections.map((section, index) => (
-              <section key={index} className="mb-8 hover:bg-zinc-800/10 p-6 rounded-lg transition-colors">
-                <h2 className="text-2xl font-semibold mb-4 text-white">{section.title}</h2>
+              <section key={index} className="mb-8 hover:bg-[#d9eafd]/20 p-6 rounded-lg transition-colors">
+                <h2 className="text-2xl font-semibold mb-4 text-[#1e293b]">{section.title}</h2>
                 {Array.isArray(section.content) ? (
                   <ul className="list-disc pl-6 space-y-2">
                     {section.content.map((item, i) => (
@@ -81,18 +81,18 @@ const PrivacyPolicy = () => {
             ))}
 
             {/* Contact Section */}
-            <section className="mb-8 bg-zinc-800/50 p-6 rounded-lg border border-zinc-700">
-              <h2 className="text-2xl font-semibold mb-4 text-white">Contact Us</h2>
+            <section className="mb-8 bg-[#f8fafc]/50 p-6 rounded-lg border border-[#bcccdc]/50">
+              <h2 className="text-2xl font-semibold mb-4 text-[#1e293b]">Contact Us</h2>
               <p className="mb-4">If you have any questions regarding this privacy policy or wish to exercise your rights, please contact us:</p>
               <div className="space-y-4">
                 <p className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#9aa6b2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <span>premiumhubtools@gmail.com</span>
                 </p>
                 <p className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#9aa6b2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <span>+91 9029151181</span>

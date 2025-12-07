@@ -2,17 +2,17 @@ import React, { memo } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const BUTTON_VARIANTS = {
-  primary: 'bg-black text-white border-[1px] border-zinc-700 hover:bg-zinc-800',
-  secondary: 'bg-white text-black hover:bg-gray-100',
-  outline: 'bg-transparent border-[1px] border-zinc-700 text-white hover:bg-white/5',
-  gradient: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800'
+  primary: 'bg-[#9aa6b2] text-white border-[1px] border-[#9aa6b2] hover:bg-[#7e8c9d]',
+  secondary: 'bg-[#f8fafc] text-[#18181b] border-[1px] border-[#bcccdc] hover:bg-[#d9eafd]',
+  outline: 'bg-transparent border-[1px] border-[#9aa6b2] text-[#18181b] hover:bg-[#9aa6b2]/10',
+  gradient: 'bg-gradient-to-r from-[#9aa6b2] to-[#7e8c9d] text-white hover:from-[#7e8c9d] hover:to-[#64748b]'
 }
 
-const Button = ({ 
-  variant = 'primary', 
-  href, 
-  onClick, 
-  children, 
+const Button = ({
+  variant = 'primary',
+  href,
+  onClick,
+  children,
   className = '',
   icon = <FaWhatsapp className="w-5 h-5" />,
   showIcon = true,
@@ -51,7 +51,7 @@ const Button = ({
 
   if (href && !disabled) {
     return (
-      <a 
+      <a
         href={href}
         onClick={handleClick}
         className={`${baseStyles} ${buttonStyle} ${className}`}
