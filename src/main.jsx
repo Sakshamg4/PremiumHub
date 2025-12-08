@@ -4,6 +4,7 @@ import App from './App'
 import './index.css'
 import { DataProvider } from './Context/DataContext'
 
+// Initialize app
 const initApp = () => {
   const container = document.getElementById('root');
   const root = createRoot(container);
@@ -26,4 +27,5 @@ const initApp = () => {
   }
 };
 
+// Initialize app
 initApp();

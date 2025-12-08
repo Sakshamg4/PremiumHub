@@ -1,52 +1,6 @@
 import React, { memo } from 'react';
 import Button from './Button';
-
-// Constants
-const CARDS = [
-  {
-    title: "Premium Hub Community",
-    description: "Join our exclusive community for premium digital tools and services. Get instant updates about:",
-    features: [
-      "LinkedIn Premium & Sales Navigator deals",
-      "Creative Cloud & Canva Pro offers",
-      "OTT Platform subscription updates",
-      "Early access to new services"
-    ],
-    icon: "💎",
-    link: "https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ",
-    bgGradient: "from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent",
-    borderHover: "hover:border-[#0A66C2]/50"
-  },
-  {
-    title: "XYLE OTT Group",
-    description: "Your gateway to premium streaming entertainment. Connect with us for:",
-    features: [
-      "Netflix, Prime & Hotstar updates",
-      "New releases & content alerts",
-      "Special streaming packages",
-      "Technical support & assistance"
-    ],
-    icon: "🎬",
-    link: "https://chat.whatsapp.com/IEka2OGQwHyKqlaBNClozP",
-    bgGradient: "from-red-600/10 via-red-600/5 to-transparent",
-    borderHover: "hover:border-red-500/50"
-  },
-  {
-    title: "Premium Channel",
-    description: "Network with professional LinkedIn content creators. Benefits include:",
-    features: [
-      "LinkedIn Career Plan",
-      "LinkedIn Business Plan",
-      "LinkedIn Sales Navigator",
-      "LinkedIn Recruiter Lite",
-      "LinkedIn Ads Credit",
-    ],
-    icon: "👔",
-    link: "https://whatsapp.com/channel/0029VbB09k77oQhiUpSCyt0w",
-    bgGradient: "from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent",
-    borderHover: "hover:border-[#0A66C2]/50"
-  }
-];
+import { useData } from '../Context/DataContext';
 
 // Reusable Components
 const FeatureItem = memo(({ feature }) => (
@@ -134,6 +88,7 @@ const BackgroundEffects = memo(() => (
 ));
 
 const WhatsAppCards = () => {
+  const { whatsAppCards } = useData();
   return (
     <section className="relative py-10 md:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
@@ -142,9 +97,10 @@ const WhatsAppCards = () => {
           <div className="relative p-8 md:p-12">
             <SectionHeader />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {CARDS.map((card, index) => (
+              {whatsAppCards.map((card, index) => (
                 <WhatsAppCard key={index} card={card} />
               ))}
+
             </div>
           </div>
         </div>

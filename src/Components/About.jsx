@@ -1,92 +1,6 @@
 import React, { memo } from 'react'
 import CTAButton from './CTAButton'
-
-// Move static data outside component
-const STATS = [
-  {
-    number: '750+',
-    label: 'Active Members',
-    description: 'Growing community of digital professionals',
-    icon: '👥',
-    color: 'from-blue-500/10 via-blue-500/5 to-transparent',
-    ariaLabel: 'Active Members Statistics'
-  },
-  {
-    number: '90%',
-    label: 'Customer Satisfaction',
-    description: 'Based on verified user reviews',
-    icon: '⭐',
-    color: 'from-green-500/10 via-green-500/5 to-transparent',
-    ariaLabel: 'Customer Satisfaction Rate'
-  },
-  {
-    number: '9 AM to 12 AM',
-    label: 'Support Hours',
-    description: 'Fast WhatsApp response (IST)',
-    icon: '💬',
-    color: 'from-purple-500/10 via-purple-500/5 to-transparent',
-    ariaLabel: 'Support Hours Information'
-  },
-  {
-    number: '15+',
-    label: 'Countries',
-    description: 'International client network',
-    icon: '🌏',
-    color: 'from-red-500/10 via-red-500/5 to-transparent',
-    ariaLabel: 'Global Presence Statistics'
-  },
-]
-
-const SERVICES = [
-  {
-    title: 'LinkedIn Solutions',
-    icon: '💼',
-    features: [
-      'Premium Business & Career Plans',
-      'Advanced Sales Navigator Tools',
-      'Recruiter Lite Access',
-      'Professional Career Support'
-    ],
-    gradient: 'from-[#0077B5]/10 via-[#0077B5]/5 to-transparent',
-    ariaLabel: 'LinkedIn Professional Services'
-  },
-  {
-    title: 'Creative Tools',
-    icon: '🎨',
-    features: [
-      'Full Adobe Creative Cloud Suite',
-      'Canva Pro with Premium Assets',
-      'Autodesk Professional Apps',
-      'Exclusive Design Resources'
-    ],
-    gradient: 'from-purple-500/10 via-purple-500/5 to-transparent',
-    ariaLabel: 'Creative Design Tools'
-  },
-  {
-    title: 'Streaming Services',
-    icon: '🎬',
-    features: [
-      'Netflix Premium 4K HDR',
-      'Amazon Prime Video & Benefits',
-      'Disney+ Hotstar VIP',
-      'YouTube Premium Ad-free'
-    ],
-    gradient: 'from-red-600/10 via-red-600/5 to-transparent',
-    ariaLabel: 'Premium Streaming Services'
-  },
-  {
-    title: 'Learning Platforms',
-    icon: '📚',
-    features: [
-      'Coursera Plus Unlimited Access',
-      'edX Verified Certificates',
-      'Professional Skill Development',
-      'Industry-recognized Certifications'
-    ],
-    gradient: 'from-blue-500/10 via-blue-500/5 to-transparent',
-    ariaLabel: 'Educational Learning Platforms'
-  },
-]
+import { useData } from '../Context/DataContext'
 
 // Reusable Background Effects Component
 const BackgroundEffects = memo(() => (
@@ -164,6 +78,8 @@ const ServiceCard = memo(({ service }) => (
 ))
 
 const About = () => {
+  const { aboutStats, aboutServices } = useData();
+
   return (
     <section className="relative py-10 md:py-8" aria-label="About Premium Hub">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
@@ -183,13 +99,13 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {STATS.map((stat, index) => (
+              {aboutStats.map((stat, index) => (
                 <StatCard key={index} stat={stat} />
               ))}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              {SERVICES.map((service, index) => (
+              {aboutServices.map((service, index) => (
                 <ServiceCard key={index} service={service} />
               ))}
             </div>

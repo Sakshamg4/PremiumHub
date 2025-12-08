@@ -7,7 +7,6 @@ import LoadingFallback from './Components/LoadingFallback.jsx'
 import ScrollToTop from './Components/ScrollToTop'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-// import Testimonials from './Components/Testimonials' // Lazy loaded below
 
 // Lazy load all other components
 import Hero from './Components/Hero'
@@ -15,7 +14,6 @@ import LinkedInPlans from './Components/LinkedInPlans'
 const Testimonials = lazy(() => import('./Components/Testimonials'))
 
 // Lazy load all other components
-// const Hero = lazy(() => import('./Components/Hero')) // Removed lazy load for Hero
 const Services = lazy(() => import('./Components/Services'))
 const Plans = lazy(() => import('./Components/Plans'))
 const Contact = lazy(() => import('./Components/Contact'))

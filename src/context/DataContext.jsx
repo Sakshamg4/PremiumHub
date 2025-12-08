@@ -304,6 +304,92 @@ const LINKEDIN_PLANS = [
     }
 ];
 
+const ABOUT_STATS = [
+    {
+        number: '750+',
+        label: 'Active Members',
+        description: 'Growing community of digital professionals',
+        icon: '👥',
+        color: 'from-blue-500/10 via-blue-500/5 to-transparent',
+        ariaLabel: 'Active Members Statistics'
+    },
+    {
+        number: '90%',
+        label: 'Customer Satisfaction',
+        description: 'Based on verified user reviews',
+        icon: '⭐',
+        color: 'from-green-500/10 via-green-500/5 to-transparent',
+        ariaLabel: 'Customer Satisfaction Rate'
+    },
+    {
+        number: '9 AM to 12 AM',
+        label: 'Support Hours',
+        description: 'Fast WhatsApp response (IST)',
+        icon: '💬',
+        color: 'from-purple-500/10 via-purple-500/5 to-transparent',
+        ariaLabel: 'Support Hours Information'
+    },
+    {
+        number: '15+',
+        label: 'Countries',
+        description: 'International client network',
+        icon: '🌏',
+        color: 'from-red-500/10 via-red-500/5 to-transparent',
+        ariaLabel: 'Global Presence Statistics'
+    },
+];
+
+const ABOUT_SERVICES = [
+    {
+        title: 'LinkedIn Solutions',
+        icon: '💼',
+        features: [
+            'Premium Business & Career Plans',
+            'Advanced Sales Navigator Tools',
+            'Recruiter Lite Access',
+            'Professional Career Support'
+        ],
+        gradient: 'from-[#0077B5]/10 via-[#0077B5]/5 to-transparent',
+        ariaLabel: 'LinkedIn Professional Services'
+    },
+    {
+        title: 'Creative Tools',
+        icon: '🎨',
+        features: [
+            'Full Adobe Creative Cloud Suite',
+            'Canva Pro with Premium Assets',
+            'Autodesk Professional Apps',
+            'Exclusive Design Resources'
+        ],
+        gradient: 'from-purple-500/10 via-purple-500/5 to-transparent',
+        ariaLabel: 'Creative Design Tools'
+    },
+    {
+        title: 'Streaming Services',
+        icon: '🎬',
+        features: [
+            'Netflix Premium 4K HDR',
+            'Amazon Prime Video & Benefits',
+            'Disney+ Hotstar VIP',
+            'YouTube Premium Ad-free'
+        ],
+        gradient: 'from-red-600/10 via-red-600/5 to-transparent',
+        ariaLabel: 'Premium Streaming Services'
+    },
+    {
+        title: 'Learning Platforms',
+        icon: '📚',
+        features: [
+            'Coursera Plus Unlimited Access',
+            'edX Verified Certificates',
+            'Professional Skill Development',
+            'Industry-recognized Certifications'
+        ],
+        gradient: 'from-blue-500/10 via-blue-500/5 to-transparent',
+        ariaLabel: 'Educational Learning Platforms'
+    },
+];
+
 const CONTACT_INFO = {
     phone: "+91 9029151181",
     email: "premiumhubtools@gmail.com",
@@ -311,6 +397,74 @@ const CONTACT_INFO = {
     hours: "9 AM to 11 PM IST",
     location: "Global Business Support"
 };
+
+
+const FOOTER_LINKS = {
+    services: [
+        { label: 'LinkedIn Premium', href: '#services', icon: '💼' },
+        { label: 'Creative Tools', href: '#services', icon: '🎨' },
+        { label: 'OTT Platforms', href: '#services', icon: '🎬' },
+        { label: 'AI Solutions', href: '#services', icon: '🤖' }
+    ],
+    support: [
+        { label: 'WhatsApp Support', href: 'https://wa.me/9029151181', icon: '💬' },
+        { label: 'Join Community', href: '#contact', icon: '👥' },
+        { label: 'View Pricing', href: '#pricing', icon: '💎' },
+        { label: 'premiumhubtools@gmail.com', href: 'mailto:premiumhubtools@gmail.com', icon: '📧' }
+    ],
+    legal: [
+        { label: 'Privacy Policy', href: '/privacy-policy', isRoute: true, icon: '🔒' },
+        { label: 'Terms of Service', href: '/terms-and-conditions', isRoute: true, icon: '📜' },
+        { label: 'About Us', href: '#about', icon: 'ℹ️' }
+    ]
+};
+
+
+const WHATSAPP_CARDS = [
+    {
+        title: "Premium Hub Community",
+        description: "Join our exclusive community for premium digital tools and services. Get instant updates about:",
+        features: [
+            "LinkedIn Premium & Sales Navigator deals",
+            "Creative Cloud & Canva Pro offers",
+            "OTT Platform subscription updates",
+            "Early access to new services"
+        ],
+        icon: "💎",
+        link: "https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ",
+        bgGradient: "from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent",
+        borderHover: "hover:border-[#0A66C2]/50"
+    },
+    {
+        title: "XYLE OTT Group",
+        description: "Your gateway to premium streaming entertainment. Connect with us for:",
+        features: [
+            "Netflix, Prime & Hotstar updates",
+            "New releases & content alerts",
+            "Special streaming packages",
+            "Technical support & assistance"
+        ],
+        icon: "🎬",
+        link: "https://chat.whatsapp.com/IEka2OGQwHyKqlaBNClozP",
+        bgGradient: "from-red-600/10 via-red-600/5 to-transparent",
+        borderHover: "hover:border-red-500/50"
+    },
+    {
+        title: "Premium Channel",
+        description: "Network with professional LinkedIn content creators. Benefits include:",
+        features: [
+            "LinkedIn Career Plan",
+            "LinkedIn Business Plan",
+            "LinkedIn Sales Navigator",
+            "LinkedIn Recruiter Lite",
+            "LinkedIn Ads Credit",
+        ],
+        icon: "👔",
+        link: "https://whatsapp.com/channel/0029VbB09k77oQhiUpSCyt0w",
+        bgGradient: "from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent",
+        borderHover: "hover:border-[#0A66C2]/50"
+    }
+];
 
 // Create Context
 const DataContext = createContext();
@@ -324,7 +478,11 @@ export const DataProvider = ({ children }) => {
         services: SERVICES,
         testimonials: TESTIMONIALS,
         linkedInPlans: LINKEDIN_PLANS,
-        contactInfo: CONTACT_INFO
+        aboutStats: ABOUT_STATS,
+        aboutServices: ABOUT_SERVICES,
+        contactInfo: CONTACT_INFO,
+        footerLinks: FOOTER_LINKS,
+        whatsAppCards: WHATSAPP_CARDS
     }), []);
 
     return (
