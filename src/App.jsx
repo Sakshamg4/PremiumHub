@@ -7,6 +7,7 @@ import LoadingFallback from './Components/LoadingFallback.jsx'
 import ScrollToTop from './Components/ScrollToTop'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
+import PopupForm from './Components/PopupForm'
 
 // Lazy load all other components
 import Hero from './Components/Hero'
@@ -108,8 +109,10 @@ const App = () => {
             </div>
           </div>
 
+
           {/* Content */}
           <div className="relative">
+            <PopupForm />
             <Suspense fallback={null}>
               <Analytics />
             </Suspense>

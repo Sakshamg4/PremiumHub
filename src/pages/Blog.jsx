@@ -26,8 +26,6 @@ const BlogCard = memo(({ post }) => (
         <div className="flex-1 p-6 flex flex-col">
             <div className="flex items-center gap-3 text-xs text-[#64748b] mb-3">
                 <span>{post.date}</span>
-                <span>•</span>
-                <span>{post.readTime || '5 min read'}</span>
             </div>
 
             <h3 className="text-xl font-bold text-[#1e293b] mb-3 line-clamp-2 group-hover:text-[#9aa6b2] transition-colors">
@@ -40,7 +38,7 @@ const BlogCard = memo(({ post }) => (
 
             <div className="mt-auto pt-4 border-t border-[#bcccdc]/30 flex items-center justify-between">
                 <Link
-                    to={`/blog/${post.title}`}
+                    to={`/blog/${post.id}`}
                     className="text-sm font-semibold text-[#1e293b] hover:text-[#9aa6b2] transition-colors flex items-center gap-2"
                 >
                     Read Article
@@ -79,7 +77,6 @@ const Blog = () => {
                     excerpt: item.fields.excerpt,
                     category: item.fields.category,
                     date: new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    readTime: item.fields.readTime,
                     imageGradient: item.fields.imageGradient,
                     icon: item.fields.icon,
                     content: item.fields.content
@@ -142,7 +139,7 @@ const Blog = () => {
                             <Button
                                 href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
                                 variant="primary"
-                                className="justify-center"
+                                className="justify-center w-full sm:w-auto"
                             >
                                 Join WhatsApp Community
                             </Button>

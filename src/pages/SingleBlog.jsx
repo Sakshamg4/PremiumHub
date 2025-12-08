@@ -36,7 +36,7 @@ const SingleBlog = () => {
                 }
 
                 const entry = await client.getEntry(id)
-                
+
 
                 setPost({
                     id: entry.sys.id,
@@ -61,7 +61,7 @@ const SingleBlog = () => {
         window.scrollTo(0, 0)
     }, [id, navigate])
 
-    
+
 
 
     if (loading || !post) {
@@ -131,16 +131,19 @@ const SingleBlog = () => {
                         <p className="text-[#64748b] mb-8 max-w-2xl mx-auto">
                             Join our community to get more insights like this and exclusive access to premium tools.
                         </p>
-                        <Button
-                            href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
-                            variant="primary"
-                        >
-                            Join Discussion on WhatsApp
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button
+                                href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
+                                variant="primary"
+                                className="justify-center w-full sm:w-auto"
+                            >
+                                Join Discussion on WhatsApp
+                            </Button>
+                        </div>
                     </div>
                 </article>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
