@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 // Define Data Constants
 const MENU_ITEMS = [
@@ -494,9 +494,9 @@ export const DataProvider = ({ children }) => {
 
 // Custom Hook
 export const useData = () => {
-    const context = useContext(DataContext);
-    if (!context) {
+    const Context = useContext(DataContext);
+    if (!Context) {
         throw new Error('useData must be used within a DataProvider');
     }
-    return context;
+    return Context;
 };
