@@ -53,7 +53,7 @@ const LinkedInPlans = () => {
                     </span>
                     <h2 className="text-3xl md:text-5xl font-bold text-[#1e293b] mb-6 flex flex-col md:flex-row items-center justify-center gap-3">
                         <span>Unlock the Full Power of</span>
-                        <span className="text-[#0077b5] flex items-center gap-2">
+                        <span className="text-[#0077b5] flex items-center">
                             LinkedIn
                         </span>
                     </h2>
