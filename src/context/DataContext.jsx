@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo } from 'react';
+import { SiAdobe, SiCanva, SiLinkedin, SiNotion, SiGrammarly, SiCoursera, SiNetflix, SiGoogle } from 'react-icons/si';
 
 // Define Data Constants
 const MENU_ITEMS = [
@@ -306,7 +307,7 @@ const LINKEDIN_PLANS = [
 
 const ABOUT_STATS = [
     {
-        number: '750+',
+        number: '650+',
         label: 'Active Members',
         description: 'Growing community of digital professionals',
         icon: '👥',
@@ -466,6 +467,32 @@ const WHATSAPP_CARDS = [
     }
 ];
 
+const BRANDS = [
+    { name: 'LinkedIn', icon: <SiLinkedin /> },
+    { name: 'Adobe', icon: <SiAdobe /> },
+    { name: 'Canva', icon: <SiCanva /> },
+    { name: 'Notion', icon: <SiNotion /> },
+    { name: 'Grammarly', icon: <SiGrammarly /> },
+    { name: 'Coursera', icon: <SiCoursera /> },
+    { name: 'Netflix', icon: <SiNetflix /> },
+    { name: 'Gemini', icon: <SiGoogle /> },
+];
+
+const HERO_TYPE_SEQUENCE = [
+    'Adobe Creative',
+    1500,
+    'LinkedIn Premium',
+    1500,
+    'Canva Pro',
+    1500,
+    'Perplexity AI',
+    1500,
+    'You.com AI',
+    1500,
+    'Coursera Plus',
+    1500,
+];
+
 // Create Context
 const DataContext = createContext();
 
@@ -482,7 +509,9 @@ export const DataProvider = ({ children }) => {
         aboutServices: ABOUT_SERVICES,
         contactInfo: CONTACT_INFO,
         footerLinks: FOOTER_LINKS,
-        whatsAppCards: WHATSAPP_CARDS
+        whatsAppCards: WHATSAPP_CARDS,
+        brands: BRANDS,
+        heroTypeSequence: HERO_TYPE_SEQUENCE
     }), []);
 
     return (

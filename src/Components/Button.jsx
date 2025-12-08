@@ -2,10 +2,10 @@ import React, { memo } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const BUTTON_VARIANTS = {
-  primary: 'bg-[#9aa6b2] text-white border-[1px] border-[#9aa6b2] hover:bg-[#7e8c9d]',
-  secondary: 'bg-[#f8fafc] text-[#18181b] border-[1px] border-[#bcccdc] hover:bg-[#d9eafd]',
-  outline: 'bg-transparent border-[1px] border-[#9aa6b2] text-[#18181b] hover:bg-[#9aa6b2]/10',
-  gradient: 'bg-gradient-to-r from-[#9aa6b2] to-[#7e8c9d] text-white hover:from-[#7e8c9d] hover:to-[#64748b]'
+  primary: 'bg-blue-600 text-white border-[1px] border-blue-600 hover:bg-blue-700 hover:shadow-lg shadow-blue-500/20',
+  secondary: 'bg-white text-slate-700 border-[1px] border-slate-200 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 hover:shadow-md',
+  outline: 'bg-transparent border-[1px] border-blue-600 text-blue-600 hover:bg-blue-50',
+  gradient: 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white hover:shadow-lg shadow-indigo-500/30 hover:scale-[1.02]'
 }
 
 const Button = ({

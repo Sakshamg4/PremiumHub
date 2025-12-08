@@ -1,88 +1,119 @@
-import React, { memo, useCallback } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
-
-// Constants
-const TYPE_SEQUENCE = [
-  'Adobe Creative',
-  1500,
-  'LinkedIn Premium',
-  1500,
-  'Canva Pro',
-  1500,
-  'Preplexity AI',
-  1500,
-  'You.com AI',
-  1500,
-  'Coursera Plus',
-  1500,
-];
-
-const FEATURES = [
-  'Creative Tools',
-  'Business Apps',
-  'AI Solutions',
-  'Premium Support'
-];
+import { useData } from '../context/DataContext';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 // Reusable Components
-const FeatureCard = memo(({ feature }) => (
-  <div
-    className="border border-[#bcccdc]/80 bg-[#f8fafc]/20 backdrop-blur-sm rounded-lg p-3 
-      hover:border-[#9aa6b2]/50 hover:bg-[#d9eafd]/10 transition-all duration-300"
-  >
-    <span className="text-[#52525b] font-medium">{feature}</span>
-  </div>
-));
 
-const AnimatedTyping = memo(() => (
+const AnimatedTyping = memo(({ sequence }) => (
   <div className="h-[1.2em] w-full relative overflow-hidden">
     <TypeAnimation
-      sequence={TYPE_SEQUENCE}
+      sequence={sequence}
       wrapper="div"
       speed={50}
       repeat={Infinity}
-      className="text-[#1e293b] absolute left-1/2 -translate-x-1/2 min-w-max font-bold"
+      className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 absolute left-1/2 -translate-x-1/2 min-w-max font-bold pb-2"
       cursor={true}
       deletionSpeed={50}
     />
   </div>
 ));
 
-const TrustIndicators = memo(() => (
-  <div className="pt-8 border-t border-[#bcccdc]/50">
-    <p className="text-[#52525b] text-sm font-medium">
-      Trusted by 750+ happy customers worldwide
-    </p>
-    <p className="flex items-center justify-center gap-2 mt-2">
-      <span className="text-yellow-500">⭐️⭐️⭐️⭐️</span>
-      <span className="text-[#52525b] font-medium">4.5/5 Customer Rating</span>
+const TrustIndicators = memo(({ activeMembers }) => (
+  <div className="pt-8 border-t border-[#bcccdc]/50 flex flex-col items-center justify-center gap-4">
+    <div className="flex items-center gap-4">
+      {/* Avatar Stack */}
+      <div className="flex -space-x-3">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="w-10 h-10 rounded-full border-2 border-white relative overflow-hidden shadow-sm">
+            <img
+              src={`https://i.pravatar.cc/100?img=${i + 10}`}
+              alt={`User ${i}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+        <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600 shadow-sm relative z-10">
+          {activeMembers}
+        </div>
+      </div>
+
+      {/* Text & Stars */}
+      <div className="flex flex-col items-start">
+        <div className="flex text-amber-400 gap-0.5 text-sm">
+          <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />
+        </div>
+        <p className="text-slate-600 text-sm font-semibold">
+          Happy Customers
+        </p>
+      </div>
+    </div>
+    <p className="text-slate-500 text-xs font-medium">
+      Rated 4.8/5 by professionals worldwide
     </p>
   </div>
 ));
 
 const CTAButtons = memo(({ onExplore }) => (
-  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-2">
     <Button
-      variant="primary"
+      variant="gradient"
       onClick={onExplore}
-      className="bg-[#9aa6b2] hover:bg-[#7e8c9d] text-white transition-all duration-300"
+      className="min-w-[160px] justify-center"
+      icon={null}
+      showIcon={false}
     >
       Explore Plans
     </Button>
     <Button
       variant="secondary"
       href="https://wa.me/9029151181"
-      className="border border-[#bcccdc] hover:border-[#9aa6b2]/50 hover:bg-[#d9eafd]/10 text-[#52525b] hover:text-[#18181b] transition-all duration-300"
+      className="min-w-[160px] justify-center"
     >
       Get Started
     </Button>
   </div>
 ));
 
+const BrandMarquee = memo(({ brands }) => (
+  <div className="w-full relative overflow-hidden py-10" style={{ maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)' }}>
+    <div className="flex w-max animate-scroll">
+      {[...brands, ...brands, ...brands].map((brand, idx) => (
+        <div key={idx} className="flex flex-col items-center justify-center gap-2 mx-8 text-[#64748b] hover:text-[#0077b5] transition-colors duration-300 group cursor-default">
+          <div className="text-3xl md:text-4xl transform group-hover:scale-110 transition-transform duration-300">
+            {brand.icon}
+          </div>
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-6">
+            {brand.name}
+          </span>
+        </div>
+      ))}
+    </div>
+    <style>{`
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-33.33%); }
+      }
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
+    `}</style>
+  </div>
+));
+
 const Hero = () => {
   const navigate = useNavigate();
+  const { services, brands, heroTypeSequence, aboutStats } = useData();
+
+  // Find active members count or default to 750+
+  const activeMembers = useMemo(() => {
+    return aboutStats?.find(s => s.label === 'Active Members')?.number || '750+';
+  }, [aboutStats]);
 
   const handleNavClick = useCallback((href) => {
     if (href.startsWith('#')) {
@@ -108,7 +139,10 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="relative border-[1px] border-[#bcccdc]/50 rounded-xl p-8 md:p-12 overflow-hidden">
           {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#d9eafd]/30 via-[#f8fafc] to-[#bcccdc]/20" />
+          <div className="absolute inset-0 bg-[#f8fafc]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#d9eafd_0%,transparent_75%)] opacity-60" />
+          <div className="absolute top-[20%] -right-[10%] w-[60%] h-[80%] bg-[radial-gradient(circle_at_center,#bcccdc_0%,transparent_70%)] opacity-30 blur-3xl" />
+          <div className="absolute top-[10%] -left-[10%] w-[50%] h-[80%] bg-[radial-gradient(circle_at_center,#9aa6b2_0%,transparent_70%)] opacity-15 blur-3xl" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9aa6b2]/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9aa6b2]/20 to-transparent" />
 
@@ -116,18 +150,35 @@ const Hero = () => {
             {/* Main Heading */}
             <div className="space-y-4">
               <div className="flex justify-center">
-                <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-[#d9eafd]/10 via-[#bcccdc]/10 to-[#9aa6b2]/10 border border-[#9aa6b2]/20 shadow-sm">
-                  <svg className="w-5 h-5 text-[#18181b]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l-1.414-1.414M6.05 6.05L4.636 4.636" />
-                  </svg>
-                  <span className="text-xl md:text-2xl font-bold text-[#18181b] tracking-wide drop-shadow-sm">
-                    Premium Hub
-                  </span>
-                </span>
+                <div className="relative group cursor-default">
+                  {/* Outer Glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-200 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500 group-hover:duration-200" />
+
+                  {/* Beam Container */}
+                  <div className="relative overflow-hidden rounded-full p-[1px]">
+                    {/* Spinning Beam */}
+                    <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F1F5F9_0%,#3B82F6_50%,#F1F5F9_100%)]" />
+
+                    {/* Badge Content */}
+                    <div className="relative inline-flex items-center gap-3 px-4 py-2 bg-white/95 backdrop-blur-xl rounded-full">
+                      {/* Icon */}
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-tr from-slate-100 to-slate-50 border border-slate-100 shadow-sm text-yellow-500">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      </span>
+
+                      {/* Text */}
+                      <span className="text-md md:text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 tracking-tight">
+                        Premium Hub Tools
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight flex flex-col items-center gap-2">
                 <span className="text-[#18181b]">Your One-Stop Destination for</span>
-                <AnimatedTyping />
+                <AnimatedTyping sequence={heroTypeSequence} />
               </h1>
             </div>
 
@@ -137,18 +188,27 @@ const Hero = () => {
               at unbeatable prices.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-              {FEATURES.map((feature, index) => (
-                <FeatureCard key={index} feature={feature} />
+            {/* Light Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {services.slice(0, 4).map((service, index) => (
+                <div
+                  key={index}
+                  className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/40 backdrop-blur-md border border-slate-200/50 rounded-full text-sm font-medium text-slate-600 hover:bg-white/80 hover:text-blue-600 hover:border-blue-100 transition-all duration-300 cursor-default"
+                >
+                  <span className="text-lg opacity-80">{service.icon}</span>
+                  {service.title}
+                </div>
               ))}
             </div>
 
             {/* CTA Section */}
             <CTAButtons onExplore={() => handleNavClick('#pricing')} />
 
+            {/* Brands Marquee */}
+            <BrandMarquee brands={brands} />
+
             {/* Trust Indicators */}
-            <TrustIndicators />
+            <TrustIndicators activeMembers={activeMembers} />
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const FeatureItem = memo(({ text }) => (
 ));
 
 const PlanCard = memo(({ plan }) => (
-    <div className="group relative bg-white/50 backdrop-blur-sm border border-[#bcccdc]/60 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+    <div className={`group relative bg-[#0077b5]/5 backdrop-blur-sm border border-[#0077b5]/20 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full hover:bg-[#0077b5]/10`}>
         {/* Top Accent Line */}
         <div className={`absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl ${plan.bgColor}`} />
 
@@ -34,8 +34,7 @@ const PlanCard = memo(({ plan }) => (
             href="https://wa.me/9029151181"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-3 rounded-xl font-semibold text-center transition-all duration-300 
-                bg-[#9aa6b2] text-white hover:bg-[#7e8c9d] hover:shadow-lg"
+            className={`w-full py-3 rounded-xl font-semibold text-center transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] ${plan.bgColor} hover:brightness-110`}
         >
             Get Started
         </a>
