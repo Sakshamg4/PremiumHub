@@ -225,21 +225,21 @@ const TESTIMONIALS = [
         name: "Rahul Sharma",
         role: "Digital Marketer",
         feedback: "Premium Hub has completely transformed my workflow. The LinkedIn Sales Navigator plan is a game-changer for lead generation. Highly recommended!",
-        image: "https://placehold.co/300x600/18181b/FFF?text=Client+Feedback+1"
+        image: "https://placehold.co/300x600/18181b/FFF?text=Feedback-Coming"
     },
     {
         id: 2,
         name: "Priya Patel",
         role: "Graphic Designer",
         feedback: "Getting the full Adobe Creative Cloud suite at this price is unbelievable. The access is stable, genuine, and the support team is super responsive.",
-        image: "https://placehold.co/300x600/18181b/FFF?text=Client+Feedback+2"
+        image: "https://placehold.co/300x600/18181b/FFF?text=Feedback-Coming"
     },
     {
         id: 3,
         name: "Amit Kumar",
         role: "Software Engineer",
         feedback: "I use the GitHub Copilot and JetBrains pack daily. It saves me so much money compared to buying individual subscriptions. 10/10 service!",
-        image: "https://placehold.co/300x600/18181b/FFF?text=Client+Feedback+3"
+        image: "https://placehold.co/300x600/18181b/FFF?text=Feedback-Coming"
     }
 ];
 
