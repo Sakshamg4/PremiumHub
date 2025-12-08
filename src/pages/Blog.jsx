@@ -108,7 +108,7 @@ const Blog = () => {
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold text-[#1e293b] mb-6">
-                        Latest Updates & <span className="text-[#9aa6b2]">Insights</span>
+                        Latest Updates & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">Insights</span>
                     </h1>
                     <p className="text-lg text-[#64748b] leading-relaxed">
                         Stay ahead of the curve with our expert analysis, tips, and guides on premium digital tools,
