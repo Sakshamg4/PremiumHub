@@ -2,7 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { DataProvider } from './Context/DataContext'
+import { DataProvider } from './context/DataContext'
 
 // Initialize app
 const initApp = () => {

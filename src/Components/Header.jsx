@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, memo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Button from './Button'
 
-import { useData } from '../Context/DataContext'
+import { useData } from '../context/DataContext'
 
 // Reusable Components
 const Logo = memo(() => (

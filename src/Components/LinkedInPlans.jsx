@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
-import { useData } from '../Context/DataContext';
+import { useData } from '../context/DataContext';
 
 const FeatureItem = memo(({ text }) => (
     <div className="flex items-start gap-3 text-sm text-[#52525b]">

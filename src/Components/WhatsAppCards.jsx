@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Button from './Button';
-import { useData } from '../Context/DataContext';
+import { useData } from '../context/DataContext';
 
 // Reusable Components
 const FeatureItem = memo(({ feature }) => (

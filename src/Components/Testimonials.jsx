@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { memo } from 'react';
-import { useData } from '../Context/DataContext';
+import { useData } from '../context/DataContext';
 
 const Testimonials = () => {
     const { testimonials } = useData();

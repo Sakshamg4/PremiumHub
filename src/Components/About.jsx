@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import CTAButton from './CTAButton'
-import { useData } from '../Context/DataContext'
+import { useData } from '../context/DataContext'
 
 // Reusable Background Effects Component
 const BackgroundEffects = memo(() => (

@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useData } from '../Context/DataContext'
+import { useData } from '../context/DataContext'
 
 // Reusable Components
 const SocialIcon = memo(({ href, icon, className }) => (

@@ -494,9 +494,9 @@ export const DataProvider = ({ children }) => {
 
 // Custom Hook
 export const useData = () => {
-    const Context = useContext(DataContext);
-    if (!Context) {
+    const context = useContext(DataContext);
+    if (!context) {
         throw new Error('useData must be used within a DataProvider');
     }
-    return Context;
+    return context;
 };

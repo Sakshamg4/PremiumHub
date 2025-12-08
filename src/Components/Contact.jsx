@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { useData } from '../Context/DataContext';
+import { useData } from '../context/DataContext';
 
 // Reusable Feature Item Component
 const FeatureItem = memo(({ text }) => (

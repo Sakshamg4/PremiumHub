@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from 'react'
 import Button from './Button'
 import CTAButton from './CTAButton'
-import { useData } from '../Context/DataContext'
+import { useData } from '../context/DataContext'
 
 const Plans = () => {
   const { pricingPlans } = useData();
