@@ -10,21 +10,22 @@ import Footer from './Components/Footer'
 import PopupForm from './Components/PopupForm'
 
 // Lazy load all other components
+// Direct imports to prevent scroll layout shifts
 import Hero from './Components/Hero'
 import LinkedInPlans from './Components/LinkedInPlans'
-const Testimonials = lazy(() => import('./Components/Testimonials'))
+import Services from './Components/Services'
+import Plans from './Components/Plans'
+import Testimonials from './Components/Testimonials'
+import Contact from './Components/Contact'
+import About from './Components/About'
+import WhatsAppCards from './Components/WhatsAppCards'
 
-// Lazy load all other components
-const Services = lazy(() => import('./Components/Services'))
-const Plans = lazy(() => import('./Components/Plans'))
-const Contact = lazy(() => import('./Components/Contact'))
-const About = lazy(() => import('./Components/About'))
-const WhatsAppCards = lazy(() => import('./Components/WhatsAppCards'))
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
-const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'))
-const NotFound = lazy(() => import('./pages/NotFound'))
-const Blog = lazy(() => import('./pages/Blog'))
-const SingleBlog = lazy(() => import('./pages/SingleBlog'))
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
+import NotFound from './pages/NotFound'
+import Blog from './pages/Blog'
+import SingleBlog from './pages/SingleBlog'
+
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
   default: mod.Analytics
 })))
@@ -40,32 +41,20 @@ const HomePage = React.memo(() => (
       <LinkedInPlans />
     </div>
     <div id="services" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
-        <Services />
-      </Suspense>
+      <Services />
     </div>
     <div id="pricing" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
-        <Plans />
-      </Suspense>
+      <Plans />
     </div>
     <div id="testimonials" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
-        <Testimonials />
-      </Suspense>
+      <Testimonials />
     </div>
     <div id="contact" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
-        <Contact />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <WhatsAppCards />
-      </Suspense>
+      <Contact />
+      <WhatsAppCards />
     </div>
     <div id="about" className="w-full">
-      <Suspense fallback={<LoadingFallback />}>
-        <About />
-      </Suspense>
+      <About />
     </div>
   </main>
 ))
@@ -95,15 +84,15 @@ const App = () => {
         <ScrollToTop />
         <div className="min-h-screen bg-[#f8fafc] text-[#334155] selection:bg-[#bcccdc] selection:text-[#1e293b] flex flex-col">
           {/* Background Effects */}
-          <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03]">
+          <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]">
             {/* Base gradient */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f8fafc,#d9eafd)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f8fafc,#d9eafd)] pointer-events-none" />
 
             {/* Subtle noise texture */}
-            <div className="absolute inset-0 opacity-[0.4]" />
+            <div className="absolute inset-0 opacity-[0.4] pointer-events-none" />
 
             {/* Accent colors */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(154,166,178,0.1),transparent_40%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(188,204,220,0.1),transparent_40%)]" />
             </div>
@@ -111,7 +100,7 @@ const App = () => {
 
 
           {/* Content */}
-          <div className="relative">
+          <div className="relative z-10 flex-1 flex flex-col">
             <PopupForm />
             <Suspense fallback={null}>
               <Analytics />

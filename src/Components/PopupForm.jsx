@@ -1,74 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { FaTimes, FaWhatsapp } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaTimes, FaWhatsapp, FaCommentDots } from 'react-icons/fa';
 import ContactForm from './ContactForm';
 
 const PopupForm = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        // Show popup after 3 seconds
-        const timer = setTimeout(() => {
-            // Check session storage to prevent showing too often in one session
-            const hasSeenPopup = sessionStorage.getItem('activePopupSeen');
-            if (!hasSeenPopup) {
-                setIsVisible(true);
-            }
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    const handleClose = () => {
-        setIsVisible(false);
-        sessionStorage.setItem('activePopupSeen', 'true');
-    };
-
-    if (!isVisible) return null;
+    const toggleOpen = () => setIsOpen(!isOpen);
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-            {/* Backdrop */}
+        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4">
+            {/* Form Container */}
             <div
-                className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300"
-                onClick={handleClose}
-            />
-
-            {/* Modal Card */}
-            <div className="relative w-full max-w-md bg-white/90 backdrop-blur-xl border border-white/50 shadow-2xl rounded-2xl p-8 overflow-hidden animate-[fadeInUp_0.5s_ease-out]">
-                {/* Close Button */}
-                <button
-                    onClick={handleClose}
-                    className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors p-1 hover:bg-slate-100 rounded-full"
-                >
-                    <FaTimes className="w-4 h-4" />
-                </button>
-
-                {/* Header Content */}
-                <div className="text-center mb-6">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-50 text-blue-600 mb-4 shadow-sm border border-blue-100">
-                        <FaWhatsapp className="w-6 h-6" />
+                className={`
+                    origin-bottom-right transition-all duration-300 ease-in-out
+                    ${isOpen ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 translate-y-4 pointer-events-none'}
+                    w-[90vw] max-w-[400px]
+                    bg-white/90 backdrop-blur-xl border border-white/50 shadow-2xl rounded-2xl overflow-hidden
+                `}
+            >
+                {/* Header */}
+                <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <FaWhatsapp className="w-24 h-24" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Join Premium Hub</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
-                        Unlock exclusive deals on AI tools, LinkedIn Premium, and OTT subscriptions.
+
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+                    >
+                        <FaTimes className="w-5 h-5" />
+                    </button>
+
+                    <h3 className="text-xl font-bold mb-2 relative z-10">Contact Support</h3>
+                    <p className="text-blue-100 text-sm relative z-10">
+                        Have a question? We'd love to help!
                     </p>
                 </div>
 
-                {/* Form */}
-                <ContactForm onSuccess={handleClose} />
-
-                <p className="text-xs text-center text-slate-400 mt-5 font-medium">
-                    Join 750+ professionals. No spam, ever.
-                </p>
+                {/* Body */}
+                <div className="p-6">
+                    <ContactForm onSuccess={() => setIsOpen(false)} />
+                    <p className="text-xs text-center text-slate-400 mt-4 font-medium">
+                        Typical reply time: 2-4 hours
+                    </p>
+                </div>
             </div>
 
-            {/* Animation Keyframes */}
-            <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
+            {/* Toggle Button */}
+            <button
+                onClick={toggleOpen}
+                className={`
+                    group flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl
+                    transition-all duration-300 transform hover:scale-105 active:scale-95
+                    ${isOpen ? 'bg-slate-800 rotate-90' : 'bg-gradient-to-r from-blue-600 to-indigo-600'}
+                    text-white
+                `}
+                aria-label="Toggle Contact Form"
+            >
+                {isOpen ? (
+                    <FaTimes className="w-6 h-6" />
+                ) : (
+                    <FaCommentDots className="w-7 h-7" />
+                )}
+            </button>
         </div>
     );
 };

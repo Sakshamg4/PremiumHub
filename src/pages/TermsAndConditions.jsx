@@ -13,47 +13,51 @@ const TermsAndConditions = () => {
   const sections = [
     {
       title: "1. Services",
-      content: "Premium Hub provides LinkedIn advertising and marketing services. By using our services, you agree to comply with and be bound by these terms.",
+      content: "Premium Hub provides access to premium digital tools, AI software subscriptions, LinkedIn Premium upgrades, and OTT entertainment platforms at affordable prices.",
       type: "paragraph"
     },
     {
-      title: "2. Payment Terms",
+      title: "2. Payment & Subscription",
       content: [
-        "All fees are payable in advance",
-        "Refunds are subject to our refund policy",
-        "Late payments may result in service suspension",
-        "Prices are subject to change with notice"
+        "All payments are one-time for the specific duration mentioned",
+        "Prices are strictly non-negotiable",
+        "Instant access is provided upon successful payment verification",
+        "Subscription validity equals the warranty period designated for each product"
       ],
       type: "list"
     },
     {
-      title: "3. Client Responsibilities",
+      title: "3. User Responsibilities",
       content: [
-        "Provide accurate campaign information",
-        "Maintain active LinkedIn accounts",
-        "Respond to service-related communications",
-        "Comply with LinkedIn's advertising policies"
+        "Do not change details (Email/Password/Profiles) of shared accounts",
+        "Use services for personal purposes only; resale is prohibited unless authorized",
+        "Report issues immediately to support for quick resolution"
       ],
       type: "list"
     },
     {
-      title: "4. Service Limitations",
-      content: "We do not guarantee specific results from advertising campaigns. Results may vary based on multiple factors including market conditions, target audience, and campaign content.",
-      type: "paragraph"
+      title: "4. Warranty & Refunds",
+      content: [
+        "We offer a full warranty for the duration of your plan",
+        "If an account stops working, we provide a replacement immediately",
+        "Refunds are only processed if we are unable to provide a working replacement",
+        "No refunds for 'change of mind' after purchase"
+      ],
+      type: "list"
     },
     {
       title: "5. Intellectual Property",
-      content: "All materials, strategies, and content created by Premium Hub remain our intellectual property unless explicitly stated otherwise in writing.",
+      content: "All content provided remains the property of the respective service providers. Premium Hub acts as a reseller/facilitator.",
       type: "paragraph"
     },
     {
-      title: "6. Termination",
-      content: "Either party may terminate services with 30 days written notice. Prepaid fees may be refundable according to our refund policy.",
+      title: "6. Service Availability",
+      content: "While we strive for 100% uptime, occasional downtime from the primary service providers (e.g., LinkedIn, Netflix) is beyond our control.",
       type: "paragraph"
     },
     {
-      title: "7. Limitation of Liability",
-      content: "Premium Hub's liability shall be limited to the amount paid for services in the previous 12 months.",
+      title: "7. Termination",
+      content: "Violation of terms, such as changing account credentials, will result in immediate termination of service without refund.",
       type: "paragraph"
     }
   ]
@@ -65,7 +69,7 @@ const TermsAndConditions = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#1e293b]">Terms and Conditions</h1>
-            <p className="text-[#64748b]">Last updated: March 2024</p>
+            <p className="text-[#64748b]">Last updated: December 2024</p>
           </div>
 
           {/* Terms Content */}
