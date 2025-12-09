@@ -15,6 +15,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ['@vercel/analytics'],
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          animations: ['framer-motion', 'lenis', '@studio-freight/lenis'],
+          content: ['contentful'],
+          ui: ['lucide-react', 'react-icons'],
+          utils: ['mongoose', 'nodemailer', 'express', 'cors']
+        }
+      }
     },
   },
   server: {

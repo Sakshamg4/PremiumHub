@@ -10,15 +10,16 @@ import Footer from './Components/Footer'
 import PopupForm from './Components/PopupForm'
 
 // Lazy load all other components
-// Direct imports to prevent scroll layout shifts
+// Direct imports for Hero to ensure LCP
 import Hero from './Components/Hero'
-import LinkedInPlans from './Components/LinkedInPlans'
-import Services from './Components/Services'
-import Plans from './Components/Plans'
-import Testimonials from './Components/Testimonials'
-import Contact from './Components/Contact'
-import About from './Components/About'
-import WhatsAppCards from './Components/WhatsAppCards'
+
+const LinkedInPlans = lazy(() => import('./Components/LinkedInPlans'))
+const Services = lazy(() => import('./Components/Services'))
+const Plans = lazy(() => import('./Components/Plans'))
+const Testimonials = lazy(() => import('./Components/Testimonials'))
+const Contact = lazy(() => import('./Components/Contact'))
+const About = lazy(() => import('./Components/About'))
+const WhatsAppCards = lazy(() => import('./Components/WhatsAppCards'))
 
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
@@ -37,25 +38,27 @@ const HomePage = React.memo(() => (
     <div id="home" className="w-full">
       <Hero />
     </div>
-    <div id="linkedin-plans" className="w-full">
-      <LinkedInPlans />
-    </div>
-    <div id="services" className="w-full">
-      <Services />
-    </div>
-    <div id="pricing" className="w-full">
-      <Plans />
-    </div>
-    <div id="testimonials" className="w-full">
-      <Testimonials />
-    </div>
-    <div id="contact" className="w-full">
-      <Contact />
-      <WhatsAppCards />
-    </div>
-    <div id="about" className="w-full">
-      <About />
-    </div>
+    <Suspense fallback={<div className="h-20" />}>
+      <div id="linkedin-plans" className="w-full">
+        <LinkedInPlans />
+      </div>
+      <div id="services" className="w-full">
+        <Services />
+      </div>
+      <div id="pricing" className="w-full">
+        <Plans />
+      </div>
+      <div id="testimonials" className="w-full">
+        <Testimonials />
+      </div>
+      <div id="contact" className="w-full">
+        <Contact />
+        <WhatsAppCards />
+      </div>
+      <div id="about" className="w-full">
+        <About />
+      </div>
+    </Suspense>
   </main>
 ))
 
