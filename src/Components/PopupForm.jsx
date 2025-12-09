@@ -5,15 +5,13 @@ import ContactForm from './ContactForm';
 const PopupForm = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Auto-open logic: Repeatedly open every 5-10 seconds if closed
+    // Auto-open logic: Open every 12 seconds if closed
     useEffect(() => {
         let timeout;
         if (!isOpen) {
-            // Random time between 5000ms (5s) and 10000ms (10s)
-            const randomTime = Math.random() * (10000 - 5000) + 5000;
             timeout = setTimeout(() => {
                 setIsOpen(true);
-            }, randomTime);
+            }, 12000);
         }
         return () => clearTimeout(timeout);
     }, [isOpen]);
