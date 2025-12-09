@@ -50,7 +50,7 @@ const PlanComparisonCard = memo(({ plan, originalPrice }) => (
 
         {/* Call to Action */}
         <a
-            href="https://wa.me/9029151181?text=Hi,%20I%20want%20to%20know%20the%20price%20for%20LinkedIn%20${plan.name}"
+            href={`https://wa.me/9029151181?text=Hi,%20I%20want%20to%20know%20the%20price%20for%20LinkedIn%20${plan.name}`}
             target="_blank"
             rel="noopener noreferrer"
             className={`w-full py-4 rounded-xl font-bold text-center text-white shadow-lg shadow-${plan.color.split('-')[1]}-500/20 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 ${plan.bgColor}`}
@@ -100,6 +100,90 @@ const LinkedInCompare = () => {
                             originalPrice={marketPrices[plan.name] || "$$$"}
                         />
                     ))}
+                </div>
+
+                {/* Detailed Comparison Table */}
+                <div className="max-w-6xl mx-auto mb-20 overflow-x-auto rounded-3xl border border-slate-200 shadow-xl bg-white">
+                    <table className="w-full min-w-[800px] text-left border-collapse">
+                        <thead>
+                            <tr className="bg-slate-50 border-b border-slate-200">
+                                <th className="p-6 text-sm font-bold text-slate-500 uppercase tracking-wider w-1/4 sticky left-0 bg-slate-50 z-10">Features</th>
+                                {linkedInPlans.map((plan, idx) => (
+                                    <th key={idx} className={`p-6 text-center w-[18%]`}>
+                                        <div className={`text-lg font-bold mb-1 ${plan.color}`}>{plan.name}</div>
+                                        <div className="text-xs text-slate-400 font-medium whitespace-nowrap">
+                                            {marketPrices[plan.name] || 'Custom'}
+                                        </div>
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                            {/* InMail Credits */}
+                            <tr className="hover:bg-slate-50/50 transition-colors">
+                                <td className="p-6 font-semibold text-slate-700 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">InMail Credits / Month</td>
+                                <td className="p-6 text-center text-slate-600">5</td>
+                                <td className="p-6 text-center text-slate-600 font-medium">15</td>
+                                <td className="p-6 text-center text-slate-800 font-bold bg-emerald-50/30">50</td>
+                                <td className="p-6 text-center text-slate-800 font-bold bg-purple-50/30">30</td>
+                            </tr>
+
+                            {/* Profile Views */}
+                            <tr className="hover:bg-slate-50/50 transition-colors">
+                                <td className="p-6 font-semibold text-slate-700 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">Who Viewed Your Profile</td>
+                                <td className="p-6 text-center text-slate-600">Last 90 Days</td>
+                                <td className="p-6 text-center text-slate-600">Last 365 Days</td>
+                                <td className="p-6 text-center text-slate-600">Last 365 Days</td>
+                                <td className="p-6 text-center text-slate-600">Last 365 Days</td>
+                            </tr>
+
+                            {/* Search */}
+                            <tr className="hover:bg-slate-50/50 transition-colors">
+                                <td className="p-6 font-semibold text-slate-700 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">Unlimited People Browsing</td>
+                                <td className="p-6 text-center">
+                                    <FaTimes className="w-5 h-5 text-slate-300 mx-auto" />
+                                </td>
+                                <td className="p-6 text-center">
+                                    <FaCheck className="w-5 h-5 text-green-500 mx-auto" />
+                                </td>
+                                <td className="p-6 text-center bg-emerald-50/30">
+                                    <FaCheck className="w-5 h-5 text-green-500 mx-auto" />
+                                </td>
+                                <td className="p-6 text-center bg-purple-50/30">
+                                    <FaCheck className="w-5 h-5 text-green-500 mx-auto" />
+                                </td>
+                            </tr>
+
+                            {/* Advanced Search */}
+                            <tr className="hover:bg-slate-50/50 transition-colors">
+                                <td className="p-6 font-semibold text-slate-700 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">Advanced Search Filters</td>
+                                <td className="p-6 text-center">
+                                    <FaTimes className="w-5 h-5 text-slate-300 mx-auto" />
+                                </td>
+                                <td className="p-6 text-center">
+                                    <FaTimes className="w-5 h-5 text-slate-300 mx-auto" />
+                                </td>
+                                <td className="p-6 text-center bg-emerald-50/30">
+                                    <span className="inline-block px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded">Lead & Account</span>
+                                </td>
+                                <td className="p-6 text-center bg-purple-50/30">
+                                    <span className="inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded">Candidate</span>
+                                </td>
+                            </tr>
+
+                            {/* Best For */}
+                            <tr className="bg-slate-50/80">
+                                <td className="p-6 font-bold text-slate-800 sticky left-0 bg-slate-50 z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">Best For</td>
+                                <td className="p-6 text-center text-sm font-medium text-slate-600">Job Seekers</td>
+                                <td className="p-6 text-center text-sm font-medium text-slate-600">Networking & Growth</td>
+                                <td className="p-6 text-center text-sm font-bold text-emerald-700 bg-emerald-50/30 relative">
+                                    <div className="absolute top-0 left-0 right-0 h-1 bg-emerald-500/20"></div>
+                                    Sales Professionals
+                                </td>
+                                <td className="p-6 text-center text-sm font-bold text-purple-700 bg-purple-50/30">Recruiters & HR</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 {/* Trust Indicators */}
