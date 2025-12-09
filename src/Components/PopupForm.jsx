@@ -8,7 +8,7 @@ const PopupForm = () => {
     const toggleOpen = () => setIsOpen(!isOpen);
 
     return (
-        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4">
+        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4 pointer-events-none">
             {/* Form Container */}
             <div
                 className={`
@@ -53,7 +53,7 @@ const PopupForm = () => {
                     group flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl
                     transition-all duration-300 transform hover:scale-105 active:scale-95
                     ${isOpen ? 'bg-slate-800 rotate-90' : 'bg-gradient-to-r from-blue-600 to-indigo-600'}
-                    text-white
+                    text-white pointer-events-auto
                 `}
                 aria-label="Toggle Contact Form"
             >

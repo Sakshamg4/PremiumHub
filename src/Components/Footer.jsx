@@ -20,7 +20,7 @@ const FooterLink = memo(({ item, onClick }) => {
     return (
       <Link
         to={item.href}
-        className="group flex items-center gap-3 text-[#52525b] hover:text-[#18181b] transition-colors duration-300 font-medium"
+        className="group relative z-50 pointer-events-auto flex items-center gap-3 text-[#52525b] hover:text-[#18181b] transition-colors duration-300 font-medium cursor-pointer"
       >
         <span className="text-lg group-hover:scale-110 transition-transform duration-300">
           {item.icon}
@@ -55,7 +55,9 @@ const FooterSection = memo(({ title, items, onNavClick }) => (
     <h4 className="text-lg font-bold text-[#1e293b]">{title}</h4>
     <ul className="space-y-3">
       {items.map((item) => (
-        <li key={item.label}>
+        <li key={item.label}
+          className="relative z-50 cursor-pointer"
+        >
           <FooterLink
             item={item}
             onClick={(e) => {
@@ -98,14 +100,14 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#f8fafc]">
       {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#f8fafc,#d9eafd)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(154,166,178,0.1),transparent_40%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(188,204,220,0.1),transparent_40%)]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9aa6b2]/20 to-transparent" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-50">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {/* Company Info */}
           <div className="space-y-6">
