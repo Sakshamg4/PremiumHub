@@ -5,17 +5,43 @@ import Button from './Button'
 import { useData } from '../context/DataContext'
 
 // Reusable Components
-const Logo = memo(() => (
-  <Link
-    to="/"
-    className="text-2xl font-bold text-[#1e293b] hover:text-[#9aa6b2] transition-all duration-300 
-      group flex items-center gap-1"
-    aria-label="Premium Hub Home"
-  >
-    Premium
-    <span className='text-[#9aa6b2] group-hover:text-[#1e293b] transition-all duration-300'>Hub</span>
-  </Link>
-));
+const Logo = memo(() => {
+  const [index, setIndex] = useState(0);
+  const words = ["Supplier", "Vendor", "Seller", "Reseller"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Link
+      to="/"
+      className="group flex flex-col leading-none select-none"
+      aria-label="Premium Hub Home"
+    >
+      <div className="flex items-center gap-0.5 text-2xl font-black tracking-tight text-slate-800">
+        Premium
+        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Hub</span>
+        <span className="text-blue-600">.</span>
+      </div>
+      <span
+        key={index}
+        className="text-[9px] font-bold tracking-[0.25em] text-slate-400 uppercase pl-[2px] animate-[fadeIn_0.5s_ease-in-out]"
+      >
+        {words[index]}
+      </span>
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-2px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </Link>
+  );
+});
 
 const MenuToggle = memo(({ isOpen, onClick }) => (
   <button
