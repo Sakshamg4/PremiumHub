@@ -25,7 +25,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Blog from './pages/Blog'
-import SingleBlog from './pages/SingleBlog'
+const SingleBlog = lazy(() => import('./pages/SingleBlog'))
+const LinkedInCompare = lazy(() => import('./pages/LinkedInCompare'))
 
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
   default: mod.Analytics
@@ -165,6 +166,16 @@ const App = () => {
                       <NotFound />
                     </Suspense>
                   </FullScreenLayout>
+                }
+              />
+              <Route
+                path="/linkedin-compare"
+                element={
+                  <MainLayout>
+                    <Suspense fallback={<LoadingFallback />}>
+                      <LinkedInCompare />
+                    </Suspense>
+                  </MainLayout>
                 }
               />
             </Routes>

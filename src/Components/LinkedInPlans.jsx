@@ -63,6 +63,18 @@ const LinkedInPlans = () => {
                     </p>
                 </div>
 
+                <div className="flex justify-center mb-12">
+                    <a
+                        href="/linkedin-compare"
+                        className="inline-flex items-center gap-2 bg-white border border-[#0077b5]/20 text-[#0077b5] px-6 py-3 rounded-full font-bold hover:bg-[#0077b5]/5 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                    >
+                        <span>⚖️ Compare Prices & Save</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                     {linkedInPlans.map((plan, index) => (
                         <PlanCard key={index} plan={plan} />
