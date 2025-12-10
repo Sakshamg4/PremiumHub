@@ -1,0 +1,24 @@
+# Premium Hub
+
+> Premium Digital Tools & Services for Every Need.
+
+Premium Hub offers top digital tools & services to boost productivity, creativity, and security—all in one easy-to-access platform. Access professional tools, LinkedIn Premium upgrades, and OTT entertainment platforms at unbeatable prices.
+
+## Main Pages
+
+- /: Home page featuring all services, plans, and contact info.
+- /blog: Latest updates and insights about digital tools and LinkedIn growth.
+- /privacy-policy: Our privacy policy.
+- /terms-and-conditions: Terms of service and usage guidelines.
+
+## Services
+
+- LinkedIn Premium Upgrades
+- OTT Platform Subscriptions
+- Digital productivity tools
+- AI Software subscriptions
+
+## Contact
+
+- WhatsApp Community: https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ
+- Support: https://premium-hub.homehelpexperts.shop/#contact
