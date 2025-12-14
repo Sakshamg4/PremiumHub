@@ -104,7 +104,7 @@ const PrivacyPolicy = () => {
             <div className="text-center pt-8">
               <Button
                 variant="primary"
-                href="https://wa.me/9029151181"
+                href="https://wa.me/919029151181"
               >
                 Need Help? Contact Support
               </Button>

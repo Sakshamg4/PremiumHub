@@ -73,7 +73,7 @@ const NotFound = () => {
               </Link>
               <Button
                 variant="outline"
-                href="https://wa.me/9029151181"
+                href="https://wa.me/919029151181"
                 className="hover:bg-[#f8fafc]/10 shadow-lg hover:shadow-xl text-[#1e293b] border-[#9aa6b2]"
                 aria-label="Contact support via WhatsApp"
               >

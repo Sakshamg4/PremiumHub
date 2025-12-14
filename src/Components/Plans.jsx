@@ -68,7 +68,7 @@ const Plans = () => {
 
         <Button
           variant="secondary"
-          href="https://wa.me/9029151181"
+          href="https://wa.me/919029151181"
           className={`w-full justify-center border border-[#bcccdc]/50 text-[#18181b] hover:text-[#18181b] ${plan.buttonClass}`}
         >
           Get Pricing

@@ -31,7 +31,7 @@ const PlanCard = memo(({ plan }) => (
         </div>
 
         <a
-            href="https://wa.me/9029151181"
+            href="https://wa.me/919029151181"
             target="_blank"
             rel="noopener noreferrer"
             className={`w-full py-3 rounded-xl font-semibold text-center transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] ${plan.bgColor} hover:brightness-110`}

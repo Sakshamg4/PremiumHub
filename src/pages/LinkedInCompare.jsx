@@ -50,7 +50,7 @@ const PlanComparisonCard = memo(({ plan, originalPrice }) => (
 
         {/* Call to Action */}
         <a
-            href={`https://wa.me/9029151181?text=Hi,%20I%20want%20to%20know%20the%20price%20for%20LinkedIn%20${plan.name}`}
+            href={`https://wa.me/919029151181?text=Hi,%20I%20want%20to%20know%20the%20price%20for%20LinkedIn%20${plan.name}`}
             target="_blank"
             rel="noopener noreferrer"
             className={`w-full py-4 rounded-xl font-bold text-center text-white shadow-lg shadow-${plan.color.split('-')[1]}-500/20 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 ${plan.bgColor}`}

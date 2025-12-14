@@ -15,7 +15,7 @@ const CTAButton = (props) => {
                 </p>
                 <Button
                     variant="primary"
-                    href="https://wa.me/9029151181"
+                    href="https://wa.me/919029151181"
                     className="bg-[#9aa6b2] hover:bg-[#7e8c9d] transition-all duration-300 inline-flex px-6"
                 >
                     Chat on WhatsApp

@@ -72,7 +72,7 @@ const CTAButtons = memo(({ onExplore }) => (
     </Button>
     <Button
       variant="secondary"
-      href="https://wa.me/9029151181"
+      href="https://wa.me/919029151181"
       className="min-w-[160px] justify-center"
     >
       Get Started

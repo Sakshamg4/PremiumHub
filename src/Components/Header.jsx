@@ -205,7 +205,7 @@ const Header = () => {
               </Button>
               <Button
                 variant="secondary"
-                href="https://wa.me/9029151181"
+                href="https://wa.me/919029151181"
                 className="hover:bg-[#d9eafd] text-[#64748b] hover:text-[#1e293b] transition-all duration-300
                   border border-[#bcccdc] hover:border-[#9aa6b2]"
               >
@@ -264,7 +264,7 @@ const Header = () => {
                 </Button>
                 <Button
                   variant="secondary"
-                  href="https://wa.me/9029151181"
+                  href="https://wa.me/919029151181"
                   className="w-full justify-center"
                 >
                   Chat
