@@ -32,6 +32,9 @@ const TrustIndicators = memo(({ activeMembers }) => (
               src={`https://i.pravatar.cc/100?img=${i + 10}`}
               alt={`User ${i}`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              width="40"
+              height="40"
             />
           </div>
         ))}
