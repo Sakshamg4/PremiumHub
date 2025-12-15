@@ -9,12 +9,21 @@ const BlogCard = memo(({ post }) => (
       rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
         {/* Image Placeholder / Gradient */}
-        <div className={`h-48 w-full bg-gradient-to-br ${post.imageGradient || 'from-blue-600/20 to-blue-400/20'} relative overflow-hidden group-hover:scale-105 transition-transform duration-500`}>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-6xl filter drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                    {post.icon || '📝'}
-                </span>
-            </div>
+        <div className="h-48 w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            {post.imageUrl ? (
+                <img
+                    src={post.imageUrl}
+                    alt={post.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+            ) : (
+                <div className={`absolute inset-0 bg-gradient-to-br ${post.imageGradient || 'from-blue-600/20 to-blue-400/20'} flex items-center justify-center`}>
+                    <span className="text-6xl filter drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                        {post.icon || '📝'}
+                    </span>
+                </div>
+            )}
+
             <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 text-xs font-semibold bg-white/90 text-[#1e293b] rounded-full shadow-sm">
                     {post.category || 'General'}
@@ -60,32 +69,43 @@ const Blog = () => {
             try {
                 // Check if credentials are set
                 if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID || !import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN) {
-                    console.warn('Contentful credentials not found. Using local data.')
-                    setPosts(LOCAL_POSTS)
+                    console.warn('Contentful credentials not found. Check .env file.')
                     setLoading(false)
                     return
                 }
 
+                console.log('Fetching posts from Contentful...');
                 const response = await client.getEntries({
-                    content_type: 'blogPost',
+                    content_type: 'premiumhub', // Updated to match the Content Type Name "Premiumhub" seen in screenshots (likely lowercase ID)
                     order: '-sys.createdAt'
                 })
+                console.log('Contentful Response:', response);
 
-                const formattedPosts = response.items.map(item => ({
-                    id: item.sys.id,
-                    title: item.fields.title,
-                    excerpt: item.fields.excerpt,
-                    category: item.fields.category,
-                    date: new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    imageGradient: item.fields.imageGradient,
-                    icon: item.fields.icon,
-                    content: item.fields.content
-                }))
+                const formattedPosts = response.items.map(item => {
+                    console.log('Processing item:', item);
+                    const featuredImage = item.fields.featuredImage?.[0]; // Assuming it's an array for "many files"
+                    const imageUrl = featuredImage?.fields?.file?.url;
 
+                    return {
+                        id: item.sys.id,
+                        title: item.fields.title,
+                        excerpt: item.fields.shortDescription,
+                        category: item.fields.category,
+                        date: item.fields.publishDate
+                            ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                            : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                        imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl) : null,
+                        imageGradient: 'from-blue-600/20 to-blue-400/20', // Fallback
+                        icon: '📝', // Fallback
+                        content: item.fields.mainContent
+                    }
+                })
+
+                console.log('Formatted Posts:', formattedPosts);
                 setPosts(formattedPosts)
             } catch (error) {
                 console.error('Error fetching posts from Contentful:', error)
-                setPosts(LOCAL_POSTS) // Fallback to local data on error
+                // setPosts([]) // Optional: clear posts or show error state
             } finally {
                 setLoading(false)
             }

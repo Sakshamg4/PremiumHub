@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Button from '../Components/Button'
 import { client } from '../lib/contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 
 const SingleBlog = () => {
     const { id } = useParams()
@@ -13,40 +15,28 @@ const SingleBlog = () => {
         const fetchPost = async () => {
             setLoading(true)
             try {
-                // Check if ID is numeric (local data)
-                if (!isNaN(id)) {
-                    const foundPost = LOCAL_POSTS.find(p => p.id === parseInt(id))
-                    if (foundPost) {
-                        setPost(foundPost)
-                    } else {
-                        navigate('/blog')
-                    }
-                    setLoading(false)
-                    return
-                }
-
-                // Try fetching from Contentful
                 if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID || !import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN) {
-                    // If no credentials and ID is not numeric, we can't find it locally (unless we assume local IDs are strings too, but they are numbers in the file)
-                    // But wait, if the user clicked a link from the Blog page which was populated by local data, the ID would be numeric.
-                    // If they clicked a link populated by Contentful, the ID would be a string.
-                    // So if we are here, and credentials are missing, we probably can't fetch it.
                     navigate('/blog')
                     return
                 }
 
                 const entry = await client.getEntry(id)
 
+                const featuredImage = entry.fields.featuredImage?.[0];
+                const imageUrl = featuredImage?.fields?.file?.url;
 
                 setPost({
                     id: entry.sys.id,
                     title: entry.fields.title,
-                    excerpt: entry.fields.excerpt,
+                    excerpt: entry.fields.shortDescription,
                     category: entry.fields.category,
-                    date: new Date(entry.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    imageGradient: entry.fields.imageGradient,
-                    icon: entry.fields.icon,
-                    content: entry.fields.content // Assuming this is HTML string or we render it appropriately. If Rich Text, we'd need a renderer.
+                    date: entry.fields.publishDate
+                        ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                        : new Date(entry.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                    imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl) : null,
+                    imageGradient: 'from-blue-600/20 to-blue-400/20',
+                    icon: '📝',
+                    content: entry.fields.mainContent
                 })
 
             } catch (error) {
@@ -61,15 +51,43 @@ const SingleBlog = () => {
         window.scrollTo(0, 0)
     }, [id, navigate])
 
-
-
-
     if (loading || !post) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#9aa6b2]"></div>
             </div>
         )
+    }
+
+    const richTextOptions = {
+        renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                const url = node.data.target.fields?.file?.url;
+                if (!url) return null;
+                return (
+                    <img
+                        src={`https:${url}`}
+                        alt={node.data.target.fields?.title || 'Blog Image'}
+                        className="w-full rounded-xl my-8 object-cover max-h-[500px]"
+                    />
+                );
+            },
+            [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-2xl md:text-3xl font-bold text-[#1e293b] mt-8 mb-4">{children}</h2>,
+            [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl md:text-2xl font-bold text-[#1e293b] mt-6 mb-3">{children}</h3>,
+            [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4 text-[#334155] leading-relaxed text-lg">{children}</p>,
+            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-2 text-[#334155]">{children}</ul>,
+            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-2 text-[#334155]">{children}</ol>,
+            [BLOCKS.QUOTE]: (node, children) => (
+                <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50/50 rounded-r-lg italic text-[#475569]">
+                    {children}
+                </blockquote>
+            ),
+            [INLINES.HYPERLINK]: (node, children) => (
+                <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">
+                    {children}
+                </a>
+            ),
+        }
     }
 
     return (
@@ -90,11 +108,23 @@ const SingleBlog = () => {
 
                 <article className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-2xl overflow-hidden shadow-sm">
                     {/* Hero Image / Header */}
-                    <div className={`h-64 md:h-96 w-full bg-gradient-to-br ${post.imageGradient || 'from-blue-600/20 to-blue-400/20'} relative flex items-center justify-center`}>
-                        <span className="text-8xl md:text-9xl filter drop-shadow-lg animate-pulse">
-                            {post.icon || '📝'}
-                        </span>
-                        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/50 to-transparent" />
+                    <div className="h-64 md:h-96 w-full relative overflow-hidden">
+                        {post.imageUrl ? (
+                            <>
+                                <img
+                                    src={post.imageUrl}
+                                    alt={post.title}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                            </>
+                        ) : (
+                            <div className={`w-full h-full bg-gradient-to-br ${post.imageGradient} flex items-center justify-center`}>
+                                <span className="text-8xl md:text-9xl filter drop-shadow-lg animate-pulse">
+                                    {post.icon}
+                                </span>
+                            </div>
+                        )}
                     </div>
 
                     <div className="p-8 md:p-12">
@@ -117,10 +147,9 @@ const SingleBlog = () => {
                         </h1>
 
                         {/* Content */}
-                        <div
-                            className="prose prose-lg max-w-none text-[#334155] prose-headings:text-[#1e293b] prose-a:text-[#9aa6b2] hover:prose-a:text-[#7e8c9d]"
-                            dangerouslySetInnerHTML={{ __html: post.content?.content?.[0]?.content?.[0]?.value }}
-                        />
+                        <div className="prose prose-lg max-w-none text-[#334155] prose-headings:text-[#1e293b] prose-a:text-blue-600">
+                            {documentToReactComponents(post.content, richTextOptions)}
+                        </div>
                     </div>
 
                     {/* Footer / CTA */}

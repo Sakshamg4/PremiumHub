@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.1.6",
+    "@contentful/rich-text-types": "^17.2.5",
     "@studio-freight/lenis": "^1.0.34",
     "@tailwindcss/vite": "^4.0.15",
     "@vercel/analytics": "^1.5.0",
