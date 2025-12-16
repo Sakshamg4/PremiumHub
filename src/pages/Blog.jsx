@@ -47,7 +47,7 @@ const BlogCard = memo(({ post }) => (
 
             <div className="mt-auto pt-4 border-t border-[#bcccdc]/30 flex items-center justify-between">
                 <Link
-                    to={`/blog/${post.id}`}
+                    to={`/blog/${post.slug || post.id}`}
                     className="text-sm font-semibold text-[#1e293b] hover:text-[#9aa6b2] transition-colors flex items-center gap-2"
                 >
                     Read Article
@@ -83,11 +83,12 @@ const Blog = () => {
 
                 const formattedPosts = response.items.map(item => {
                     console.log('Processing item:', item);
-                    const featuredImage = item.fields.featuredImage?.[0]; // Assuming it's an array for "many files"
+                    const featuredImage = item.fields.featuredImage?.[0]; // "Media, many files" is an array
                     const imageUrl = featuredImage?.fields?.file?.url;
 
                     return {
                         id: item.sys.id,
+                        slug: item.fields.slug, // Map the slug field
                         title: item.fields.title,
                         excerpt: item.fields.shortDescription,
                         category: item.fields.category,
@@ -95,8 +96,8 @@ const Blog = () => {
                             ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                             : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
                         imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl) : null,
-                        imageGradient: 'from-blue-600/20 to-blue-400/20', // Fallback
-                        icon: '📝', // Fallback
+                        imageGradient: 'from-blue-600/20 to-blue-400/20',
+                        icon: '📝',
                         content: item.fields.mainContent
                     }
                 })

@@ -20,10 +20,25 @@ const SingleBlog = () => {
                     return
                 }
 
-                const entry = await client.getEntry(id)
+                console.log(`Fetching post with slug: ${id}`);
+                const response = await client.getEntries({
+                    content_type: 'premiumhub',
+                    'fields.slug': id
+                });
 
-                const featuredImage = entry.fields.featuredImage?.[0];
+                if (!response.items.length) {
+                    console.warn(`No post found with slug: ${id}`);
+                    navigate('/blog');
+                    return;
+                }
+
+                const entry = response.items[0];
+                console.log('Post Entry:', entry);
+
+                const featuredImage = entry.fields.featuredImage?.[0]; // Access first image in "Many files" array
                 const imageUrl = featuredImage?.fields?.file?.url;
+                console.log('Featured Image Object:', featuredImage);
+                console.log('Image URL:', imageUrl);
 
                 setPost({
                     id: entry.sys.id,
@@ -41,6 +56,7 @@ const SingleBlog = () => {
 
             } catch (error) {
                 console.error('Error fetching post:', error)
+                // Try fallback to ID if slug lookup failed? Or assume 404
                 navigate('/blog')
             } finally {
                 setLoading(false)
