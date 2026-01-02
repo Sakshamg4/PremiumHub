@@ -20,7 +20,7 @@ const SingleBlog = () => {
                     return
                 }
 
-                console.log(`Fetching post with slug: ${id}`);
+
                 const response = await client.getEntries({
                     content_type: 'premiumhub',
                     'fields.slug': id
@@ -33,12 +33,9 @@ const SingleBlog = () => {
                 }
 
                 const entry = response.items[0];
-                console.log('Post Entry:', entry);
 
                 const featuredImage = entry.fields.featuredImage?.[0]; // Access first image in "Many files" array
                 const imageUrl = featuredImage?.fields?.file?.url;
-                console.log('Featured Image Object:', featuredImage);
-                console.log('Image URL:', imageUrl);
 
                 setPost({
                     id: entry.sys.id,

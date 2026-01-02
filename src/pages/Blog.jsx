@@ -4,7 +4,8 @@ import Button from '../Components/Button'
 import { client } from '../lib/contentful'
 
 const BlogCard = memo(({ post }) => (
-    <article
+    <Link
+        to={`/blog/${post.slug || post.id}`}
         className="group relative flex flex-col h-full bg-[#f8fafc]/50 backdrop-blur-sm border border-[#bcccdc]/50 
       rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
@@ -46,19 +47,84 @@ const BlogCard = memo(({ post }) => (
             </p>
 
             <div className="mt-auto pt-4 border-t border-[#bcccdc]/30 flex items-center justify-between">
-                <Link
-                    to={`/blog/${post.slug || post.id}`}
-                    className="text-sm font-semibold text-[#1e293b] hover:text-[#9aa6b2] transition-colors flex items-center gap-2"
-                >
+                <span className="text-sm font-semibold text-[#1e293b] group-hover:text-[#9aa6b2] transition-colors flex items-center gap-2">
                     Read Article
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                </Link>
+                </span>
             </div>
         </div>
-    </article>
+    </Link>
 ))
+
+const FeaturedBlogCard = memo(({ post }) => (
+    <Link
+        to={`/blog/${post.slug || post.id}`}
+        className="block w-full bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 mb-16 group"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Image Section - Left (or Top on mobile) */}
+            <div className="relative h-64 lg:h-auto overflow-hidden">
+                <div className="absolute top-6 left-6 z-10">
+                    <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider bg-blue-600/90 text-white rounded-full shadow-lg">
+                        Featured
+                    </span>
+                </div>
+                {post.imageUrl ? (
+                    <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${post.imageGradient || 'from-blue-600/20 to-blue-400/20'} flex items-center justify-center`}>
+                        <span className="text-8xl filter drop-shadow-lg opacity-50">{post.icon}</span>
+                    </div>
+                )}
+            </div>
+
+            {/* Content Section - Right (or Bottom on mobile) */}
+            <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="flex items-center gap-3 text-sm text-[#64748b] mb-4 font-medium">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">
+                        {post.category || 'General'}
+                    </span>
+                    <span>{post.date}</span>
+                </div>
+
+                <h2 className="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4 leading-tight group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                </h2>
+
+                <p className="text-[#64748b] text-sm lg:text-base leading-relaxed mb-8 line-clamp-3">
+                    {post.excerpt}
+                </p>
+
+                <div className="mt-auto flex items-center justify-between pt-6 border-t border-[#bcccdc]/30">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                            {post.author ? post.author[0] : 'P'}
+                        </div>
+                        <div>
+                            <p className="text-sm font-bold text-[#1e293b]">{post.author || 'PremiumHub Team'}</p>
+                            <p className="text-xs text-[#64748b]">5 min read</p>
+                        </div>
+                    </div>
+                    <span
+                        className="flex items-center gap-2 text-blue-600 font-semibold group-hover:text-blue-700 transition-colors"
+                    >
+                        Read Article
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </Link>
+))
+
 
 const Blog = () => {
     const [posts, setPosts] = useState([])
@@ -74,15 +140,12 @@ const Blog = () => {
                     return
                 }
 
-                console.log('Fetching posts from Contentful...');
                 const response = await client.getEntries({
                     content_type: 'premiumhub', // Updated to match the Content Type Name "Premiumhub" seen in screenshots (likely lowercase ID)
                     order: '-sys.createdAt'
                 })
-                console.log('Contentful Response:', response);
 
                 const formattedPosts = response.items.map(item => {
-                    console.log('Processing item:', item);
                     const featuredImage = item.fields.featuredImage?.[0]; // "Media, many files" is an array
                     const imageUrl = featuredImage?.fields?.file?.url;
 
@@ -92,6 +155,7 @@ const Blog = () => {
                         title: item.fields.title,
                         excerpt: item.fields.shortDescription,
                         category: item.fields.category,
+                        author: item.fields.author, // Map the author field
                         date: item.fields.publishDate
                             ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                             : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
@@ -102,7 +166,7 @@ const Blog = () => {
                     }
                 })
 
-                console.log('Formatted Posts:', formattedPosts);
+
                 setPosts(formattedPosts)
             } catch (error) {
                 console.error('Error fetching posts from Contentful:', error)
@@ -115,6 +179,9 @@ const Blog = () => {
         fetchPosts()
     }, [])
 
+    const featuredPost = posts[0];
+    const latestPosts = posts.slice(1);
+
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
@@ -126,26 +193,33 @@ const Blog = () => {
     return (
         <div className="min-h-screen py-24 bg-[#f8fafc]">
             <div className="container mx-auto px-4">
-                {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h1 className="text-4xl md:text-6xl font-bold text-[#1e293b] mb-6">
-                        Latest Updates & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">Insights</span>
-                    </h1>
-                    <p className="text-lg text-[#64748b] leading-relaxed">
-                        Stay ahead of the curve with our expert analysis, tips, and guides on premium digital tools,
-                        software solutions, and industry trends.
-                    </p>
-                </div>
 
-                {/* Featured Post (Optional - using first post as featured for now or just grid) */}
-                {/* Let's stick to a clean grid for now */}
 
-                {/* Blog Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    {posts.map((post) => (
-                        <BlogCard key={post.id} post={post} />
-                    ))}
-                </div>
+                {/* Featured Post */}
+                {featuredPost && (
+                    <section>
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="w-1.5 h-8 bg-blue-600 rounded-full"></span>
+                            <h2 className="text-2xl font-bold text-[#1e293b]">Featured Article</h2>
+                        </div>
+                        <FeaturedBlogCard post={featuredPost} />
+                    </section>
+                )}
+
+                {/* Latest Articles Grid */}
+                {latestPosts.length > 0 && (
+                    <section className="mb-16">
+                        <div className="flex items-center gap-3 mb-8">
+                            <span className="w-1.5 h-8 bg-blue-600 rounded-full"></span>
+                            <h2 className="text-2xl font-bold text-[#1e293b]">Latest Articles</h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {latestPosts.map((post) => (
+                                <BlogCard key={post.id} post={post} />
+                            ))}
+                        </div>
+                    </section>
+                )}
 
                 {/* Newsletter / CTA */}
                 <div className="relative rounded-3xl overflow-hidden bg-[#d9eafd]/30 border border-[#bcccdc]/50 p-8 md:p-12 text-center">
