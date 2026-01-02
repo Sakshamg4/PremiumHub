@@ -12,6 +12,7 @@ import PopupForm from './Components/PopupForm'
 // Lazy load all other components
 // Direct imports for Hero to ensure LCP
 import Hero from './Components/Hero'
+import ErrorBoundary from './Components/ErrorBoundary'
 
 const LinkedInPlans = lazy(() => import('./Components/LinkedInPlans'))
 const Services = lazy(() => import('./Components/Services'))
@@ -109,76 +110,78 @@ const App = () => {
             <Suspense fallback={null}>
               <Analytics />
             </Suspense>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <MainLayout>
-                    <HomePage />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/privacy-policy"
-                element={
-                  <MainLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <PrivacyPolicy />
-                    </Suspense>
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/terms-and-conditions"
-                element={
-                  <MainLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <TermsAndConditions />
-                    </Suspense>
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/blog"
-                element={
-                  <MainLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <Blog />
-                    </Suspense>
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/blog/:id"
-                element={
-                  <MainLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <SingleBlog />
-                    </Suspense>
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="*"
-                element={
-                  <FullScreenLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <NotFound />
-                    </Suspense>
-                  </FullScreenLayout>
-                }
-              />
-              <Route
-                path="/linkedin-compare"
-                element={
-                  <MainLayout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <LinkedInCompare />
-                    </Suspense>
-                  </MainLayout>
-                }
-              />
-            </Routes>
+            <ErrorBoundary>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <MainLayout>
+                      <HomePage />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/privacy-policy"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <PrivacyPolicy />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/terms-and-conditions"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <TermsAndConditions />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/blog"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <Blog />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/blog/:id"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <SingleBlog />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="*"
+                  element={
+                    <FullScreenLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <NotFound />
+                      </Suspense>
+                    </FullScreenLayout>
+                  }
+                />
+                <Route
+                  path="/linkedin-compare"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <LinkedInCompare />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+              </Routes>
+            </ErrorBoundary>
           </div>
         </div>
       </Router>

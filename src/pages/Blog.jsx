@@ -4,13 +4,17 @@ import Button from '../Components/Button'
 import { client } from '../lib/contentful'
 
 const BlogCard = memo(({ post }) => (
-    <Link
-        to={`/blog/${post.slug || post.id}`}
+    <article
         className="group relative flex flex-col h-full bg-[#f8fafc]/50 backdrop-blur-sm border border-[#bcccdc]/50 
       rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
+        <Link
+            to={`/blog/${post.slug || post.id}`}
+            className="absolute inset-0 z-0"
+            aria-label={`Read ${post.title}`}
+        />
         {/* Image Placeholder / Gradient */}
-        <div className="h-48 w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+        <div className="h-48 w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500 pointer-events-none">
             {post.imageUrl ? (
                 <img
                     src={post.imageUrl}
@@ -33,7 +37,7 @@ const BlogCard = memo(({ post }) => (
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6 flex flex-col">
+        <div className="flex-1 p-6 flex flex-col relative z-10 pointer-events-none">
             <div className="flex items-center gap-3 text-xs text-[#64748b] mb-3">
                 <span>{post.date}</span>
             </div>
@@ -55,15 +59,17 @@ const BlogCard = memo(({ post }) => (
                 </span>
             </div>
         </div>
-    </Link>
+    </article>
 ))
 
 const FeaturedBlogCard = memo(({ post }) => (
-    <Link
-        to={`/blog/${post.slug || post.id}`}
-        className="block w-full bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 mb-16 group"
-    >
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+    <div className="relative w-full bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 mb-16 group">
+        <Link
+            to={`/blog/${post.slug || post.id}`}
+            className="absolute inset-0 z-0"
+            aria-label={`Read ${post.title}`}
+        />
+        <div className="grid grid-cols-1 lg:grid-cols-2 pointer-events-none">
             {/* Image Section - Left (or Top on mobile) */}
             <div className="relative h-64 lg:h-auto overflow-hidden">
                 <div className="absolute top-6 left-6 z-10">
@@ -85,7 +91,7 @@ const FeaturedBlogCard = memo(({ post }) => (
             </div>
 
             {/* Content Section - Right (or Bottom on mobile) */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
+            <div className="p-8 lg:p-12 flex flex-col justify-center relative z-10">
                 <div className="flex items-center gap-3 text-sm text-[#64748b] mb-4 font-medium">
                     <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">
                         {post.category || 'General'}
@@ -122,7 +128,7 @@ const FeaturedBlogCard = memo(({ post }) => (
                 </div>
             </div>
         </div>
-    </Link>
+    </div>
 ))
 
 
@@ -155,7 +161,9 @@ const Blog = () => {
                         title: item.fields.title,
                         excerpt: item.fields.shortDescription,
                         category: item.fields.category,
-                        author: item.fields.author, // Map the author field
+                        author: typeof item.fields.author === 'object'
+                            ? (item.fields.author?.fields?.name || 'PremiumHub Team')
+                            : (item.fields.author || 'PremiumHub Team'),
                         date: item.fields.publishDate
                             ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                             : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
