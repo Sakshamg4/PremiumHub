@@ -18,19 +18,11 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-          animations: ['framer-motion', 'lenis', '@studio-freight/lenis'],
+          animations: ['framer-motion', 'lenis'],
           content: ['contentful'],
-          ui: ['lucide-react', 'react-icons']
+          ui: ['react-icons']
         }
       }
-    },
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      },
     },
   },
 })
