@@ -1,8 +1,46 @@
-import React, { memo, useCallback } from 'react'
+import React, { memo, useCallback, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useData } from '../context/DataContext'
 
 // Reusable Components
+const Logo = memo(() => {
+  const [index, setIndex] = useState(0);
+  const words = ["Supplier", "Vendor", "Seller", "Reseller"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Link
+      to="/"
+      className="group flex flex-col leading-none select-none"
+      aria-label="Premium Hub Home"
+    >
+      <div className="flex items-center gap-0.5 text-2xl font-black tracking-tight text-slate-800">
+        Premium
+        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Hub</span>
+        <span className="text-blue-600">.</span>
+      </div>
+      <span
+        key={index}
+        className="text-[9px] font-bold tracking-[0.25em] text-slate-400 uppercase pl-[2px] animate-[fadeIn_0.5s_ease-in-out]"
+      >
+        {words[index]}
+      </span>
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-2px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </Link>
+  );
+});
+
 const SocialIcon = memo(({ href, icon, className }) => (
   <a
     href={href}
@@ -111,16 +149,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {/* Company Info */}
           <div className="space-y-6">
-            <Link to="/" className="group inline-flex items-center gap-2">
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#1e293b] to-[#1e293b]/80 bg-clip-text text-transparent 
-                transition-all duration-300 group-hover:from-[#9aa6b2] group-hover:to-[#7e8c9d]">
-                Premium
-              </span>
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#9aa6b2] to-[#7e8c9d] bg-clip-text text-transparent
-                transition-all duration-300 group-hover:from-[#1e293b] group-hover:to-[#1e293b]/80">
-                Hub
-              </span>
-            </Link>
+            <Logo />
             <p className="text-[#52525b] leading-relaxed font-medium">
               Your trusted partner for premium digital solutions. Access professional tools and services at unbeatable prices.
             </p>

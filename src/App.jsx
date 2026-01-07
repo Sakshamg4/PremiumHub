@@ -27,7 +27,8 @@ import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Blog from './pages/Blog'
 const SingleBlog = lazy(() => import('./pages/SingleBlog'))
-const LinkedInCompare = lazy(() => import('./pages/LinkedInCompare'))
+
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
   default: mod.Analytics
@@ -141,6 +142,16 @@ const App = () => {
                   }
                 />
                 <Route
+                  path="/services/:id"
+                  element={
+                    <MainLayout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <ServiceDetail />
+                      </Suspense>
+                    </MainLayout>
+                  }
+                />
+                <Route
                   path="/blog"
                   element={
                     <MainLayout>
@@ -170,16 +181,7 @@ const App = () => {
                     </FullScreenLayout>
                   }
                 />
-                <Route
-                  path="/linkedin-compare"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <LinkedInCompare />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
+
               </Routes>
             </ErrorBoundary>
           </div>

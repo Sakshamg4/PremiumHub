@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 import { useData } from '../context/DataContext';
+import { Link } from 'react-router-dom';
+import { serviceDetails } from '../data/servicesData';
 
 // Reusable Components
 const Feature = memo(({ feature }) => (
@@ -87,6 +89,27 @@ const CTASection = memo(() => (
   </div>
 ));
 
+const PopularServices = memo(() => (
+  <div className="mb-12">
+    <h3 className="text-xl font-bold text-[#1e293b] text-center mb-6">Popular Services</h3>
+    <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+      {Object.values(serviceDetails).map((service) => {
+        const Icon = service.icon;
+        return (
+          <Link
+            key={service.id}
+            to={`/services/${service.id}`}
+            className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white rounded-full border border-[#bcccdc]/50 hover:border-[#9aa6b2] transition-all shadow-sm hover:shadow-md group"
+          >
+            <Icon className="w-5 h-5 text-slate-600 group-hover:text-slate-900" />
+            <span className="font-medium text-[#1e293b]">{service.title}</span>
+          </Link>
+        );
+      })}
+    </div>
+  </div>
+));
+
 const Services = () => {
   const { services } = useData();
   return (
@@ -99,6 +122,7 @@ const Services = () => {
 
           <div className="relative z-10">
             <ServicesHeader />
+            <PopularServices />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {services.map((service, index) => (

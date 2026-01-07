@@ -65,7 +65,7 @@ const LinkedInPlans = () => {
 
                 <div className="flex justify-center mb-12">
                     <a
-                        href="/linkedin-compare"
+                        href="/services/linkedin"
                         className="inline-flex items-center gap-2 bg-white border border-[#0077b5]/20 text-[#0077b5] px-6 py-3 rounded-full font-bold hover:bg-[#0077b5]/5 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
                     >
                         <span>⚖️ Compare Prices & Save</span>

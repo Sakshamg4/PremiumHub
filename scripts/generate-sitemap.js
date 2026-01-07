@@ -58,11 +58,15 @@ async function generateSitemap() {
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>${SITE_URL}/linkedin-compare</loc>
+
+  <!-- Services Pages -->
+${['linkedin', 'gemini', 'chatgpt', 'loveable', 'n8n', 'adobe', 'gamma', 'replit', 'bolt', 'notion']
+        .map(id => `  <url>
+    <loc>${SITE_URL}/services/${id}</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <priority>0.9</priority>
+  </url>`).join('\n')}
+
   <!-- Add other static pages here (e.g., about, contact) -->
 
   <!-- Dynamic Blog Posts -->
