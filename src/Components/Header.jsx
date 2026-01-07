@@ -271,7 +271,7 @@ const Header = () => {
 
   return (
     <header
-      className={`py-1 fixed w-full top-0 z-50 transition-all duration-300
+      className={`py-1 fixed w-full top-0 z-[999] transition-all duration-300
     ${isScrolled
           ? 'backdrop-blur-xl shadow-lg shadow-[#9aa6b2]/10 bg-[radial-gradient(circle_at_center,#f8fafc,#d9eafd)]'
           : 'bg-transparent backdrop-blur-sm'
