@@ -30,6 +30,12 @@
 
   <!-- Dynamic Blog Posts -->
   <url>
+    <loc>https://premiumhub.click/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
+    <lastmod>2026-01-07T05:55:27.925Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://premiumhub.click/blog/what-is-chatgpt-the-ai-tool-thats-changing-how-we-work</loc>
     <lastmod>2026-01-05T11:36:31.433Z</lastmod>
     <changefreq>weekly</changefreq>
