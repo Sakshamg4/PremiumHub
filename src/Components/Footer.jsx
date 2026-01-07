@@ -171,7 +171,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-[#bcccdc]/50">
           <div className="text-center space-y-4">
             <p className="text-[#52525b] font-medium">
-              © {currentYear} Premium<span className="text-[#9aa6b2]">Hub</span>. All rights reserved.
+              © {currentYear} <span className="text-slate-800 font-bold">Premium</span><span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-bold">Hub</span><span className="text-blue-600 font-bold">.</span> All rights reserved.
             </p>
             <p className="text-[#52525b] flex items-center justify-center gap-2 text-sm font-medium">
               Made with
