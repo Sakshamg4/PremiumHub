@@ -9,33 +9,33 @@ const ACCESS_TOKEN = process.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 const SITE_URL = process.env.VITE_SITE_URL || 'https://premiumhub.click';
 
 if (!SPACE_ID || !ACCESS_TOKEN) {
-    console.error('Error: VITE_CONTENTFUL_SPACE_ID or VITE_CONTENTFUL_ACCESS_TOKEN is missing.');
-    process.exit(1);
+  console.error('Error: VITE_CONTENTFUL_SPACE_ID or VITE_CONTENTFUL_ACCESS_TOKEN is missing.');
+  process.exit(1);
 }
 
 const client = createClient({
-    space: SPACE_ID,
-    accessToken: ACCESS_TOKEN,
+  space: SPACE_ID,
+  accessToken: ACCESS_TOKEN,
 });
 
 async function generateSitemap() {
-    try {
-        console.log('Generating sitemap...');
-        console.log(`Site URL: ${SITE_URL}`);
+  try {
+    console.log('Generating sitemap...');
+    console.log(`Site URL: ${SITE_URL}`);
 
-        // Fetch all blog posts
-        // Note: limit is 100 by default. If you have more, you need pagination.
-        // For now, we'll fetch up to 1000.
-        const response = await client.getEntries({
-            content_type: 'premiumhub',
-            limit: 1000,
-            select: 'fields.slug,sys.updatedAt',
-        });
+    // Fetch all blog posts
+    // Note: limit is 100 by default. If you have more, you need pagination.
+    // For now, we'll fetch up to 1000.
+    const response = await client.getEntries({
+      content_type: 'premiumhub',
+      limit: 1000,
+      select: 'fields.slug,sys.updatedAt',
+    });
 
-        const posts = response.items;
-        console.log(`Found ${posts.length} blog posts.`);
+    const posts = response.items;
+    console.log(`Found ${posts.length} blog posts.`);
 
-        const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Static Pages -->
   <url>
@@ -67,34 +67,34 @@ async function generateSitemap() {
 
   <!-- Dynamic Blog Posts -->
 ${posts
-                .filter(post => post.fields.slug) // Ensure slug exists
-                .map((post) => {
-                    const slug = post.fields.slug;
-                    const lastMod = new Date(post.sys.updatedAt).toISOString();
-                    return `  <url>
+        .filter(post => post.fields.slug) // Ensure slug exists
+        .map((post) => {
+          const slug = post.fields.slug;
+          const lastMod = new Date(post.sys.updatedAt).toISOString();
+          return `  <url>
     <loc>${SITE_URL}/blog/${slug}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;
-                })
-                .join('\n')}
+        })
+        .join('\n')}
 </urlset>`;
 
-        // Ensure public directory exists
-        const publicDir = path.resolve('public');
-        if (!fs.existsSync(publicDir)) {
-            fs.mkdirSync(publicDir, { recursive: true });
-        }
-
-        const sitemapPath = path.join(publicDir, 'sitemap.xml');
-        fs.writeFileSync(sitemapPath, sitemapContent);
-
-        console.log(`✅ Sitemap successfully written to ${sitemapPath}`);
-    } catch (error) {
-        console.error('❌ Error generating sitemap:', error);
-        process.exit(1);
+    // Ensure public directory exists
+    const publicDir = path.resolve('public');
+    if (!fs.existsSync(publicDir)) {
+      fs.mkdirSync(publicDir, { recursive: true });
     }
+
+    const sitemapPath = path.join(publicDir, 'sitemap.xml');
+    fs.writeFileSync(sitemapPath, sitemapContent);
+
+    console.log(`✅ Sitemap successfully written to ${sitemapPath}`);
+  } catch (error) {
+    console.error('❌ Error generating sitemap:', error);
+    process.exit(1);
+  }
 }
 
 generateSitemap();
