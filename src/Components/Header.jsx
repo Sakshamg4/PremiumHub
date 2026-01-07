@@ -5,7 +5,7 @@ import Button from './Button'
 import { useData } from '../context/DataContext'
 
 // Reusable Components
-const Logo = memo(() => {
+const Logo = memo(({ onClick }) => {
   const [index, setIndex] = useState(0);
   const words = ["Supplier", "Vendor", "Seller", "Reseller"];
 
@@ -19,6 +19,7 @@ const Logo = memo(() => {
   return (
     <Link
       to="/"
+      onClick={onClick}
       className="group flex flex-col leading-none select-none"
       aria-label="Premium Hub Home"
     >
@@ -319,17 +320,11 @@ const Header = () => {
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-[#1e293b]/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}>
-          <div className={`absolute right-0 top-0 h-screen w-[75%] max-w-sm bg-[#f8fafc] shadow-2xl transform transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          <div className={`absolute right-0 top-0 h-screen w-[75%] max-w-sm bg-[#f8fafc] shadow-2xl transform transition-transform duration-300 ease-out flex flex-col ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}>
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between p-4 border-b border-[#bcccdc]/50">
-              <Link
-                to="/"
-                className="text-xl font-bold text-[#9aa6b2]"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Premium Hub
-              </Link>
+            <div className="flex items-center justify-between p-4 border-b border-[#bcccdc]/50 shrink-0">
+              <Logo onClick={() => setIsMenuOpen(false)} />
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 hover:bg-[#d9eafd]/50 cursor-pointer rounded-lg transition-colors"
@@ -342,7 +337,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu Items */}
-            <div className="py-4">
+            <div className="py-4 flex-1 overflow-y-auto">
               {menuItems.map((item) => (
                 <MobileNavLink
                   key={item.href}
@@ -352,7 +347,7 @@ const Header = () => {
               ))}
 
               {/* Mobile Buttons */}
-              <div className="px-4 mt-6 space-y-3">
+              <div className="px-4 mt-6 space-y-3 pb-6">
                 <Button
                   variant="primary"
                   href="https://chat.whatsapp.com/IP0IZVJymid5IQwDq7YtO3"
@@ -372,7 +367,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu Footer */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-[#bcccdc]/50">
+            <div className="p-4 border-t border-[#bcccdc]/50 shrink-0 bg-[#f8fafc]">
               <div className="flex justify-center space-x-6">
                 {socialLinks.map((social) => (
                   <SocialLink key={social.name} {...social} />
