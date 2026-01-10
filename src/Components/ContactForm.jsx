@@ -57,7 +57,7 @@ const ContactForm = ({ onSuccess }) => {
                     type="text"
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium text-sm"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -68,7 +68,7 @@ const ContactForm = ({ onSuccess }) => {
                     type="email"
                     placeholder="Your Email Address"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium text-sm"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -78,7 +78,7 @@ const ContactForm = ({ onSuccess }) => {
                     name="number"
                     type="tel"
                     placeholder="Phone Number (Optional)"
-                    className="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium text-sm"
                     value={formData.number}
                     onChange={(e) => setFormData({ ...formData, number: e.target.value })}
                 />
@@ -89,7 +89,7 @@ const ContactForm = ({ onSuccess }) => {
                     placeholder="Your Requirements"
                     required
                     rows="2"
-                    className="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium resize-none text-sm"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />

@@ -100,6 +100,28 @@ const SingleBlog = () => {
                     {children}
                 </a>
             ),
+            [BLOCKS.TABLE]: (node, children) => (
+                <div className="overflow-x-auto my-8">
+                    <table className="w-full text-left border-collapse border border-zinc-500">
+                        <tbody>{children}</tbody>
+                    </table>
+                </div>
+            ),
+            [BLOCKS.TABLE_ROW]: (node, children) => (
+                <tr className="border-b border-zinc-500 last:border-b-0">
+                    {children}
+                </tr>
+            ),
+            [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
+                <th className="px-2 py-2 bg-zinc-50 text-zinc-900 font-bold border-r border-zinc-500 last:border-r-0">
+                    {children}
+                </th>
+            ),
+            [BLOCKS.TABLE_CELL]: (node, children) => (
+                <td className="px-2 py-2 text-zinc-700 border-r border-zinc-500 last:border-r-0 align-top">
+                    {children}
+                </td>
+            ),
         }
     }
 
