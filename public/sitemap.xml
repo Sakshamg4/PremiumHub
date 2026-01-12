@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Static Pages -->
   <url>
     <loc>https://premiumhub.click/</loc>
     <changefreq>daily</changefreq>
@@ -26,9 +25,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add other static pages here (e.g., about, contact) -->
-
-  <!-- Dynamic Blog Posts -->
   <url>
     <loc>https://premiumhub.click/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
     <lastmod>2026-01-07T05:55:27.925Z</lastmod>

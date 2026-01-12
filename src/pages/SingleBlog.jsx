@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Button from '../Components/Button'
 import { client } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -64,6 +65,72 @@ const SingleBlog = () => {
         window.scrollTo(0, 0)
     }, [id, navigate])
 
+    // Generate FAQ Schema from Content
+    const faqSchema = useMemo(() => {
+        if (!post?.content?.content) return null;
+
+        const faqs = [];
+        let currentQuestion = null;
+        let currentAnswer = "";
+
+        // Iterate through top-level nodes
+        for (const node of post.content.content) {
+            // Check for Headings (Start of new section/question)
+            if (['heading-1', 'heading-2', 'heading-3', 'heading-4', 'heading-5', 'heading-6'].includes(node.nodeType)) {
+                // If we were building an FAQ, save it
+                if (currentQuestion && currentAnswer.trim()) {
+                    faqs.push({
+                        "@type": "Question",
+                        "name": currentQuestion,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": currentAnswer.trim()
+                        }
+                    });
+                }
+
+                // Reset
+                currentQuestion = null;
+                currentAnswer = "";
+
+                // Check if this heading is a question
+                const text = node.content?.map(c => c.value).join('').trim();
+                if (text && text.endsWith('?')) {
+                    currentQuestion = text;
+                }
+            }
+            // Check for content (Paragraphs)
+            else if (node.nodeType === 'paragraph' && currentQuestion) {
+                const text = node.content?.map(c => c.value).join('').trim();
+                if (text) {
+                    currentAnswer += text + " ";
+                }
+            }
+            // Stop collecting answer if we hit something else? Optional. 
+            // For now, lists/tables break the answer flow in this simple parser.
+        }
+
+        // Push the last one if exists
+        if (currentQuestion && currentAnswer.trim()) {
+            faqs.push({
+                "@type": "Question",
+                "name": currentQuestion,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": currentAnswer.trim()
+                }
+            });
+        }
+
+        if (faqs.length === 0) return null;
+
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs
+        };
+    }, [post]);
+
     if (loading || !post) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
@@ -127,6 +194,13 @@ const SingleBlog = () => {
 
     return (
         <div className="min-h-screen py-24 bg-[#f8fafc]">
+            {faqSchema && (
+                <Helmet>
+                    <script type="application/ld+json">
+                        {JSON.stringify(faqSchema)}
+                    </script>
+                </Helmet>
+            )}
             <div className="container mx-auto px-4">
                 {/* Back Button */}
                 <div className="max-w-4xl mx-auto mb-8">

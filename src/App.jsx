@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useCallback } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ReactLenis } from 'lenis/react'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 
 // Only import the Header and Footer directly since they're critical UI
 import LoadingFallback from './Components/LoadingFallback.jsx'
@@ -66,13 +67,36 @@ const HomePage = React.memo(() => (
 ))
 
 // Layout component for pages with header and footer
-const MainLayout = ({ children }) => (
-  <>
-    <Header />
-    <div className="flex-grow">{children}</div>
-    <Footer />
-  </>
-)
+const MainLayout = ({ children }) => {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PremiumHub",
+    "url": "https://premiumhub.click",
+    "logo": "https://premiumhub.click/logo.png",
+    "sameAs": [
+        "https://www.linkedin.com/company/premiumhub" 
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9876543210", 
+      "contactType": "Customer Service"
+    }
+  }
+
+  return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(orgSchema)}
+        </script>
+      </Helmet>
+      <Header />
+      <div className="flex-grow">{children}</div>
+      <Footer />
+    </>
+  )
+}
 
 // Layout for full-screen pages without header/footer
 const FullScreenLayout = ({ children }) => (
@@ -85,109 +109,111 @@ const App = () => {
   }, [])
 
   return (
-    <ReactLenis root onScroll={handleScroll}>
-      <Router>
-        <ScrollToTop />
-        <div className="min-h-screen bg-[#f8fafc] text-[#334155] selection:bg-[#bcccdc] selection:text-[#1e293b] flex flex-col">
-          {/* Background Effects */}
-          <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]">
-            {/* Base gradient */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f8fafc,#d9eafd)] pointer-events-none" />
+    <HelmetProvider>
+      <ReactLenis root onScroll={handleScroll}>
+        <Router>
+          <ScrollToTop />
+          <div className="min-h-screen bg-[#f8fafc] text-[#334155] selection:bg-[#bcccdc] selection:text-[#1e293b] flex flex-col">
+            {/* Background Effects */}
+            <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]">
+              {/* Base gradient */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f8fafc,#d9eafd)] pointer-events-none" />
 
-            {/* Subtle noise texture */}
-            <div className="absolute inset-0 opacity-[0.4] pointer-events-none" />
+              {/* Subtle noise texture */}
+              <div className="absolute inset-0 opacity-[0.4] pointer-events-none" />
 
-            {/* Accent colors */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(154,166,178,0.1),transparent_40%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(188,204,220,0.1),transparent_40%)]" />
+              {/* Accent colors */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(154,166,178,0.1),transparent_40%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(188,204,220,0.1),transparent_40%)]" />
+              </div>
+            </div>
+
+
+            {/* Content */}
+            <div className="relative z-10 flex-1 flex flex-col">
+              <PopupForm />
+              <Suspense fallback={null}>
+                <Analytics />
+              </Suspense>
+              <ErrorBoundary>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <MainLayout>
+                        <HomePage />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/privacy-policy"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <PrivacyPolicy />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/terms-and-conditions"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <TermsAndConditions />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/services/:id"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <ServiceDetail />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/blog"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <Blog />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/blog/:id"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <SingleBlog />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="*"
+                    element={
+                      <FullScreenLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <NotFound />
+                        </Suspense>
+                      </FullScreenLayout>
+                    }
+                  />
+
+                </Routes>
+              </ErrorBoundary>
             </div>
           </div>
-
-
-          {/* Content */}
-          <div className="relative z-10 flex-1 flex flex-col">
-            <PopupForm />
-            <Suspense fallback={null}>
-              <Analytics />
-            </Suspense>
-            <ErrorBoundary>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <MainLayout>
-                      <HomePage />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/privacy-policy"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <PrivacyPolicy />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/terms-and-conditions"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <TermsAndConditions />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/services/:id"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <ServiceDetail />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/blog"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <Blog />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/blog/:id"
-                  element={
-                    <MainLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <SingleBlog />
-                      </Suspense>
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="*"
-                  element={
-                    <FullScreenLayout>
-                      <Suspense fallback={<LoadingFallback />}>
-                        <NotFound />
-                      </Suspense>
-                    </FullScreenLayout>
-                  }
-                />
-
-              </Routes>
-            </ErrorBoundary>
-          </div>
-        </div>
-      </Router>
-    </ReactLenis>
+        </Router>
+      </ReactLenis>
+    </HelmetProvider>
   )
 }
 
