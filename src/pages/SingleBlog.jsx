@@ -118,10 +118,7 @@ const SingleBlog = () => {
                 );
 
                 if (isQuestion) {
-                    console.log(`[FAQ Check] ✅ Detected as question: "${text}"`);
                     currentQuestion = text;
-                } else {
-                    console.log(`[FAQ Check] ❌ Ignored (no '?' or question word): "${text}"`);
                 }
             }
             // If it's a paragraph, list, or quote, treat it as part of the answer
@@ -147,11 +144,8 @@ const SingleBlog = () => {
         }
 
         if (faqs.length === 0) {
-            console.log('[FAQ Check] No FAQs detected in this post.');
             return null;
         }
-
-        console.log(`[FAQ Check] Generated Schema for ${faqs.length} FAQs.`);
 
         return {
             "@context": "https://schema.org",
