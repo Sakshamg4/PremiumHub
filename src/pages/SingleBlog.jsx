@@ -73,11 +73,25 @@ const SingleBlog = () => {
         let currentQuestion = null;
         let currentAnswer = "";
 
+        // Common question starters to detect questions without '?'
+        const questionIndicators = ['who', 'what', 'where', 'when', 'why', 'how', 'can', 'could', 'should', 'would', 'is', 'are', 'do', 'does'];
+
+        // Helper to extract plain text from rich text nodes recursively
+        const extractText = (node) => {
+            if (node.nodeType === 'text') {
+                return node.value;
+            }
+            if (node.content) {
+                return node.content.map(extractText).join('');
+            }
+            return '';
+        };
+
         // Iterate through top-level nodes
         for (const node of post.content.content) {
-            // Check for Headings (Start of new section/question)
+            // Check for Headings (Start of a new section/question)
             if (['heading-1', 'heading-2', 'heading-3', 'heading-4', 'heading-5', 'heading-6'].includes(node.nodeType)) {
-                // If we were building an FAQ, save it
+                // If we were building a previous FAQ and it has an answer, save it
                 if (currentQuestion && currentAnswer.trim()) {
                     faqs.push({
                         "@type": "Question",
@@ -89,28 +103,41 @@ const SingleBlog = () => {
                     });
                 }
 
-                // Reset
+                // Reset for the new potential question
                 currentQuestion = null;
                 currentAnswer = "";
 
-                // Check if this heading is a question
-                const text = node.content?.map(c => c.value).join('').trim();
-                if (text && text.endsWith('?')) {
+                // Check if this new heading is a question
+                const text = extractText(node).trim();
+                const lowerText = text.toLowerCase();
+
+                // Debug log to see what detection logic sees
+                console.log(`[FAQ Check] Header found: "${text}"`);
+
+                // We check if it ends with '?' OR starts with common question words
+                const isQuestion = text && (
+                    text.endsWith('?') ||
+                    questionIndicators.some(w => lowerText.startsWith(w + ' '))
+                );
+
+                if (isQuestion) {
+                    console.log(`[FAQ Check] ✅ Detected as question: "${text}"`);
                     currentQuestion = text;
+                } else {
+                    console.log(`[FAQ Check] ❌ Ignored (no '?' or question word): "${text}"`);
                 }
             }
-            // Check for content (Paragraphs)
-            else if (node.nodeType === 'paragraph' && currentQuestion) {
-                const text = node.content?.map(c => c.value).join('').trim();
+            // If it's a paragraph, list, or quote, treat it as part of the answer
+            else if (currentQuestion) {
+                const text = extractText(node).trim();
                 if (text) {
-                    currentAnswer += text + " ";
+                    // Add a space if appending to existing answer
+                    currentAnswer += (currentAnswer ? " " : "") + text;
                 }
             }
-            // Stop collecting answer if we hit something else? Optional. 
-            // For now, lists/tables break the answer flow in this simple parser.
         }
 
-        // Push the last one if exists
+        // Push the last collected FAQ if valid
         if (currentQuestion && currentAnswer.trim()) {
             faqs.push({
                 "@type": "Question",
@@ -122,7 +149,12 @@ const SingleBlog = () => {
             });
         }
 
-        if (faqs.length === 0) return null;
+        if (faqs.length === 0) {
+            console.log('[FAQ Check] No FAQs detected in this post.');
+            return null;
+        }
+
+        console.log(`[FAQ Check] Generated Schema for ${faqs.length} FAQs.`);
 
         return {
             "@context": "https://schema.org",
