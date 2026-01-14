@@ -111,9 +111,6 @@ const SingleBlog = () => {
                 const text = extractText(node).trim();
                 const lowerText = text.toLowerCase();
 
-                // Debug log to see what detection logic sees
-                console.log(`[FAQ Check] Header found: "${text}"`);
-
                 // We check if it ends with '?' OR starts with common question words
                 const isQuestion = text && (
                     text.endsWith('?') ||
