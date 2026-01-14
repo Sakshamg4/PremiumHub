@@ -35,26 +35,39 @@ async function generateSitemap() {
     const posts = response.items;
     console.log(`Found ${posts.length} blog posts.`);
 
+    // Helper to escape XML special characters
+    const escapeXml = (unsafe) => {
+      return unsafe.replace(/[<>&'"]/g, (c) => {
+        switch (c) {
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '&': return '&amp;';
+          case '\'': return '&apos;';
+          case '"': return '&quot;';
+        }
+      });
+    };
+
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Static Pages -->
   <url>
-    <loc>${SITE_URL}/</loc>
+    <loc>${escapeXml(SITE_URL)}/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/blog</loc>
+    <loc>${escapeXml(SITE_URL)}/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/privacy-policy</loc>
+    <loc>${escapeXml(SITE_URL)}/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/terms-and-conditions</loc>
+    <loc>${escapeXml(SITE_URL)}/terms-and-conditions</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -62,12 +75,12 @@ async function generateSitemap() {
   <!-- Services Pages -->
 ${['linkedin', 'gemini', 'chatgpt', 'loveable', 'n8n', 'adobe', 'gamma', 'replit', 'bolt', 'notion']
         .map(id => `  <url>
-    <loc>${SITE_URL}/services/${id}</loc>
+    <loc>${escapeXml(`${SITE_URL}/services/${id}`)}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`).join('\n')}
 
-  <!-- Add other static pages here (e.g., about, contact) -->
+  <!-- Other static pages -->
 
   <!-- Dynamic Blog Posts -->
 ${posts
@@ -76,7 +89,7 @@ ${posts
           const slug = post.fields.slug;
           const lastMod = new Date(post.sys.updatedAt).toISOString();
           return `  <url>
-    <loc>${SITE_URL}/blog/${slug}</loc>
+    <loc>${escapeXml(`${SITE_URL}/blog/${slug}`)}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
