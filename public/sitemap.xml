@@ -1,58 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://premiumhub.click/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/privacy-policy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/terms-and-conditions</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/linkedin-compare</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
-    <lastmod>2026-01-07T05:55:27.925Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog/what-is-chatgpt-the-ai-tool-thats-changing-how-we-work</loc>
-    <lastmod>2026-01-05T11:36:31.433Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog/notion-premium-subscription-service-for-teams-and-individuals</loc>
-    <lastmod>2025-12-24T06:50:11.142Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog/otter-ai-pro-cheap-subscription-is-it-worth-it</loc>
-    <lastmod>2025-12-17T06:24:25.468Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://premiumhub.click/blog/perplexity-pro-cheap-subscription-discounted-pricing-get-it-safely</loc>
-    <lastmod>2025-12-16T06:55:49.663Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<url>
+<loc>https://premiumhub.click/</loc>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog</loc>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/privacy-policy</loc>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/terms-and-conditions</loc>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/linkedin</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/gemini</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/chatgpt</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/loveable</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/n8n</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/adobe</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/gamma</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/replit</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/bolt</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/services/notion</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-jasper-ai-for-content-marketing</loc>
+<lastmod>2026-01-14T14:31:09.978Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-microsoft-365-for-remote-work</loc>
+<lastmod>2026-01-14T10:36:42.168Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-notion-for-project-management</loc>
+<lastmod>2026-01-13T11:58:49.313Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-grammarly-premium-to-improve-writing</loc>
+<lastmod>2026-01-13T10:39:05.501Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-perplexity-ai-for-research-complete-practical-guide</loc>
+<lastmod>2026-01-12T11:46:27.333Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/how-to-use-canva-pro-for-social-media-design</loc>
+<lastmod>2026-01-12T11:42:36.774Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-perplexity-ai</loc>
+<lastmod>2026-01-10T12:20:25.990Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-lovable-ai</loc>
+<lastmod>2026-01-09T18:18:11.767Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-linkedin-sales-navigator-the-ultimate-tool-for-b2b-leads</loc>
+<lastmod>2026-01-08T09:37:07.191Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-linkedin-for-business-the-growth-channel-most-brands-ignore</loc>
+<lastmod>2026-01-08T07:47:08.238Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
+<lastmod>2026-01-07T05:55:27.925Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/what-is-chatgpt-the-ai-tool-thats-changing-how-we-work</loc>
+<lastmod>2026-01-05T11:36:31.433Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/notion-premium-subscription-service-for-teams-and-individuals</loc>
+<lastmod>2025-12-24T06:50:11.142Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/otter-ai-pro-cheap-subscription-is-it-worth-it</loc>
+<lastmod>2025-12-17T06:24:25.468Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://premiumhub.click/blog/perplexity-pro-cheap-subscription-discounted-pricing-get-it-safely</loc>
+<lastmod>2025-12-16T06:55:49.663Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
