@@ -1,0 +1,59 @@
+/* Custom styles for react-phone-number-input to match Tailwind design */
+
+/* The container class (phone-input-container) handles the border and rounded corners */
+.PhoneInput {
+    display: flex;
+    align-items: center;
+}
+
+/* The actual input field needs to be transparent and borderless to blend in */
+.PhoneInputInput {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    /* Remove default padding as container handles it */
+}
+
+.PhoneInputInput::placeholder {
+    color: #94a3b8;
+    /* slate-400 to match other inputs */
+    opacity: 1;
+}
+
+/* The country selector (flag dropdown) */
+.PhoneInputCountry {
+    margin-right: 0.75rem;
+    /* Space between flag and input */
+    display: flex;
+    align-items: center;
+}
+
+/* Specific adjustments for the flag img/icon */
+.PhoneInputCountryIcon {
+    width: 1.5em;
+    height: 1.0em;
+    /* Aspect ratio adjustment maybe needed */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+/* Remove default focus outline from the flag select button */
+.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon+.PhoneInputCountrySelectArrow {
+    opacity: 1;
+    color: #3b82f6;
+    /* Blue-500 */
+}
+
+/* Ensure the select itself is invisible on top of the flag */
+/* Ensure the select itself is invisible on top of the flag */
+.PhoneInputCountrySelect {
+    /* Default styles usually handle this opacity/positioning */
+    appearance: none;
+}

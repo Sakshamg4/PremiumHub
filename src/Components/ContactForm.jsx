@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import Button from './Button';
+import '../styles/PhoneInputCustom.css'; // We will create this file for custom styling adjustments
 
 const ContactForm = ({ onSuccess }) => {
     const [formData, setFormData] = useState({ name: '', email: '', number: '', message: '' });
@@ -74,13 +77,12 @@ const ContactForm = ({ onSuccess }) => {
                 />
             </div>
             <div className="space-y-1">
-                <input
-                    name="number"
-                    type="tel"
-                    placeholder="Phone Number (Optional)"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400 text-slate-700 font-medium text-sm"
+                <PhoneInput
+                    defaultCountry="IN"
+                    placeholder="Phone Number"
                     value={formData.number}
-                    onChange={(e) => setFormData({ ...formData, number: e.target.value })}
+                    onChange={(value) => setFormData({ ...formData, number: value || '' })}
+                    className="phone-input-container w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/20 transition-all font-medium text-sm"
                 />
             </div>
             <div className="space-y-1">
