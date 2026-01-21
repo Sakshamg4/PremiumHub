@@ -9,6 +9,7 @@ import ScrollToTop from './Components/ScrollToTop'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import PopupForm from './Components/PopupForm'
+import { BlogListSkeleton, SingleBlogSkeleton } from './Components/BlogSkeleton'
 
 // Lazy load all other components
 // Direct imports for Hero to ensure LCP
@@ -75,11 +76,11 @@ const MainLayout = ({ children }) => {
     "url": "https://premiumhub.click",
     "logo": "https://premiumhub.click/logo.png",
     "sameAs": [
-        "https://www.linkedin.com/company/premiumhub" 
+      "https://www.linkedin.com/company/premiumhub"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+91-9876543210", 
+      "telephone": "+91-9876543210",
       "contactType": "Customer Service"
     }
   }
@@ -180,7 +181,7 @@ const App = () => {
                     path="/blog"
                     element={
                       <MainLayout>
-                        <Suspense fallback={<LoadingFallback />}>
+                        <Suspense fallback={<BlogListSkeleton />}>
                           <Blog />
                         </Suspense>
                       </MainLayout>
@@ -190,7 +191,7 @@ const App = () => {
                     path="/blog/:id"
                     element={
                       <MainLayout>
-                        <Suspense fallback={<LoadingFallback />}>
+                        <Suspense fallback={<SingleBlogSkeleton />}>
                           <SingleBlog />
                         </Suspense>
                       </MainLayout>

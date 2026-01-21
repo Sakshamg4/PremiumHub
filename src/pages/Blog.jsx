@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Components/Button'
 import { client } from '../lib/contentful'
+import { BlogListSkeleton } from '../Components/BlogSkeleton'
 
 const BlogCard = memo(({ post }) => (
     <article
@@ -191,11 +192,7 @@ const Blog = () => {
     const latestPosts = posts.slice(1);
 
     if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#9aa6b2]"></div>
-            </div>
-        )
+        return <BlogListSkeleton />
     }
 
     return (

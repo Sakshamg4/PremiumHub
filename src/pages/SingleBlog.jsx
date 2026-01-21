@@ -5,6 +5,7 @@ import Button from '../Components/Button'
 import { client } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import { SingleBlogSkeleton } from '../Components/BlogSkeleton'
 
 const SingleBlog = () => {
     const { id } = useParams()
@@ -154,10 +155,14 @@ const SingleBlog = () => {
         };
     }, [post]);
 
-    if (loading || !post) {
+    if (loading) {
+        return <SingleBlogSkeleton />
+    }
+
+    if (!post) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#9aa6b2]"></div>
+                <div className="text-xl text-slate-500">Post not found</div>
             </div>
         )
     }
