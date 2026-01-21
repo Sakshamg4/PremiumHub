@@ -5,13 +5,13 @@ import ContactForm from './ContactForm';
 const PopupForm = () => {
     const [isOpen, setIsOpen] = useState(true);
 
-    // Auto-open logic: Open every 60 seconds if closed
+    // Auto-open logic: Open every 5 minutes if closed
     useEffect(() => {
         let timeout;
         if (!isOpen) {
             timeout = setTimeout(() => {
                 setIsOpen(true);
-            }, 60000);
+            }, 300000);
         }
         return () => clearTimeout(timeout);
     }, [isOpen]);
