@@ -245,7 +245,7 @@ const SingleBlog = () => {
 
                 <article className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-2xl overflow-hidden shadow-sm">
                     {/* Hero Image / Header */}
-                    <div className="h-64 md:h-96 w-full relative overflow-hidden">
+                    <div className="aspect-video w-full relative overflow-hidden">
                         {post.imageUrl ? (
                             <>
                                 <img
