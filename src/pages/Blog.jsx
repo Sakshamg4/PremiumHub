@@ -15,7 +15,7 @@ const BlogCard = memo(({ post }) => (
             aria-label={`Read ${post.title}`}
         />
         {/* Image Placeholder / Gradient */}
-        <div className="h-48 w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+        <div className="aspect-video w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500 pointer-events-none">
             {post.imageUrl ? (
                 <img
                     src={post.imageUrl}
