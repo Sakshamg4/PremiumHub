@@ -14,7 +14,7 @@ export const BlogListSkeleton = () => {
                         <div className="h-8 w-48 bg-slate-200 rounded animate-pulse"></div>
                     </div>
 
-                    <div className="w-full h-[500px] lg:h-96 bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-3xl overflow-hidden shadow-lg p-6 animate-pulse">
+                    <div className="w-full h-[500px] lg:h-96 bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm p-6 animate-pulse">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
                             <div className="bg-slate-200 rounded-2xl w-full h-full min-h-[200px]"></div>
                             <div className="flex flex-col justify-center space-y-4">
@@ -27,37 +27,43 @@ export const BlogListSkeleton = () => {
                                 <div className="h-4 w-5/6 bg-slate-200 rounded"></div>
                                 <div className="h-4 w-4/6 bg-slate-200 rounded"></div>
                                 <div className="pt-4 flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-slate-200"></div>
-                                        <div className="space-y-1">
-                                            <div className="h-3 w-24 bg-slate-200 rounded"></div>
-                                            <div className="h-2 w-16 bg-slate-200 rounded"></div>
-                                        </div>
-                                    </div>
+                                    <div className="h-4 w-24 bg-slate-200 rounded"></div>
+                                    <div className="w-8 h-8 rounded-full bg-slate-200"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {/* Filter Tabs Skeleton */}
+                <div className="mb-8 flex gap-3 overflow-hidden">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                        <div key={i} className="h-10 w-24 bg-slate-200 rounded-full animate-pulse shrink-0"></div>
+                    ))}
+                </div>
+
                 {/* Latest Articles Grid Skeleton */}
                 <div>
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-1.5 h-8 bg-slate-200 rounded-full animate-pulse"></div>
-                        <div className="h-8 w-48 bg-slate-200 rounded animate-pulse"></div>
+                    <div className="flex items-center justify-between mb-8">
+                        <div className="flex items-center gap-3">
+                            <div className="w-1.5 h-8 bg-slate-200 rounded-full animate-pulse"></div>
+                            <div className="h-8 w-48 bg-slate-200 rounded animate-pulse"></div>
+                        </div>
+                        <div className="h-6 w-20 bg-slate-200 rounded-full animate-pulse"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[1, 2, 3, 4, 5, 6].map((i) => (
-                            <div key={i} className="bg-[#f8fafc]/50 border border-[#bcccdc]/50 rounded-2xl overflow-hidden h-96 animate-pulse flex flex-col">
-                                <div className="h-48 bg-slate-200 w-full"></div>
+                            <div key={i} className="bg-white border border-slate-100 rounded-2xl overflow-hidden h-[400px] animate-pulse flex flex-col">
+                                <div className="h-48 bg-slate-200 w-full aspect-video"></div>
                                 <div className="p-6 flex-1 flex flex-col space-y-3">
                                     <div className="h-4 w-24 bg-slate-200 rounded"></div>
                                     <div className="h-6 w-full bg-slate-200 rounded"></div>
                                     <div className="h-4 w-full bg-slate-200 rounded mt-2"></div>
                                     <div className="h-4 w-2/3 bg-slate-200 rounded"></div>
-                                    <div className="mt-auto pt-4 border-t border-slate-100 flex justify-between">
+                                    <div className="mt-auto pt-4 border-t border-slate-50 flex justify-between items-center">
                                         <div className="h-4 w-24 bg-slate-200 rounded"></div>
+                                        <div className="w-8 h-8 rounded-full bg-slate-200"></div>
                                     </div>
                                 </div>
                             </div>

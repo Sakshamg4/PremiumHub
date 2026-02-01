@@ -245,13 +245,13 @@ const SingleBlog = () => {
 
                 <article className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-2xl overflow-hidden shadow-sm">
                     {/* Hero Image / Header */}
-                    <div className="w-full relative">
+                    <div className="aspect-video w-full relative overflow-hidden">
                         {post.imageUrl ? (
                             <>
                                 <img
                                     src={post.imageUrl}
                                     alt={post.title}
-                                    className="w-full h-auto block"
+                                    className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                             </>
