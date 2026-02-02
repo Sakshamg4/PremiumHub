@@ -113,8 +113,10 @@ const InlinePromo = () => {
                 <div className="hidden sm:block w-px h-12 bg-slate-800" />
 
                 {/* CTA Button */}
-                <Link
-                    to="/contact"
+                <a
+                    href={`https://wa.me/919029151181?text=${encodeURIComponent(`Hello PremiumHub, I am interested in ${currentOffer.text}. Please share more details.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="relative flex-none group/btn"
                 >
                     <span className="absolute inset-0 bg-white/10 rounded-xl blur opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
@@ -127,7 +129,7 @@ const InlinePromo = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </span>
-                </Link>
+                </a>
             </div>
         </div>
     );
