@@ -3,7 +3,7 @@ import { FaTimes, FaWhatsapp, FaCommentDots } from 'react-icons/fa';
 import ContactForm from './ContactForm';
 
 const PopupForm = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Auto-open logic: Open every 5 minutes if closed
     useEffect(() => {

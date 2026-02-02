@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Button from '../Components/Button'
+import InlinePromo from '../Components/InlinePromo'
 import { client } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
@@ -29,7 +30,7 @@ const SingleBlog = () => {
                 });
 
                 if (!response.items.length) {
-                    console.warn(`No post found with slug: ${id}`);
+                    console.warn(`No post found with slug: ${id} `);
                     navigate('/blog');
                     return;
                 }
@@ -47,7 +48,7 @@ const SingleBlog = () => {
                     date: entry.fields.publishDate
                         ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                         : new Date(entry.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl) : null,
+                    imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl} ` : imageUrl) : null,
                     imageGradient: 'from-blue-600/20 to-blue-400/20',
                     icon: '📝',
                     content: entry.fields.mainContent
@@ -167,6 +168,8 @@ const SingleBlog = () => {
         )
     }
 
+    let adCount = 0;
+    let headingCount = 0;
     const richTextOptions = {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -176,22 +179,35 @@ const SingleBlog = () => {
                     <img
                         src={`https:${url}`}
                         alt={node.data.target.fields?.title || 'Blog Image'}
-                        className="w-full rounded-xl my-8 object-cover max-h-[500px]"
+                        className="w-full rounded-2xl my-10 shadow-lg border border-slate-100"
                     />
                 );
             },
-            [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-2xl md:text-3xl font-bold text-[#1e293b] mt-8 mb-4">{children}</h2>,
-            [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl md:text-2xl font-bold text-[#1e293b] mt-6 mb-3">{children}</h3>,
-            [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4 text-[#334155] leading-relaxed text-lg">{children}</p>,
-            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-2 text-[#334155]">{children}</ul>,
-            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-2 text-[#334155]">{children}</ol>,
+            [BLOCKS.HEADING_2]: (node, children) => {
+                headingCount++;
+                // Skip the first heading so ads start from the middle/later sections
+                // Also skip every other heading to spacing them out (show on 2nd, 4th, 6th...)
+                const showAd = headingCount > 1 && headingCount % 2 === 0 && adCount < 3;
+                if (showAd) adCount++;
+                return (
+                    <>
+                        {showAd && <InlinePromo />}
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6 tracking-tight">{children}</h2>
+                    </>
+                );
+            },
+            [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 tracking-tight">{children}</h3>,
+            [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-6 text-slate-600 leading-8 text-lg">{children}</p>,
+            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-6 mb-6 space-y-3 text-slate-600 marker:text-blue-500">{children}</ul>,
+            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 mb-6 space-y-3 text-slate-600 marker:text-blue-500 font-medium">{children}</ol>,
             [BLOCKS.QUOTE]: (node, children) => (
-                <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50/50 rounded-r-lg italic text-[#475569]">
+                <blockquote className="relative pl-6 py-4 my-8 border-l-4 border-blue-500 bg-blue-50/30 rounded-r-xl italic text-slate-700">
+                    <span className="absolute -top-4 left-4 text-4xl text-blue-200">"</span>
                     {children}
                 </blockquote>
             ),
             [INLINES.HYPERLINK]: (node, children) => (
-                <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">
+                <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:text-blue-800 hover:underline decoration-2 underline-offset-2 transition-all">
                     {children}
                 </a>
             ),
@@ -221,7 +237,12 @@ const SingleBlog = () => {
     }
 
     return (
-        <div className="min-h-screen py-24 bg-[#f8fafc]">
+        <div className="min-h-screen relative bg-[#f1f5f9] pt-32 pb-24 overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-blue-400/10 blur-[120px] rounded-full -z-10 pointer-events-none mix-blend-multiply" />
+            <div className="absolute top-40 -right-20 w-[600px] h-[600px] bg-purple-400/10 blur-[120px] rounded-full -z-10 pointer-events-none mix-blend-multiply" />
+            <div className="absolute top-20 -left-20 w-[600px] h-[600px] bg-indigo-400/10 blur-[120px] rounded-full -z-10 pointer-events-none mix-blend-multiply" />
+
             {faqSchema && (
                 <Helmet>
                     <script type="application/ld+json">
@@ -229,23 +250,62 @@ const SingleBlog = () => {
                     </script>
                 </Helmet>
             )}
+
             <div className="container mx-auto px-4">
-                {/* Back Button */}
-                <div className="max-w-4xl mx-auto mb-8">
+                {/* Clean Back Navigation */}
+                <div className="max-w-4xl mx-auto mb-10">
                     <Link
                         to="/blog"
-                        className="inline-flex items-center text-[#64748b] hover:text-[#1e293b] transition-colors"
+                        className="group inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors font-medium"
                     >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        Back to Blog
+                        <span className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:border-blue-400 group-hover:text-blue-600 transition-all">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                        </span>
+                        <span>Back to Articles</span>
                     </Link>
                 </div>
 
-                <article className="max-w-4xl mx-auto bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-2xl overflow-hidden shadow-sm">
-                    {/* Hero Image / Header */}
-                    <div className="aspect-video w-full relative overflow-hidden">
+                {/* Premium Glass Card */}
+                <article className="relative max-w-4xl mx-auto bg-white/70 backdrop-blur-xl border border-white/60 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 overflow-hidden">
+
+                    {/* Hero Header Section */}
+                    <div className="px-8 pt-12 pb-8 md:px-16 md:pt-16 text-center">
+                        {/* Meta Pills */}
+                        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+                            <span className="px-4 py-1.5 bg-blue-50 text-blue-700/90 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-100/50 shadow-sm">
+                                {post.category || 'Article'}
+                            </span>
+                            <span className="flex items-center gap-1.5 text-slate-500 text-sm font-medium px-3 py-1.5 bg-white/50 rounded-full border border-slate-100">
+                                <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                {post.date}
+                            </span>
+                        </div>
+
+                        {/* Main Title */}
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1] tracking-tight">
+                            {post.title}
+                        </h1>
+
+                        {/* Author/Meta Row */}
+                        <div className="flex items-center justify-center gap-4 border-t border-slate-200/60 pt-8 mt-8 max-w-lg mx-auto">
+                            <div className="flex -space-x-3">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 border-2 border-white shadow-md flex items-center justify-center text-white text-xs font-bold">
+                                    PH
+                                </div>
+                            </div>
+                            <div className="text-left">
+                                <p className="text-sm font-bold text-slate-900 leading-none mb-1">PremiumHub Team</p>
+                                <p className="text-xs text-slate-500 font-medium">Verified Author</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Hero Image - Edge to Edge */}
+                    <div className="w-full aspect-[21/9] md:aspect-[2/1] relative overflow-hidden bg-slate-100 mt-4 mx-2 md:mx-4 rounded-3xl shadow-lg border border-black/5">
                         {post.imageUrl ? (
                             <>
                                 <img
@@ -253,54 +313,40 @@ const SingleBlog = () => {
                                     alt={post.title}
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60" />
                             </>
                         ) : (
                             <div className={`w-full h-full bg-gradient-to-br ${post.imageGradient} flex items-center justify-center`}>
-                                <span className="text-8xl md:text-9xl filter drop-shadow-lg animate-pulse">
+                                <span className="text-9xl filter drop-shadow-2xl animate-pulse opacity-80">
                                     {post.icon}
                                 </span>
                             </div>
                         )}
                     </div>
 
-                    <div className="p-8 md:p-12">
-                        {/* Meta Data */}
-                        <div className="flex flex-wrap items-center gap-4 mb-6 text-sm">
-                            <span className="px-3 py-1 bg-[#d9eafd] text-[#1e293b] rounded-full font-medium">
-                                {post.category || 'General'}
-                            </span>
-                            <span className="text-[#64748b] flex items-center gap-1">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                                {post.date}
-                            </span>
-                        </div>
-
-                        {/* Title */}
-                        <h1 className="text-3xl md:text-5xl font-bold text-[#1e293b] mb-8 leading-tight">
-                            {post.title}
-                        </h1>
-
-                        {/* Content */}
-                        <div className="prose prose-lg max-w-none text-[#334155] prose-headings:text-[#1e293b] prose-a:text-blue-600">
+                    {/* Main Content */}
+                    <div className="px-8 py-12 md:px-16 md:py-16">
+                        <div className="prose prose-lg md:prose-xl prose-slate max-w-none mx-auto 
+                            prose-headings:font-bold prose-headings:text-slate-900 
+                            prose-p:text-slate-600 prose-p:leading-8 
+                            prose-a:text-blue-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+                            prose-img:rounded-3xl prose-img:shadow-xl prose-img:border prose-img:border-slate-100
+                        ">
                             {documentToReactComponents(post.content, richTextOptions)}
                         </div>
                     </div>
 
-                    {/* Footer / CTA */}
-                    <div className="bg-[#f8fafc] p-8 md:p-12 border-t border-[#bcccdc]/50 text-center">
-                        <h3 className="text-2xl font-bold text-[#1e293b] mb-4">
-                            Enjoyed this article?
-                        </h3>
-                        <p className="text-[#64748b] mb-8 max-w-2xl mx-auto">
-                            Join our community to get more insights like this and exclusive access to premium tools.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    {/* Premium Footer CTA */}
+                    <div className="bg-[#0f172a] mx-2 mb-2 md:mx-4 md:mb-4 rounded-[2rem] p-8 md:p-16 text-center relative overflow-hidden group">
+                        <div className="relative z-10 max-w-2xl mx-auto">
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                Keep the conversation going
+                            </h3>
+                            <p className="text-slate-400 mb-8 text-lg">
+                                Have thoughts on this? Join our private community of creators and developers to discuss more.
+                            </p>
                             <Button
                                 href="https://chat.whatsapp.com/HV2nHlZXjBk2bbFgcR4sHQ"
-                                variant="primary"
                                 className="justify-center w-full sm:w-auto"
                             >
                                 Join Discussion on WhatsApp
@@ -308,8 +354,8 @@ const SingleBlog = () => {
                         </div>
                     </div>
                 </article>
-            </div >
-        </div >
+            </div>
+        </div>
     )
 }
 
