@@ -4,7 +4,7 @@ import Button from '../Components/Button'
 
 const NotFound = () => {
   useEffect(() => {
-    document.title = '404 - Page Not Found | PremiumHub'
+    document.title = '404 - Page Not Found | PremiumToolsHub'
   }, [])
 
   return (

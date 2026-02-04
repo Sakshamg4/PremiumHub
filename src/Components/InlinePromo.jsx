@@ -114,7 +114,7 @@ const InlinePromo = () => {
 
                 {/* CTA Button */}
                 <a
-                    href={`https://wa.me/919029151181?text=${encodeURIComponent(`Hello PremiumHub, I am interested in ${currentOffer.text}. Please share more details.`)}`}
+                    href={`https://wa.me/919029151181?text=${encodeURIComponent(`Hello PremiumToolsHub, I am interested in ${currentOffer.text}. Please share more details.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative flex-none group/btn"

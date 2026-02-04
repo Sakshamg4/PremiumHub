@@ -72,11 +72,11 @@ const MainLayout = ({ children }) => {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "PremiumHub",
+    "name": "PremiumToolsHub",
     "url": "https://www.premiumtoolshub.in",
     "logo": "https://www.premiumtoolshub.in/logo.png",
     "sameAs": [
-      "https://www.linkedin.com/company/premiumhub"
+      "https://www.linkedin.com/company/premiumtoolshub"
     ],
     "contactPoint": {
       "@type": "ContactPoint",

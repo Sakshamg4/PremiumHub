@@ -21,11 +21,11 @@ const Logo = memo(({ onClick }) => {
       to="/"
       onClick={onClick}
       className="group flex flex-col leading-none select-none"
-      aria-label="Premium Hub Home"
+      aria-label="Premium Tools Hub Home"
     >
       <div className="flex items-center gap-0.5 text-2xl font-black tracking-tight text-slate-800">
         Premium
-        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Hub</span>
+        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">ToolsHub</span>
         <span className="text-blue-600">.</span>
       </div>
       <span

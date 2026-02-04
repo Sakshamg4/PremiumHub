@@ -124,7 +124,7 @@ const FeaturedBlogCard = memo(({ post }) => (
                             {post.author ? post.author[0] : 'P'}
                         </div>
                         <div>
-                            <p className="text-sm font-bold text-[#1e293b]">{post.author || 'PremiumHub Team'}</p>
+                            <p className="text-sm font-bold text-[#1e293b]">{post.author || 'PremiumToolsHub Team'}</p>
                             <p className="text-xs text-[#64748b]">5 min read</p>
                         </div>
                     </div>
@@ -174,8 +174,8 @@ const Blog = () => {
                         excerpt: item.fields.shortDescription,
                         category: item.fields.category,
                         author: typeof item.fields.author === 'object'
-                            ? (item.fields.author?.fields?.name || 'PremiumHub Team')
-                            : (item.fields.author || 'PremiumHub Team'),
+                            ? (item.fields.author?.fields?.name || 'PremiumToolsHub Team')
+                            : (item.fields.author || 'PremiumToolsHub Team'),
                         date: item.fields.publishDate
                             ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                             : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),

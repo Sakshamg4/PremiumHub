@@ -298,7 +298,7 @@ const SingleBlog = () => {
                                 </div>
                             </div>
                             <div className="text-left">
-                                <p className="text-sm font-bold text-slate-900 leading-none mb-1">PremiumHub Team</p>
+                                <p className="text-sm font-bold text-slate-900 leading-none mb-1">PremiumToolsHub Team</p>
                                 <p className="text-xs text-slate-500 font-medium">Verified Author</p>
                             </div>
                         </div>
