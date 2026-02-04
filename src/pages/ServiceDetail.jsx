@@ -71,9 +71,9 @@ const ServiceDetail = () => {
                             className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100"
                         >
                             <h2 className="text-2xl font-bold text-slate-800 mb-4">Overview</h2>
-                            <p className="text-[#52525b] leading-relaxed text-lg">
+                            <div className="text-[#52525b] leading-relaxed text-lg space-y-4">
                                 {description}
-                            </p>
+                            </div>
                         </motion.div>
 
                         {/* Features Grid */}
