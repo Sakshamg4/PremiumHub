@@ -4,51 +4,39 @@ import { Link } from 'react-router-dom';
 const OFFERS = [
     {
         id: 1,
-        text: "🔥 LinkedIn Premium Business Plan",
-        subtext: "Get 80% OFF & Upgrade Career",
+        text: "🔥 LinkedIn Premium Business Plan 12 Months",
+        subtext: "Original Price ₹23,000 • Get it ₹8XXX",
         color: "from-blue-600 to-blue-400"
     },
     {
         id: 2,
         text: "🤖 Gemini AI Advanced Pro Plan",
-        subtext: "Google's Most Capable AI Model",
+        subtext: "Original Price ₹19,500 • Get it ₹8XXX",
         color: "from-purple-600 to-pink-400"
     },
     {
         id: 3,
         text: "💼 LinkedIn Sales Navigator Core",
-        subtext: "Find 2x More Leads Faster",
+        subtext: "Original Price ₹80,000 • Get it ₹2XXXX",
         color: "from-sky-600 to-cyan-400"
     },
     {
         id: 4,
         text: "🎨 Canva Pro Lifetime Access",
-        subtext: "Unlock Paid Features & AI Tools",
+        subtext: "Original Price ₹3,999 • Get it ₹4XX",
         color: "from-indigo-500 to-purple-500"
-    },
-    {
-        id: 5,
-        text: "🧠 ChatGPT Plus (GPT-4) Shared",
-        subtext: "Experience the Power of GPT-4",
-        color: "from-emerald-500 to-teal-400"
     },
     {
         id: 6,
         text: "📚 Coursera Plus Annual Plan",
-        subtext: "Unlimited Certificates & Degrees",
+        subtext: "Original Price ₹33,000 • Get it ₹2XXX",
         color: "from-blue-700 to-indigo-600"
     },
     {
         id: 7,
         text: "✨ Adobe Creative Cloud All Apps",
-        subtext: "Photoshop, Illustrator, Premiere & More",
+        subtext: "Original Price ₹59,000 • Get it ₹4XXX",
         color: "from-red-600 to-orange-500"
-    },
-    {
-        id: 8,
-        text: "🎓 Udemy Personal Plan",
-        subtext: "Access 8,000+ Top Courses",
-        color: "from-orange-600 to-amber-500"
     }
 ];
 

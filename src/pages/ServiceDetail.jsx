@@ -4,6 +4,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { serviceDetails } from '../data/servicesData';
 import { motion } from 'framer-motion';
 import { MdArrowBack, MdCheck, MdSmartphone, MdOpenInNew } from 'react-icons/md';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -13,10 +14,14 @@ const ServiceDetail = () => {
         return <Navigate to="/404" replace />;
     }
 
-    const { title, subtitle, icon: Icon, description, color, gradient, features, plans } = service;
+    const { title, subtitle, icon: Icon, description, color, gradient, features, plans, metaTitle, metaDescription } = service;
 
     return (
         <div className="min-h-screen bg-[#f8fafc] pb-20">
+            <Helmet>
+                <title>{metaTitle || `${title} | Premium Tools Hub`}</title>
+                <meta name="description" content={metaDescription || description} />
+            </Helmet>
             {/* Hero Section */}
             <div className={`relative overflow-hidden bg-gradient-to-br ${gradient} text-white pt-32 pb-20 md:pt-40 md:pb-32 px-4`}>
                 {/* Background Patterns */}

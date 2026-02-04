@@ -16,6 +16,8 @@ export const serviceDetails = {
         subtitle: "Accelerate your career, find top talent, and generate high-quality leads.",
         icon: SiLinkedin,
         description: "Unlock the full potential of the world's largest professional network. LinkedIn Premium gives you exclusive access to powerful tools for job searching, networking, and business growth. Whether you're looking to get hired, find the perfect candidate, or generate B2B sales leads, our premium plans provide the insights and direct access you need to succeed.",
+        metaTitle: "LinkedIn Premium Tools & Subscriptions | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get LinkedIn Premium access & advanced LinkedIn tools at big discounts — up to 80% off. Boost networking, insights & visibility with affordable plans. Learn more!",
         color: "bg-[#0077b5]",
         gradient: "from-[#0077b5] to-[#00a0dc]",
         features: [
@@ -63,6 +65,8 @@ export const serviceDetails = {
         subtitle: "Google's most capable AI, Ultra 1.0, built for your complex creative and coding tasks.",
         icon: SiGoogle,
         description: "Step into the future of AI with Gemini Advanced. Powered by the Ultra 1.0 model, it is Google's most capable AI ever. From complex coding and logical reasoning to creative collaboration and nuanced content creation, Gemini Advanced is integrated seamlessly into your Google Workspace to supercharge your productivity.",
+        metaTitle: "Google Gemini AI Premium Access | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Unlock Google Gemini AI premium access and tools at up to 80% off. Enhance content creation, research & productivity with powerful AI models. Explore now!",
         color: "bg-[#4285F4]",
         gradient: "from-[#4285F4] to-[#DB4437]",
         features: [
@@ -98,6 +102,8 @@ export const serviceDetails = {
         subtitle: "Supercharge your productivity with GPT-4, DALL·E 3, and advanced data analysis.",
         icon: SiOpenai,
         description: "Experience the world's most popular AI at its peak. ChatGPT Plus grants you access to OpenAI's smartest model, GPT-4, offering faster response times, priority access during peak hours, and exclusive features like DALL·E 3 for image generation and advanced data analysis for complex problem-solving.",
+        metaTitle: "ChatGPT Premium Access & Tools | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Unlock ChatGPT premium subscriptions & advanced tools at up to 80% off. Get smarter AI access for productivity, marketing, and innovation. See affordable plans!",
         color: "bg-[#10a37f]",
         gradient: "from-[#10a37f] to-[#12c498]",
         features: [
@@ -133,6 +139,8 @@ export const serviceDetails = {
         subtitle: "The AI Web Engineer that turns your ideas into fully functional web apps.",
         icon: MdElectricBolt,
         description: "Lovable is not just an assistant; it's an AI web engineer. Describe your idea in plain English, and Lovable creates a full-stack web application for you in minutes. It handles the database, backend, and frontend, allowing you to iterate via conversation and deploy to production instantly.",
+        metaTitle: "Loveable Premium Tools & Access | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get Loveable premium tools and features at up to 80% off. Boost creativity, productivity & workflows with affordable access. Explore plans & save big!",
         color: "bg-[#ff4f6e]",
         gradient: "from-[#ff4f6e] to-[#ff8f9e]",
         features: [
@@ -167,6 +175,8 @@ export const serviceDetails = {
         subtitle: "The extendable workflow automation tool for technical people.",
         icon: MdCode,
         description: "n8n (nodemation) allows you to build complex automations 10x faster. It is a source-available, fair-code workflow automation tool that lets you connect anything to everything via its node-based editor. With over 700+ native integrations and the ability to run custom JavaScript, n8n handles your most advanced workflows with ease.",
+        metaTitle: "n8n Automation Tools & Plans | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get n8n automation workflows & premium access at up to 80% off. Streamline tasks, boost productivity, and save on powerful automation tools. Check plans now!",
         color: "bg-[#EA4B71]",
         gradient: "from-[#EA4B71] to-[#FF6B8D]",
         features: [
@@ -201,6 +211,8 @@ export const serviceDetails = {
         subtitle: "The world's best creative apps and services for video, design, photography, and the web.",
         icon: SiAdobe,
         description: "Unleash your creativity with the ultimate toolkit. Adobe Creative Cloud gives you the entire collection of 20+ desktop and mobile apps, including Photoshop, Illustrator, Premiere Pro, and After Effects. Whether you're a designer, photographer, filmmaker, or dreamer, this is the industry standard for bringing your imagination to life.",
+        metaTitle: "Adobe Premium Tools & Subscriptions | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get Adobe premium subscriptions & creative tools at up to 80% off. Access Photoshop, Illustrator, Premiere Pro & more for less. Check plans & save big!",
         color: "bg-[#FF0000]",
         gradient: "from-[#FF0000] to-[#FF4D4D]",
         features: [
@@ -236,6 +248,8 @@ export const serviceDetails = {
         subtitle: "A new medium for presenting ideas, powered by AI. Design beautiful decks in minutes.",
         icon: MdDashboard,
         description: "Stop wasting time on slide formatting. Gamma is a modern alternative to slides that uses AI to generate beautiful presentations, documents, and webpages. Just start writing, and Gamma's powerful design engine does the rest, creating professional, engaging content that you can present live or share online.",
+        metaTitle: "Gamma AI Tools & Premium Access | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Unlock Gamma AI premium tools and features at up to 80% off. Create smarter visual content, designs & workflows with affordable plans. Explore now!",
         color: "bg-[#966fd6]",
         gradient: "from-[#966fd6] to-[#bca5e8]",
         features: [
@@ -270,6 +284,8 @@ export const serviceDetails = {
         subtitle: "The collaborative browser-based IDE to build software fast, from anywhere.",
         icon: SiReplit,
         description: "Replit is the best place to start coding, and Replit Core is for those who are serious about building. It's a fully collaborative, cloud-based IDE that lets you code in 50+ languages with zero setup. With powerful AI tools, boosted performance, and private projects, you can go from idea to deployed app in record time.",
+        metaTitle: "Replit Premium Access & Tools | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get Replit premium access and developer tools at up to 80% off. Boost coding, collaboration & cloud dev workflows with affordable plans. Explore now!",
         color: "bg-[#F26207]",
         gradient: "from-[#F26207] to-[#FF8C42]",
         features: [
@@ -304,6 +320,8 @@ export const serviceDetails = {
         subtitle: "The world's most advanced AI web development agent.",
         icon: MdCode,
         description: "Bolt.new is rewriting the rules of web development. It allows you to prompt, run, edit, and deploy full-stack web applications entirely within your browser. With WebContainers technology, you get a full Node.js environment without any local setup, powered by state-of-the-art AI models that understand your entire codebase.",
+        metaTitle: "Bolt Premium Access & Tools | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get Bolt premium tools and features at up to 80% off. Supercharge your workflow with affordable access to top Bolt services. Explore plans & save big!",
         color: "bg-[#000000]",
         gradient: "from-[#1a1a1a] to-[#333333]",
         features: [
@@ -338,6 +356,8 @@ export const serviceDetails = {
         subtitle: "The all-in-one connected workspace for your wiki, docs, and projects.",
         icon: SiNotion,
         description: "Notion is more than a doc. It's a connected workspace where better, faster work happens. Notion Business empowers teams to break down silos with unlimited spaces, advanced permission controls, and SAML SSO security. Whether you're managing a roadmap, a knowledge base, or meeting notes, Notion keeps everyone aligned.",
+        metaTitle: "Notion Premium Plans & Tools | Up to 80% Off | Premium Tools Hub",
+        metaDescription: "Get Notion premium access and advanced workspace tools at up to 80% off. Organize notes, projects & teams with affordable plans. Check offers now!",
         color: "bg-[#000000]",
         gradient: "from-[#2C2C2C] to-[#4A4A4A]",
         features: [
