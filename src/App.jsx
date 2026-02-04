@@ -73,8 +73,8 @@ const MainLayout = ({ children }) => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "PremiumHub",
-    "url": "https://premiumhub.click",
-    "logo": "https://premiumhub.click/logo.png",
+    "url": "https://www.premiumtoolshub.in",
+    "logo": "https://www.premiumtoolshub.in/logo.png",
     "sameAs": [
       "https://www.linkedin.com/company/premiumhub"
     ],

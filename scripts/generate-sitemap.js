@@ -6,7 +6,7 @@ import 'dotenv/config'; // Loads .env file contents into process.env
 const SPACE_ID = process.env.VITE_CONTENTFUL_SPACE_ID;
 const ACCESS_TOKEN = process.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 // You can define a VITE_SITE_URL in your .env or Environment Variables on Vercel
-const SITE_URL = process.env.VITE_SITE_URL || 'https://premiumhub.click';
+const SITE_URL = process.env.VITE_SITE_URL || 'https://www.premiumtoolshub.in';
 
 if (!SPACE_ID || !ACCESS_TOKEN) {
   console.error('Error: VITE_CONTENTFUL_SPACE_ID or VITE_CONTENTFUL_ACCESS_TOKEN is missing.');

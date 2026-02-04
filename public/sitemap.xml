@@ -1,163 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://premiumhub.click/</loc>
-<changefreq>daily</changefreq>
-<priority>1.0</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog</loc>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/privacy-policy</loc>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/terms-and-conditions</loc>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/linkedin</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/gemini</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/chatgpt</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/loveable</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/n8n</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/adobe</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/gamma</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/replit</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/bolt</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/services/notion</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-jasper-ai-for-content-marketing</loc>
-<lastmod>2026-01-14T14:31:09.978Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-microsoft-365-for-remote-work</loc>
-<lastmod>2026-01-14T10:36:42.168Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-notion-for-project-management</loc>
-<lastmod>2026-01-13T11:58:49.313Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-grammarly-premium-to-improve-writing</loc>
-<lastmod>2026-01-13T10:39:05.501Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-perplexity-ai-for-research-complete-practical-guide</loc>
-<lastmod>2026-01-12T11:46:27.333Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/how-to-use-canva-pro-for-social-media-design</loc>
-<lastmod>2026-01-12T11:42:36.774Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-perplexity-ai</loc>
-<lastmod>2026-01-10T12:20:25.990Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-lovable-ai</loc>
-<lastmod>2026-01-09T18:18:11.767Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-linkedin-sales-navigator-the-ultimate-tool-for-b2b-leads</loc>
-<lastmod>2026-01-08T09:37:07.191Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-linkedin-for-business-the-growth-channel-most-brands-ignore</loc>
-<lastmod>2026-01-08T07:47:08.238Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
-<lastmod>2026-01-07T05:55:27.925Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/what-is-chatgpt-the-ai-tool-thats-changing-how-we-work</loc>
-<lastmod>2026-01-05T11:36:31.433Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/notion-premium-subscription-service-for-teams-and-individuals</loc>
-<lastmod>2025-12-24T06:50:11.142Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/otter-ai-pro-cheap-subscription-is-it-worth-it</loc>
-<lastmod>2025-12-17T06:24:25.468Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://premiumhub.click/blog/perplexity-pro-cheap-subscription-discounted-pricing-get-it-safely</loc>
-<lastmod>2025-12-16T06:55:49.663Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.7</priority>
-</url>
+  <!-- Static Pages -->
+  <url>
+    <loc>https://www.premiumtoolshub.in/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/privacy-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/terms-and-conditions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Services Pages -->
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/linkedin</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/gemini</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/chatgpt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/loveable</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/n8n</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/adobe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/gamma</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/replit</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/bolt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/services/notion</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Other static pages -->
+
+  <!-- Dynamic Blog Posts -->
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/grammarly-vs-prowritingaid-which-grammar-tool-is-better</loc>
+    <lastmod>2026-02-04T07:19:07.283Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/linkedin-sales-navigator-vs-apollo-which-tool-works-better</loc>
+    <lastmod>2026-02-04T06:49:48.410Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/superhuman-vs-gmail-which-is-faster-for-email</loc>
+    <lastmod>2026-02-03T11:29:29.493Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/canva-vs-piktochart-which-is-best-for-infographics</loc>
+    <lastmod>2026-02-03T11:19:53.131Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/notion-vs-clickup-best-project-management-tool</loc>
+    <lastmod>2026-02-03T11:02:59.175Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/adobe-photoshop-vs-coreldraw-best-for-designers</loc>
+    <lastmod>2026-02-02T11:22:50.945Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/microsoft-365-and-linkedin-premium-free-for-students</loc>
+    <lastmod>2026-02-01T07:51:10.401Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/otter-ai-vs-notta-best-transcription-tool</loc>
+    <lastmod>2026-01-31T05:27:07.944Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/jasper-vs-writesonic-which-ai-writer-wins</loc>
+    <lastmod>2026-01-27T18:51:59.289Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/figma-vs-adobe-xd-best-ui-ux-tool</loc>
+    <lastmod>2026-01-27T12:22:13.787Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/canva-vs-visme-best-for-business-graphics</loc>
+    <lastmod>2026-01-24T11:40:09.598Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/linkedin-premium-plans-complete-introduction-and-foundation</loc>
+    <lastmod>2026-01-24T05:58:48.894Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-jasper-for-ad-copy</loc>
+    <lastmod>2026-01-23T18:08:19.210Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/perplexity-vs-chatgpt-which-ai-is-better</loc>
+    <lastmod>2026-01-23T12:14:57.574Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-figma-for-ui-design</loc>
+    <lastmod>2026-01-22T12:01:29.109Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-superhuman-for-faster-email</loc>
+    <lastmod>2026-01-22T11:13:10.514Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-coreldraw-for-illustration</loc>
+    <lastmod>2026-01-22T07:55:08.619Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-descript-for-podcast-editing</loc>
+    <lastmod>2026-01-21T10:38:01.358Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-loom-for-video-communication</loc>
+    <lastmod>2026-01-20T11:18:56.192Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-adobe-creative-cloud-for-graphic-design</loc>
+    <lastmod>2026-01-20T11:14:28.349Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-gemini-advanced-for-daily-tasks</loc>
+    <lastmod>2026-01-19T12:23:01.087Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-canva-complete-guide-graphic-design</loc>
+    <lastmod>2026-01-16T10:00:58.696Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-jasper-ai-for-content-marketing</loc>
+    <lastmod>2026-01-14T14:31:09.978Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-microsoft-365-for-remote-work</loc>
+    <lastmod>2026-01-14T10:36:42.168Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-notion-for-project-management</loc>
+    <lastmod>2026-01-13T11:58:49.313Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-grammarly-premium-to-improve-writing</loc>
+    <lastmod>2026-01-13T10:39:05.501Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-perplexity-ai-for-research-complete-practical-guide</loc>
+    <lastmod>2026-01-12T11:46:27.333Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/how-to-use-canva-pro-for-social-media-design</loc>
+    <lastmod>2026-01-12T11:42:36.774Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-perplexity-ai</loc>
+    <lastmod>2026-01-10T12:20:25.990Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-lovable-ai</loc>
+    <lastmod>2026-01-09T18:18:11.767Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-linkedin-sales-navigator-the-ultimate-tool-for-b2b-leads</loc>
+    <lastmod>2026-01-08T09:37:07.191Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-linkedin-for-business-the-growth-channel-most-brands-ignore</loc>
+    <lastmod>2026-01-08T07:47:08.238Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-canva-the-design-tool-that-made-everyone-a-graphic-designer</loc>
+    <lastmod>2026-01-07T05:55:27.925Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/what-is-chatgpt-the-ai-tool-thats-changing-how-we-work</loc>
+    <lastmod>2026-01-05T11:36:31.433Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/notion-premium-subscription-service-for-teams-and-individuals</loc>
+    <lastmod>2025-12-24T06:50:11.142Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/otter-ai-pro-cheap-subscription-is-it-worth-it</loc>
+    <lastmod>2025-12-17T06:24:25.468Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.premiumtoolshub.in/blog/perplexity-pro-cheap-subscription-discounted-pricing-get-it-safely</loc>
+    <lastmod>2025-12-16T06:55:49.663Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
