@@ -18,11 +18,11 @@ const Logo = memo(() => {
     <Link
       to="/"
       className="group flex flex-col leading-none select-none"
-      aria-label="Premium Hub Home"
+      aria-label="Premium Tools Hub Home"
     >
       <div className="flex items-center gap-0.5 text-2xl font-black tracking-tight text-slate-800">
         Premium
-        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Hub</span>
+        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:brightness-110 transition-all">ToolsHub</span>
         <span className="text-blue-600">.</span>
       </div>
       <span
@@ -171,7 +171,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-[#bcccdc]/50">
           <div className="text-center space-y-4">
             <p className="text-[#52525b] font-medium">
-              © {currentYear} <span className="text-slate-800 font-bold">Premium</span><span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-bold">Hub</span><span className="text-blue-600 font-bold">.</span> All rights reserved.
+              © {currentYear} <span className="text-slate-800 font-bold">Premium</span><span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-bold">ToolsHub</span><span className="text-blue-600 font-bold">.</span> All rights reserved.
             </p>
             <p className="text-[#52525b] flex items-center justify-center gap-2 text-sm font-medium">
               Made with

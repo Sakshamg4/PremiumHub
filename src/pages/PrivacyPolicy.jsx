@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#1e293b]">Privacy Policy</h1>
             <p className="text-[#64748b]">Last updated: December 2024</p>
             <p className="mt-6 text-[#64748b] max-w-3xl mx-auto">
-              At <span className="text-[#9aa6b2]">Premium Hub</span>, we value your privacy and are committed to protecting your personal information. This privacy policy outlines the types of information we collect, how we use it, and the steps we take to ensure that your personal data remains secure.
+              At <span className="text-[#9aa6b2]">Premium Tools Hub</span>, we value your privacy and are committed to protecting your personal information. This privacy policy outlines the types of information we collect, how we use it, and the steps we take to ensure that your personal data remains secure.
             </p>
           </div>
 

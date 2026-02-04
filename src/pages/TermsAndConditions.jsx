@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
   const sections = [
     {
       title: "1. Services",
-      content: "Premium Hub provides access to premium digital tools, AI software subscriptions, LinkedIn Premium upgrades, and OTT entertainment platforms at affordable prices.",
+      content: "Premium Tools Hub provides access to premium digital tools, AI software subscriptions, LinkedIn Premium upgrades, and OTT entertainment platforms at affordable prices.",
       type: "paragraph"
     },
     {
@@ -47,7 +47,7 @@ const TermsAndConditions = () => {
     },
     {
       title: "5. Intellectual Property",
-      content: "All content provided remains the property of the respective service providers. Premium Hub acts as a reseller/facilitator.",
+      content: "All content provided remains the property of the respective service providers. Premium Tools Hub acts as a reseller/facilitator.",
       type: "paragraph"
     },
     {

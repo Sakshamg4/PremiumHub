@@ -294,7 +294,7 @@ const SingleBlog = () => {
                         <div className="flex items-center justify-center gap-4 border-t border-slate-200/60 pt-8 mt-8 max-w-lg mx-auto">
                             <div className="flex -space-x-3">
                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 border-2 border-white shadow-md flex items-center justify-center text-white text-xs font-bold">
-                                    PH
+                                    PTH
                                 </div>
                             </div>
                             <div className="text-left">

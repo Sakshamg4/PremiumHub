@@ -227,7 +227,7 @@ const TESTIMONIALS = [
         id: 1,
         name: "Rahul Sharma",
         role: "Digital Marketer",
-        feedback: "Premium Hub has completely transformed my workflow. The LinkedIn Sales Navigator plan is a game-changer for lead generation. Highly recommended!",
+        feedback: "Premium Tools Hub has completely transformed my workflow. The LinkedIn Sales Navigator plan is a game-changer for lead generation. Highly recommended!",
         image: "https://placehold.co/300x600/18181b/FFF?text=Feedback-Coming"
     },
     {
@@ -426,7 +426,7 @@ const FOOTER_LINKS = {
 
 const WHATSAPP_CARDS = [
     {
-        title: "Premium Hub Community",
+        title: "Premium Tools Hub Community",
         description: "Join our exclusive community for premium digital tools and services. Get instant updates about:",
         features: [
             "LinkedIn Premium & Sales Navigator deals",

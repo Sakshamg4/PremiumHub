@@ -1,5 +1,5 @@
-// Service Worker for PremiumHub
-const CACHE_NAME = 'premiumhub-cache-v1';
+// Service Worker for PremiumToolsHub
+const CACHE_NAME = 'premiumtoolshub-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -41,10 +41,10 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   // Only cache GET requests
   if (event.request.method !== 'GET') return;
-  
+
   // Skip browser-sync and analytics
-  if (event.request.url.includes('browser-sync') || 
-      event.request.url.includes('analytics')) {
+  if (event.request.url.includes('browser-sync') ||
+    event.request.url.includes('analytics')) {
     return;
   }
 
