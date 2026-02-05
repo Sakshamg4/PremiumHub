@@ -7,18 +7,17 @@ const StickyLeadBanner = () => {
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 animate-fade-in-up shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
 
-            {/* Mobile View - Green Background, Centered */}
-            <div className="md:hidden bg-[#006e53] text-white py-3 px-4 border-t border-[#005c45]">
+            <div className="md:hidden bg-[#006e53] text-white pt-3 px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-[#005c45]">
                 <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 text-center group active:opacity-90"
+                    className="flex items-center justify-center gap-2.5 w-full text-center group active:opacity-90"
                 >
                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                        <FaFileSignature className="w-4 h-4 text-white" />
+                        <FaFileSignature className="w-3.5 h-3.5 text-white" />
                     </div>
-                    <span className="font-semibold text-sm tracking-wide">
+                    <span className="font-semibold text-xs xs:text-sm tracking-wide leading-tight">
                         Get Exclusive Quotes for Premium Tools
                     </span>
                 </a>
