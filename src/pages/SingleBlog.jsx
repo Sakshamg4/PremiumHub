@@ -7,6 +7,7 @@ import { client } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { SingleBlogSkeleton } from '../Components/BlogSkeleton'
+import StickyLeadBanner from '../Components/StickyLeadBanner'
 
 const SingleBlog = () => {
     const { id } = useParams()
@@ -355,6 +356,8 @@ const SingleBlog = () => {
                     </div>
                 </article>
             </div>
+            {/* Sticky Bottom Banner */}
+            <StickyLeadBanner />
         </div>
     )
 }

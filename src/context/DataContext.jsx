@@ -20,7 +20,7 @@ const MENU_ITEMS = [
     { href: '#testimonials', label: 'Testimonials', icon: '💬' },
     { href: '/blog', label: 'Blog', icon: '📰' },
     { href: '#contact', label: 'Contact', icon: '📱' },
-    { href: '#about', label: 'About', icon: 'ℹ️' }
+    { href: '/about-us', label: 'About', icon: 'ℹ️' }
 ];
 
 const SOCIAL_LINKS = [
@@ -419,7 +419,7 @@ const FOOTER_LINKS = {
     legal: [
         { label: 'Privacy Policy', href: '/privacy-policy', isRoute: true, icon: '🔒' },
         { label: 'Terms of Service', href: '/terms-and-conditions', isRoute: true, icon: '📜' },
-        { label: 'About Us', href: '#about', icon: 'ℹ️' }
+        { label: 'About Us', href: '/about-us', isRoute: true, icon: 'ℹ️' }
     ]
 };
 

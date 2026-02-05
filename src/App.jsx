@@ -28,7 +28,10 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound'
 import Blog from './pages/Blog'
+
 const SingleBlog = lazy(() => import('./pages/SingleBlog'))
+
+const AboutUs = lazy(() => import('./pages/AboutUs'))
 
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 
@@ -163,6 +166,16 @@ const App = () => {
                       <MainLayout>
                         <Suspense fallback={<LoadingFallback />}>
                           <TermsAndConditions />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/about-us"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <AboutUs />
                         </Suspense>
                       </MainLayout>
                     }

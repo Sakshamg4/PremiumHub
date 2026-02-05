@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaWhatsapp, FaCommentDots } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 import ContactForm from './ContactForm';
 
 const PopupForm = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
+    // Check if we are on a single blog page where the sticky banner is present
+    // The path for single blog is usually /blog/:slug, so we check if it starts with /blog/ and has a slug
+    const isSingleBlog = location.pathname.startsWith('/blog/') && location.pathname.split('/').length > 2;
 
     // Auto-open logic: Open every 5 minutes if closed
     useEffect(() => {
@@ -19,7 +25,7 @@ const PopupForm = () => {
     const toggleOpen = () => setIsOpen(!isOpen);
 
     return (
-        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4 pointer-events-none">
+        <div className={`fixed right-6 z-[100] flex flex-col items-end gap-4 pointer-events-none transition-all duration-300 ${isSingleBlog ? 'bottom-24' : 'bottom-6'}`}>
             {/* Form Container */}
             <div
                 className={`

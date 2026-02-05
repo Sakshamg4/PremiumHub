@@ -71,6 +71,11 @@ async function generateSitemap() {
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>${escapeXml(SITE_URL)}/about-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- Services Pages -->
 ${['linkedin', 'gemini', 'chatgpt', 'loveable', 'n8n', 'adobe', 'gamma', 'replit', 'bolt', 'notion']

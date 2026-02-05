@@ -58,23 +58,23 @@ const InlinePromo = () => {
             {/* Background Effects */}
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${currentOffer.color} opacity-10 blur-[80px] rounded-full pointer-events-none transition-colors duration-500`} />
 
-            <div className="relative px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-between gap-6">
+            <div className="relative px-5 py-5 sm:px-8 sm:py-6 flex items-center justify-between gap-4 sm:gap-6">
 
                 {/* Text Content - Animated */}
-                <div className="flex-1 overflow-hidden h-[3.5rem] relative flex flex-col justify-center">
+                <div className="flex-1 overflow-hidden h-[5.5rem] sm:h-[3.5rem] relative flex flex-col justify-center">
                     {OFFERS.map((offer, index) => {
-                        let transformClass = 'translate-y-8 opacity-0'; // Default: Waiting below (coming soon)
+                        let transformClass = 'translate-y-12 opacity-0'; // Default: Waiting below (coming soon)
 
                         if (index === currentIndex) {
                             transformClass = 'translate-y-0 opacity-100'; // Active
                         } else if (index < currentIndex) {
-                            transformClass = '-translate-y-8 opacity-0'; // Passed (gone up)
+                            transformClass = '-translate-y-12 opacity-0'; // Passed (gone up)
                         }
 
                         // Handle Loop Wrap-around (Last Item -> First Item)
                         // When current is 0, the Last Item (7) should appear to have "gone up" (prev)
                         if (currentIndex === 0 && index === OFFERS.length - 1) {
-                            transformClass = '-translate-y-8 opacity-0';
+                            transformClass = '-translate-y-12 opacity-0';
                         }
 
                         return (
@@ -84,12 +84,12 @@ const InlinePromo = () => {
                             >
                                 <div className="flex items-center gap-2 mb-1">
                                     <span className={`inline-block w-1.5 h-1.5 rounded-full bg-gradient-to-r ${offer.color}`} />
-                                    <span className={`text-[11px] font-bold tracking-wider uppercase text-slate-400`}>Recommended Deal</span>
+                                    <span className={`text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-slate-400`}>Recommended Deal</span>
                                 </div>
-                                <h4 className="font-bold text-white text-lg tracking-tight leading-none">
+                                <h4 className="font-bold text-white text-[15px] sm:text-lg tracking-tight leading-tight sm:leading-none line-clamp-2 sm:truncate">
                                     {offer.text}
                                 </h4>
-                                <p className="text-slate-400 text-sm font-medium mt-1 truncate">
+                                <p className="text-slate-400 text-xs sm:text-sm font-medium mt-0.5 sm:mt-1 whitespace-normal sm:truncate leading-snug">
                                     {offer.subtext}
                                 </p>
                             </div>
@@ -109,8 +109,8 @@ const InlinePromo = () => {
                 >
                     <span className="absolute inset-0 bg-white/10 rounded-xl blur opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     <span className={`
-                        relative flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-[#0f172a] shadow-lg transition-all duration-300 transform group-hover/btn:scale-105
-                        bg-white
+                        relative flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm text-[#0f172a] shadow-lg transition-all duration-300 transform group-hover/btn:scale-105
+                        bg-white whitespace-nowrap
                     `}>
                         Get Deal
                         <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
