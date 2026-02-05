@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 const OFFERS = [
     {
         id: 1,
-        text: "🔥 LinkedIn Premium Business Plan Available @ 80% OFF",
-        subtext: "Upgrade your career today",
+        text: "LinkedIn Premium Business",
+        subtext: "80% OFF • Limited Time Deal",
         link: "/pricing",
         color: "from-blue-600 to-blue-400"
     },
     {
         id: 2,
-        text: "🤖 Gemini AI Advanced Pro Plan",
-        subtext: "Experience the power of Google's best AI",
+        text: "Gemini AI Pro",
+        subtext: "Experience Google's Best AI",
         link: "/pricing",
         color: "from-purple-600 to-pink-400"
     },
     {
         id: 3,
-        text: "💼 LinkedIn Sales Navigator Core",
-        subtext: "Find the right leads, right now",
+        text: "LinkedIn Sales Navigator",
+        subtext: "Find Leads Faster",
         link: "/pricing",
         color: "from-sky-600 to-cyan-400"
     }
@@ -30,8 +30,7 @@ const PromotionalBanner = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Show banner after a slight delay
-        const timer = setTimeout(() => setIsVisible(true), 1000);
+        const timer = setTimeout(() => setIsVisible(true), 1500);
         return () => clearTimeout(timer);
     }, []);
 
@@ -48,57 +47,55 @@ const PromotionalBanner = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl z-50">
-            <div className="relative bg-[#0f172a]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-4 overflow-hidden group">
-                {/* Animated Background Gradient Border Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${currentOffer.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
+        <div className="fixed bottom-32 left-3 right-3 md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl z-40 animate-fade-in-up">
+            <div className="relative bg-[#0f172a] border border-slate-700/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.5)] p-4 overflow-hidden group">
+
+                {/* Glow Effect */}
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${currentOffer.color} opacity-20 blur-3xl -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none transition-colors duration-1000`} />
 
                 <div className="relative flex items-center justify-between gap-4">
                     {/* Scrolling Text Section */}
-                    <div className="flex-1 h-12 relative overflow-hidden flex flex-col justify-center">
-                        {OFFERS.map((offer, index) => (
-                            <div
-                                key={offer.id}
-                                className={`absolute w-full transition-all duration-500 ease-in-out flex flex-col justify-center
-                                    ${index === currentIndex
-                                        ? 'opacity-100 translate-y-0'
-                                        : index < currentIndex
-                                            ? 'opacity-0 -translate-y-full'
-                                            : 'opacity-0 translate-y-full'
-                                    }
-                                    ${index !== currentIndex && 'pointer-events-none'}
-                                `}
-                            >
-                                <p className="text-white font-bold text-sm md:text-base leading-tight">
-                                    {offer.text}
-                                </p>
-                                <p className="text-slate-400 text-xs hidden md:block">
-                                    {offer.subtext}
-                                </p>
-                            </div>
-                        ))}
+                    <div className="flex-1 relative overflow-hidden">
+                        <div className="h-11 relative">
+                            {OFFERS.map((offer, index) => (
+                                <div
+                                    key={offer.id}
+                                    className={`absolute w-full top-0 left-0 transition-all duration-500 ease-in-out flex flex-col justify-center
+                                        ${index === currentIndex
+                                            ? 'opacity-100 translate-y-0'
+                                            : 'opacity-0 translate-y-4' // Simple fade slide
+                                        }
+                                        ${index !== currentIndex && 'pointer-events-none'}
+                                    `}
+                                >
+                                    <h3 className="text-white font-bold text-[15px] leading-tight line-clamp-2 pr-1 mb-0.5">
+                                        {offer.text}
+                                    </h3>
+                                    <p className="text-slate-400 text-xs truncate">
+                                        {offer.subtext}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Action Button */}
                     <Link
                         to="/pricing"
-                        className="relative flex-none"
+                        className="flex-none"
                     >
-                        <span className={`
-                            inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white shadow-lg transition-all duration-300 hover:scale-105 active:scale-95
-                            bg-gradient-to-r ${currentOffer.color}
-                        `}>
+                        <span className="inline-flex items-center gap-1 px-5 py-2.5 bg-white text-slate-900 rounded-xl font-bold text-sm shadow-lg hover:bg-slate-50 active:scale-95 transition-all">
                             Get Deal
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </span>
                     </Link>
 
-                    {/* Close Button (Optional UX improvement) */}
+                    {/* Close Button */}
                     <button
                         onClick={() => setIsVisible(false)}
-                        className="absolute -top-2 -right-2 p-1 bg-white/10 hover:bg-white/20 rounded-full text-white/50 hover:text-white transition-colors"
+                        className="absolute -top-2 -right-2 p-1.5 bg-white/5 hover:bg-white/10 rounded-full text-slate-500 hover:text-white transition-colors"
                         aria-label="Close banner"
                     >
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
