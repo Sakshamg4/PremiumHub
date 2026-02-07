@@ -5,7 +5,7 @@ const StickyLeadBanner = () => {
     const whatsappLink = "https://wa.me/919029151181?text=Hi%2C%20I%20want%20to%20inquire%20about%20premium%20tools%20pricing";
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-50 animate-fade-in-up shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <div className="fixed bottom-0 left-0 right-0 z-[999] animate-fade-in-up shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
 
             {/* Mobile View - White Background, Green Pill Button */}
             <div className="md:hidden bg-white border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">

@@ -316,8 +316,9 @@ const SingleBlog = () => {
                     </div>
 
                     {/* Right Column: Sticky Sidebar (Spans 4 cols) */}
-                    <div className="hidden lg:block lg:col-span-4 relative pl-4">
-                        <div className="sticky top-28 space-y-6">
+                    {/* Removed 'hidden' to show on mobile at the bottom */}
+                    <div className="lg:col-span-4 relative lg:pl-4 mt-12 lg:mt-0">
+                        <div className="lg:sticky lg:top-28 space-y-6">
 
                             {/* Lead Form */}
                             <BlogLeadForm />
