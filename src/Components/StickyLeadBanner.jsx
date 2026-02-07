@@ -24,10 +24,10 @@ const StickyLeadBanner = () => {
             </div>
 
             {/* Desktop View - White Background, Split Layout */}
-            <div className="hidden md:block bg-white border-t border-slate-200 py-4 px-8">
+            <div className="hidden md:block bg-white border-t border-slate-200 py-2 px-2">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Left Side Text */}
-                    <div className="text-[#101828] font-bold text-lg tracking-tight">
+                    <div className="text-[#101828] font-bold text-md tracking-tight">
                         Get Exclusive Quotes for Premium Tools
                     </div>
 

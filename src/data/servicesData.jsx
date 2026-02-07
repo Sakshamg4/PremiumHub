@@ -60,30 +60,30 @@ export const serviceDetails = {
                 </p>
                 <p className="mt-4 mb-4">Below is a simple overview of why pricing is often high:</p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Pricing Factor</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">How It Affects Cost</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Pricing Factor</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">How It Affects Cost</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Enterprise plans</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Designed for large teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Enterprise plans</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Designed for large teams</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Feature bundling</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Paying for unused features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Feature bundling</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Paying for unused features</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Global pricing</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">No regional flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Global pricing</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">No regional flexibility</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Monthly subscriptions</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Ongoing high costs</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Monthly subscriptions</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Ongoing high costs</td>
                             </tr>
                         </tbody>
                     </table>
@@ -127,40 +127,40 @@ export const serviceDetails = {
                     CRM-focused LinkedIn tools help organize leads after initial contact. They allow users to track conversations, manage deal stages, and maintain structured records.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Tool Type</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Primary Purpose</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Common Users</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Tool Type</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Primary Purpose</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Common Users</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Lead discovery</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Find relevant profiles</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Sales, recruiters</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Lead discovery</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Find relevant profiles</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Sales, recruiters</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Outreach tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manage messages</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Agencies, consultants</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Outreach tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manage messages</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Agencies, consultants</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Workflow tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Stay consistent</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Solo professionals</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Workflow tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Stay consistent</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Solo professionals</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Analytics tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Track performance</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Marketers</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Analytics tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Track performance</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Marketers</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">CRM tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manage leads</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Sales teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">CRM tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manage leads</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Sales teams</td>
                             </tr>
                         </tbody>
                     </table>
@@ -172,35 +172,35 @@ export const serviceDetails = {
                     Full‑price LinkedIn tools often appear attractive because of their extensive feature lists. However, many users never use most of these features. Discounted LinkedIn tools focus on essential functionality. They reduce complexity while maintaining usefulness.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Full‑Price Tools</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Tools</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Full‑Price Tools</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Tools</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Monthly cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Monthly cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Available</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Available</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Available</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Available</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced extras</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included by default</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Optional</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced extras</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included by default</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Optional</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best fit</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Large companies</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Small teams, individuals</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best fit</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Large companies</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Small teams, individuals</td>
                             </tr>
                         </tbody>
                     </table>
@@ -211,35 +211,35 @@ export const serviceDetails = {
                     Some users prefer manual LinkedIn work to avoid paying for tools. While this may work at a small scale, it becomes inefficient as activity increases. Tools help save time, reduce errors, and keep work organized.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Activity</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Work</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Tools</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Activity</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Work</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Tools</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Finding prospects</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Slow</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Faster</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Finding prospects</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Slow</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Faster</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Tracking replies</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manual notes</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Dashboard view</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Tracking replies</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manual notes</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Dashboard view</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Follow‑ups</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Easy to miss</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Structured</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Follow‑ups</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Easy to miss</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Structured</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Scaling efforts</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Difficult</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Easier</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Scaling efforts</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Difficult</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Easier</td>
                             </tr>
                         </tbody>
                     </table>
@@ -282,30 +282,30 @@ export const serviceDetails = {
                     Pricing varies depending on the tool type and access level. In general, users save significantly compared to standard subscriptions.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Lead or outreach tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Lead or outreach tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Lead + analytics</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Lead + analytics</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Team</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Multiple users</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Team</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Multiple users</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -341,7 +341,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -501,40 +501,40 @@ export const serviceDetails = {
                     Standard Gemini plans are often designed for businesses with higher usage needs. Discounted access focuses on essential AI functionality.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Gemini Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Gemini Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Gemini Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Gemini Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core AI capabilities</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core AI capabilities</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Reasoning & language quality</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Reasoning & language quality</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Enterprises</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Enterprises</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & small teams</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Plan-based</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">More practical</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Plan-based</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">More practical</td>
                             </tr>
                         </tbody>
                     </table>
@@ -547,35 +547,35 @@ export const serviceDetails = {
                     Many tasks that Gemini supports can be done manually, but they often take more time and effort.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Approach</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Gemini</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Approach</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Gemini</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Writing drafts</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Time-consuming</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Faster</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Writing drafts</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Time-consuming</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Faster</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Research</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Multiple sources</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Summarized insights</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Research</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Multiple sources</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Summarized insights</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Idea generation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Expanded</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Idea generation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Expanded</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Problem solving</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Trial and error</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Guided support</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Problem solving</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Trial and error</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Guided support</td>
                             </tr>
                         </tbody>
                     </table>
@@ -615,30 +615,30 @@ export const serviceDetails = {
                     Pricing depends on access level and usage limits. Compared to standard plans, discounted access usually offers meaningful savings.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use Case</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use Case</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Light daily use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Light daily use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular AI usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular AI usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Heavy usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Heavy usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -674,7 +674,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -819,35 +819,35 @@ export const serviceDetails = {
                     Standard ChatGPT plans bundle premium features and higher usage limits. Discounted access offers these features at a price that is easier to sustain for many users.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard ChatGPT Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted ChatGPT Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard ChatGPT Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted ChatGPT Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Premium model access</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Premium model access</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Speed & responsiveness</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Priority</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Priority</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Speed & responsiveness</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Priority</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Priority</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Heavy users & businesses</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Heavy users & businesses</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & small teams</td>
                             </tr>
                         </tbody>
                     </table>
@@ -860,35 +860,35 @@ export const serviceDetails = {
                     ChatGPT often replaces repetitive or time-intensive tasks that would otherwise be done manually. Thinking, researching, drafting, and editing can all take significant time if done without AI help.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Work</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With ChatGPT</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Work</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With ChatGPT</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Writing content</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Time-intensive</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Faster & assisted</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Writing content</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Time-intensive</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Faster & assisted</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Research summaries</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Multiple sources</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Single concise reply</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Research summaries</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Multiple sources</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Single concise reply</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Brainstorming ideas</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Slow</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Instant</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Brainstorming ideas</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Slow</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Instant</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Coding help</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Search + trial</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Guided syntax & logic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Coding help</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Search + trial</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Guided syntax & logic</td>
                             </tr>
                         </tbody>
                     </table>
@@ -931,30 +931,30 @@ export const serviceDetails = {
                     Discounted access varies depending on usage levels, but it typically offers significant savings compared to full pricing.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Usage</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Usage</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Light use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Occasional questions</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Light use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Occasional questions</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Moderate use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Daily productivity</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Moderate use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Daily productivity</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Heavy use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Frequent work support</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Heavy use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Frequent work support</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -978,7 +978,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -1120,40 +1120,40 @@ export const serviceDetails = {
                     Standard Loveable plans often include advanced features designed for heavy usage. Discounted access focuses on essential creative functionality.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Loveable Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Loveable Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Loveable Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Loveable Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core design features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core design features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Ease of use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Ease of use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Large teams</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Large teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & small teams</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Plan-based</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">More practical</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Plan-based</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">More practical</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1166,35 +1166,35 @@ export const serviceDetails = {
                     Designing without the right tools can take time and effort. Loveable simplifies many design steps.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Design</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Loveable</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Design</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Loveable</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Layout creation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Time-consuming</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Faster</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Layout creation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Time-consuming</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Faster</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Design consistency</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Hard to maintain</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Easy</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Design consistency</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Hard to maintain</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Easy</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Skill requirement</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Low</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Skill requirement</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Low</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Time to final output</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Longer</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Shorter</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Time to final output</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Longer</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Shorter</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1234,30 +1234,30 @@ export const serviceDetails = {
                     Pricing depends on access level and usage. Compared to standard plans, discounted access usually offers noticeable savings.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use Case</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use Case</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Occasional design</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Occasional design</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular creation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular creation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Heavy usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Heavy usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1293,7 +1293,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -1390,30 +1390,30 @@ export const serviceDetails = {
                 </p>
                 <p className="mt-4 mb-4">Below is a simple view of what drives n8n costs:</p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Cost Factor</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Impact on Users</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Cost Factor</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Impact on Users</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Managed hosting</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher monthly fees</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Managed hosting</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher monthly fees</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Usage-based pricing</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Costs grow with automation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Usage-based pricing</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Costs grow with automation</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Enterprise plans</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Overkill for small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Enterprise plans</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Overkill for small teams</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Infrastructure setup</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Requires technical effort</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Infrastructure setup</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Requires technical effort</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1464,40 +1464,40 @@ export const serviceDetails = {
                     Standard n8n plans often bundle features and infrastructure designed for large organizations. Discounted access focuses on essentials.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Paid Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted n8n Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Paid Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted n8n Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core automation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core automation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Workflow flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Workflow flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Enterprises</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals, startups</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Enterprises</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals, startups</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Contract flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">More flexible</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Contract flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">More flexible</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1510,35 +1510,35 @@ export const serviceDetails = {
                     Automation is often compared with manual processes to understand its real value. While manual work may seem manageable at first, it becomes inefficient over time.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Process</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With n8n</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Process</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With n8n</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Repetitive tasks</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Time-consuming</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Automated</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Repetitive tasks</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Time-consuming</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Automated</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Error handling</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manual checks</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Rule-based</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Error handling</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manual checks</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Rule-based</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Scalability</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Easy to scale</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Scalability</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Easy to scale</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Consistency</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Varies</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Predictable</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Consistency</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Varies</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Predictable</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1588,30 +1588,30 @@ export const serviceDetails = {
                     Pricing depends on usage level and access type. Compared to standard managed plans, discounted access usually offers meaningful savings.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use Case</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use Case</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Simple workflows</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Simple workflows</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Multiple workflows</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Multiple workflows</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Team automation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Team automation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1647,7 +1647,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -1736,30 +1736,30 @@ export const serviceDetails = {
                     Some reasons why Adobe subscriptions can feel expensive include:
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Cost Factor</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Impact on Users</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Cost Factor</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Impact on Users</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Multiple apps bundled together</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher combined cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Multiple apps bundled together</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher combined cost</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cloud storage costs</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Ongoing fees</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cloud storage costs</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Ongoing fees</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Enterprise features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Unnecessary for small users</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Enterprise features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Unnecessary for small users</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Monthly subscription model</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Recurring payments</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Monthly subscription model</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Recurring payments</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1824,40 +1824,40 @@ export const serviceDetails = {
                     Standard Adobe subscriptions often bundle multiple tools, cloud storage, and collaboration features. Discounted access focuses on providing essential tools at a better price.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Adobe Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Adobe Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Adobe Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Adobe Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Monthly cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Monthly cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Access to core apps</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Yes</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Yes</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Access to core apps</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Yes</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Yes</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cloud storage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included based on access level</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cloud storage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included based on access level</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Collaboration features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Available depending on plan</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Collaboration features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Available depending on plan</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Large teams, enterprises</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals, freelancers, small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Large teams, enterprises</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals, freelancers, small teams</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1870,35 +1870,35 @@ export const serviceDetails = {
                     Without Adobe tools, content creation often relies on a combination of basic editors, manual design workflows, and time-consuming processes. Adobe simplifies these tasks and brings professional power into one suite.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Tools</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Adobe</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Tools</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Adobe</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Photo editing</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Basic editors</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Photoshop</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Photo editing</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Basic editors</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Photoshop</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Layout design</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Multiple tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">InDesign</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Layout design</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Multiple tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">InDesign</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Video production</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Simple editors</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Premiere Pro</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Video production</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Simple editors</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Premiere Pro</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">PDF management</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Acrobat</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">PDF management</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Acrobat</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1949,30 +1949,30 @@ export const serviceDetails = {
                     Pricing for discounted Adobe access varies based on the tools selected and the usage level. Users typically save a significant percentage compared to standard plans.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Photo & Graphics Starter</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Occasional use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Photo & Graphics Starter</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Occasional use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Creative Work Suite</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular creative work</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Creative Work Suite</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular creative work</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Full Creative Cloud</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Extensive tool use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Full Creative Cloud</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Extensive tool use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2008,7 +2008,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -2150,40 +2150,40 @@ export const serviceDetails = {
                     Standard Gamma plans bundle multiple features and collaboration options that not all users need. Discounted access focuses on essential functionality.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Gamma Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Gamma Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Gamma Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Gamma Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">AI content creation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">AI content creation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Presentation building</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Presentation building</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Design quality</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Design quality</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Teams & enterprises</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Teams & enterprises</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & small teams</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2199,35 +2199,35 @@ export const serviceDetails = {
                     Gamma simplifies this process by handling structure and design automatically.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Creation</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Gamma</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Creation</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Gamma</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Structuring content</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manual</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">AI-assisted</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Structuring content</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manual</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">AI-assisted</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Design effort</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Minimal</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Design effort</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Minimal</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Time required</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Long</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Short</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Time required</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Long</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Short</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Consistency</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Varies</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Consistency</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Varies</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">High</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2267,30 +2267,30 @@ export const serviceDetails = {
                     Pricing varies based on access type and usage level. Compared to standard plans, discounted access usually offers noticeable savings.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individual creation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individual creation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular content creation</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular content creation</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Heavy usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Heavy usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2326,7 +2326,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -2452,35 +2452,35 @@ export const serviceDetails = {
                     One of the easiest ways to understand Replit’s value is to compare it with traditional local development setups.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Aspect</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Local Development</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Replit</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Aspect</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Local Development</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Replit</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Setup time</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Often long</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Almost instant</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Setup time</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Often long</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Almost instant</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Software installs</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Required</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Not required</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Software installs</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Required</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Not required</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Device dependency</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Low</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Device dependency</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Low</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Collaboration</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Manual</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Built-in</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Collaboration</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Manual</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Built-in</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2509,30 +2509,30 @@ export const serviceDetails = {
                     Pricing varies depending on usage needs, but discounted access usually provides noticeable savings compared to standard plans.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Usage</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Usage</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Starter</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Learning and practice</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Starter</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Learning and practice</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular coding</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular coding</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Extended</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Heavy usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Extended</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Heavy usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2556,7 +2556,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -2698,40 +2698,40 @@ export const serviceDetails = {
                     Standard Bolt plans often bundle higher limits and enterprise-level options. Discounted access focuses on what most users actually need.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Bolt Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Bolt Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Bolt Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Bolt Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core build features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core build features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Speed and performance</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Speed and performance</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">High</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited by plan</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">More flexible</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited by plan</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">More flexible</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Large teams</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & startups</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Large teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & startups</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2744,35 +2744,35 @@ export const serviceDetails = {
                     Traditional development setups often require time-consuming configuration. Bolt reduces this overhead and allows users to start building faster.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Task</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Manual Setup</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">With Bolt</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Task</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Manual Setup</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">With Bolt</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Environment setup</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Time-intensive</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Fast</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Environment setup</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Time-intensive</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Fast</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Iteration speed</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Slower</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Faster</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Iteration speed</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Slower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Faster</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Testing ideas</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Complex</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Simple</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Testing ideas</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Complex</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Simple</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Productivity</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Inconsistent</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Consistent</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Productivity</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Inconsistent</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Consistent</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2812,30 +2812,30 @@ export const serviceDetails = {
                     Pricing depends on usage level and access type. Compared to standard plans, discounted access usually offers noticeable savings.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Use Case</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Use Case</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Basic</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Prototypes & testing</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Basic</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Prototypes & testing</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Growth</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Regular development</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Growth</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Regular development</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Advanced</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Team usage</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Advanced</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Team usage</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2871,7 +2871,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
@@ -3001,40 +3001,40 @@ export const serviceDetails = {
                     Standard Notion plans bundle advanced features for teams and power users. Discounted access focuses on giving users what they need most, at a better price.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Standard Notion Plans</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Discounted Notion Access</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Feature</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Standard Notion Plans</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Discounted Notion Access</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Cost</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Higher</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Lower</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Cost</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Higher</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Lower</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Core workspace features</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Core workspace features</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Collaboration tools</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Collaboration tools</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Included</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Best for</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Large teams</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individuals & small teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Best for</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Large teams</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individuals & small teams</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Flexibility</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Plan-based</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">More practical</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Flexibility</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Plan-based</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">More practical</td>
                             </tr>
                         </tbody>
                     </table>
@@ -3047,35 +3047,35 @@ export const serviceDetails = {
                     Traditional note apps and task managers often focus on one function. Notion combines many of these functions into one workspace.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Aspect</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Traditional Apps</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Notion</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Aspect</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Traditional Apps</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Notion</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Notes</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Separate app</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Built-in</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Notes</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Separate app</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Built-in</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Tasks</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Separate tool</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Integrated</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Tasks</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Separate tool</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Integrated</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Documents</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Limited</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Flexible</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Documents</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Limited</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Flexible</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Custom workflows</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Rare</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Easy</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Custom workflows</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Rare</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">Easy</td>
                             </tr>
                         </tbody>
                     </table>
@@ -3104,30 +3104,30 @@ export const serviceDetails = {
                     Pricing varies depending on usage needs, but discounted access usually provides meaningful savings compared to standard plans.
                 </p>
 
-                <div className="overflow-x-auto border border-slate-200 rounded-lg mt-4 mb-6">
-                    <table className="min-w-full divide-y divide-slate-200">
-                        <thead className="bg-slate-50">
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-slate-400 mb-8">
+                    <table className="min-w-full border-collapse bg-white text-left text-sm text-slate-900">
+                        <thead className="bg-slate-200">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Access Level</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Usage</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Expected Savings</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Access Level</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Typical Usage</th>
+                                <th className="border border-slate-400 px-6 py-4 font-semibold text-slate-900 uppercase tracking-wider text-xs">Expected Savings</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-slate-200">
+                        <tbody >
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Personal</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Individual planning</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">30–50%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Personal</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Individual planning</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">30–50%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Work</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Daily professional use</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">40–60%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Work</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Daily professional use</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">40–60%</td>
                             </tr>
                             <tr>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700">Team</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Shared workspaces</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">50–70%</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-900 whitespace-nowrap">Team</td>
+                                <td className="border border-slate-400 px-6 py-4 text-slate-800 whitespace-nowrap">Shared workspaces</td>
+                                <td className="border border-slate-400 px-6 py-4 text-emerald-800 font-bold whitespace-nowrap">50–70%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -3151,7 +3151,7 @@ export const serviceDetails = {
                     ].map((faq, index) => (
                         <div key={index} className="bg-slate-50 p-4 rounded-lg">
                             <p className="font-bold text-slate-900">{index + 1}. {faq.q}</p>
-                            <p className="text-slate-600 mt-1">{faq.a}</p>
+                            <p className="text-slate-800 mt-1">{faq.a}</p>
                         </div>
                     ))}
                 </div>
