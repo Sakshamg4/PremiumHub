@@ -58,10 +58,10 @@ const InlinePromo = () => {
             {/* Background Effects */}
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${currentOffer.color} opacity-10 blur-[80px] rounded-full pointer-events-none transition-colors duration-500`} />
 
-            <div className="relative px-4 py-0 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
+            <div className="relative px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
 
                 {/* Text Content - Animated */}
-                <div className="flex-1 overflow-hidden h-[7rem] sm:h-[3.5rem] relative flex flex-col justify-center">
+                <div className="flex-1 overflow-hidden h-[4.5rem] sm:h-[3.5rem] relative flex flex-col justify-center">
                     {OFFERS.map((offer, index) => {
                         let transformClass = 'translate-y-12 opacity-0';
 
