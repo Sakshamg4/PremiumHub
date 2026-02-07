@@ -46,7 +46,7 @@ const InlinePromo = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % OFFERS.length);
-        }, 10000);
+        }, 8000);
 
         return () => clearInterval(interval);
     }, []);
