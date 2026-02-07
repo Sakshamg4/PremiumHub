@@ -46,7 +46,7 @@ const InlinePromo = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % OFFERS.length);
-        }, 4000);
+        }, 10000);
 
         return () => clearInterval(interval);
     }, []);
@@ -58,7 +58,7 @@ const InlinePromo = () => {
             {/* Background Effects */}
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${currentOffer.color} opacity-10 blur-[80px] rounded-full pointer-events-none transition-colors duration-500`} />
 
-            <div className="relative px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
+            <div className="relative px-4 py-0 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
 
                 {/* Text Content - Animated */}
                 <div className="flex-1 overflow-hidden h-[7rem] sm:h-[3.5rem] relative flex flex-col justify-center">
