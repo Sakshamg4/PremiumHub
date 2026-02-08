@@ -6,7 +6,7 @@ const BlogLeadForm = () => {
         email: '',
         countryCode: '+91',
         phone: '',
-        program: '',
+        tool: '',
         consent: false
     });
 
@@ -21,7 +21,7 @@ const BlogLeadForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle submission logic (e.g., redirect to WhatsApp or API)
-        const text = `New Lead Enquiry via Blog:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.countryCode} ${formData.phone}\nProgram: ${formData.program}`;
+        const text = `New Lead Enquiry via Blog:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.countryCode} ${formData.phone}\nTool: ${formData.tool}`;
         const whatsappUrl = `https://wa.me/919029151181?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
     };
@@ -83,13 +83,13 @@ const BlogLeadForm = () => {
                 {/* Program/Interest Dropdown */}
                 <div>
                     <select
-                        name="program"
+                        name="tool"
                         required
-                        value={formData.program}
+                        value={formData.tool}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-600 outline-none text-slate-700 text-sm bg-white"
                     >
-                        <option value="" disabled>Preferred Program</option>
+                        <option value="" disabled>Select Tool</option>
                         <option value="LinkedIn Premium">LinkedIn Premium</option>
                         <option value="Sales Navigator">Sales Navigator</option>
                         <option value="Recruiter Lite">Recruiter Lite</option>
