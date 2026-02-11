@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 const BlogLeadForm = () => {
     const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         countryCode: '+91',
         phone: '',
         tool: '',
-        consent: false
+        consent: false,
     });
 
     const handleChange = (e) => {
@@ -20,13 +21,43 @@ const BlogLeadForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle submission logic (e.g., redirect to WhatsApp or API)
-        const text = `New Lead Enquiry via Blog:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.countryCode} ${formData.phone}\nTool: ${formData.tool}`;
-        const whatsappUrl = `https://wa.me/919029151181?text=${encodeURIComponent(text)}`;
-        window.open(whatsappUrl, '_blank');
-        navigate('/thank-you');
+        setIsSubmitting(true);
+
+        const submissionData = {
+            name: formData.name,
+            email: formData.email,
+            phone: `${formData.countryCode} ${formData.phone}`,
+            tool: formData.tool,
+            message: `Lead from Blog - Interested in: ${formData.tool}`,
+            source: 'Blog Lead Form'
+        };
+
+        try {
+            const response = await fetch("https://formspree.io/f/movgnnry", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(submissionData)
+            });
+
+            if (response.ok) {
+                navigate('/thank-you');
+            } else {
+                // If email fails, open WhatsApp as fallback? Or just alert.
+                // User said "not whats", but maybe fallback is okay?
+                // I'll stick to alert to respect "not whats".
+                alert('Submission failed. Please try again or contact us directly on WhatsApp.');
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            alert('Something went wrong. Please check your connection.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -119,9 +150,17 @@ const BlogLeadForm = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-lg active:scale-[0.98] transition-all duration-200 text-sm tracking-wide uppercase"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-3 rounded-lg shadow-lg active:scale-[0.98] disabled:active:scale-100 transition-all duration-200 text-sm tracking-wide uppercase flex justify-center items-center gap-2"
                 >
-                    Submit
+                    {isSubmitting ? (
+                        <>
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Sending...</span>
+                        </>
+                    ) : (
+                        'Submit'
+                    )}
                 </button>
             </form>
         </div>
