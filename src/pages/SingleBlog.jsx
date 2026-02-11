@@ -169,27 +169,26 @@ const SingleBlog = () => {
             [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4 tracking-tight">{children}</h3>,
             [BLOCKS.PARAGRAPH]: (node, children) => {
                 const text = extractTextFromContent(node.content);
-                const isProTip = text && text.trim().toLowerCase().startsWith('pro tip:');
+                // Flexible Match: Detects "Pro Tip:" anywhere in the first few words, ignoring emojis/symbols
+                const isProTip = text && /pro\s*tip\s*:/i.test(text);
 
                 if (isProTip) {
                     return (
-                        <div className="my-8 p-6 bg-[#1e293b] rounded-lg border-l-4 border-yellow-400 shadow-sm relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-400/10 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none"></div>
-                            <div className="flex gap-4 relative z-10">
-                                <span className="text-2xl flex-shrink-0 animate-pulse">💡</span>
-                                <div className="text-slate-300 text-lg leading-relaxed">
+                        <div className="my-6 rounded-lg bg-emerald-50/50 border-l-[6px] border-[#005c45] shadow-sm overflow-hidden group">
+                            <div className="p-5 relative z-10">
+                                <div className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
                                     {children}
                                 </div>
                             </div>
                         </div>
                     );
                 }
-                return <p className="mb-6 text-slate-600 leading-8 text-lg">{children}</p>;
+                return <p className="mb-4 text-slate-600 leading-relaxed text-lg text-justify sm:text-left">{children}</p>;
             },
-            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-6 space-y-2 text-slate-600 marker:text-[#005c45]">{children}</ul>,
-            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-6 space-y-2 text-slate-600 marker:text-[#005c45] font-medium">{children}</ol>,
+            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-1 text-slate-600 marker:text-[#005c45] leading-relaxed">{children}</ul>,
+            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-1 text-slate-600 marker:text-[#005c45] font-medium leading-relaxed">{children}</ol>,
             [BLOCKS.QUOTE]: (node, children) => (
-                <blockquote className="relative pl-6 py-4 my-8 border-l-4 border-[#005c45] bg-emerald-50/50 rounded-r-xl italic text-slate-700">
+                <blockquote className="relative pl-6 py-3 my-4 border-l-4 border-[#005c45] bg-emerald-50/30 rounded-r-lg italic text-slate-700 leading-relaxed">
                     {children}
                 </blockquote>
             ),
@@ -199,24 +198,26 @@ const SingleBlog = () => {
                 </a>
             ),
             [BLOCKS.TABLE]: (node, children) => (
-                <div className="overflow-x-auto my-8 rounded-lg shadow-sm border border-slate-400">
-                    <table className="w-full text-left border-collapse bg-white">
-                        <tbody>{children}</tbody>
-                    </table>
+                <div className="overflow-hidden my-6 rounded-lg border border-slate-200 shadow-sm">
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse bg-white text-sm">
+                            <tbody>{children}</tbody>
+                        </table>
+                    </div>
                 </div>
             ),
             [BLOCKS.TABLE_ROW]: (node, children) => (
-                <tr className="border-b border-slate-400 last:border-b-0 hover:bg-slate-50 transition-colors">
+                <tr className="border-b border-slate-200 last:border-0 hover:bg-slate-50/50 transition-colors group even:bg-slate-50/50 [&:first-child]:bg-[#3087eb] [&:first-child>td]:text-white [&:first-child>td]:font-bold [&:first-child>th]:bg-[#005c45] [&:first-child>th]:text-white">
                     {children}
                 </tr>
             ),
             [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-                <th className="px-6 py-4 bg-slate-200 text-slate-900 font-bold border-r border-slate-400 last:border-r-0 text-sm uppercase tracking-wider align-top">
+                <th className="px-4 py-3 bg-[#005c45] font-bold text-white uppercase tracking-wide text-xs whitespace-nowrap align-middle border-b border-[#004d3a]">
                     {children}
                 </th>
             ),
             [BLOCKS.TABLE_CELL]: (node, children) => (
-                <td className="px-6 py-4 text-slate-800 border-r border-slate-400 last:border-r-0 align-top text-sm font-medium">
+                <td className="px-3 py-2.5 text-slate-800 font-medium leading-normal align-middle min-w-[120px] [&_p]:m-0 border-r border-slate-200 last:border-r-0">
                     {children}
                 </td>
             ),
@@ -224,7 +225,7 @@ const SingleBlog = () => {
     }
 
     return (
-        <div className="min-h-screen relative bg-white pt-24 pb-20">
+        <div className="min-h-screen relative pt-24 pb-20">
             {faqSchema && (
                 <Helmet>
                     <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -237,7 +238,7 @@ const SingleBlog = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
 
                     {/* Left Column: Article Content (Spans 8 cols) */}
-                    <div className="lg:col-span-8">
+                    <div className="lg:col-span-8 bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
 
                         {/* Clean Editorial Header */}
                         <header className="mb-8">

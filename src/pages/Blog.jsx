@@ -4,6 +4,19 @@ import Button from '../Components/Button'
 import { client } from '../lib/contentful'
 import { BlogListSkeleton } from '../Components/BlogSkeleton'
 
+// Helper to extract text from Contentful Rich Text
+const extractTextFromContent = (content) => {
+    if (!content || !content.content) return '';
+    if (Array.isArray(content.content)) {
+        return content.content.map(node => {
+            if (node.nodeType === 'text') return node.value;
+            return extractTextFromContent(node);
+        }).join(' ');
+    }
+    return '';
+};
+
+
 const BlogCard = memo(({ post }) => (
     <article
         className="group relative flex flex-col h-full bg-white border border-slate-100 
@@ -34,7 +47,7 @@ const BlogCard = memo(({ post }) => (
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-white/90 text-blue-600 backdrop-blur-md rounded-full shadow-sm border border-white/20">
+                <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-white text-blue-600 rounded-full shadow-sm border border-slate-100">
                     {post.category || 'General'}
                 </span>
             </div>
@@ -71,7 +84,7 @@ const BlogCard = memo(({ post }) => (
             </div>
         </div>
     </article>
-))
+));
 
 const FeaturedBlogCard = memo(({ post }) => (
     <div className="relative w-full bg-white/50 backdrop-blur-sm border border-[#bcccdc]/50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 mb-16 group">
@@ -140,7 +153,7 @@ const FeaturedBlogCard = memo(({ post }) => (
             </div>
         </div>
     </div>
-))
+));
 
 
 const Blog = () => {
@@ -167,11 +180,18 @@ const Blog = () => {
                     const featuredImage = item.fields.featuredImage?.[0]; // "Media, many files" is an array
                     const imageUrl = featuredImage?.fields?.file?.url;
 
+                    // Fallback excerpt from mainContent if shortDescription is missing
+                    let fallbackExcerpt = '';
+                    if (!item.fields.shortDescription && item.fields.mainContent) {
+                        const rawText = extractTextFromContent(item.fields.mainContent);
+                        fallbackExcerpt = rawText.slice(0, 160) + (rawText.length > 160 ? '...' : '');
+                    }
+
                     return {
                         id: item.sys.id,
                         slug: item.fields.slug, // Map the slug field
                         title: item.fields.title,
-                        excerpt: item.fields.shortDescription,
+                        excerpt: item.fields.shortDescription || fallbackExcerpt,
                         category: item.fields.category,
                         author: typeof item.fields.author === 'object'
                             ? (item.fields.author?.fields?.name || 'PremiumToolsHub Team')
@@ -211,6 +231,30 @@ const Blog = () => {
 
 
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const postsPerPage = 9;
+
+    // Reset page when category changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [activeCategory]);
+
+    // Pagination Logic
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        // Optional: Scroll to top of grid
+        const gridElement = document.getElementById('blog-grid');
+        if (gridElement) {
+            gridElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+
     if (loading) {
         return <BlogListSkeleton />
     }
@@ -229,9 +273,9 @@ const Blog = () => {
                 </div>
 
                 {/* Category Filter - Clean Minimal Tabs */}
-                <div className="sticky top-20 z-30 mb-8 bg-[#f8fafc]/90 backdrop-blur-md border-b border-slate-200/60 -mx-4 px-4">
+                <div className="sticky top-20 z-30 mb-8 bg-[#f8fafc]/80 rounded-2xl backdrop-blur-sm border-b border-slate-200/60 -mx-4 px-4 shadow-sm">
                     <div className="container mx-auto max-w-4xl">
-                        <div className="flex items-center gap-8 overflow-x-auto scrollbar-hide">
+                        <div className="flex items-center gap-8 overflow-x-auto scrollbar-hide py-3">
                             {categories.map((category) => (
                                 <button
                                     key={category}
@@ -255,25 +299,61 @@ const Blog = () => {
                 </div>
 
                 {/* Latest Articles Grid */}
-                <section className="mb-24">
+                <section className="mb-24" id="blog-grid">
                     <div className="flex items-center justify-between mb-8 px-2">
                         <h2 className="text-2xl font-bold text-slate-800">
                             {activeCategory === "All" ? "Latest Articles" : `${activeCategory}`}
                         </h2>
                         <span className="text-sm font-medium text-slate-400">
-                            {filteredPosts.length} Articles
+                            Showing {currentPosts.length} of {filteredPosts.length} Articles
                         </span>
                     </div>
 
                     {filteredPosts.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {filteredPosts.map((post) => (
-                                <BlogCard key={post.id} post={post} />
-                            ))}
-                        </div>
+                        <>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                                {currentPosts.map((post) => (
+                                    <BlogCard key={post.id} post={post} />
+                                ))}
+                            </div>
+
+                            {/* Pagination Controls */}
+                            {totalPages > 1 && (
+                                <div className="flex justify-center items-center gap-2">
+                                    <button
+                                        onClick={() => paginate(currentPage - 1)}
+                                        disabled={currentPage === 1}
+                                        className="px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50 transition-colors"
+                                    >
+                                        Prev
+                                    </button>
+
+                                    {[...Array(totalPages)].map((_, i) => (
+                                        <button
+                                            key={i + 1}
+                                            onClick={() => paginate(i + 1)}
+                                            className={`w-10 h-10 rounded-lg font-bold transition-all ${currentPage === i + 1
+                                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                                                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                                                }`}
+                                        >
+                                            {i + 1}
+                                        </button>
+                                    ))}
+
+                                    <button
+                                        onClick={() => paginate(currentPage + 1)}
+                                        disabled={currentPage === totalPages}
+                                        className="px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50 transition-colors"
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            )}
+                        </>
                     ) : (
                         <div className="text-center py-32 bg-white/50 border border-slate-100 rounded-3xl backdrop-blur-sm">
-                            <div className="text-6xl mb-4 grayscale opacity-50">�</div>
+                            <div className="text-6xl mb-4 grayscale opacity-50">📝</div>
                             <h3 className="text-xl font-bold text-slate-800 mb-2">No articles found</h3>
                             <button
                                 onClick={() => setActiveCategory("All")}

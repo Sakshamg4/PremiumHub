@@ -33,6 +33,7 @@ const SingleBlog = lazy(() => import('./pages/SingleBlog'))
 
 const AboutUs = lazy(() => import('./pages/AboutUs'))
 
+const ThankYou = lazy(() => import('./pages/ThankYou'))
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 
 const Analytics = lazy(() => import('@vercel/analytics/react').then(mod => ({
@@ -114,7 +115,7 @@ const App = () => {
 
   return (
     <HelmetProvider>
-      <ReactLenis root onScroll={handleScroll}>
+      <ReactLenis root options={{ duration: 0.8 }} onScroll={handleScroll}>
         <Router>
           <ScrollToTop />
           <div className="min-h-screen bg-[#f8fafc] text-[#334155] selection:bg-[#bcccdc] selection:text-[#1e293b] flex flex-col">
@@ -176,6 +177,26 @@ const App = () => {
                       <MainLayout>
                         <Suspense fallback={<LoadingFallback />}>
                           <AboutUs />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/thank-you"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <ThankYou />
+                        </Suspense>
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/thank-you"
+                    element={
+                      <MainLayout>
+                        <Suspense fallback={<LoadingFallback />}>
+                          <ThankYou />
                         </Suspense>
                       </MainLayout>
                     }

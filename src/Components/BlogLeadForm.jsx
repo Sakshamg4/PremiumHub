@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BlogLeadForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -24,6 +26,7 @@ const BlogLeadForm = () => {
         const text = `New Lead Enquiry via Blog:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.countryCode} ${formData.phone}\nTool: ${formData.tool}`;
         const whatsappUrl = `https://wa.me/919029151181?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
+        navigate('/thank-you');
     };
 
     return (
