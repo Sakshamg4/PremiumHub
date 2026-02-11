@@ -167,7 +167,25 @@ const SingleBlog = () => {
                 );
             },
             [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4 tracking-tight">{children}</h3>,
-            [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-6 text-slate-600 leading-8 text-lg">{children}</p>,
+            [BLOCKS.PARAGRAPH]: (node, children) => {
+                const text = extractTextFromContent(node.content);
+                const isProTip = text && text.trim().toLowerCase().startsWith('pro tip:');
+
+                if (isProTip) {
+                    return (
+                        <div className="my-8 p-6 bg-[#1e293b] rounded-lg border-l-4 border-yellow-400 shadow-sm relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-400/10 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none"></div>
+                            <div className="flex gap-4 relative z-10">
+                                <span className="text-2xl flex-shrink-0 animate-pulse">💡</span>
+                                <div className="text-slate-300 text-lg leading-relaxed">
+                                    {children}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
+                return <p className="mb-6 text-slate-600 leading-8 text-lg">{children}</p>;
+            },
             [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-6 space-y-2 text-slate-600 marker:text-[#005c45]">{children}</ul>,
             [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-6 space-y-2 text-slate-600 marker:text-[#005c45] font-medium">{children}</ol>,
             [BLOCKS.QUOTE]: (node, children) => (
