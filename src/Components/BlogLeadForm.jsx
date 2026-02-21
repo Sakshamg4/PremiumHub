@@ -125,8 +125,13 @@ const BlogLeadForm = () => {
                     >
                         <option value="" disabled>Select Tool</option>
                         <option value="LinkedIn Premium">LinkedIn Premium</option>
-                        <option value="Sales Navigator">Sales Navigator</option>
-                        <option value="Recruiter Lite">Recruiter Lite</option>
+                        <option value="ChatGPT Plus / Team">ChatGPT Plus / Team</option>
+                        <option value="Canva Pro">Canva Pro / Teams</option>
+                        <option value="Grammarly Premium">Grammarly Premium</option>
+                        <option value="Envato Elements">Envato Elements</option>
+                        <option value="Coursera / Udemy">Edtech (Coursera/Udemy)</option>
+                        <option value="Adobe Creative Cloud">Adobe Creative Cloud</option>
+                        <option value="Multiple Tools">I need multiple tools</option>
                         <option value="Other Tool">Other Premium Tool</option>
                     </select>
                 </div>

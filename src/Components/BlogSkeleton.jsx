@@ -77,60 +77,72 @@ export const BlogListSkeleton = () => {
 
 export const SingleBlogSkeleton = () => {
     return (
-        <div className="min-h-screen relative bg-white pt-24 pb-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="min-h-screen relative pt-20 pb-20 bg-[#fafafa]">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-8 relative">
 
-                    {/* Left Column Skeleton */}
-                    <div className="lg:col-span-8 animate-pulse">
-                        {/* Header */}
-                        <div className="mb-8">
-                            <div className="h-4 w-32 bg-slate-200 rounded mb-6"></div>
-                            <div className="h-8 md:h-12 w-3/4 bg-slate-200 rounded mb-4"></div>
-                            <div className="h-8 md:h-12 w-1/2 bg-slate-200 rounded mb-6"></div>
-                            <div className="flex gap-4 border-b border-slate-100 pb-6 mb-6">
-                                <div className="h-4 w-24 bg-slate-200 rounded"></div>
-                                <div className="h-4 w-32 bg-slate-200 rounded"></div>
-                            </div>
-                        </div>
-
-                        {/* Featured Image */}
-                        <div className="w-full aspect-[16/9] bg-slate-200 rounded-xl mb-10"></div>
-
-                        {/* TOC Skeleton */}
-                        <div className="bg-white rounded-lg border border-slate-200 p-4 mb-10 w-full max-w-lg">
-                            <div className="h-6 w-40 bg-slate-200 rounded mb-3"></div>
-                            <div className="space-y-2">
-                                <div className="h-3 w-3/4 bg-slate-200 rounded"></div>
-                                <div className="h-3 w-2/3 bg-slate-200 rounded"></div>
-                                <div className="h-3 w-4/5 bg-slate-200 rounded"></div>
-                            </div>
-                        </div>
-
-                        {/* Content Paragraphs */}
-                        <div className="space-y-4">
-                            <div className="h-4 w-full bg-slate-200 rounded"></div>
-                            <div className="h-4 w-full bg-slate-200 rounded"></div>
-                            <div className="h-4 w-5/6 bg-slate-200 rounded"></div>
-                            <div className="h-4 w-full bg-slate-200 rounded"></div>
-                            <br />
-                            <div className="h-4 w-full bg-slate-200 rounded"></div>
-                            <div className="h-4 w-11/12 bg-slate-200 rounded"></div>
-                            <div className="h-4 w-full bg-slate-200 rounded"></div>
+                    {/* Left Column Skeleton (TOC) - 2 Cols */}
+                    <div className="hidden lg:block lg:col-span-2 relative">
+                        <div className="sticky top-32 space-y-3">
+                            <div className="h-3 w-16 bg-slate-200 rounded mb-6 animate-pulse"></div>
+                            <div className="h-4 w-full bg-slate-200 rounded animate-pulse"></div>
+                            <div className="h-4 w-5/6 bg-slate-200 rounded animate-pulse"></div>
+                            <div className="h-4 w-4/5 bg-slate-200 rounded animate-pulse"></div>
+                            <div className="h-4 w-full bg-slate-200 rounded animate-pulse"></div>
+                            <div className="h-4 w-3/4 bg-slate-200 rounded animate-pulse"></div>
                         </div>
                     </div>
 
-                    {/* Right Column Skeleton (Sidebar) */}
-                    <div className="hidden lg:block lg:col-span-4 relative pl-4">
-                        <div className="sticky top-28 space-y-6 animate-pulse">
+                    {/* Center Column Skeleton (Content) - 7 Cols */}
+                    <div className="lg:col-span-7 xl:col-span-7">
+                        {/* Header Skeleton */}
+                        <div className="mb-8 md:mb-10 animate-pulse">
+                            <div className="h-6 w-24 bg-slate-200 rounded-full mb-5"></div>
+                            <div className="h-10 md:h-14 w-full bg-slate-200 rounded mb-3"></div>
+                            <div className="h-10 md:h-14 w-4/5 bg-slate-200 rounded mb-6"></div>
+
+                            <div className="flex flex-wrap justify-between items-center gap-4 pb-8 border-b border-slate-200">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-full bg-slate-200 block"></div>
+                                    <div className="space-y-2">
+                                        <div className="h-4 w-28 bg-slate-200 rounded"></div>
+                                        <div className="h-3 w-20 bg-slate-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="h-4 w-24 bg-slate-200 rounded hidden sm:block"></div>
+                                    <div className="h-6 w-20 bg-slate-200 rounded-md"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Featured Image Skeleton */}
+                        <div className="w-full aspect-[21/9] lg:aspect-[16/9] bg-slate-200 rounded-2xl mb-12 animate-pulse border border-slate-100"></div>
+
+                        {/* Content Paragraphs Skeleton */}
+                        <div className="space-y-6 animate-pulse">
+                            <div className="h-4 w-full bg-slate-200 rounded"></div>
+                            <div className="h-4 w-full bg-slate-200 rounded"></div>
+                            <div className="h-4 w-11/12 bg-slate-200 rounded"></div>
+                            <div className="h-4 w-5/6 bg-slate-200 rounded mt-8"></div>
+                            <div className="h-10 w-1/3 bg-slate-200 rounded mt-12 mb-6"></div>
+                            <div className="h-4 w-full bg-slate-200 rounded"></div>
+                            <div className="h-4 w-full bg-slate-200 rounded"></div>
+                            <div className="h-4 w-4/5 bg-slate-200 rounded"></div>
+                        </div>
+                    </div>
+
+                    {/* Right Column Skeleton (Sidebar) - 3 Cols */}
+                    <div className="lg:col-span-3 relative mt-12 lg:mt-0">
+                        <div className="lg:sticky lg:top-32 space-y-6 animate-pulse">
                             {/* Lead Form Box */}
-                            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 h-[400px]">
+                            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 h-[420px]">
                                 <div className="h-6 w-3/4 bg-slate-200 rounded mb-6"></div>
                                 <div className="space-y-4">
-                                    <div className="h-10 w-full bg-slate-200 rounded"></div>
-                                    <div className="h-10 w-full bg-slate-200 rounded"></div>
-                                    <div className="h-10 w-full bg-slate-200 rounded"></div>
-                                    <div className="h-10 w-full bg-slate-200 rounded"></div>
+                                    <div className="h-12 w-full bg-slate-200 rounded"></div>
+                                    <div className="h-12 w-full bg-slate-200 rounded"></div>
+                                    <div className="h-12 w-full bg-slate-200 rounded"></div>
+                                    <div className="h-12 w-full bg-slate-200 rounded"></div>
                                     <div className="h-12 w-full bg-slate-300 rounded mt-6"></div>
                                 </div>
                             </div>
