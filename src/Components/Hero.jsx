@@ -173,7 +173,7 @@ const Hero = () => {
 
                       {/* Text */}
                       <span className="text-md md:text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 tracking-tight">
-                        Premium Hub Tools
+                        Premium Tools Hub
                       </span>
                     </div>
                   </div>
