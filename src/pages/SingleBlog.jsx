@@ -283,8 +283,8 @@ const SingleBlog = () => {
                 // Much softer line height and relaxed letter spacing for standard paragraphs
                 return <p className="mb-4 text-[#334155] leading-[1.65] md:leading-[1.7] text-[1.05rem] md:text-[1.125rem] tracking-tight">{children}</p>;
             },
-            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7]">{children}</ul>,
-            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 marker:font-bold text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7]">{children}</ol>,
+            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7] [&_p]:mb-0">{children}</ul>,
+            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 marker:font-bold text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7] [&_p]:mb-0">{children}</ol>,
             [BLOCKS.QUOTE]: (node, children) => (
                 <blockquote className="relative p-5 sm:p-6 my-6 border-l-2 border-slate-900 bg-white shadow-[8px_8px_0px_rgba(15,23,42,0.05)] italic text-slate-700 text-[1.15rem] md:text-[1.3rem] leading-[1.7]">
                     <svg className="absolute top-4 left-4 w-8 h-8 text-slate-100 -z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
@@ -297,26 +297,26 @@ const SingleBlog = () => {
                 </a>
             ),
             [BLOCKS.TABLE]: (node, children) => (
-                <div className="overflow-hidden my-8 rounded-xl border border-slate-200 shadow-sm bg-white">
+                <div className="my-8 rounded-2xl shadow-[8px_8px_0px_rgba(38,90,231,0.15)] border border-[#265ae7]/20 bg-white overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse bg-white text-[0.95rem]">
+                        <table className="w-full text-left border-collapse">
                             <tbody>{children}</tbody>
                         </table>
                     </div>
                 </div>
             ),
             [BLOCKS.TABLE_ROW]: (node, children) => (
-                <tr className="border-b border-slate-200 last:border-0 hover:bg-slate-50/50 transition-colors group even:bg-slate-50/30 [&:first-child]:bg-slate-50 [&:first-child>td]:text-slate-900 [&:first-child>td]:font-semibold [&:first-child>th]:bg-slate-50 [&:first-child>th]:text-slate-900">
+                <tr className="border-b border-slate-100 last:border-0 hover:bg-indigo-50/60 transition-colors odd:bg-white even:bg-slate-50/60 [&:first-child]:bg-gradient-to-r [&:first-child]:from-[#265ae7] [&:first-child]:to-indigo-500 [&:first-child]:border-none [&:first-child>th]:text-white [&:first-child>td]:text-white">
                     {children}
                 </tr>
             ),
             [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-                <th className="px-5 py-4 bg-slate-50 font-bold text-slate-900 uppercase tracking-wider text-[0.8rem] whitespace-nowrap align-middle border-b border-slate-200">
+                <th className="px-4 py-2.5 font-extrabold uppercase tracking-wide text-[0.75rem] whitespace-nowrap align-middle">
                     {children}
                 </th>
             ),
             [BLOCKS.TABLE_CELL]: (node, children) => (
-                <td className="px-5 py-4 text-slate-700 font-medium leading-relaxed align-middle min-w-[140px] [&_p]:m-0 border-r border-slate-100 last:border-r-0">
+                <td className="px-4 py-2.5 text-slate-700 font-medium text-[0.85rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-100 last:border-r-0">
                     {children}
                 </td>
             ),
@@ -418,11 +418,11 @@ const SingleBlog = () => {
                         </header>
 
                         {/* Featured Image inside content column */}
-                        <div className="w-full aspect-[21/9] lg:aspect-[16/9] relative overflow-hidden bg-slate-100 mb-12 rounded-2xl border border-slate-100">
+                        <div className="w-full relative overflow-hidden bg-slate-50 mb-12 rounded-2xl border border-slate-100 shadow-sm flex justify-center items-center">
                             {post.imageUrl ? (
-                                <img src={post.imageUrl} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                                <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-contain rounded-2xl" />
                             ) : (
-                                <div className={`w-full h-full bg-gradient-to-br ${post.imageGradient} flex items-center justify-center`}>
+                                <div className={`w-full aspect-video bg-gradient-to-br ${post.imageGradient} flex items-center justify-center`}>
                                     <span className="text-[6rem] animate-pulse opacity-50">{post.icon}</span>
                                 </div>
                             )}
