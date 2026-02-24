@@ -311,12 +311,12 @@ const SingleBlog = () => {
                 </tr>
             ),
             [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-                <th className="px-5 py-3 font-bold text-slate-900 text-[1.05rem] align-middle border-r border-slate-300 last:border-r-0">
+                <th className="px-5 py-2 font-bold text-slate-900 text-[1.05rem] align-middle border-r border-slate-300 last:border-r-0">
                     {children}
                 </th>
             ),
             [BLOCKS.TABLE_CELL]: (node, children) => (
-                <td className="px-5 py-3 text-slate-700 text-[1rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-300 last:border-r-0">
+                <td className="px-5 py-2 text-slate-700 text-[1rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-300 last:border-r-0">
                     {children}
                 </td>
             ),
