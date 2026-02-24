@@ -297,7 +297,7 @@ const SingleBlog = () => {
                 </a>
             ),
             [BLOCKS.TABLE]: (node, children) => (
-                <div className="my-8 rounded-2xl shadow-[8px_8px_0px_rgba(38,90,231,0.15)] border border-[#265ae7]/20 bg-white overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+                <div className="my-8 rounded-lg border border-slate-300 bg-white overflow-hidden shadow-sm">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
                             <tbody>{children}</tbody>
@@ -306,17 +306,17 @@ const SingleBlog = () => {
                 </div>
             ),
             [BLOCKS.TABLE_ROW]: (node, children) => (
-                <tr className="border-b border-slate-100 last:border-0 hover:bg-indigo-50/60 transition-colors odd:bg-white even:bg-slate-50/60 [&:first-child]:bg-gradient-to-r [&:first-child]:from-[#265ae7] [&:first-child]:to-indigo-500 [&:first-child]:border-none [&:first-child>th]:text-white [&:first-child>td]:text-white">
+                <tr className="border-b border-slate-300 last:border-0 bg-white hover:bg-slate-50 transition-colors [&:first-child]:bg-slate-200 [&:first-child>td]:font-bold [&:first-child>td]:text-slate-900">
                     {children}
                 </tr>
             ),
             [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-                <th className="px-4 py-2.5 font-extrabold uppercase tracking-wide text-[0.75rem] whitespace-nowrap align-middle">
+                <th className="px-5 py-3 font-bold text-slate-900 text-[1.05rem] align-middle border-r border-slate-300 last:border-r-0">
                     {children}
                 </th>
             ),
             [BLOCKS.TABLE_CELL]: (node, children) => (
-                <td className="px-4 py-2.5 text-slate-700 font-medium text-[0.85rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-100 last:border-r-0">
+                <td className="px-5 py-3 text-slate-700 text-[1rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-300 last:border-r-0">
                     {children}
                 </td>
             ),
