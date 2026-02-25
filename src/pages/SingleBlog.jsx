@@ -325,11 +325,16 @@ const SingleBlog = () => {
 
     return (
         <div className="min-h-screen relative pt-20 pb-20 bg-[#fafafa]" >
-            {faqSchema && (
-                <Helmet>
+            <Helmet>
+                <title>{post.title}</title>
+                <meta name="description" content={post.excerpt || post.title} />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.excerpt || post.title} />
+                {post.imageUrl && <meta property="og:image" content={post.imageUrl} />}
+                {faqSchema && (
                     <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-                </Helmet>
-            )}
+                )}
+            </Helmet>
 
             {/* Reading Progress Bar (Fixed Top) */}
             <div className="fixed top-0 left-0 w-full h-[3px] bg-slate-100 z-50">
