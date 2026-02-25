@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../Components/SEO';
 import { FaShieldAlt, FaHandshake, FaUserClock, FaLightbulb, FaArrowRight, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import Button from '../Components/Button';
 import { useData } from '../context/DataContext';
@@ -46,11 +46,11 @@ const AboutUs = () => {
 
     return (
         <main className="container mx-auto px-4 pt-20 pb-20">
-            <Helmet>
-                <title>About Us - PremiumToolsHub | Our Story & Mission</title>
-                <meta name="description" content="Discover PremiumToolsHub's mission to democratize access to premium software. Learn why thousands trust us for affordable, genuine digital tools." />
-                <link rel="canonical" href="https://www.premiumtoolshub.in/about-us" />
-            </Helmet>
+            <SEO
+                title="About Us - PremiumToolsHub | Our Story & Mission"
+                description="Discover PremiumToolsHub's mission to democratize access to premium software. Learn why thousands trust us for affordable, genuine digital tools."
+            />
+            <link rel="canonical" href="https://www.premiumtoolshub.in/about-us" />
 
             {/* Hero Section - Nested Container to match Home Page Alignment */}
             <div className="min-h-screen py-10 md:py-8">

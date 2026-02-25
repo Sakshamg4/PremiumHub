@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../Components/SEO';
 
 const ThankYou = () => {
     // Scroll to top on mount
@@ -10,10 +10,8 @@ const ThankYou = () => {
 
     return (
         <div className="min-h-[70vh] flex items-center justify-center bg-slate-50 px-4 py-20">
-            <Helmet>
-                <title>Thank You - PremiumHub</title>
-                <meta name="robots" content="noindex, nofollow" />
-            </Helmet>
+            <SEO title="Thank You - PremiumHub" />
+            <meta name="robots" content="noindex, nofollow" />
 
             <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 sm:p-10 text-center border border-slate-100">
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import InlinePromo from '../Components/InlinePromo'
+import SEO from '../Components/SEO'
 import BlogLeadForm from '../Components/BlogLeadForm'
 import { client } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -55,6 +55,8 @@ const SingleBlog = () => {
                     id: entry.sys.id,
                     title: entry.fields.title,
                     excerpt: entry.fields.shortDescription,
+                    seoTitle: entry.fields.seoTitle,
+                    seoDescription: entry.fields.seoDescription,
                     category: entry.fields.category,
                     date: entry.fields.publishDate
                         ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -76,6 +78,7 @@ const SingleBlog = () => {
         fetchPost()
         window.scrollTo(0, 0)
     }, [id, navigate])
+    console.log(post?.seoDescription);
 
     const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -131,6 +134,8 @@ const SingleBlog = () => {
                     id: entry.sys.id,
                     title: entry.fields.title,
                     excerpt: entry.fields.shortDescription,
+                    seoTitle: entry.fields.seoTitle,
+                    seoDescription: entry.fields.seoDescription,
                     category: entry.fields.category,
                     date: entry.fields.publishDate
                         ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -203,15 +208,6 @@ const SingleBlog = () => {
         return { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs };
     }, [post]);
 
-    // Social Sharing Handlers
-    const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const shareToTwitter = () => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(post?.title || '')}`, '_blank');
-    const shareToLinkedIn = () => window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(post?.title || '')}`, '_blank');
-    const shareToWhatsApp = () => window.open(`https://wa.me/?text=${encodeURIComponent(post?.title + ' ' + pageUrl)}`, '_blank');
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(pageUrl);
-        alert('Link copied to clipboard!');
-    };
 
     if (loading) return <SingleBlogSkeleton />
 
@@ -325,16 +321,16 @@ const SingleBlog = () => {
 
     return (
         <div className="min-h-screen relative pt-20 pb-20 bg-[#fafafa]" >
-            <Helmet>
-                <title>{post.title}</title>
-                <meta name="description" content={post.excerpt || post.title} />
-                <meta property="og:title" content={post.title} />
-                <meta property="og:description" content={post.excerpt || post.title} />
-                {post.imageUrl && <meta property="og:image" content={post.imageUrl} />}
-                {faqSchema && (
-                    <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-                )}
-            </Helmet>
+            <SEO
+                title={post.seoTitle || post.title}
+                description={post.seoDescription || post.excerpt || post.title}
+                author="Premium Tools Hub"
+                keywords="Premium Tools Hub, digital tools, services, premium, tools, services, digital life"
+                ogTitle={post.seoTitle || post.title}
+                ogDescription={post.seoDescription || post.excerpt || post.title}
+                ogImage={post.imageUrl || undefined}
+                faqSchema={faqSchema}
+            />
 
             {/* Reading Progress Bar (Fixed Top) */}
             <div className="fixed top-0 left-0 w-full h-[3px] bg-slate-100 z-50">

@@ -1,7 +1,6 @@
 import React, { Suspense, lazy, useCallback } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ReactLenis } from 'lenis/react'
-import { HelmetProvider, Helmet } from 'react-helmet-async'
 
 // Only import the Header and Footer directly since they're critical UI
 import LoadingFallback from './Components/LoadingFallback.jsx'
@@ -10,6 +9,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import PopupForm from './Components/PopupForm'
 import { BlogListSkeleton, SingleBlogSkeleton } from './Components/BlogSkeleton'
+import SEO from './Components/SEO'
 
 // Lazy load all other components
 // Direct imports for Hero to ensure LCP
@@ -91,11 +91,10 @@ const MainLayout = ({ children }) => {
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(orgSchema)}
-        </script>
-      </Helmet>
+      {/* React 19 Metadata */}
+      <script type="application/ld+json">
+        {JSON.stringify(orgSchema)}
+      </script>
       <Header />
       <div className="flex-grow">{children}</div>
       <Footer />
@@ -114,7 +113,14 @@ const App = () => {
   }, [])
 
   return (
-    <HelmetProvider>
+    <>
+      <SEO
+        title="Premium Tools Hub | Premium Digital Tools & Services for Every Need"
+        description="Premium Tools Hub offers top digital tools & services to boost productivity, creativity, and security—all in one easy-to-access platform."
+        author="Premium Tools Hub"
+        keywords="Premium Tools Hub, digital tools, services, premium, tools, services, digital life"
+      />
+
       <ReactLenis root options={{ duration: 0.8 }} onScroll={handleScroll}>
         <Router>
           <ScrollToTop />
@@ -248,7 +254,7 @@ const App = () => {
           </div>
         </Router>
       </ReactLenis>
-    </HelmetProvider>
+    </>
   )
 }
 

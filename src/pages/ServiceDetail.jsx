@@ -4,7 +4,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { serviceDetails } from '../data/servicesData';
 import { motion } from 'framer-motion';
 import { MdArrowBack, MdCheck, MdSmartphone, MdOpenInNew } from 'react-icons/md';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../Components/SEO';
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -18,10 +18,10 @@ const ServiceDetail = () => {
 
     return (
         <div className="min-h-screen bg-[#f8fafc] pb-20">
-            <Helmet>
-                <title>{metaTitle || `${title} | Premium Tools Hub`}</title>
-                <meta name="description" content={metaDescription || description} />
-            </Helmet>
+            <SEO
+                title={metaTitle || `${title} | Premium Tools Hub`}
+                description={metaDescription || description}
+            />
             {/* Hero Section */}
             <div className={`relative overflow-hidden bg-gradient-to-br ${gradient} text-white pt-32 pb-20 md:pt-40 md:pb-32 px-4`}>
                 {/* Background Patterns */}
