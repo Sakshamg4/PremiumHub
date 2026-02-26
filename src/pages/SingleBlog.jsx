@@ -6,6 +6,7 @@ import BlogLeadForm from '../Components/BlogLeadForm'
 import { SingleBlogSkeleton } from '../Components/BlogSkeleton'
 import StickyLeadBanner from '../Components/StickyLeadBanner'
 import { FaWhatsapp } from 'react-icons/fa'
+import parse, { domToReact } from 'html-react-parser';
 
 const decodeHTMLEntities = (text) => {
     const textarea = document.createElement("textarea");
@@ -179,45 +180,70 @@ const SingleBlog = () => {
 
     const renderContentWithPromos = () => {
         if (!post?.content) return null;
-        let htmlContent = post.content;
-
-        // Ensure all links open in a new tab for WordPress content
-        htmlContent = htmlContent.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
-
-        // Split HTML by <h2> tags.
-        const parts = htmlContent.split(/(<h2[^>]*>.*?<\/h2>)/i);
 
         let adCount = 0;
         let headingCount = 0;
 
-        return parts.map((part, index) => {
-            if (/^<h2/i.test(part)) {
-                headingCount++;
-                const showAd = headingCount > 1 && headingCount % 2 === 0 && adCount < 3;
-
-                const textMatch = part.match(/<h2[^>]*>(.*?)<\/h2>/i);
-                let text = textMatch ? textMatch[1].replace(/<[^>]+>/g, '') : '';
-                text = decodeHTMLEntities(text);
-                const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-
-                const styledH2 = `<h2 id="${id}" class="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 mt-6 mb-4 tracking-tight leading-tight">${textMatch ? textMatch[1] : ''}</h2>`;
-
-                if (showAd) {
-                    adCount++;
+        const options = {
+            replace: (domNode) => {
+                // Remove lazy loading from images so they load instantly
+                if (domNode.type === 'tag' && domNode.name === 'img') {
+                    const attribs = { ...domNode.attribs };
+                    delete attribs.loading;
+                    delete attribs.decoding;
                     return (
-                        <React.Fragment key={index}>
-                            <div className="mb-8"><InlinePromo /></div>
-                            <div dangerouslySetInnerHTML={{ __html: styledH2 }} />
-                        </React.Fragment>
+                        <img {...attribs} className="w-full h-auto object-contain rounded-xl my-8 shadow-sm border border-slate-100" />
                     );
                 }
 
-                return <div key={index} className="wp-heading-wrapper" dangerouslySetInnerHTML={{ __html: styledH2 }} />;
-            }
+                // Handle InlinePromo insertion without wrappers
+                if (domNode.type === 'tag' && domNode.name === 'h2') {
+                    headingCount++;
+                    const showAd = headingCount > 1 && headingCount % 2 === 0 && adCount < 3;
 
-            if (!part.trim()) return null;
-            return <div key={index} className="wp-content-wrapper" dangerouslySetInnerHTML={{ __html: part }} />;
-        });
+                    let text = '';
+                    if (domNode.children && domNode.children.length > 0) {
+                        text = domNode.children.map(c => c.type === 'text' ? c.data : (c.children ? c.children.map(cc => cc.type === 'text' ? cc.data : '').join('') : '')).join('');
+                    }
+                    text = decodeHTMLEntities(text);
+                    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+                    const H2El = (
+                        <h2 id={id || `heading-${headingCount}`} className="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 mt-6 mb-4 tracking-tight leading-tight">
+                            {domToReact(domNode.children, options)}
+                        </h2>
+                    );
+
+                    if (showAd) {
+                        adCount++;
+                        return (
+                            <React.Fragment>
+                                <div className="mb-8"><InlinePromo /></div>
+                                {H2El}
+                            </React.Fragment>
+                        );
+                    }
+
+                    return H2El;
+                }
+
+                // Ensure links open in new tab
+                if (domNode.type === 'tag' && domNode.name === 'a') {
+                    const attribs = { ...domNode.attribs };
+                    if (!attribs.target) {
+                        attribs.target = "_blank";
+                        attribs.rel = "noopener noreferrer";
+                    }
+                    return (
+                        <a {...attribs} className="text-indigo-600 hover:text-indigo-800 transition-colors">
+                            {domToReact(domNode.children, options)}
+                        </a>
+                    );
+                }
+            }
+        };
+
+        return parse(post.content, options);
     };
 
     if (loading) return <SingleBlogSkeleton />
