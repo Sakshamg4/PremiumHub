@@ -101,6 +101,7 @@ textarea {
 img {
   image-rendering: optimizeQuality;
 }
+
 @plugin '@tailwindcss/typography';
 
 
@@ -108,6 +109,7 @@ img {
 .wp-content-article {
   max-width: 100%;
 }
+
 .wp-content-article img {
   border-radius: 0.75rem;
   margin-top: 2rem;
@@ -117,24 +119,11 @@ img {
   height: auto;
   object-fit: contain;
 }
+
 .wp-content-article figure {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
+
 .wp-content-article figure img {
   margin: 0;
 }
-.wp-content-article h2 {
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-}
-.wp-content-article p {
-  margin-bottom: 1.5rem;
-}
-.wp-content-article ul, .wp-content-article ol {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.wp-content-article li {
-  margin-bottom: 0.5rem;
-}
-

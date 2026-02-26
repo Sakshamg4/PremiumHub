@@ -350,7 +350,7 @@ const SingleBlog = () => {
                             </div>
                         )}
 
-                        <article className="prose prose-base md:prose-lg prose-slate max-w-none 
+                        <article className="prose font-[inherit] prose-base md:prose-lg prose-slate max-w-none 
                             prose-p:text-[#334155] prose-p:leading-[1.65] md:prose-p:leading-[1.7]
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
                             prose-a:text-indigo-600 prose-a:no-underline

@@ -54,7 +54,7 @@ const InlinePromo = () => {
     const currentOffer = OFFERS[currentIndex];
 
     return (
-        <div className="my-8 relative overflow-hidden rounded-2xl bg-[#0f172a] shadow-xl shadow-blue-900/5 group border border-slate-800/50">
+        <div className="not-prose my-8 relative overflow-hidden rounded-2xl bg-[#0f172a] shadow-xl shadow-blue-900/5 group border border-slate-800/50">
             {/* Background Effects */}
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${currentOffer.color} opacity-10 blur-[80px] rounded-full pointer-events-none transition-colors duration-500`} />
 
