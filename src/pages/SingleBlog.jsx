@@ -188,12 +188,11 @@ const SingleBlog = () => {
             replace: (domNode) => {
                 // Remove lazy loading from images so they load instantly
                 if (domNode.type === 'tag' && domNode.name === 'img') {
-                    const attribs = { ...domNode.attribs };
-                    delete attribs.loading;
-                    delete attribs.decoding;
-                    return (
-                        <img {...attribs} className="w-full h-auto object-contain rounded-xl my-8 shadow-sm border border-slate-100" />
-                    );
+                    delete domNode.attribs.loading;
+                    delete domNode.attribs.decoding;
+                    let existingClass = domNode.attribs.class || '';
+                    domNode.attribs.class = `${existingClass} w-full h-auto object-contain rounded-xl my-8 shadow-sm border border-slate-100`.trim();
+                    return undefined;
                 }
 
                 // Handle InlinePromo insertion without wrappers
@@ -209,7 +208,7 @@ const SingleBlog = () => {
                     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
                     const H2El = (
-                        <h2 id={id || `heading-${headingCount}`} className="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 mt-6 mb-4 tracking-tight leading-tight">
+                        <h2 id={id || `heading-${headingCount}`} className="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 tracking-tight leading-tight">
                             {domToReact(domNode.children, options)}
                         </h2>
                     );
@@ -229,16 +228,11 @@ const SingleBlog = () => {
 
                 // Ensure links open in new tab
                 if (domNode.type === 'tag' && domNode.name === 'a') {
-                    const attribs = { ...domNode.attribs };
-                    if (!attribs.target) {
-                        attribs.target = "_blank";
-                        attribs.rel = "noopener noreferrer";
-                    }
-                    return (
-                        <a {...attribs} className="text-indigo-600 hover:text-indigo-800 transition-colors">
-                            {domToReact(domNode.children, options)}
-                        </a>
-                    );
+                    domNode.attribs.target = "_blank";
+                    domNode.attribs.rel = "noopener noreferrer";
+                    let existingClass = domNode.attribs.class || '';
+                    domNode.attribs.class = `${existingClass} text-indigo-600 hover:text-indigo-800 transition-colors`.trim();
+                    return undefined;
                 }
             }
         };
