@@ -3,12 +3,23 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import InlinePromo from '../Components/InlinePromo'
 import SEO from '../Components/SEO'
 import BlogLeadForm from '../Components/BlogLeadForm'
-import { client } from '../lib/contentful'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { SingleBlogSkeleton } from '../Components/BlogSkeleton'
 import StickyLeadBanner from '../Components/StickyLeadBanner'
 import { FaWhatsapp } from 'react-icons/fa'
+
+import parse, { domToReact } from 'html-react-parser';
+
+const decodeHTMLEntities = (text) => {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = text;
+    return textarea.value;
+};
+
+const stripHTML = (html) => {
+    const tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+};
 
 const SingleBlog = () => {
     const { id } = useParams()
@@ -17,54 +28,63 @@ const SingleBlog = () => {
     const [loading, setLoading] = useState(true)
     const [showEnquiryModal, setShowEnquiryModal] = useState(false)
     const [showAllToc, setShowAllToc] = useState(false)
-
-    // Robust text extraction helper needed for ID generation
-    const extractTextFromContent = (content) => {
-        if (!content) return '';
-        return content.map(node => {
-            if (node.nodeType === 'text') return node.value;
-            if (node.content) return extractTextFromContent(node.content);
-            return '';
-        }).join('');
-    };
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const fetchPost = async () => {
             setLoading(true)
             try {
-                if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID || !import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN) {
+                // Assuming ID is actually the slug
+                const response = await fetch(`https://premiumtoolshub.orphicsolution.com/wp-json/wp/v2/posts?slug=${id}&_embed`);
+                if (!response.ok) {
                     navigate('/blog')
                     return
                 }
 
-                const response = await client.getEntries({
-                    content_type: 'premiumhub',
-                    'fields.slug': id
-                });
-
-                if (!response.items.length) {
+                const data = await response.json();
+                if (!data || data.length === 0) {
                     navigate('/blog');
                     return;
                 }
 
-                const entry = response.items[0];
-                const featuredImage = entry.fields.featuredImage?.[0];
-                const imageUrl = featuredImage?.fields?.file?.url;
+                const entry = data[0];
+                const terms = entry._embedded && entry._embedded['wp:term'] ? entry._embedded['wp:term'] : [];
+                const categories = terms.length > 0 ? terms[0] : [];
+                const category = categories.length > 0 ? categories[0].name : 'General';
+
+                const authorInfo = entry._embedded && entry._embedded.author ? entry._embedded.author[0].name : 'PremiumToolsHub Team';
+
+                const featuredMedia = entry._embedded && entry._embedded['wp:featuredmedia'] ? entry._embedded['wp:featuredmedia'][0] : null;
+                let imageUrl = null;
+                if (featuredMedia) {
+                    imageUrl = featuredMedia.source_url || featuredMedia.media_details?.sizes?.full?.source_url;
+                }
+
+                const rawExcerpt = stripHTML(entry.excerpt.rendered);
+                const fallbackExcerpt = rawExcerpt.slice(0, 160) + (rawExcerpt.length > 160 ? '...' : '');
+
+                // WP Yoast SEO integration from _yoast_wpseo_title etc, if available
+                let seoTitle = decodeHTMLEntities(entry.title.rendered);
+                let seoDescription = fallbackExcerpt;
+
+                if (entry.yoast_head_json) {
+                    seoTitle = entry.yoast_head_json.title || seoTitle;
+                    seoDescription = entry.yoast_head_json.description || seoDescription;
+                }
 
                 setPost({
-                    id: entry.sys.id,
-                    title: entry.fields.title,
-                    excerpt: entry.fields.shortDescription,
-                    seoTitle: entry.fields.seoTitle,
-                    seoDescription: entry.fields.seoDescription,
-                    category: entry.fields.category,
-                    date: entry.fields.publishDate
-                        ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-                        : new Date(entry.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl} ` : imageUrl) : null,
+                    id: entry.id,
+                    title: decodeHTMLEntities(entry.title.rendered),
+                    excerpt: seoDescription,
+                    seoTitle: seoTitle,
+                    seoDescription: seoDescription,
+                    category: decodeHTMLEntities(category),
+                    date: new Date(entry.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                    imageUrl: imageUrl,
                     imageGradient: 'from-blue-600/20 to-blue-400/20',
                     icon: '📝',
-                    content: entry.fields.mainContent
+                    author: authorInfo,
+                    content: entry.content.rendered
                 })
 
             } catch (error) {
@@ -78,11 +98,7 @@ const SingleBlog = () => {
         fetchPost()
         window.scrollTo(0, 0)
     }, [id, navigate])
-    console.log(post?.seoDescription);
 
-    const [scrollProgress, setScrollProgress] = useState(0);
-
-    // Calculate Scroll Progress
     useEffect(() => {
         const handleScroll = () => {
             const totalScroll = document.documentElement.scrollTop;
@@ -94,120 +110,130 @@ const SingleBlog = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Calculate Reading Time
     const readingTime = useMemo(() => {
-        if (!post?.content?.content) return "1 min read";
-        let totalWords = 0;
-        post.content.content.forEach((node) => {
-            const text = extractTextFromContent([node]);
-            totalWords += text.split(/\s+/).length;
-        });
+        if (!post?.content) return "1 min read";
+        const totalWords = stripHTML(post.content).split(/\s+/).length;
         const wordsPerMinute = 225;
         const minutes = Math.ceil(totalWords / wordsPerMinute);
         return `${minutes} min read`;
     }, [post]);
 
-    useEffect(() => {
-        const fetchPost = async () => {
-            setLoading(true)
-            try {
-                if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID || !import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN) {
-                    navigate('/blog')
-                    return
-                }
-
-                const response = await client.getEntries({
-                    content_type: 'premiumhub',
-                    'fields.slug': id
-                });
-
-                if (!response.items.length) {
-                    navigate('/blog');
-                    return;
-                }
-
-                const entry = response.items[0];
-                const featuredImage = entry.fields.featuredImage?.[0];
-                const imageUrl = featuredImage?.fields?.file?.url;
-
-                setPost({
-                    id: entry.sys.id,
-                    title: entry.fields.title,
-                    excerpt: entry.fields.shortDescription,
-                    seoTitle: entry.fields.seoTitle,
-                    seoDescription: entry.fields.seoDescription,
-                    category: entry.fields.category,
-                    date: entry.fields.publishDate
-                        ? new Date(entry.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-                        : new Date(entry.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                    imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl} ` : imageUrl) : null,
-                    imageGradient: 'from-blue-600/20 to-blue-400/20',
-                    icon: '📝',
-                    content: entry.fields.mainContent
-                })
-
-            } catch (error) {
-                console.error('Error fetching post:', error)
-                navigate('/blog')
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchPost()
-        window.scrollTo(0, 0)
-    }, [id, navigate])
-
-    // Extract Headings for Table of Contents
     const tocItems = useMemo(() => {
-        if (!post?.content?.content) return [];
+        if (!post?.content) return [];
         const items = [];
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(post.content, 'text/html');
+        const headings = doc.querySelectorAll('h2');
 
-        post.content.content.forEach((node) => {
-            if (node.nodeType === 'heading-2') {
-                const text = extractTextFromContent(node.content);
-                if (text) {
-                    items.push({
-                        id: text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''),
-                        text: text,
-                        level: 2
-                    });
-                }
+        headings.forEach((heading) => {
+            const text = heading.textContent;
+            if (text) {
+                items.push({
+                    id: text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''),
+                    text: text,
+                    level: 2
+                });
             }
         });
         return items;
     }, [post]);
 
     const faqSchema = useMemo(() => {
-        if (!post?.content?.content) return null;
+        if (!post?.content) return null;
         const faqs = [];
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(post.content, 'text/html');
+        const elements = doc.body.children;
+
         let currentQuestion = null;
         let currentAnswer = "";
         const questionIndicators = ['who', 'what', 'where', 'when', 'why', 'how', 'can', 'could', 'should', 'would', 'is', 'are', 'do', 'does'];
 
-        for (const node of post.content.content) {
-            if (['heading-1', 'heading-2', 'heading-3', 'heading-4', 'heading-5', 'heading-6'].includes(node.nodeType)) {
+        for (let i = 0; i < elements.length; i++) {
+            const node = elements[i];
+            const tagName = node.tagName.toLowerCase();
+
+            if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tagName)) {
                 if (currentQuestion && currentAnswer.trim()) {
                     faqs.push({ "@type": "Question", "name": currentQuestion, "acceptedAnswer": { "@type": "Answer", "text": currentAnswer.trim() } });
                 }
                 currentQuestion = null;
                 currentAnswer = "";
-                const text = extractTextFromContent(node.content).trim();
+
+                const text = node.textContent.trim();
                 const lowerText = text.toLowerCase();
                 const isQuestion = text && (text.endsWith('?') || questionIndicators.some(w => lowerText.startsWith(w + ' ')));
+
                 if (isQuestion) currentQuestion = text;
             } else if (currentQuestion) {
-                const text = extractTextFromContent(node.content).trim();
+                const text = node.textContent.trim();
                 if (text) currentAnswer += (currentAnswer ? " " : "") + text;
             }
         }
+
         if (currentQuestion && currentAnswer.trim()) {
             faqs.push({ "@type": "Question", "name": currentQuestion, "acceptedAnswer": { "@type": "Answer", "text": currentAnswer.trim() } });
         }
+
         if (faqs.length === 0) return null;
         return { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs };
     }, [post]);
 
+    const renderContentWithPromos = () => {
+        if (!post?.content) return null;
+
+        let adCount = 0;
+        let headingCount = 0;
+
+        const options = {
+            replace: (domNode) => {
+                if (domNode.type === 'tag' && domNode.name === 'h2') {
+                    headingCount++;
+                    const showAd = headingCount > 1 && headingCount % 2 === 0 && adCount < 3;
+
+                    let text = '';
+                    if (domNode.children && domNode.children.length > 0) {
+                        text = domNode.children.map(c => c.type === 'text' ? c.data : (c.children ? c.children.map(cc => cc.type === 'text' ? cc.data : '').join('') : '')).join('');
+                    }
+                    text = decodeHTMLEntities(text);
+                    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+                    const H2El = (
+                        <h2 id={id || `heading-${headingCount}`} className="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 mt-6 mb-4 tracking-tight leading-tight">
+                            {domToReact(domNode.children, options)}
+                        </h2>
+                    );
+
+                    if (showAd) {
+                        adCount++;
+                        return (
+                            <React.Fragment>
+                                <div className="mb-8"><InlinePromo /></div>
+                                {H2El}
+                            </React.Fragment>
+                        );
+                    }
+
+                    return H2El;
+                }
+
+                if (domNode.type === 'tag' && domNode.name === 'a') {
+                    const attribs = { ...domNode.attribs };
+                    if (!attribs.target) {
+                        attribs.target = "_blank";
+                        attribs.rel = "noopener noreferrer";
+                    }
+                    return (
+                        <a {...attribs} className="text-indigo-600 hover:text-indigo-800 transition-colors">
+                            {domToReact(domNode.children, options)}
+                        </a>
+                    );
+                }
+            }
+        };
+
+        return parse(post.content, options);
+    };
 
     if (loading) return <SingleBlogSkeleton />
 
@@ -217,106 +243,6 @@ const SingleBlog = () => {
                 <div className="text-xl text-slate-500">Post not found</div>
             </div>
         )
-    }
-
-    let adCount = 0;
-    let headingCount = 0;
-
-    const richTextOptions = {
-        renderNode: {
-            [BLOCKS.EMBEDDED_ASSET]: (node) => {
-                const url = node.data.target.fields?.file?.url;
-                if (!url) return null;
-                return (
-                    <figure className="my-0.5 overflow-hidden rounded-2xl border border-slate-100 shadow-sm bg-slate-50">
-                        <img
-                            src={`https:${url}`}
-                            alt={node.data.target.fields?.title || 'Blog Image'}
-                            className="w-full h-auto object-cover"
-                        />
-                        {node.data.target.fields?.description && (
-                            <figcaption className="p-3 text-center text-sm text-slate-500 border-t border-slate-100 italic">
-                                {node.data.target.fields.description}
-                            </figcaption>
-                        )}
-                    </figure>
-                );
-            },
-            [BLOCKS.HEADING_2]: (node, children) => {
-                headingCount++;
-                const showAd = headingCount > 1 && headingCount % 2 === 0 && adCount < 3;
-                if (showAd) adCount++;
-
-                const rawText = extractTextFromContent(node.content);
-                const id = rawText ? rawText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') : '';
-
-                return (
-                    <>
-                        {showAd && <div className="mb-8"><InlinePromo /></div>}
-                        <h2 id={id} className="scroll-mt-[120px] text-[1.65rem] md:text-[2rem] font-bold text-slate-900 mt-6 mb-4 tracking-tight leading-tight">
-                            {children}
-                        </h2>
-                    </>
-                );
-            },
-            [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-[1.35rem] md:text-[1.5rem] font-bold text-slate-800 mt-4 mb-3 tracking-tight leading-snug">{children}</h3>,
-            [BLOCKS.PARAGRAPH]: (node, children) => {
-                const text = extractTextFromContent(node.content);
-                const isProTip = text && /pro\s*tip\s*:/i.test(text);
-
-                if (isProTip) {
-                    return (
-                        <div className="my-6 rounded-xl bg-gradient-to-br from-indigo-50/80 to-blue-50/50 border border-indigo-100/50 shadow-sm relative overflow-hidden group">
-                            <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-indigo-500 to-blue-500"></div>
-                            <div className="p-5 sm:p-6 relative z-10 pl-8">
-                                <div className="text-slate-700 text-[1.05rem] sm:text-[1.125rem] leading-[1.7] font-medium tracking-wide">
-                                    {children}
-                                </div>
-                            </div>
-                        </div>
-                    );
-                }
-                // Much softer line height and relaxed letter spacing for standard paragraphs
-                return <p className="mb-4 text-[#334155] leading-[1.65] md:leading-[1.7] text-[1.05rem] md:text-[1.125rem] tracking-tight">{children}</p>;
-            },
-            [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7] [&_p]:mb-0">{children}</ul>,
-            [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4 space-y-1.5 md:space-y-2 text-[#334155] marker:text-indigo-500 marker:font-bold text-[1.05rem] md:text-[1.125rem] leading-[1.65] md:leading-[1.7] [&_p]:mb-0">{children}</ol>,
-            [BLOCKS.QUOTE]: (node, children) => (
-                <blockquote className="relative p-5 sm:p-6 my-6 border-l-2 border-slate-900 bg-white shadow-[8px_8px_0px_rgba(15,23,42,0.05)] italic text-slate-700 text-[1.15rem] md:text-[1.3rem] leading-[1.7]">
-                    <svg className="absolute top-4 left-4 w-8 h-8 text-slate-100 -z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
-                    <div className="relative z-10">{children}</div>
-                </blockquote>
-            ),
-            [INLINES.HYPERLINK]: (node, children) => (
-                <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-semibold hover:text-indigo-800 border-b border-indigo-200 hover:border-indigo-600 transition-all duration-300 pb-0.5">
-                    {children}
-                </a>
-            ),
-            [BLOCKS.TABLE]: (node, children) => (
-                <div className="my-8 rounded-lg border border-slate-300 bg-white overflow-hidden shadow-sm">
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <tbody>{children}</tbody>
-                        </table>
-                    </div>
-                </div>
-            ),
-            [BLOCKS.TABLE_ROW]: (node, children) => (
-                <tr className="border-b border-slate-300 last:border-0 bg-white hover:bg-slate-50 transition-colors [&:first-child]:bg-slate-200 [&:first-child>td]:font-bold [&:first-child>td]:text-slate-900">
-                    {children}
-                </tr>
-            ),
-            [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-                <th className="px-5 py-2 font-bold text-slate-900 text-[1.05rem] align-middle border-r border-slate-300 last:border-r-0">
-                    {children}
-                </th>
-            ),
-            [BLOCKS.TABLE_CELL]: (node, children) => (
-                <td className="px-5 py-2 text-slate-700 text-[1rem] leading-relaxed align-middle [&_p]:m-0 border-r border-slate-300 last:border-r-0">
-                    {children}
-                </td>
-            ),
-        }
     }
 
     return (
@@ -332,7 +258,6 @@ const SingleBlog = () => {
                 faqSchema={faqSchema}
             />
 
-            {/* Reading Progress Bar (Fixed Top) */}
             <div className="fixed top-0 left-0 w-full h-[3px] bg-slate-100 z-50">
                 <div
                     className="h-full bg-slate-900 transition-all duration-150 ease-out"
@@ -340,17 +265,11 @@ const SingleBlog = () => {
                 />
             </div>
 
-            {/* Main Content Layout (Perfectly Centered) */}
             <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 pt-3 md:pt-8">
                 <div className="flex flex-col lg:flex-row gap-8 xl:gap-12 relative">
 
-                    {/* Left Column: Social & TOC (Sticky) */}
                     <div className="hidden lg:block lg:w-[30%] xl:w-[28%] relative flex-shrink-0">
                         <div className="sticky top-22 space-y-12 pr-2 xl:pr-6">
-
-
-
-                            {/* Minimal TOC */}
                             {tocItems.length > 0 && (
                                 <div className="p-5 bg-white shadow-[8px_8px_0px_rgba(38,90,231,0.25)] border border-slate-100 rounded-lg">
                                     <p className="text-[1.1rem] font-bold uppercase tracking-widest text-[#265ae7] mb-4">Table of Contents</p>
@@ -384,18 +303,14 @@ const SingleBlog = () => {
                         </div>
                     </div>
 
-                    {/* Center Column: Article Content */}
                     <div className="w-full lg:w-[70%] xl:w-[72%] bg-white/0 rounded-none p-0">
 
-                        {/* Integrated Article Header (Title Above Image) */}
                         <header className="mb-8 md:mb-10">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[0.8rem] font-bold uppercase tracking-widest mb-5 border border-indigo-100">
                                 {post.category || 'Article'}
                             </div>
 
-                            <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 mb-6 leading-[1.1] tracking-tight">
-                                {post.title}
-                            </h1>
+                            <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 mb-6 leading-[1.1] tracking-tight" dangerouslySetInnerHTML={{ __html: post.title }} />
 
                             <div className="flex flex-wrap items-center justify-between gap-6 text-[0.95rem] pb-8 border-b border-slate-200">
                                 <div className="flex items-center gap-3">
@@ -418,10 +333,9 @@ const SingleBlog = () => {
                             </div>
                         </header>
 
-                        {/* Featured Image inside content column */}
                         <div className="w-full relative overflow-hidden bg-slate-50 mb-12 rounded-2xl border border-slate-100 shadow-sm flex justify-center items-center">
                             {post.imageUrl ? (
-                                <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-contain rounded-2xl" />
+                                <img src={post.imageUrl} alt={post.title.replace(/<[^>]*>?/gm, '')} className="w-full h-auto max-h-[500px] object-contain rounded-2xl" />
                             ) : (
                                 <div className={`w-full aspect-video bg-gradient-to-br ${post.imageGradient} flex items-center justify-center`}>
                                     <span className="text-[6rem] animate-pulse opacity-50">{post.icon}</span>
@@ -429,7 +343,6 @@ const SingleBlog = () => {
                             )}
                         </div>
 
-                        {/* Mobile TOC */}
                         {tocItems.length > 0 && (
                             <div className="lg:hidden bg-white/50 border border-slate-200 rounded-xl p-6 mb-12">
                                 <p className="text-[0.8rem] font-bold uppercase tracking-widest text-slate-900 mb-4">Table of Contents</p>
@@ -452,7 +365,6 @@ const SingleBlog = () => {
                             </div>
                         )}
 
-                        {/* Article Content */}
                         <article className="prose prose-base md:prose-lg prose-slate max-w-none 
                             prose-p:text-[#334155] prose-p:leading-[1.65] md:prose-p:leading-[1.7]
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
@@ -460,13 +372,11 @@ const SingleBlog = () => {
                             prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm
                             prose-strong:text-slate-900 prose-strong:font-bold
                             prose-li:text-[#334155]
+                            wp-content-article
                         ">
-                            {documentToReactComponents(post.content, richTextOptions)}
+                            {renderContentWithPromos()}
                         </article>
 
-
-
-                        {/* Clean End Indicator */}
                         <div className="flex justify-center mt-12 mb-16 opacity-30">
                             <span className="w-1.5 h-1.5 rounded-full bg-slate-900 mx-1"></span>
                             <span className="w-1.5 h-1.5 rounded-full bg-slate-900 mx-1"></span>
@@ -477,7 +387,6 @@ const SingleBlog = () => {
                 </div>
             </div>
 
-            {/* Floating Contact Sidebar (Right Edge) */}
             <div className="fixed right-0 top-1/2 -translate-y-1/2 flex flex-col items-end gap-3 z-50">
                 <button
                     onClick={() => setShowEnquiryModal(true)}
@@ -497,10 +406,8 @@ const SingleBlog = () => {
                 </a>
             </div>
 
-            {/* Sticky Bottom Banner */}
             <StickyLeadBanner />
 
-            {/* Modal Overlay for Enquiry Form */}
             {showEnquiryModal && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
                     <div className="relative w-full max-w-md animate-in zoom-in-95 duration-200">

@@ -1,19 +1,18 @@
 import React, { memo, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Components/Button'
-import { client } from '../lib/contentful'
 import { BlogListSkeleton } from '../Components/BlogSkeleton'
 
-// Helper to extract text from Contentful Rich Text
-const extractTextFromContent = (content) => {
-    if (!content || !content.content) return '';
-    if (Array.isArray(content.content)) {
-        return content.content.map(node => {
-            if (node.nodeType === 'text') return node.value;
-            return extractTextFromContent(node);
-        }).join(' ');
-    }
-    return '';
+const decodeHTMLEntities = (text) => {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = text;
+    return textarea.value;
+};
+
+const stripHTML = (html) => {
+    const tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
 };
 
 
@@ -164,53 +163,46 @@ const Blog = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                // Check if credentials are set
-                if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID || !import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN) {
-                    console.warn('Contentful credentials not found. Check .env file.')
-                    setLoading(false)
-                    return
+                const response = await fetch('https://premiumtoolshub.orphicsolution.com/wp-json/wp/v2/posts?_embed&per_page=100');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch posts');
                 }
+                const data = await response.json();
 
-                const response = await client.getEntries({
-                    content_type: 'premiumhub', // Updated to match the Content Type Name "Premiumhub" seen in screenshots (likely lowercase ID)
-                    order: '-sys.createdAt'
-                })
+                const formattedPosts = data.map(item => {
+                    const terms = item._embedded && item._embedded['wp:term'] ? item._embedded['wp:term'] : [];
+                    const categories = terms.length > 0 ? terms[0] : [];
+                    const category = categories.length > 0 ? categories[0].name : 'General';
 
-                const formattedPosts = response.items.map(item => {
-                    const featuredImage = item.fields.featuredImage?.[0]; // "Media, many files" is an array
-                    const imageUrl = featuredImage?.fields?.file?.url;
+                    const authorInfo = item._embedded && item._embedded.author ? item._embedded.author[0].name : 'PremiumToolsHub Team';
 
-                    // Fallback excerpt from mainContent if shortDescription is missing
-                    let fallbackExcerpt = '';
-                    if (!item.fields.shortDescription && item.fields.mainContent) {
-                        const rawText = extractTextFromContent(item.fields.mainContent);
-                        fallbackExcerpt = rawText.slice(0, 160) + (rawText.length > 160 ? '...' : '');
+                    const featuredMedia = item._embedded && item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0] : null;
+                    let imageUrl = null;
+                    if (featuredMedia) {
+                        imageUrl = featuredMedia.source_url || featuredMedia.media_details?.sizes?.full?.source_url;
                     }
+
+                    const rawExcerpt = stripHTML(item.excerpt.rendered);
+                    const fallbackExcerpt = rawExcerpt.slice(0, 160) + (rawExcerpt.length > 160 ? '...' : '');
 
                     return {
-                        id: item.sys.id,
-                        slug: item.fields.slug, // Map the slug field
-                        title: item.fields.title,
-                        excerpt: item.fields.shortDescription || fallbackExcerpt,
-                        category: item.fields.category,
-                        author: typeof item.fields.author === 'object'
-                            ? (item.fields.author?.fields?.name || 'PremiumToolsHub Team')
-                            : (item.fields.author || 'PremiumToolsHub Team'),
-                        date: item.fields.publishDate
-                            ? new Date(item.fields.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-                            : new Date(item.sys.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                        imageUrl: imageUrl ? (imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl) : null,
+                        id: item.id,
+                        slug: item.slug,
+                        title: decodeHTMLEntities(item.title.rendered),
+                        excerpt: fallbackExcerpt,
+                        category: decodeHTMLEntities(category),
+                        author: authorInfo,
+                        date: new Date(item.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                        imageUrl: imageUrl,
                         imageGradient: 'from-blue-600/20 to-blue-400/20',
                         icon: '📝',
-                        content: item.fields.mainContent
+                        content: item.content.rendered
                     }
                 })
-
 
                 setPosts(formattedPosts)
             } catch (error) {
-                console.error('Error fetching posts from Contentful:', error)
-                // setPosts([]) // Optional: clear posts or show error state
+                console.error('Error fetching posts from WordPress:', error)
             } finally {
                 setLoading(false)
             }

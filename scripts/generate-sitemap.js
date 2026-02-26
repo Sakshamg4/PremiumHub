@@ -1,35 +1,22 @@
-import { createClient } from 'contentful';
 import fs from 'fs';
 import path from 'path';
 import { create } from 'xmlbuilder2';
 import 'dotenv/config'; // Loads .env file contents into process.env
 
-const SPACE_ID = process.env.VITE_CONTENTFUL_SPACE_ID;
-const ACCESS_TOKEN = process.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 const SITE_URL = process.env.VITE_SITE_URL || 'https://www.premiumtoolshub.in';
-
-if (!SPACE_ID || !ACCESS_TOKEN) {
-  console.error('Error: VITE_CONTENTFUL_SPACE_ID or VITE_CONTENTFUL_ACCESS_TOKEN is missing.');
-  process.exit(1);
-}
-
-const client = createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-});
 
 async function generateSitemap() {
   try {
     console.log('Generating sitemap indices...');
     console.log(`Site URL: ${SITE_URL}`);
 
-    const response = await client.getEntries({
-      content_type: 'premiumhub', // Your Contentful model name
-      limit: 1000,
-      select: 'fields.slug,fields.category,sys.updatedAt',
-    });
+    const wpResponse = await fetch('https://premiumtoolshub.orphicsolution.com/wp-json/wp/v2/posts?per_page=100');
+    if (!wpResponse.ok) {
+      throw new Error('Failed to fetch posts from WordPress API');
+    }
+    const wpPosts = await wpResponse.json();
 
-    const posts = response.items.filter(post => post.fields.slug);
+    const posts = wpPosts.filter(post => post.slug);
     console.log(`Found ${posts.length} blog posts.`);
 
     const publicDir = path.resolve('public');
@@ -93,8 +80,8 @@ async function generateSitemap() {
         .ele('urlset', { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' });
 
       chunk.forEach(post => {
-        const url = `/blog/${post.fields.slug}`;
-        const lastMod = new Date(post.sys.updatedAt).toISOString();
+        const url = `/blog/${post.slug}`;
+        const lastMod = new Date(post.modified).toISOString();
 
         postDoc.ele('url')
           .ele('loc').txt(`${SITE_URL}${url}`).up()
