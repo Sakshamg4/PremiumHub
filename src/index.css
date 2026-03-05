@@ -134,8 +134,8 @@ img {
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -148,19 +148,22 @@ img {
 
 .wp-content-article table th,
 .wp-content-article table td {
-  border: 1px solid #e2e8f0;
-  padding: 1rem 1.25rem;
+  border: 1px solid #cbd5e1;
+  padding: 1.25rem;
   text-align: left;
   vertical-align: top;
 }
 
-.wp-content-article table th {
-  background-color: #f8fafc;
+/* WordPress often builds tables using only <tr><td>, so we strictly style the first row as the header */
+.wp-content-article table th,
+.wp-content-article table tr:first-child td {
+  background-color: #f1f5f9 !important;
   font-weight: 700;
   color: #0f172a;
+  border-bottom: 3px solid #94a3b8;
 }
 
-.wp-content-article table tr:nth-child(even) {
+.wp-content-article table tr:nth-child(even):not(:first-child) {
   background-color: #f8fafc;
 }
 
