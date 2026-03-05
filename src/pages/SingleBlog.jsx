@@ -217,7 +217,7 @@ const SingleBlog = () => {
                         adCount++;
                         return (
                             <React.Fragment>
-                                <div className="mb-4"><InlinePromo /></div>
+                                <div className="my-2"><InlinePromo /></div>
                                 {H2El}
                             </React.Fragment>
                         );
@@ -373,8 +373,8 @@ const SingleBlog = () => {
                         <article className="prose font-[inherit] prose-slate max-w-none 
                             prose-p:text-[#334155] prose-p:leading-[1.7] prose-p:my-4 text-[1.05rem] md:text-[1.1rem]
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
-                            prose-h2:mt-8 prose-h2:mb-4
-                            prose-h3:mt-6 prose-h3:mb-3
+                            prose-h2:mt-6 prose-h2:mb-2
+                            prose-h3:mt-5 prose-h3:mb-2
                             prose-a:text-indigo-600 prose-a:no-underline
                             prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm prose-img:my-6
                             prose-strong:text-slate-900 prose-strong:font-bold
