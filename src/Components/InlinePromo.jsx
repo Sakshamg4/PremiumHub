@@ -58,32 +58,36 @@ const InlinePromo = () => {
             {/* Background Effects */}
             <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${currentOffer.color} opacity-10 blur-[80px] rounded-full pointer-events-none transition-colors duration-500`} />
 
-            <div className="relative px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
+            <div className="relative px-4 py-3 sm:px-6 sm:py-5 flex items-center justify-between gap-3 sm:gap-6">
 
-                {/* Text Content - Animated */}
-                <div className="flex-1 overflow-hidden h-[5rem] sm:h-[4rem] relative flex flex-col justify-center">
+                {/* Text Content - Animated - Fixed Height for Stability with Slide */}
+                <div className="flex-1 h-20 sm:h-16 relative overflow-hidden">
                     {OFFERS.map((offer, index) => {
-                        let transformClass = 'translate-y-12 opacity-0';
+                        let position = 'translate-y-full opacity-0';
 
                         if (index === currentIndex) {
-                            transformClass = 'translate-y-0 opacity-100';
+                            position = 'translate-y-0 opacity-100';
                         } else if (index < currentIndex) {
-                            transformClass = '-translate-y-12 opacity-0';
+                            position = '-translate-y-full opacity-0';
                         }
 
+                        // Seamless loop handling
                         if (currentIndex === 0 && index === OFFERS.length - 1) {
-                            transformClass = '-translate-y-12 opacity-0';
+                            position = '-translate-y-full opacity-0';
+                        }
+                        if (currentIndex === OFFERS.length - 1 && index === 0) {
+                            position = 'translate-y-full opacity-0';
                         }
 
                         return (
                             <div
                                 key={offer.id}
-                                className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] flex flex-col justify-center ${transformClass}`}
+                                className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${position}`}
                             >
-                                <h4 className="font-bold text-white text-[13px] xs:text-[14px] sm:text-lg tracking-tight leading-[1.3] line-clamp-2 sm:truncate pr-1 py-0.5">
+                                <h4 className="!m-0 !p-0 font-bold text-white text-[14px] sm:text-[1.125rem] tracking-tight leading-snug">
                                     {offer.text}
                                 </h4>
-                                <p className="text-slate-400 text-[11px] xs:text-xs sm:text-sm font-medium mt-1 whitespace-normal sm:truncate leading-snug line-clamp-2">
+                                <p className="!m-0 !p-0 mt-1 text-slate-400 text-xs sm:text-sm font-medium leading-normal">
                                     {offer.subtext}
                                 </p>
                             </div>
