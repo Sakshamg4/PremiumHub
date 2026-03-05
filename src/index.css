@@ -133,9 +133,10 @@ img {
   overflow-x: auto;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -145,30 +146,40 @@ img {
   display: table;
   min-width: 500px;
   font-size: 0.95rem;
-  /* Make table typography slightly smaller than body */
-  line-height: 1.5;
+  line-height: 1.6;
+  background-color: white;
 }
 
 .wp-content-article table th,
 .wp-content-article table td {
   border: 1px solid #e2e8f0;
-  padding: 0.75rem 1rem;
-  /* tighter padding */
+  padding: 1rem 1.25rem;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
-/* WordPress often builds tables using only <tr><td>, so we strictly style the first row as the header */
+/* Premium Contrast Header Row */
 .wp-content-article table th,
 .wp-content-article table tr:first-child td {
-  background-color: #f8fafc !important;
-  font-weight: 600;
-  color: #334155;
-  border-bottom: 1px solid #cbd5e1;
+  background-color: #0f172a !important;
+  /* Deep Navy Header */
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  /* High-contrast white text */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border: 1px solid #1e293b !important;
 }
 
+/* Subtle Zebra Striping */
 .wp-content-article table tr:nth-child(even):not(:first-child) {
-  background-color: #fafafa;
+  background-color: #f8fafc;
+}
+
+/* Hover effect for better alignment tracking */
+.wp-content-article table tr:not(:first-child):hover {
+  background-color: #f1f5f9;
 }
 
 .wp-content-article table p {
