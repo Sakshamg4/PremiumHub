@@ -50,6 +50,7 @@ const SingleBlog = () => {
                 const terms = entry._embedded && entry._embedded['wp:term'] ? entry._embedded['wp:term'] : [];
                 const categories = terms.length > 0 ? terms[0] : [];
                 const category = categories.length > 0 ? categories[0].name : 'General';
+                console.log(category);
 
                 const authorInfo = entry._embedded && entry._embedded.author ? entry._embedded.author[0].name : 'PremiumToolsHub Team';
 
@@ -204,7 +205,6 @@ const SingleBlog = () => {
                     if (domNode.children && domNode.children.length > 0) {
                         text = domNode.children.map(c => c.type === 'text' ? c.data : (c.children ? c.children.map(cc => cc.type === 'text' ? cc.data : '').join('') : '')).join('');
                     }
-                    text = decodeHTMLEntities(text);
                     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
                     const H2El = (
@@ -217,7 +217,7 @@ const SingleBlog = () => {
                         adCount++;
                         return (
                             <React.Fragment>
-                                <div className="mb-8"><InlinePromo /></div>
+                                <div className="mb-4"><InlinePromo /></div>
                                 {H2El}
                             </React.Fragment>
                         );
@@ -278,8 +278,8 @@ const SingleBlog = () => {
                             {tocItems.length > 0 && (
                                 <div className="p-5 bg-white shadow-[8px_8px_0px_rgba(38,90,231,0.25)] border border-slate-100 rounded-lg">
                                     <p className="text-[1.1rem] font-bold uppercase tracking-widest text-[#265ae7] mb-4">Table of Contents</p>
-                                    <ul className="space-y-3">
-                                        {(showAllToc ? tocItems : tocItems.slice(0, 7)).map((item, index) => (
+                                    <ul className="space-y-2">
+                                        {(showAllToc ? tocItems : tocItems.slice(0, 9)).map((item, index) => (
                                             <li key={index}>
                                                 <a
                                                     href={`#${item.id}`}
@@ -294,12 +294,12 @@ const SingleBlog = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    {tocItems.length > 7 && (
+                                    {tocItems.length > 9 && (
                                         <button
                                             onClick={() => setShowAllToc(!showAllToc)}
                                             className="mt-4 text-[#265ae7] font-semibold text-sm flex items-center gap-1 hover:text-blue-800 transition-colors"
                                         >
-                                            {showAllToc ? 'View Less' : `View All (${tocItems.length - 7} more)`}
+                                            {showAllToc ? 'View Less' : `View All (${tocItems.length - 9} more)`}
                                             <svg className={`w-4 h-4 transition-transform duration-200 ${showAllToc ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                         </button>
                                     )}
@@ -370,13 +370,16 @@ const SingleBlog = () => {
                             </div>
                         )}
 
-                        <article className="prose font-[inherit] prose-base md:prose-lg prose-slate max-w-none 
-                            prose-p:text-[#334155] prose-p:leading-[1.65] md:prose-p:leading-[1.7]
+                        <article className="prose font-[inherit] prose-slate max-w-none 
+                            prose-p:text-[#334155] prose-p:leading-[1.7] prose-p:my-4 text-[1.05rem] md:text-[1.1rem]
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
+                            prose-h2:mt-8 prose-h2:mb-4
+                            prose-h3:mt-6 prose-h3:mb-3
                             prose-a:text-indigo-600 prose-a:no-underline
-                            prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm
+                            prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm prose-img:my-6
                             prose-strong:text-slate-900 prose-strong:font-bold
-                            prose-li:text-[#334155]
+                            prose-ul:my-4 prose-ul:pl-5
+                            prose-li:text-[#334155] prose-li:my-1.5
                             wp-content-article
                         ">
                             {renderContentWithPromos()}
