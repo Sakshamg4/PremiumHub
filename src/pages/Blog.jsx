@@ -172,7 +172,7 @@ const Blog = () => {
                 const formattedPosts = data.map(item => {
                     const terms = item._embedded && item._embedded['wp:term'] ? item._embedded['wp:term'] : [];
                     const categories = terms.length > 0 ? terms[0] : [];
-                    const category = categories.length > 0 ? categories[0].name : 'General';
+                    const category = categories.length > 0 ? categories[0].name : '';
 
                     const authorInfo = item._embedded && item._embedded.author ? item._embedded.author[0].name : 'PremiumToolsHub Team';
 
@@ -214,8 +214,8 @@ const Blog = () => {
     const featuredPost = posts[0];
     const latestPosts = posts.slice(1);
 
-    // Get unique categories from all posts
-    const categories = ["All", ...new Set(posts.map(post => post.category).filter(Boolean))];
+    // Get unique categories from all posts, filtering out unwanted ones
+    const categories = ["All", ...new Set(posts.map(post => post.category).filter(c => c && c !== "Blog" && c !== "General" && c !== "Uncategorized"))];
 
     const filteredPosts = latestPosts.filter(post =>
         activeCategory === "All" || post.category === activeCategory
