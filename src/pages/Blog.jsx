@@ -217,9 +217,9 @@ const Blog = () => {
     // Get unique categories from all posts, filtering out unwanted ones
     const categories = ["All", ...new Set(posts.map(post => post.category).filter(c => c && c !== "Blog" && c !== "General" && c !== "Uncategorized"))];
 
-    const filteredPosts = latestPosts.filter(post =>
-        activeCategory === "All" || post.category === activeCategory
-    );
+    const filteredPosts = activeCategory === "All"
+        ? latestPosts
+        : posts.filter(post => post.category === activeCategory);
 
 
 
