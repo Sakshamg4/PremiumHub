@@ -50,7 +50,6 @@ const SingleBlog = () => {
                 const terms = entry._embedded && entry._embedded['wp:term'] ? entry._embedded['wp:term'] : [];
                 const categories = terms.length > 0 ? terms[0] : [];
                 const category = categories.length > 0 ? categories[0].name : 'General';
-                console.log(category);
 
                 const authorInfo = entry._embedded && entry._embedded.author ? entry._embedded.author[0].name : 'PremiumToolsHub Team';
 

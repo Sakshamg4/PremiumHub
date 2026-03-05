@@ -273,7 +273,7 @@ const Blog = () => {
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
                                     className={`
-                                        relative py-4 text-sm font-bold transition-all duration-300 whitespace-nowrap
+                                        relative py-4 text-sm font-bold transition-all duration-300 whitespace-nowrap cursor-pointer
                                         ${activeCategory === category
                                             ? 'text-blue-600'
                                             : 'text-slate-500 hover:text-slate-800'
