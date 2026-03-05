@@ -167,3 +167,33 @@ img {
 .wp-content-article table p {
   margin: 0;
 }
+
+/* Perfect WordPress Typography Spacing */
+.wp-content-article h2 {
+  margin-top: 2.5rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3 !important;
+}
+
+.wp-content-article h3 {
+  margin-top: 2rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.4 !important;
+}
+
+.wp-content-article p {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.wp-content-article ul,
+.wp-content-article ol {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding-left: 1.5rem !important;
+}
+
+.wp-content-article li {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
