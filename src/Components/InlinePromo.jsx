@@ -61,7 +61,7 @@ const InlinePromo = () => {
             <div className="relative px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between gap-3 sm:gap-6">
 
                 {/* Text Content - Animated */}
-                <div className="flex-1 overflow-hidden h-[4.5rem] sm:h-[3.5rem] relative flex flex-col justify-center">
+                <div className="flex-1 overflow-hidden h-[5rem] sm:h-[4rem] relative flex flex-col justify-center">
                     {OFFERS.map((offer, index) => {
                         let transformClass = 'translate-y-12 opacity-0';
 
@@ -78,9 +78,9 @@ const InlinePromo = () => {
                         return (
                             <div
                                 key={offer.id}
-                                className={`absolute w-full transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] flex flex-col justify-center ${transformClass}`}
+                                className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] flex flex-col justify-center ${transformClass}`}
                             >
-                                <h4 className="font-bold text-white text-[13px] xs:text-[14px] sm:text-lg tracking-tight leading-tight sm:leading-none line-clamp-2 sm:truncate pr-1">
+                                <h4 className="font-bold text-white text-[13px] xs:text-[14px] sm:text-lg tracking-tight leading-[1.3] line-clamp-2 sm:truncate pr-1 py-0.5">
                                     {offer.text}
                                 </h4>
                                 <p className="text-slate-400 text-[11px] xs:text-xs sm:text-sm font-medium mt-1 whitespace-normal sm:truncate leading-snug line-clamp-2">
