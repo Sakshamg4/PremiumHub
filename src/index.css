@@ -246,24 +246,25 @@ img {
   color: #334155;
 }
 
-/* Read Also / Read More styling */
+/* Read Also / Read More styling - Matches Reference Image */
 .wp-content-article p.read-also-block,
 .wp-content-article h3.read-also-block {
-  color: #1d4ed8 !important;
-  /* text-blue-700 */
-  font-weight: 700;
-  border-left: 4px solid #3b82f6;
-  /* text-blue-500 */
-  padding-left: 1rem;
-  margin: 2rem 0 !important;
+  color: #000000 !important;
+  /* Prefix text in pure black */
+  font-weight: 800 !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin: 1.5rem 0 !important;
+  display: block;
 }
 
 .wp-content-article p.read-also-block a,
 .wp-content-article h3.read-also-block a {
-  color: #1d4ed8 !important;
-  /* text-blue-700 */
+  color: #0000ff !important;
+  /* Vibrant primary blue link */
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
-  text-decoration-color: rgba(59, 130, 246, 0.4) !important;
-  text-underline-offset: 4px !important;
+  text-underline-offset: 3px !important;
+  font-weight: 800 !important;
+  margin-left: 0.25rem;
 }
