@@ -230,8 +230,20 @@ const SingleBlog = () => {
                     domNode.attribs.target = "_blank";
                     domNode.attribs.rel = "noopener noreferrer";
                     let existingClass = domNode.attribs.class || '';
-                    domNode.attribs.class = `${existingClass} text-indigo-600 hover:text-indigo-800 transition-colors`.trim();
+                    domNode.attribs.class = `${existingClass} text-blue-600 hover:text-blue-800 font-medium transition-colors`.trim();
                     return undefined;
+                }
+
+                // Detect 'Read Also' or 'Read More' blocks
+                if (domNode.type === 'tag' && (domNode.name === 'p' || domNode.name === 'h3')) {
+                    const firstChild = domNode.children && domNode.children[0];
+                    const textContent = firstChild && (firstChild.data || (firstChild.children && firstChild.children[0] && firstChild.children[0].data) || '');
+                    
+                    if (textContent && (textContent.toLowerCase().includes('read also') || textContent.toLowerCase().includes('read more'))) {
+                        let existingClass = domNode.attribs.class || '';
+                        domNode.attribs.class = `${existingClass} read-also-block`.trim();
+                        return undefined;
+                    }
                 }
             }
         };
@@ -372,7 +384,7 @@ const SingleBlog = () => {
                         <article className="prose font-[inherit] prose-slate max-w-none 
                             prose-p:text-[#334155] prose-p:leading-[1.7] text-[1.05rem] md:text-[1.1rem]
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
-                            prose-a:text-indigo-600 prose-a:no-underline
+                            prose-a:text-blue-600 prose-a:no-underline
                             prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm
                             prose-strong:text-slate-900 prose-strong:font-bold
                             prose-li:text-[#334155]

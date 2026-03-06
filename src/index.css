@@ -158,18 +158,33 @@ img {
   vertical-align: middle;
 }
 
+@media (max-width: 640px) {
+  .wp-content-article table th,
+  .wp-content-article table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .wp-content-article table {
+    min-width: 450px;
+  }
+}
+
 /* Premium Contrast Header Row */
 .wp-content-article table th,
 .wp-content-article table tr:first-child td {
-  background-color: #0f172a !important;
-  /* Deep Navy Header */
+  background-color: #0f172a !important; /* Deep Navy Header */
   font-weight: 700 !important;
-  color: #ffffff !important;
-  /* High-contrast white text */
+  color: #ffffff !important; /* High-contrast white text */
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   border: 1px solid #1e293b !important;
+}
+
+/* Ensure all elements inside the header are white */
+.wp-content-article table th *,
+.wp-content-article table tr:first-child td * {
+  color: #ffffff !important;
 }
 
 /* Subtle Zebra Striping */
@@ -211,7 +226,33 @@ img {
   padding-left: 1.5rem !important;
 }
 
+.wp-content-article ul {
+  list-style-type: disc !important;
+}
+
+.wp-content-article ul li::marker {
+  color: #0f172a !important; /* Sharp black/navy bullets */
+  font-size: 1.1em;
+}
+
 .wp-content-article li {
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
+  color: #334155;
+}
+
+/* Read Also / Read More styling */
+.wp-content-article p.read-also-block,
+.wp-content-article h3.read-also-block {
+    color: #2563eb !important; /* Bright Blue */
+    font-weight: 700;
+    border-left: 4px solid #2563eb;
+    padding-left: 1rem;
+    margin: 2rem 0 !important;
+}
+
+.wp-content-article p.read-also-block a,
+.wp-content-article h3.read-also-block a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
 }
