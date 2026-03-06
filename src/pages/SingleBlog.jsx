@@ -391,7 +391,7 @@ const SingleBlog = () => {
                             prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
                             prose-a:text-blue-700 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-blue-500/30
                             prose-img:rounded-xl prose-img:border prose-img:border-slate-100 prose-img:shadow-sm
-                            prose-strong:text-slate-900 prose-strong:font-bold
+                            prose-strong:font-bold
                             prose-li:text-[#334155]
                             wp-content-article
                         ">

@@ -265,10 +265,12 @@ img {
   margin-left: 0.25rem;
 }
 
-/* Specific fix for a-tag content in blue for all article links */
-.wp-content-article p a {
+/* Robust fix for a-tag content in blue for all article links (handles nesting in strong/etc) */
+.wp-content-article a {
   color: #2563eb !important;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+}
+
+.wp-content-article strong a,
+.wp-content-article a strong {
+  color: #2563eb !important;
 }
