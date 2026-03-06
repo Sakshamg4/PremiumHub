@@ -10,14 +10,34 @@ async function generateSitemap() {
     console.log('Generating sitemap indices...');
     console.log(`Site URL: ${SITE_URL}`);
 
-    const wpResponse = await fetch('https://premiumtoolshub.orphicsolution.com/wp-json/wp/v2/posts?per_page=100');
-    if (!wpResponse.ok) {
-      throw new Error('Failed to fetch posts from WordPress API');
-    }
-    const wpPosts = await wpResponse.json();
+    // --- 0. Fetch ALL posts from WordPress (Recursive Pagination) ---
+    let allPosts = [];
+    let page = 1;
+    let totalPages = 1;
 
-    const posts = wpPosts.filter(post => post.slug);
-    console.log(`Found ${posts.length} blog posts.`);
+    console.log('Fetching posts from WordPress API...');
+
+    do {
+      const wpResponse = await fetch(`https://premiumtoolshub.orphicsolution.com/wp-json/wp/v2/posts?per_page=100&page=${page}`);
+      if (!wpResponse.ok) {
+        if (wpResponse.status === 400) break; // Reached end of pages
+        throw new Error(`Failed to fetch posts: ${wpResponse.statusText}`);
+      }
+
+      const posts = await wpResponse.json();
+      if (!posts || posts.length === 0) break;
+
+      allPosts = [...allPosts, ...posts];
+
+      // Get total pages from headers
+      totalPages = parseInt(wpResponse.headers.get('X-WP-TotalPages')) || 1;
+      console.log(`Fetched page ${page} of ${totalPages} (${posts.length} posts)...`);
+
+      page++;
+    } while (page <= totalPages);
+
+    const filteredPosts = allPosts.filter(post => post.slug);
+    console.log(`✅ Total posts found: ${filteredPosts.length}. Splitting into sitemaps...`);
 
     const publicDir = path.resolve('public');
     if (!fs.existsSync(publicDir)) {
@@ -67,13 +87,13 @@ async function generateSitemap() {
     fs.writeFileSync(path.join(publicDir, 'service-sitemap.xml'), servicesDoc.end({ prettyPrint: true }));
     sitemaps.push('service-sitemap.xml');
 
-    // --- 3. Chunk Blog Posts into Paginated Sitemaps ---
-    const POSTS_PER_SITEMAP = 1000;
-    let sitemapIndex = 1;
+    // --- 3. Chunk Blog Posts into Paginated Sitemaps (100 posts per file) ---
+    const POSTS_PER_SITEMAP = 100; // As requested: split every 100 posts
+    let sitemapIndexNum = 1;
 
-    for (let i = 0; i < posts.length; i += POSTS_PER_SITEMAP) {
-      const chunk = posts.slice(i, i + POSTS_PER_SITEMAP);
-      const fileName = `post-sitemap${sitemapIndex}.xml`;
+    for (let i = 0; i < filteredPosts.length; i += POSTS_PER_SITEMAP) {
+      const chunk = filteredPosts.slice(i, i + POSTS_PER_SITEMAP);
+      const fileName = `post-sitemap${sitemapIndexNum}.xml`;
 
       let postDoc = create({ version: '1.0', encoding: 'UTF-8' })
         .ins('xml-stylesheet', 'type="text/xsl" href="/main-sitemap.xsl"')
@@ -93,7 +113,7 @@ async function generateSitemap() {
 
       fs.writeFileSync(path.join(publicDir, fileName), postDoc.end({ prettyPrint: true }));
       sitemaps.push(fileName);
-      sitemapIndex++;
+      sitemapIndexNum++;
     }
 
     // --- 4. Generate the Sitemap Index File ---
@@ -108,15 +128,11 @@ async function generateSitemap() {
         .up();
     });
 
-    // Output sitemap_index.xml and create a fallback sitemap.xml that just is the index as well for standard crawlers
     const sitemapIndexXML = indexDoc.end({ prettyPrint: true });
-
     fs.writeFileSync(path.join(publicDir, 'sitemap_index.xml'), sitemapIndexXML);
-
-    // Also maintain standard sitemap.xml pointing to the index so Google Search Console works without changing submission paths
     fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapIndexXML);
 
-    console.log(`✅ Generated ${sitemaps.length} category/page sitemaps and successfully written sitemap_index.xml!`);
+    console.log(`✅ Successfully generated ${sitemaps.length} sitemaps containing all ${filteredPosts.length} posts!`);
   } catch (error) {
     console.error('❌ Error generating sitemap index:', error);
     process.exit(1);
