@@ -262,9 +262,8 @@ img {
 .wp-content-article h3.read-also-block a {
   color: #0000ff !important;
   /* Vibrant primary blue link */
-  text-decoration: underline !important;
-  text-decoration-thickness: 2px !important;
-  text-underline-offset: 3px !important;
+  text-decoration: none !important;
+  /* Removed underline per feedback */
   font-weight: 800 !important;
   margin-left: 0.25rem;
 }
