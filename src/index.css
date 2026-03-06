@@ -249,8 +249,8 @@ img {
 /* Read Also / Read More styling - Matches Reference Image */
 .wp-content-article p.read-also-block,
 .wp-content-article h3.read-also-block {
-  color: #000000 !important;
-  /* Prefix text in pure black */
+  color: #0000ff !important;
+  /* Entire block in vibrant blue */
   font-weight: 800 !important;
   border-left: none !important;
   padding-left: 0 !important;
