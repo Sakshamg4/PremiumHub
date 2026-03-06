@@ -234,14 +234,19 @@ const SingleBlog = () => {
                     return undefined;
                 }
 
-                // Detect 'Read Also' or 'Read More' blocks
-                if (domNode.type === 'tag' && (domNode.name === 'p' || domNode.name === 'h3')) {
-                    const firstChild = domNode.children && domNode.children[0];
-                    const textContent = firstChild && (firstChild.data || (firstChild.children && firstChild.children[0] && firstChild.children[0].data) || '');
+                // Enhanced Detection for 'Read Also' or 'Read More' blocks
+                if (domNode.type === 'tag' && (domNode.name === 'p' || domNode.name === 'h2' || domNode.name === 'h3' || domNode.name === 'h4')) {
+                    const getDeepText = (node) => {
+                        if (node.type === 'text') return node.data;
+                        if (node.children) return node.children.map(getDeepText).join('');
+                        return '';
+                    };
+                    const allText = getDeepText(domNode);
 
-                    if (textContent && (textContent.toLowerCase().includes('read also') || textContent.toLowerCase().includes('read more'))) {
+                    if (allText && (allText.toLowerCase().includes('read also') || allText.toLowerCase().includes('read more'))) {
                         let existingClass = domNode.attribs.class || '';
                         domNode.attribs.class = `${existingClass} read-also-block`.trim();
+                        // Continue parsing to handle internal tags (like links)
                         return undefined;
                     }
                 }

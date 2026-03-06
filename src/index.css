@@ -246,24 +246,29 @@ img {
   color: #334155;
 }
 
-/* Read Also / Read More styling - Matches Reference Image */
-.wp-content-article p.read-also-block,
-.wp-content-article h3.read-also-block {
-  color: #0000ff !important;
-  /* Entire block in vibrant blue */
+/* Read Also / Read More styling - Refined */
+.wp-content-article .read-also-block {
+  color: #0f172a !important;
+  /* Bold Navy/Black Prefix */
   font-weight: 800 !important;
-  border-left: none !important;
-  padding-left: 0 !important;
-  margin: 1.5rem 0 !important;
-  display: block;
+  margin: 2rem 0 !important;
+  display: block !important;
 }
 
-.wp-content-article p.read-also-block a,
-.wp-content-article h3.read-also-block a {
-  color: #0000ff !important;
-  /* Vibrant primary blue link */
-  text-decoration: none !important;
-  /* Removed underline per feedback */
+.wp-content-article .read-also-block a {
+  color: #2563eb !important;
+  /* Vibrant Primary Blue link */
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 4px !important;
   font-weight: 800 !important;
   margin-left: 0.25rem;
+}
+
+/* Specific fix for a-tag content in blue for all article links */
+.wp-content-article p a {
+  color: #2563eb !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
